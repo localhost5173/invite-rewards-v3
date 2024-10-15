@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "dev": "deno run  --watch --allow-env --allow-read --allow-net src/main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1",
+    "commandkit": "npm:commandkit@^0.1.10",
+    "discord.js": "npm:discord.js@^14.16.3",
+    "topgg-autoposter": "npm:topgg-autoposter@^2.0.2"
+  }
+}

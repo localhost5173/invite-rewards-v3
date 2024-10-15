@@ -1,0 +1,56 @@
+import type {
+  CommandData,
+  SlashCommandProps,
+  CommandOptions,
+} from "commandkit";
+import { ApplicationCommandOptionType, ChatInputCommandInteraction } from "discord.js";
+import { removeAutoRole } from "../../firebase/autoRoles.js";
+import { errorEmbed, successEmbed } from "../../utils/embeds/autoRoles.js";
+import { devMode } from "../../index.js";
+
+export default async function (interaction : ChatInputCommandInteraction) {
+  if (!interaction.guild) return;
+  const role = interaction.options.getRole("role");
+
+  await interaction.deferReply({ ephemeral: true });
+
+  if (!role) {
+    return interaction.reply({
+      content: "Invalid role",
+      ephemeral: true,
+    });
+  }
+
+  try {
+    const roleId = role.id;
+    const guildId = interaction.guild.id;
+
+    // Add the role to the database
+    await removeAutoRole(guildId, roleId);
+
+    interaction.followUp({
+      embeds: [
+        successEmbed(
+          `Auto role <@&${role.id}> has been removed from auto-assign`
+        ),
+      ],
+    });
+  } catch (error) {
+    console.error(error);
+    return interaction.followUp({
+      embeds: [
+        errorEmbed(
+          "An error occurred while remove the auto role from auto-assign"
+        ),
+      ],
+      ephemeral: true,
+    });
+  }
+}
+
+export const options: CommandOptions = {
+  devOnly: devMode,
+  userPermissions: ["ManageGuild"],
+  botPermissions: ["SendMessages", "EmbedLinks"],
+  deleted: false,
+};
