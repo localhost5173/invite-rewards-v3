@@ -1,20 +1,18 @@
 import type {
-  CommandData,
-  SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { ApplicationCommandOptionType, ChatInputCommandInteraction, Role } from "discord.js";
+import { ChatInputCommandInteraction } from "discord.js";
 import {
   addFakeInvites,
   getTotalInvitesForUser,
-} from "../../firebase/invites.js"; // Import the addFakeInvite function
-import handleRewards from "../../utils/rewards/handleRewards.js";
-import updateAllTimeLeaderboard from "../../utils/leaderboards/updateAllTimeLeaderboard.js";
-import updateTimedLeaderboards from "../../utils/leaderboards/updateTimedLeaderboards.js";
-import { removeFakeInvitesEmbed } from "../../utils/embeds/invites.js";
-import { devMode } from "../../index.js";
-import { hasVoted } from "../../utils/topgg/voteLock.js";
-import { voteLockedCommandEmbed } from "../../utils/embeds/system.js";
+} from "../../firebase/invites.ts"; // Import the addFakeInvite function
+import handleRewards from "../../utils/rewards/handleRewards.ts";
+import updateAllTimeLeaderboard from "../../utils/leaderboards/updateAllTimeLeaderboard.ts";
+import updateTimedLeaderboards from "../../utils/leaderboards/updateTimedLeaderboards.ts";
+import { removeFakeInvitesEmbed } from "../../utils/embeds/invites.ts";
+import { devMode } from "../../index.ts";
+import { hasVoted } from "../../utils/topgg/voteLock.ts";
+import { voteLockedCommandEmbed } from "../../utils/embeds/system.ts";
 
 export default async function (interaction : ChatInputCommandInteraction) {
   if (!(await hasVoted(interaction.user.id))) {

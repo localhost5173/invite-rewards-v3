@@ -9,9 +9,8 @@ import {
 import {
   addMessageChannelIds,
   createGiveaway,
-} from "../../firebase/giveaways.js";
-import { createGiveawayEmbed } from "../../utils/embeds/giveaways.js";
-import { client } from "../../index.js";
+} from "../../firebase/giveaways.ts";
+import { createGiveawayEmbed } from "../../utils/embeds/giveaways.ts";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) return;

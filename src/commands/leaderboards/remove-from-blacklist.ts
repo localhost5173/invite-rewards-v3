@@ -3,11 +3,11 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
-import { removeFromBlacklist } from "../../firebase/leaderboards.js"; // Utility functions
-import updateBlacklistLeaderboards from "../../utils/leaderboards/updateBlacklistLeaderboards.js";
-import { removeFromBlacklistErrorEmbed, removeFromBlacklistSuccessEmbed } from "../../utils/embeds/leaderboards.js";
-import { devMode } from "../../index.js";
+import { ApplicationCommandOptionType } from "discord.js";
+import { removeFromBlacklist } from "../../firebase/leaderboards.ts"; // Utility functions
+import updateBlacklistLeaderboards from "../../utils/leaderboards/updateBlacklistLeaderboards.ts";
+import { removeFromBlacklistErrorEmbed, removeFromBlacklistSuccessEmbed } from "../../utils/embeds/leaderboards.ts";
+import { devMode } from "../../index.ts";
 
 export const data: CommandData = {
   name: "remove-from-blacklist",

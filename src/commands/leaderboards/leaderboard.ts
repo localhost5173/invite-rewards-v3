@@ -1,10 +1,9 @@
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
-import { EmbedBuilder } from 'discord.js';
-import { getLeaderboardByType } from '../../firebase/leaderboards.js';
-import { viewLeaderboardEmbed } from '../../utils/embeds/leaderboards.js';
-import { devMode } from '../../index.js';
-import { hasVoted } from '../../utils/topgg/voteLock.js';
-import { voteLockedCommandEmbed } from '../../utils/embeds/system.js';
+import { getLeaderboardByType } from '../../firebase/leaderboards.ts';
+import { viewLeaderboardEmbed } from '../../utils/embeds/leaderboards.ts';
+import { devMode } from '../../index.ts';
+import { hasVoted } from '../../utils/topgg/voteLock.ts';
+import { voteLockedCommandEmbed } from '../../utils/embeds/system.ts';
 
 export const data: CommandData = {
     name: 'leaderboard',

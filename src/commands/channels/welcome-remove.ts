@@ -1,12 +1,11 @@
 import type {
   CommandData,
-  SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { removeWelcomeChannel } from "../../firebase/channels.js";
-import { welcomeLeaveChannelSuccessEmbed, welcomeLeaveChannelErrorEmbed } from "../../utils/embeds/channels.js";
-import { devMode } from "../../index.js";
 import { ChatInputCommandInteraction } from "discord.js";
+import { removeWelcomeChannel } from "../../firebase/channels.ts";
+import { welcomeLeaveChannelSuccessEmbed, welcomeLeaveChannelErrorEmbed } from "../../utils/embeds/channels.ts";
+import { devMode } from "../../index.ts";
 
 export const data: CommandData = {
   name: "remove-welcome-channel",

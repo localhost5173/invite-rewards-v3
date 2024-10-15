@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { getGiveaway, GiveawayData, setEndDate } from "../../firebase/giveaways.js";
-import { endGiveaway } from "../../utils/giveaways/endGiveaway.js";
+import { getGiveaway, GiveawayData, setEndDate } from "../../firebase/giveaways.ts";
+import { endGiveaway } from "../../utils/giveaways/endGiveaway.ts";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) return;

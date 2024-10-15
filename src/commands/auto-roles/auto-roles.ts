@@ -7,10 +7,10 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
-import removeAutoRole from "./remove.js";
-import addAutoRole from "./add.js";
-import viewAutoRoles from "./view.js";
+import { devMode } from "../../index.ts";
+import removeAutoRole from "./remove.ts";
+import addAutoRole from "./add.ts";
+import viewAutoRoles from "./view.ts";
 
 export const data: CommandData = {
   name: "auto-roles",

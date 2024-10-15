@@ -1,8 +1,8 @@
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 import { ApplicationCommandOptionType, EmbedBuilder } from 'discord.js';
-import { getInvitedUsersByUser } from '../../firebase/invites.js';
-import { invitedListEmbed, invitedListErrorEmbed, noInvitesInvitedListEmbed } from '../../utils/embeds/invites.js';
-import { devMode } from '../../index.js';
+import { getInvitedUsersByUser } from '../../firebase/invites.ts';
+import { invitedListEmbed, invitedListErrorEmbed, noInvitesInvitedListEmbed } from '../../utils/embeds/invites.ts';
+import { devMode } from '../../index.ts';
 
 export const data: CommandData = {
     name: 'invited-list',

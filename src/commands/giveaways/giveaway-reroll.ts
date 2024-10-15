@@ -1,5 +1,5 @@
 import { ChannelType, ChatInputCommandInteraction } from "discord.js";
-import { getGiveaway, GiveawayData, rerollGiveaway } from "../../firebase/giveaways.js";
+import { getGiveaway, GiveawayData, rerollGiveaway } from "../../firebase/giveaways.ts";
 
 export default async function (interaction : ChatInputCommandInteraction) {
     if (!interaction.guild) return;

@@ -3,11 +3,11 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
-import { addToBlacklist } from "../../firebase/leaderboards.js";
-import updateBlacklistLeaderboards from "../../utils/leaderboards/updateBlacklistLeaderboards.js";
-import { blacklistErrorEmbed, blacklistSuccessEmbed } from "../../utils/embeds/leaderboards.js";
-import { devMode } from "../../index.js";
+import { ApplicationCommandOptionType } from "discord.js";
+import { addToBlacklist } from "../../firebase/leaderboards.ts";
+import updateBlacklistLeaderboards from "../../utils/leaderboards/updateBlacklistLeaderboards.ts";
+import { blacklistErrorEmbed, blacklistSuccessEmbed } from "../../utils/embeds/leaderboards.ts";
+import { devMode } from "../../index.ts";
 
 export const data: CommandData = {
   name: "blacklist",

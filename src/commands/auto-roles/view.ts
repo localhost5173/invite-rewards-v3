@@ -1,12 +1,10 @@
 import type {
-  CommandData,
-  SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { getAutoRoles } from "../../firebase/autoRoles.js";
-import { errorEmbed } from "../../utils/embeds/autoRoles.js";
 import { ChatInputCommandInteraction, EmbedBuilder } from "discord.js";
-import { devMode } from "../../index.js";
+import { getAutoRoles } from "../../firebase/autoRoles.ts";
+import { errorEmbed } from "../../utils/embeds/autoRoles.ts";
+import { devMode } from "../../index.ts";
 
 export default async function (interaction : ChatInputCommandInteraction) {
   if (!interaction.guild) return;

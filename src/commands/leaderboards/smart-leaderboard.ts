@@ -4,11 +4,11 @@ import {
   createSmartLeaderboard,
   getLeaderboardByType,
   getSmartLeaderboards,
-} from "../../firebase/leaderboards.js"; // Assume this utility function fetches the leaderboard by type
-import { devMode } from "../../index.js";
-import { viewLeaderboardEmbed } from "../../utils/embeds/leaderboards.js";
-import { hasVoted } from "../../utils/topgg/voteLock.js";
-import { voteLockedCommandEmbed } from "../../utils/embeds/system.js";
+} from "../../firebase/leaderboards.ts"; // Assume this utility function fetches the leaderboard by type
+import { devMode } from "../../index.ts";
+import { viewLeaderboardEmbed } from "../../utils/embeds/leaderboards.ts";
+import { hasVoted } from "../../utils/topgg/voteLock.ts";
+import { voteLockedCommandEmbed } from "../../utils/embeds/system.ts";
 
 // Define the command data
 export const data: CommandData = {

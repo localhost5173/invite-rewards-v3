@@ -1,10 +1,10 @@
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 import { ApplicationCommandOptionType, PermissionFlagsBits, PermissionsBitField, EmbedBuilder } from 'discord.js';
-import { getTotalInvitesForUser, getSplitInvitesForUser } from '../../firebase/invites.js';
-import { devMode } from '../../index.js';
-import { inviteBreakdownEmbed, invitesErrorEmbed, totalInvitesEmbed } from '../../utils/embeds/invites.js';
-import { hasVoted } from '../../utils/topgg/voteLock.js';
-import { voteLockedCommandEmbed } from '../../utils/embeds/system.js';
+import { getTotalInvitesForUser, getSplitInvitesForUser } from '../../firebase/invites.ts';
+import { devMode } from '../../index.ts';
+import { inviteBreakdownEmbed, invitesErrorEmbed, totalInvitesEmbed } from '../../utils/embeds/invites.ts';
+import { hasVoted } from '../../utils/topgg/voteLock.ts';
+import { voteLockedCommandEmbed } from '../../utils/embeds/system.ts';
 
 export const data: CommandData = {
     name: 'invites',

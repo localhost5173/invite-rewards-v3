@@ -7,12 +7,12 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import giveawayCreate from "./giveaway-create.js";
-import giveawayEnd from "./giveaway-end.js";
-import giveawayDelete from "./giveaway-delete.js";
-import giveawayList from "./giveaway-list.js";
-import giveawayReroll from "./giveaway-reroll.js";
-import { devMode } from "../../index.js";
+import giveawayCreate from "./giveaway-create.ts";
+import giveawayEnd from "./giveaway-end.ts";
+import giveawayDelete from "./giveaway-delete.ts";
+import giveawayList from "./giveaway-list.ts";
+import giveawayReroll from "./giveaway-reroll.ts";
+import { devMode } from "../../index.ts";
 
 export const data: CommandData = {
   name: "giveaway",

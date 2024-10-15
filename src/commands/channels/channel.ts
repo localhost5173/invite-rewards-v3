@@ -7,13 +7,13 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
-import setWelcomeChannel from "./welcome-set.js";
-import removeWelcomeChannel from "./welcome-remove.js";
-import setLeaveChannel from "./leave-set.js";
-import removeLeaveChannel from "./leave-remove.js";
-import setInfoChannel from "./info-set.js";
-import removeInfoChannel from "./info-remove.js";
+import { devMode } from "../../index.ts";
+import setWelcomeChannel from "./welcome-set.ts";
+import removeWelcomeChannel from "./welcome-remove.ts";
+import setLeaveChannel from "./leave-set.ts";
+import removeLeaveChannel from "./leave-remove.ts";
+import setInfoChannel from "./info-set.ts";
+import removeInfoChannel from "./info-remove.ts";
 
 export const data: CommandData = {
   name: "channel",

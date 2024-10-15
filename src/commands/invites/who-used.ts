@@ -3,10 +3,10 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
-import { whoUsed } from "../../firebase/invites.js";
-import { whoUsedErrorEmbed, whoUsedJoinsEmbed, whoUsedNoJoinsEmbed } from "../../utils/embeds/invites.js";
-import { devMode } from "../../index.js";
+import { ApplicationCommandOptionType } from "discord.js";
+import { whoUsed } from "../../firebase/invites.ts";
+import { whoUsedErrorEmbed, whoUsedJoinsEmbed, whoUsedNoJoinsEmbed } from "../../utils/embeds/invites.ts";
+import { devMode } from "../../index.ts";
 
 export const data: CommandData = {
   name: "who-used",

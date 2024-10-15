@@ -7,9 +7,9 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
-import addFakeInvites from "./add-fake-invites.js";
-import removeFakeInvites from "./remove-fake-invites.js";
+import { devMode } from "../../index.ts";
+import addFakeInvites from "./add-fake-invites.ts";
+import removeFakeInvites from "./remove-fake-invites.ts";
 
 export const data: CommandData = {
   name: "fake-invites",

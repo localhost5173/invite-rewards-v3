@@ -1,15 +1,13 @@
 import type {
-  CommandData,
-  SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { removeLeaveChannel } from "../../firebase/channels.js";
+import { ChatInputCommandInteraction } from "discord.js";
+import { removeLeaveChannel } from "../../firebase/channels.ts";
 import {
   welcomeLeaveChannelErrorEmbed,
   welcomeLeaveChannelSuccessEmbed,
-} from "../../utils/embeds/channels.js";
-import { devMode } from "../../index.js";
-import { ChatInputCommandInteraction } from "discord.js";
+} from "../../utils/embeds/channels.ts";
+import { devMode } from "../../index.ts";
 
 export default async function (interaction : ChatInputCommandInteraction) {
   try {

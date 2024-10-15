@@ -6,8 +6,8 @@ import {
   EmbedBuilder,
   ComponentType,
 } from "discord.js";
-import { getAllGiveaways, GiveawayData } from "../../firebase/giveaways.js";
 import { Timestamp } from "firebase-admin/firestore";
+import { getAllGiveaways, GiveawayData } from "../../firebase/giveaways.ts";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guild) return;

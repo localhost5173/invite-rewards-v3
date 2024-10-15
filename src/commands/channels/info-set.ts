@@ -1,19 +1,15 @@
 import type {
-    CommandData,
-    SlashCommandProps,
     CommandOptions,
 } from "commandkit";
 import {
-    ApplicationCommandOptionType,
-    TextChannel,
     EmbedBuilder,
     GuildChannel,
     ChannelType,
     ChatInputCommandInteraction,
 } from "discord.js";
-import { setInfoChannel } from "../../firebase/channels.js";
-import { devMode } from "../../index.js";
-import botconfig from "../../../botconfig.json" assert { type: "json" };;
+import { setInfoChannel } from "../../firebase/channels.ts";
+import { devMode } from "../../index.ts";
+import config from "../../../config.json" with { type: "json" };;
 
 export default async function (interaction : ChatInputCommandInteraction) {
     try {
@@ -66,7 +62,7 @@ function setInfoChannelSuccessEmbed(message: string): EmbedBuilder {
         .setTitle("✅ Success ✅")
         .setColor(0x00ff00) // Green color to indicate success
         .setDescription(message)
-        .setFooter({ text: "Info Channel Management", iconURL: botconfig.logo }) // Replace with your footer icon URL
+        .setFooter({ text: "Info Channel Management", iconURL: config.botInfo.logo })
         .setTimestamp();
 
     return embed;
@@ -78,7 +74,7 @@ function setInfoChannelErrorEmbed(errorMessage: string): EmbedBuilder {
         .setTitle("❌ Error ❌")
         .setColor(0xff0000) // Red color to indicate error
         .setDescription(errorMessage)
-        .setFooter({ text: "Info Channel Management", iconURL: botconfig.logo }) // Replace with your footer icon URL
+        .setFooter({ text: "Info Channel Management", iconURL: config.botInfo.logo })
         .setTimestamp();
 
     return embed;

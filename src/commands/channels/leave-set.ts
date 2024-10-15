@@ -1,24 +1,17 @@
-import type {
-  CommandData,
-  SlashCommandProps,
-  CommandOptions,
-} from "commandkit";
+import type { CommandOptions } from "commandkit";
 import {
-  ApplicationCommandOptionType,
-  TextChannel,
-  EmbedBuilder,
   GuildChannel,
   ChannelType,
   ChatInputCommandInteraction,
 } from "discord.js";
-import { setGoodbyeChannel } from "../../firebase/channels.js";
-import { devMode } from "../../index.js";
+import { setGoodbyeChannel } from "../../firebase/channels.ts";
+import { devMode } from "../../index.ts";
 import {
   welcomeLeaveChannelErrorEmbed,
   welcomeLeaveChannelSuccessEmbed,
-} from "../../utils/embeds/channels.js";
+} from "../../utils/embeds/channels.ts";
 
-export default async function (interaction : ChatInputCommandInteraction) {
+export default async function (interaction: ChatInputCommandInteraction) {
   try {
     const targetChannel = interaction.options.getChannel(
       "channel",

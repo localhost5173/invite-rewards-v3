@@ -1,14 +1,9 @@
 import {
-    ActionRowBuilder,
-    ButtonBuilder,
-    ButtonStyle,
     ChatInputCommandInteraction,
     PartialGroupDMChannel,
     TextBasedChannel,
 } from "discord.js";
-import { addMessageChannelIds, createGiveaway, getGiveaway, GiveawayData, setAsEnded } from "../../firebase/giveaways.js";
-import { createGiveawayEmbed } from "../../utils/embeds/giveaways.js";
-
+import { getGiveaway, GiveawayData, setAsEnded } from "../../firebase/giveaways.ts";
 export default async function (interaction: ChatInputCommandInteraction) {
     if (!interaction.guildId) return;
     if (!interaction.channel) return;

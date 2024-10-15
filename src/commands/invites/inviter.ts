@@ -1,8 +1,8 @@
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
-import { ApplicationCommandOptionType, PermissionFlagsBits, PermissionsBitField, UserResolvable, EmbedBuilder } from 'discord.js';
-import { getInviterForUser } from '../../firebase/invites.js';
-import { devMode } from '../../index.js';
-import { inviterEmbed, inviterErrorEmbed, noInviterEmbed } from '../../utils/embeds/invites.js';
+import { ApplicationCommandOptionType, UserResolvable } from 'discord.js';
+import { getInviterForUser } from '../../firebase/invites.ts';
+import { devMode } from '../../index.ts';
+import { inviterEmbed, inviterErrorEmbed, noInviterEmbed } from '../../utils/embeds/invites.ts';
 
 export const data: CommandData = {
     name: 'inviter',
