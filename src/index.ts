@@ -1,18 +1,15 @@
-import { Client, GatewayIntentBits } from "discord.js";
-import { CommandKit } from "commandkit";
 import { AutoPoster } from "topgg-autoposter";
 import "jsr:@std/dotenv/load";
 import config from "../config.json" with { type: "json" };
+import { Client as Eris, ClientOptions } from "eris";
 
-export const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildInvites,
-  ],
-});
-
+const botToken = Deno.env.get("DEV_TOKEN") || "";
+const topggToken = Deno.env.get("TOPGG_TOKEN") || "";
 export let devMode: boolean = false;
+if (!botToken) {
+  throw new Error("DEV_TOKEN is not set in the environment variables.");
+}
+
 if (config.dev) {
   console.info("✅ Running in DEVELOPMENT mode.");
   devMode = true;
@@ -20,47 +17,20 @@ if (config.dev) {
   console.info("❗❗❗❗❗Running in production mode.❗❗❗❗❗");
 }
 
-// Define devGuildIds and devUserIds conditionally based on devMode
-const devConfig = {
-  devGuildIds: ["1280127706545000542"],
-  devUserIds: [
-    "689150586636992526",
-    "975766583446212648",
-    "967483551882829894",
-  ],
-};
-
-const __dirname = new URL('.', import.meta.url).pathname;
-new CommandKit({
-  client,
-  ...devConfig, // Spread the devConfig conditionally
-  eventsPath: `${__dirname}/events`,
-  commandsPath: `${__dirname}/commands`,
-});
-
-// Initialize Firebase
-try {
-  console.log("Initializing Firebase...");
-  // initFirebase(devMode);
-  console.log("Firebase initialized successfully!");
-} catch (error) {
-  console.error("Failed to initialize Firebase: ", error);
-}
-
-
-client.login(devMode ? Deno.env.get("DEV_TOKEN") : Deno.env.get("PROD_TOKEN"));
-
-// // check timed leaderboards for reset every 30 seconds
-// setInterval(resetAndCheckTimedLeaderboards, 30 * 1000); // 30 * 1000 ms = 0.5 minute
-
-// // check for ended giveaways every 10 minutes
-// setInterval(checkForEndedGiveaways, 60 * 1000); // 60 * 1000 ms = 1 minute
+// Initialize the client
+export const client = new Eris(botToken, {
+  intents: [
+    "guilds",
+    "guildMembers",
+    "guildInvites",
+  ]
+} as ClientOptions);
 
 // Handle top.gg autoposter
 if (!devMode) {
   try {
-    const ap = AutoPoster(Deno.env.get("TOPGG_TOKEN") || "", client);
-    ap.on("posted", () => {
+    const autoPoster = AutoPoster(topggToken, client);
+    autoPoster.on("posted", () => {
       console.log("Server count posted!");
     });
   } catch (error) {
@@ -68,8 +38,11 @@ if (!devMode) {
   }
 }
 
-// Fetch all invites for a guild when joined
-// client.on("guildCreate", async (guild) => {
-//   guildCreate(client, guild);
-//   getAndStoreInvites(guild);
-// });
+client.on("ready", () => {
+  console.log("Ready!");
+});
+
+client.connect();
+
+// Keep the bot alive
+setInterval(() => {}, 1000);
