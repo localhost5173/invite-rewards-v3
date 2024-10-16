@@ -1,48 +1,29 @@
-import { AutoPoster } from "topgg-autoposter";
-import "jsr:@std/dotenv/load";
-import config from "../config.json" with { type: "json" };
-import { Client as Eris, ClientOptions } from "eris";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
+import { Client } from "eris";
+import handleCommands from "./handlers/command/commandHandler.js"
+import handleEvents from "./handlers/event/handleEvents.js";
 
-const botToken = Deno.env.get("DEV_TOKEN") || "";
-const topggToken = Deno.env.get("TOPGG_TOKEN") || "";
-export let devMode: boolean = false;
-if (!botToken) {
-  throw new Error("DEV_TOKEN is not set in the environment variables.");
-}
+const botToken = process.env.DEV_TOKEN || "";
 
-if (config.dev) {
-  console.info("✅ Running in DEVELOPMENT mode.");
-  devMode = true;
-} else {
-  console.info("❗❗❗❗❗Running in production mode.❗❗❗❗❗");
-}
-
-// Initialize the client
-export const client = new Eris(botToken, {
+export const client = new Client(botToken, {
   intents: [
     "guilds",
     "guildMembers",
     "guildInvites",
-  ]
-} as ClientOptions);
-
-// Handle top.gg autoposter
-if (!devMode) {
-  try {
-    const autoPoster = AutoPoster(topggToken, client);
-    autoPoster.on("posted", () => {
-      console.log("Server count posted!");
-    });
-  } catch (error) {
-    console.error("Failed to initialize top.gg autoposter: ", error);
-  }
-}
-
-client.on("ready", () => {
-  console.log("Ready!");
+    "guildMessages", // Temporary
+    "messageContent", // Temporary
+  ],
 });
 
-client.connect();
+client.on("messageCreate", (msg) => {
+    console.log(msg);
+  if (msg.content === "!ping") {
+    client.createMessage(msg.channel.id, "Pong!");
+  }
+});
 
-// Keep the bot alive
-setInterval(() => {}, 1000);
+handleCommands(client);
+handleEvents(client);
+
+client.connect();
