@@ -1,5 +1,1 @@
-.env
-firebaseDev.json
-firebaseProd.json
-dist
 node_modules
