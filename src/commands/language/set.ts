@@ -3,8 +3,8 @@ import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
 import {
   LanguagesList,
-  TranslatedLanguages,
 } from "../../utils/db/categories/languages";
+import { Embeds } from "../../utils/embeds/embeds";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -14,7 +14,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     if (!language) {
       return interaction.reply({
-        content: "Please provide a language",
+        embeds: [await Embeds.languages.set.noLanguage(interaction.guildId!)],
         ephemeral: true,
       });
     }
@@ -22,23 +22,25 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Check if the language is valid
     if (!Object.values(LanguagesList).includes(language as LanguagesList)) {
       return interaction.reply({
-        content: "Invalid language",
+        embeds: [
+          await Embeds.languages.set.invalidLanguage(interaction.guildId!),
+        ],
         ephemeral: true,
       });
     }
-    
+
     // Set the language in the database
     await db.languages.setLanguage(interaction.guildId!, language);
     interaction.followUp({
-      content: `Language set to ${
-        TranslatedLanguages[language as LanguagesList]
-      }`,
+      embeds: [await Embeds.languages.set.success(language)],
     });
   } catch (error) {
     cs.error("Error while setting language: " + error);
     try {
       await interaction.reply({
-        content: "An error occurred while executing this command",
+        embeds: [
+          await Embeds.system.errorWhileExecutingCommand(interaction.guildId!),
+        ],
         ephemeral: true,
       });
     } catch (error) {

@@ -11,6 +11,7 @@ import {
   LanguagesList,
   TranslatedLanguages,
 } from "../../utils/db/categories/languages.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export const data: CommandData = {
   name: "language",
@@ -42,7 +43,7 @@ export const data: CommandData = {
 };
 
 export async function run({ interaction }: SlashCommandProps) {
-  const subcommand = interaction.options.getSubcommand(false);
+  const subcommand = interaction.options.getSubcommand(true);
 
   switch (subcommand) {
     case "set":
@@ -53,7 +54,7 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     default:
       await interaction.reply({
-        content: ,
+        embeds: [await Embeds.system.invalidSubcommand(interaction.guildId!)],
         ephemeral: true,
       });
   }

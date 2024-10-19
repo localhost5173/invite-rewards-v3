@@ -1,5 +1,4 @@
 import LanguageModel from "../models/languages"; // Adjust the path as necessary
-import LanguageDictionary from "../../../../languages.json";
 
 export class Languages {
   // Get the language for the specified guild
@@ -70,21 +69,3 @@ export function getLanguageNameInEnglish(code: string): string | undefined {
 export function getNativeLanguageName(code: string): string | undefined {
   return TranslatedLanguages[code as LanguagesList];
 }
-
-export async function getKeyTranslation(
-    guildId: string,
-    key: string
-  ): Promise<string> {
-    const language = await Languages.getLanguage(guildId);
-    const text = LanguageDictionary[language]?.[key];
-  
-    if (!text) {
-      const defaultText = LanguageDictionary.en[key];
-      if (!defaultText) {
-        throw new Error(`Translation key "${key}" not found in any language.`);
-      }
-      return defaultText;
-    }
-  
-    return text;
-  }

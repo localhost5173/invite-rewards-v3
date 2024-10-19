@@ -1,0 +1,34 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Invalid subcommand",
+      "description": "The subcommand you provided is invalid. Please check the /help command for more information."
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Error while executing command",
+      "description": "An error occurred while executing the command. Please try again later."
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Invalid language",
+        "description": "The language you provided is invalid."
+      },
+      "noLanguage": {
+        "title": "No language",
+        "description": "You didn't provide a language."
+      },
+      "success": {
+        "title": "Language set",
+        "description": "The language has been set to {language}."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Current language",
+        "description": "The current language is {language}."
+      }
+    }
+  }
+}

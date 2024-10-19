@@ -1,5 +1,8 @@
 import { EmbedBuilder } from "discord.js";
 import config from "../../../config.json" assert { type: "json" };
+import { system } from "./system";
+import { autoRoles } from "./autoRoles";
+import { languages } from "./languages";
 
 type EmbedOptions = {
   footerIcon?: boolean;
@@ -190,4 +193,8 @@ export class Embeds {
 
     return embed;
   }
+
+  static system = system;
+  static autoRoles = autoRoles;
+  static languages = languages;
 }

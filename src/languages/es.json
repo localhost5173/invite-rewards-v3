@@ -1,0 +1,34 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Subcomando inválido",
+      "description": "El subcomando que proporcionaste es inválido. Por favor, revisa el comando /help para más información."
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Error al ejecutar el comando",
+      "description": "Ocurrió un error al ejecutar el comando. Por favor, inténtalo de nuevo más tarde."
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Idioma inválido",
+        "description": "El idioma que proporcionaste es inválido."
+      },
+      "noLanguage": {
+        "title": "Sin idioma",
+        "description": "No proporcionaste un idioma."
+      },
+      "success": {
+        "title": "Idioma establecido",
+        "description": "El idioma se ha establecido a {language}."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Idioma actual",
+        "description": "El idioma actual es {language}."
+      }
+    }
+  }
+}
