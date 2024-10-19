@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { cs } from "../../utils/console/customConsole";
 import { db } from "../../utils/db/db";
-import { getNativeLanguageName } from "../../utils/db/categories/languages";
+import { Embeds } from "../../utils/embeds/embeds";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -10,14 +10,16 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const language = await db.languages.getLanguage(interaction.guildId!);
 
     await interaction.followUp({
-      content: `The current language is ${getNativeLanguageName(language)}`,
+      embeds: [await Embeds.languages.view.success(language)],
     });
   } catch (error: unknown) {
-    console.error("Error while viewing language: " + error);
+    cs.error("Error while viewing language: " + error);
 
     try {
       await interaction.followUp({
-        content: "An error occurred while executing this command",
+        embeds: [
+          await Embeds.system.errorWhileExecutingCommand(interaction.guildId!),
+        ],
       });
     } catch (error: unknown) {
       cs.error("Error while sending error followup in viewLanguage: " + error);
