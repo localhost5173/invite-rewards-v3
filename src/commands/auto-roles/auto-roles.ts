@@ -12,6 +12,7 @@ import removeAutoRole from "./remove.js";
 import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";
 import { cs } from "../../utils/console/customConsole.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export const data: CommandData = {
   name: "auto-roles",
@@ -68,7 +69,7 @@ export async function run({ interaction }: SlashCommandProps) {
         break;
       default:
         await interaction.reply({
-          content: "Invalid subcommand",
+          embeds: [await Embeds.system.invalidSubcommand(interaction.guildId!)],
           ephemeral: true,
         });
     }
@@ -78,8 +79,9 @@ export async function run({ interaction }: SlashCommandProps) {
     // Try to send an error message to the user
     try {
       await interaction.reply({
-        content:
-          "An error occurred while executing the command. Join the support server via `/help` if the issue persists.",
+        embeds: [
+          await Embeds.system.errorWhileExecutingCommand(interaction.guildId!),
+        ],
         ephemeral: true,
       });
     } catch (error: unknown) {

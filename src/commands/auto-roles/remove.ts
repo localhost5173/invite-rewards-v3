@@ -12,7 +12,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Check if the role exists
     if (!role) {
       return interaction.followUp({
-        embeds: [Embeds.errorEmbed("Role not found")],
+        embeds: [await Embeds.roles.roleNotFoundError(interaction.guildId!)],
         ephemeral: true,
       });
     }
@@ -21,7 +21,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const autoroles = await db.autoRoles.getRoles(interaction.guildId!);
     if (!autoroles.includes(role.id)) {
       return interaction.followUp({
-        embeds: [Embeds.errorEmbed("Role is not an auto role")],
+        embeds: [
+          await Embeds.autoRoles.remove.notAutoRoleError(
+            interaction.guildId!,
+            role.id
+          ),
+        ],
         ephemeral: true,
       });
     }
@@ -30,12 +35,25 @@ export default async function (interaction: ChatInputCommandInteraction) {
     await db.autoRoles.removeRole(interaction.guildId!, role.id);
 
     return await interaction.followUp({
-      embeds: [Embeds.successEmbed(`Role <@&${role.id}> is no longer an auto role`)],
+      embeds: [
+        await Embeds.autoRoles.remove.success(interaction.guildId!, role.id),
+      ],
     });
   } catch (error: unknown) {
-    cs.error(error as string);
-    await interaction.followUp({
-      content: "An error occurred while executing this command",
-    });
+    cs.error("Error while removing auto-role: " + error);
+
+    // Try to send an error message to the user
+    try {
+      const guildId = interaction.guildId!;
+      await interaction.followUp({
+        embeds: [await Embeds.system.errorWhileExecutingCommand(guildId)],
+        ephemeral: true,
+      });
+    } catch (error: unknown) {
+      cs.error(
+        "Error while trying to send error message in auto-roles remove command" +
+          error
+      );
+    }
   }
 }

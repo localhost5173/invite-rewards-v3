@@ -12,7 +12,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Check if the role exists
     if (!role) {
       return interaction.followUp({
-        embeds: [Embeds.errorEmbed("Role not found")],
+        embeds: [await Embeds.roles.roleNotFoundError(interaction.guildId!)],
         ephemeral: true,
       });
     }
@@ -20,7 +20,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Check if the role is managed
     if (role.managed) {
       return interaction.followUp({
-        embeds: [Embeds.errorEmbed("Cannot assign a managed role")],
+        embeds: [
+          await Embeds.roles.managedRoleAssignError(
+            interaction.guildId!,
+            role.id
+          ),
+        ],
         ephemeral: true,
       });
     }
@@ -32,8 +37,9 @@ export default async function (interaction: ChatInputCommandInteraction) {
     ) {
       return interaction.followUp({
         embeds: [
-          Embeds.errorEmbed(
-            "My highest role must be higher than the role to be managed in order to assign it. Move the Invite Rewards role above the role you want to assign. For assistance, visit the support server via `/help`."
+          await Embeds.roles.hierarchyRoleAssignError(
+            interaction.guildId!,
+            role.id
           ),
         ],
         ephemeral: true,
@@ -44,7 +50,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const autoroles = await db.autoRoles.getRoles(interaction.guildId!);
     if (autoroles.includes(role.id)) {
       return interaction.followUp({
-        embeds: [Embeds.warnEmbed("Role is already an auto role")],
+        embeds: [
+          await Embeds.autoRoles.add.alreadyAutoRoleWarning(
+            interaction.guildId!,
+            role.id
+          ),
+        ],
         ephemeral: true,
       });
     }
@@ -52,13 +63,22 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Add the role to auto-assign
     await db.autoRoles.addRole(interaction.guildId!, role.id);
     return await interaction.followUp({
-      embeds: [Embeds.successEmbed(`Role ${role.name} added as an auto role`)],
+      embeds: [
+        await Embeds.autoRoles.add.success(interaction.guildId!, role.id),
+      ],
     });
   } catch (error: unknown) {
     cs.error(error as string);
-    await interaction.followUp({
-      content: "An error occurred while executing this command",
-      ephemeral: true,
-    });
+
+    // Try to send an error message to the user
+    try {
+      const guildId = interaction.guildId!;
+      await interaction.followUp({
+        embeds: [await Embeds.system.errorWhileExecutingCommand(guildId)],
+        ephemeral: true,
+      });
+    } catch (error: unknown) {
+      cs.error("Failed to send error message in auto-roles command" + error);
+    }
   }
 }

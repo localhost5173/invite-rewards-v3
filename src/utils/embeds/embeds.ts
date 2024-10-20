@@ -3,6 +3,7 @@ import config from "../../../config.json" assert { type: "json" };
 import { system } from "./system";
 import { autoRoles } from "./autoRoles";
 import { languages } from "./languages";
+import { roles } from "./roles";
 
 type EmbedOptions = {
   footerIcon?: boolean;
@@ -16,6 +17,13 @@ type EmbedOptions = {
   image?: string;
   fields?: { name: string; value: string; inline?: boolean }[];
 };
+
+class color {
+  static success = 0x00FF00;
+  static error = 0xFF0000;
+  static info = 0x0000FF;
+  static warn = 0xFFA500;
+}
 
 export class Embeds {
   public static successEmbed(
@@ -197,4 +205,7 @@ export class Embeds {
   static system = system;
   static autoRoles = autoRoles;
   static languages = languages;
+  static roles = roles;
+
+  static color = color;
 }
