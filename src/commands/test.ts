@@ -3,6 +3,7 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
+import { Embeds } from "../utils/embeds/embeds";
 
 export const data: CommandData = {
   name: "test",
@@ -10,8 +11,11 @@ export const data: CommandData = {
 };
 
 export async function run({ interaction }: SlashCommandProps) {
+  if (!interaction.guild) return;
   await interaction.reply({
-    content: "test",
+    embeds: [
+      await Embeds.autoRoles.assign.noManageRolesPermissionError(interaction.guild, false)
+    ],
     ephemeral: true,
   });
 }
@@ -22,5 +26,5 @@ export const options: CommandOptions = {
   botPermissions: ["Administrator"],
   deleted: false,
   onlyGuild: true,
-  voteLocked: true,
+  voteLocked: false,
 };

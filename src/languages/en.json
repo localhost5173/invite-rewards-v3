@@ -30,5 +30,65 @@
         "description": "The current language is {language}."
       }
     }
+  },
+  "roles": {
+    "roleNotFoundError": {
+      "title": ":x:  Role not found",
+      "description": "The role you provided was not found in this server."
+    },
+    "managedRoleAssignError": {
+      "title": ":x:  Managed role",
+      "description": "I can't assign or remove the role {role} because it is managed by an integration."
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x:  Missing Permissions",
+      "description": "I can't assign or remove the role {role} because it is higher than my highest role. Please move my role above the role you want me to manage."
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x:  Already an auto role",
+        "description": "The role {role} is already an auto role."
+      },
+      "success": {
+        "title": ":white_check_mark:  Auto role added",
+        "description": "The role {role} has been added as an auto role."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x:  Not an auto role",
+        "description": "The role {role} is not an auto role."
+      },
+      "success": {
+        "title": ":white_check_mark:  Auto role removed",
+        "description": "The role {role} has been removed as an auto role."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Auto roles",
+        "description": "The auto roles for this server are:"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x:  Missing Permissions",
+        "description": "I attempted to assign an auto role to a new member, but was unable to do so because I don't have the \"Manage Roles\" permission. Please ensure that I have the necessary permissions to manage roles in your server settings.",
+        "dmDescription": ":wave: I attempted to assign an auto role to a new member in {serverName}, but was unable to do so because I don't have the \"Manage Roles\" permission. Please ensure that I have the necessary permissions to manage roles in your server settings.",
+        "footer": {
+          "text": "Auto Role Assignment Error"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x:  Missing Permissions",
+        "description": "I attempted to assign an auto role to a new member, but was unable to do so because the role I was trying to assign is higher than my highest role. Please move my role above every role you want me to manage.",
+        "dmDescription": ":wave: I attempted to assign an auto role to a new member in {serverName}, but was unable to do so because the role I was trying to assign is higher than my highest role. Please move my role above every role you want me to manage.",
+        "footer": {
+          "text": "Auto Role Assignment Error"
+        }
+      }
+    }
   }
 }
