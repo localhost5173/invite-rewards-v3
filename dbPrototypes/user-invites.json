@@ -4,17 +4,5 @@
     "real": 1,
     "fake": 1,
     "bonus": 1,
-    "unverified": 1,
-    "invited": [
-        {
-            "userId": "userId123",
-            "joinedAt": "2024-10-30T12:00:00Z"
-        }
-    ],
-    "left": [
-        {
-            "userId": "userId123",
-            "leftAt": "2024-10-30T12:00:00Z"
-        }
-    ]
+    "unverified": 1
 }
