@@ -8,8 +8,8 @@ interface LanguageDocument extends Document {
 
 // Create the schema
 const LanguageSchema: Schema = new Schema({
-  guildId: { type: String, required: true, unique: true }, // Unique ID for each guild
-  language: { type: String, required: true }, // Language field directly at the root level
+  guildId: { type: String, required: true, unique: true, index: true }, // Unique ID for each guild
+  language: { type: String, required: true, index: true }, // Language field directly at the root level
 });
 
 // Create the model
