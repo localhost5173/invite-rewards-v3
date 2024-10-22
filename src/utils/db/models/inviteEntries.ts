@@ -12,8 +12,8 @@ export interface InviteEntryDocument extends Document {
 
 // Create the schema
 const InviteEntrySchema: Schema = new Schema({
-    guildId: { type: String, required: true },
-    code: { type: String, required: true },
+    guildId: { type: String, required: true, index: true },
+    code: { type: String, required: true, index: true },
     expiresAt: { type: Date, default: null },
     inviterId: { type: String, default: undefined },
     maxUses: { type: Number, default: null },

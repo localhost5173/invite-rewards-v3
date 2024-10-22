@@ -1,24 +1,33 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 // Define the structure of the document
 export interface JoinedUserDocument extends Document {
-    guildId: string,
-    inviterId: string,
-    inviteeId: string,
-    joinedAt: Date | null,
-    leftAt: Date | null,
+  guildId: string;
+  inviterId: string;
+  userId: string;
+  history: {
+    joinedAt: Date;
+    leftAt: Date | null; // leftAt is null when the user hasn't left yet
+  }[];
 }
 
 // Create the schema
 const JoinedUserSchema: Schema = new Schema({
-    guildId: { type: String, required: true },
-    inviterId: { type: String, required: true },
-    inviteeId: { type: String, required: true },
-    joinedAt: { type: Date, default: null },
-    leftAt: { type: Date, default: null },
+  guildId: { type: String, required: true, index: true },
+  inviterId: { type: String, required: true, index: true },
+  userId: { type: String, required: true, index: true },
+  history: [
+    {
+      joinedAt: { type: Date, required: true },
+      leftAt: { type: Date, default: null }, // Default to null when user hasn't left
+    },
+  ],
 });
 
 // Create the model
-const JoinedUserModel = mongoose.model<JoinedUserDocument>('joinedUsers', JoinedUserSchema);
+const JoinedUserModel = mongoose.model<JoinedUserDocument>(
+  "joinedUsers",
+  JoinedUserSchema
+);
 
 export default JoinedUserModel;

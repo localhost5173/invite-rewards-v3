@@ -12,8 +12,8 @@ export interface UserInvitesDocument extends Document {
 
 // Create the schema
 const UserInvitesSchema: Schema = new Schema({
-    guildId: { type: String, required: true },
-    userId: { type: String, required: true },
+    guildId: { type: String, required: true, index: true },
+    userId: { type: String, required: true, index: true },
     real: { type: Number, default: 0 },
     fake: { type: Number, default: 0 },
     bonus: { type: Number, default: 0 },
