@@ -2,10 +2,12 @@ import mongoose from "mongoose";
 import { AutoRoles } from "./categories/autoRoles";
 import { cs } from "../console/customConsole";
 import { Languages } from "./categories/languages";
+import { invites } from "./categories/invites";
 
 export class db {
   static autoRoles = AutoRoles;
   static languages = Languages;
+  static invites = invites;
 
   static async connectToDatabase(): Promise<void> {
     try {
