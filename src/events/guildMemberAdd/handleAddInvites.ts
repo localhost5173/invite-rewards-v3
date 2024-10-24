@@ -49,7 +49,7 @@ export default async function (guildMember: GuildMember) {
           cs.dev("Inviter found: " + inviterMember.user.tag);
 
           await sendWelcomeMessage(guildMember, inviterMember);
-          await db.invites.joinedUsers.addEntry(guild.id, inviter.id, inviter.id)
+          await db.invites.joinedUsers.addEntry(guild.id, inviter.id, guildMember.id);
           await db.invites.userInvites.addReal(guild.id, inviter.id);
           await db.invites.inviteEntries.addUse(guild.id, usedInvite.code);
         } catch {
