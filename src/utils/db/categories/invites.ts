@@ -95,6 +95,37 @@ class usedInvites {
             cs.error("Error while removing a user from the usedBy array: " + error);
         }
     }
+
+
+    // Function to get all invited users for a specific inviter in a guild
+    static async getInvitedList(
+        guildId: string,
+        inviterId: string
+    ): Promise<string[]> {
+        const invites = await UsedInviteModel.find({
+            guildId: guildId,
+            inviterId: inviterId,
+        });
+
+        // Merge all `usedBy` arrays and remove duplicates
+        const invitedList = [...new Set(invites.flatMap(invite => invite.usedBy))];
+
+        // Return the unique list
+        return invitedList;
+    }
+
+    static async getUsedByByCode(guildId: string, code: string): Promise<string[]> {
+        const usedInvite = await UsedInviteModel.findOne({
+            guildId: guildId,
+            code: code,
+        });
+
+        if (usedInvite) {
+            return usedInvite.usedBy;
+        }
+
+        return [];
+    }
 }
 
 class userInvites {
@@ -245,6 +276,22 @@ class joinedUsers {
         }
 
         return null;
+    }
+
+    static async getHistoryForUser(
+        guildId: string,
+        userId: string
+    ): Promise<{ joinedAt: Date; leftAt: Date | null }[]> {
+        const joinedUser = await JoinedUserModel.findOne({
+            guildId: guildId,
+            userId: userId,
+        });
+
+        if (joinedUser) {
+            return joinedUser.history;
+        }
+
+        return [];
     }
 }
 
