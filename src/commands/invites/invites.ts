@@ -27,33 +27,47 @@ export const data: CommandData = {
 };
 
 export async function run({ interaction }: SlashCommandProps) {
-    const user = interaction.options.getUser("user") ?? interaction.user;
-    const breakdown = interaction.options.getBoolean("breakdown") ?? false;
+    try {
+        const user = interaction.options.getUser("user") ?? interaction.user;
+        const breakdown = interaction.options.getBoolean("breakdown") ?? false;
 
-    const invites = await db.invites.userInvites.getInvites(interaction.guildId!, user.id);
+        const invites = await db.invites.userInvites.getInvites(interaction.guildId!, user.id);
 
-    const real = invites?.real ?? 0;
-    const bonus = invites?.bonus ?? 0;
-    const fake = invites?.fake ?? 0;
-    const unverified = invites?.unverified ?? 0;
+        const real = invites?.real ?? 0;
+        const bonus = invites?.bonus ?? 0;
+        const fake = invites?.fake ?? 0;
+        const unverified = invites?.unverified ?? 0;
 
-    let content: string;
+        let content: string;
 
-    if (breakdown) {
-        content = `**${user.tag}** has the following invites:\n` +
-            `Real: ${real}\n` +
-            `Bonus: ${bonus}\n` +
-            `Fake: ${fake}\n` +
-            `Unverified: ${unverified}`;
-    } else {
-        const totalInvites = real + bonus;
-        content = `**${user.tag}** has **${totalInvites}** invites.`;
+        if (breakdown) {
+            content = `**${user.tag}** has the following invites:\n` +
+                `Real: ${real}\n` +
+                `Bonus: ${bonus}\n` +
+                `Fake: ${fake}\n` +
+                `Unverified: ${unverified}`;
+        } else {
+            const totalInvites = real + bonus;
+            content = `**${user.tag}** has **${totalInvites}** invites.`;
+        }
+
+        await interaction.reply({
+            content,
+            ephemeral: true,
+        });
+
+    } catch (error: unknown) {
+        console.error("Error while getting invites: " + error);
+
+        try {
+            await interaction.reply({
+                content: "An error occurred while retrieving the invites.",
+                ephemeral: true,
+            });
+        } catch (error: unknown) {
+            console.error("Failed to send error message in invites:", error);
+        }
     }
-
-    await interaction.reply({
-        content,
-        ephemeral: true,
-    });
 }
 
 export const options: CommandOptions = {
