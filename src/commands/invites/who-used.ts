@@ -7,7 +7,7 @@ import { ApplicationCommandOptionType } from "discord.js";
 import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
-import { helpers } from "../../utils/helpers/helpers.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
   name: "who-used",
@@ -65,7 +65,7 @@ export async function run({ interaction }: SlashCommandProps) {
       "Error while getting users who joined using the invite code: " + error
     );
 
-    await helpers.trySendCommandError(interaction);
+    await Helpers.trySendCommandError(interaction);
   }
 }
 

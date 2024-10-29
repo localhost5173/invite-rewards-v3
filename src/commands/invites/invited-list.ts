@@ -2,7 +2,7 @@ import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit'
 import { ApplicationCommandOptionType } from 'discord.js';
 import { devMode } from '../../index.js';
 import { db } from '../../utils/db/db.js';
-import { helpers } from '../../utils/helpers/helpers.js';
+import { Helpers } from '../../utils/helpers/helpers.js';
 
 export const data: CommandData = {
     name: 'invited-list',
@@ -42,7 +42,7 @@ export async function run({ interaction }: SlashCommandProps) {
     } catch (error) {
         console.error(`Failed to get invited users for:`, error);
 
-        await helpers.trySendCommandError(interaction);
+        await Helpers.trySendCommandError(interaction);
     }
 }
 

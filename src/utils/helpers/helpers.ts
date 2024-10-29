@@ -2,8 +2,10 @@ import { ChatInputCommandInteraction } from "discord.js";
 import { Embeds } from "../embeds/embeds";
 import { cs } from "../console/customConsole";
 
-export class helpers {
-  static async trySendCommandError(interaction: ChatInputCommandInteraction) {
+export class Helpers {
+  static async trySendCommandError(
+    interaction: ChatInputCommandInteraction
+  ): Promise<void> {
     try {
       try {
         await interaction.reply({

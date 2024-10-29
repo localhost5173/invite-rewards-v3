@@ -6,7 +6,7 @@ import type {
 import { ApplicationCommandOptionType } from "discord.js";
 import { db } from "../../utils/db/db.js";
 import { devMode } from "../../index.js";
-import { helpers } from "../../utils/helpers/helpers.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
     name: "invites",
@@ -61,7 +61,7 @@ export async function run({ interaction }: SlashCommandProps) {
         console.error("Error while getting invites: " + error);
 
         
-        await helpers.trySendCommandError(interaction);
+        await Helpers.trySendCommandError(interaction);
     }
 }
 

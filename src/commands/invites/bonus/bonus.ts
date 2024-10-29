@@ -9,7 +9,7 @@ import addFakeInvites from "./add.js";
 import removeFakeInvites from "./remove.js";
 import { cs } from "../../../utils/console/customConsole.js";
 import { Embeds } from "../../../utils/embeds/embeds.js";
-import { helpers } from "../../../utils/helpers/helpers.js";
+import { Helpers } from "../../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
   name: "bonus-invites",
@@ -64,7 +64,7 @@ export async function run({ interaction }: SlashCommandProps) {
       case "add":
         await addFakeInvites(interaction);
         break;
-      case "remov":
+      case "remove":
         await removeFakeInvites(interaction);
         break;
       default:
@@ -78,7 +78,7 @@ export async function run({ interaction }: SlashCommandProps) {
       "An error occurred while executing the bonus-invites command: " + error
     );
 
-    await helpers.trySendCommandError(interaction);
+    await Helpers.trySendCommandError(interaction);
   }
 }
 

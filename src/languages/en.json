@@ -31,6 +31,18 @@
       }
     }
   },
+  "invites": {
+    "bonus": {
+      "add": {
+        "title": "Success",
+        "description": "Added {amount} bonus invites to {user}. They now have {total} invites in total."
+      },
+      "remove": {
+        "title": "Success",
+        "description": "Removed {amount} bonus invites from {user}. They now have {total} invites in total."
+      }
+    }
+  },
   "roles": {
     "roleNotFoundError": {
       "title": ":x:  Role not found",
