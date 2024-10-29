@@ -4,6 +4,7 @@ import { system } from "./system";
 import { autoRoles } from "./autoRoles";
 import { languages } from "./languages";
 import { roles } from "./roles";
+import { invites } from "./invites";
 
 type EmbedOptions = {
   footerIcon?: boolean;
@@ -206,6 +207,7 @@ export class Embeds {
   static autoRoles = autoRoles;
   static languages = languages;
   static roles = roles;
+  static invites = invites;
 
   static color = color;
 }
