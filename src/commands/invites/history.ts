@@ -2,6 +2,7 @@ import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit'
 import { ApplicationCommandOptionType } from 'discord.js';
 import { devMode } from '../../index.js';
 import { db } from '../../utils/db/db.js';
+import { helpers } from '../../utils/helpers/helpers.js';
 
 export const data: CommandData = {
     name: 'history',
@@ -53,11 +54,7 @@ export async function run({ interaction }: SlashCommandProps) {
     } catch (error) {
         console.error(`Failed to get invites for user ${userId}:`, error);
 
-        try {
-            return interaction.followUp({ content: "There was an error executing the command", ephemeral: true });
-        } catch (error: unknown) {
-            console.error(`Failed to send error message in inviter:`, error);
-        }
+        await helpers.trySendCommandError(interaction);
     }
 }
 

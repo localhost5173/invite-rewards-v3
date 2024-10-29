@@ -1,83 +1,92 @@
 import type {
-    CommandData,
-    CommandOptions,
-    SlashCommandProps,
+  CommandData,
+  CommandOptions,
+  SlashCommandProps,
 } from "commandkit";
-import {
-    ApplicationCommandType,
-    ApplicationCommandOptionType,
-} from "discord.js";
+import { ApplicationCommandOptionType } from "discord.js";
 import { devMode } from "../../../index.js";
 import addFakeInvites from "./add.js";
 import removeFakeInvites from "./remove.js";
+import { cs } from "../../../utils/console/customConsole.js";
+import { Embeds } from "../../../utils/embeds/embeds.js";
+import { helpers } from "../../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
-    name: "bonus-invites",
-    description: "Manage Fake Invites",
-    type: ApplicationCommandType.ChatInput,
-    options: [
+  name: "bonus-invites",
+  description: "Manage bonus invites",
+  options: [
+    {
+      name: "add",
+      description: "Add fake invites to a user",
+      type: ApplicationCommandOptionType.Subcommand,
+      options: [
         {
-            name: "add",
-            description: "Add fake invites to a user",
-            type: ApplicationCommandOptionType.Subcommand,
-            options: [
-                {
-                    name: "user",
-                    description: "The user",
-                    type: ApplicationCommandOptionType.User,
-                    required: true,
-                },
-                {
-                    name: "count",
-                    description: "The amount of invites to add",
-                    type: ApplicationCommandOptionType.Integer,
-                    required: true,
-                },
-            ],
+          name: "user",
+          description: "The user",
+          type: ApplicationCommandOptionType.User,
+          required: true,
         },
         {
-            name: "remove",
-            description: "Remove fake invites from a user",
-            type: ApplicationCommandOptionType.Subcommand,
-            options: [
-                {
-                    name: "user",
-                    description: "The user",
-                    type: ApplicationCommandOptionType.User,
-                    required: true,
-                },
-                {
-                    name: "count",
-                    description: "The amount of invites to remove",
-                    type: ApplicationCommandOptionType.Integer,
-                    required: true,
-                },
-            ],
+          name: "count",
+          description: "The amount of invites to add",
+          type: ApplicationCommandOptionType.Integer,
+          required: true,
         },
-    ],
+      ],
+    },
+    {
+      name: "remove",
+      description: "Remove fake invites from a user",
+      type: ApplicationCommandOptionType.Subcommand,
+      options: [
+        {
+          name: "user",
+          description: "The user",
+          type: ApplicationCommandOptionType.User,
+          required: true,
+        },
+        {
+          name: "count",
+          description: "The amount of invites to remove",
+          type: ApplicationCommandOptionType.Integer,
+          required: true,
+        },
+      ],
+    },
+  ],
 };
 
 export async function run({ interaction }: SlashCommandProps) {
-    const subcommand = interaction.options.getSubcommand(false);
+  const subcommand = interaction.options.getSubcommand(false);
 
+  try {
     switch (subcommand) {
-        case "add":
-            await addFakeInvites(interaction);
-            break;
-        case "remove":
-            await removeFakeInvites(interaction);
-            break;
-        default:
-            await interaction.reply({
-                content: "Invalid subcommand",
-                ephemeral: true,
-            });
+      case "add":
+        await addFakeInvites(interaction);
+        break;
+      case "remov":
+        await removeFakeInvites(interaction);
+        break;
+      default:
+        await interaction.reply({
+          embeds: [await Embeds.system.invalidSubcommand(interaction.guildId!)],
+          ephemeral: true,
+        });
     }
+  } catch (error: unknown) {
+    cs.error(
+      "An error occurred while executing the bonus-invites command: " + error
+    );
+
+    await helpers.trySendCommandError(interaction);
+  }
 }
 
 export const options: CommandOptions = {
-    devOnly: devMode,
-    userPermissions: ["ManageGuild"],
-    botPermissions: ["SendMessages", "EmbedLinks"],
-    deleted: false,
+  devOnly: devMode,
+  userPermissions: ["ManageGuild"],
+  botPermissions: ["SendMessages", "EmbedLinks"],
+  deleted: false,
+  onlyGuild: true,
+  voteLocked: false,
 };

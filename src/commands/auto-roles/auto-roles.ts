@@ -11,8 +11,8 @@ import { devMode } from "../../index.js";
 import removeAutoRole from "./remove.js";
 import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";
-import { cs } from "../../utils/console/customConsole.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { helpers } from "../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
   name: "auto-roles",
@@ -76,17 +76,7 @@ export async function run({ interaction }: SlashCommandProps) {
   } catch (error: unknown) {
     console.error(error);
 
-    // Try to send an error message to the user
-    try {
-      await interaction.reply({
-        embeds: [
-          await Embeds.system.errorWhileExecutingCommand(interaction.guildId!),
-        ],
-        ephemeral: true,
-      });
-    } catch (error: unknown) {
-      cs.error("Failed to send error message in auto-roles command" + error);
-    }
+    await helpers.trySendCommandError(interaction);
   }
 }
 
