@@ -13,8 +13,12 @@ import {
 } from "discord.js";
 import { cs } from "../../utils/console/customConsole.js";
 import colorString from "color-string";
+import { db } from "../../utils/db/db.js";
 
-export default async function (interaction: ChatInputCommandInteraction) {
+export default async function (
+  interaction: ChatInputCommandInteraction,
+  type: "simple" | "question" | "pin"
+) {
   const guildId = interaction.guildId!;
   const role = interaction.options.getRole("role");
   const channel = interaction.options.getChannel("channel");
@@ -136,7 +140,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const thumbnail = modalInteraction.fields.getTextInputValue(
       "verification-setup-simple-thumbnail"
     );
-    const color = modalInteraction.fields.getTextInputValue(
+    let color = modalInteraction.fields.getTextInputValue(
       "verification-setup-simple-color"
     );
     const buttonTitle = modalInteraction.fields.getTextInputValue(
@@ -145,10 +149,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     // Verify the color is a valid hex color
     if (!/^#[0-9A-F]{6}$/i.test(color)) {
-      return modalInteraction.reply({
-        content: "Please provide a valid hex color.",
-        ephemeral: true,
-      });
+      color = "#FFFFFF";
     }
 
     // Use colorString to parse the color input and ensure it resolves to a hex string
@@ -169,7 +170,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     embed.setColor(colorResolvable);
 
     const button = new ButtonBuilder()
-      .setCustomId("verification-setup-simple-button")
+      .setCustomId(`verification-button`)
       .setLabel(buttonTitle ? buttonTitle : "Verify")
       .setStyle(ButtonStyle.Success);
 
@@ -177,6 +178,35 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     // Check if the channel is a TextChannel before sending the embed
     await channel.send({ embeds: [embed], components: [row] });
+
+    // Save the verification system to the database
+    switch (type) {
+      case "simple":
+        await db.verification.enableSimple(guildId, role.id);
+        break;
+      case "question": {
+        const question = interaction.options.getString("question");
+        const answer = interaction.options.getString("answer");
+
+        if (!question || !answer) {
+          return interaction.reply({
+            content: "Please provide a valid question and answer.",
+            ephemeral: true,
+          });
+        }
+
+        await db.verification.enableQuestion(
+          guildId,
+          role.id,
+          question,
+          answer
+        );
+        break;
+      }
+      case "pin":
+        await db.verification.enablePin(guildId, role.id);
+        break;
+    }
 
     await modalInteraction.reply({
       content: "Verification setup complete.",
