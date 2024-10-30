@@ -8,7 +8,8 @@ import {
   ApplicationCommandOptionType,
 } from "discord.js";
 import { devMode } from "../../index.js";
-import setupVerificationSimple from "./simple.js";
+import setupVerification from "./setup.js";
+import disableVerification from "./disable.js";
 
 export const data: CommandData = {
   name: "verification",
@@ -94,8 +95,8 @@ export const data: CommandData = {
       ],
     },
     {
-      name: "remove",
-      description: "Remove the verification system for the server.",
+      name: "disable",
+      description: "Disables the verification system for the server.",
       type: ApplicationCommandOptionType.Subcommand,
     },
   ],
@@ -111,16 +112,16 @@ export async function run({ interaction }: SlashCommandProps) {
 
   switch (command) {
     case "setup simple":
-      await setupVerificationSimple(interaction);
+      await setupVerification(interaction, "simple");
       break;
     case "setup question":
-    //   await setupVerificationQuestion(interaction);
+      await setupVerification(interaction, "question");
       break;
     case "setup pin":
-    //   await setupVerificationPin(interaction);
+      await setupVerification(interaction, "pin");
       break;
-    case "remove":
-    //   await removeVerification(interaction);
+    case "disable":
+      await disableVerification(interaction);
       break;
     default:
       await interaction.reply({
