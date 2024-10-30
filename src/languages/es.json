@@ -30,5 +30,19 @@
         "description": "El idioma actual es {language}."
       }
     }
+  },
+  "invites": {
+    "bonus": {
+      "add": {
+        "title": "Éxito",
+        "description": "Se añadieron {amount} invitaciones de bonificación a {user}. Ahora tienen {total} invitaciones en total.",
+        "color": "#43b581"
+      },
+      "remove": {
+        "title": "Éxito",
+        "description": "Se eliminaron {amount} invitaciones de bonificación de {user}. Ahora tienen {total} invitaciones en total."
+      }
+    }
+    
   }
 }

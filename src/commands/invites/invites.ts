@@ -1,16 +1,13 @@
-import type {
-    CommandData,
-    SlashCommandProps,
-    CommandOptions,
-} from "commandkit";
+import type { CommandData, SlashCommandProps, CommandOptions } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
 import { db } from "../../utils/db/db.js";
 import { devMode } from "../../index.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
     name: "invites",
-    description: "view the invites of a user",
+    description: "View the invites of a user",
     options: [
         {
             name: "user",
@@ -39,28 +36,25 @@ export async function run({ interaction }: SlashCommandProps) {
         const fake = invites?.fake ?? 0;
         const unverified = invites?.unverified ?? 0;
 
-        let content: string;
-
         if (breakdown) {
-            content = `**${user.tag}** has the following invites:\n` +
-                `Real: ${real}\n` +
-                `Bonus: ${bonus}\n` +
-                `Fake: ${fake}\n` +
-                `Unverified: ${unverified}`;
+            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.invites.breakdown", {
+                user: user.tag,
+                real: real.toString(),
+                bonus: bonus.toString(),
+                fake: fake.toString(),
+                unverified: unverified.toString(),
+            });
+            await interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             const totalInvites = real + bonus;
-            content = `**${user.tag}** has **${totalInvites}** invites.`;
+            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.invites.total", {
+                user: user.tag,
+                totalInvites: totalInvites.toString(),
+            });
+            await interaction.reply({ embeds: [embed], ephemeral: true });
         }
-
-        await interaction.reply({
-            content,
-            ephemeral: true,
-        });
-
     } catch (error: unknown) {
         console.error("Error while getting invites: " + error);
-
-        
         await Helpers.trySendCommandError(interaction);
     }
 }

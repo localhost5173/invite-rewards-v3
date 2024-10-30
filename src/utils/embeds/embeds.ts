@@ -1,203 +1,83 @@
 import { EmbedBuilder } from "discord.js";
-import config from "../../../config.json" assert { type: "json" };
 import { system } from "./system";
 import { autoRoles } from "./autoRoles";
 import { languages } from "./languages";
 import { roles } from "./roles";
 import { invites } from "./invites";
-
-type EmbedOptions = {
-  footerIcon?: boolean;
-  footerText?: string;
-  timestamp?: boolean;
-  authorIcon?: boolean;
-  authorText?: string;
-  title?: string;
-  url?: string;
-  thumbnail?: string;
-  image?: string;
-  fields?: { name: string; value: string; inline?: boolean }[];
-};
+import { db } from "../db/db";
 
 class color {
-  static success = 0x00FF00;
-  static error = 0xFF0000;
-  static info = 0x0000FF;
-  static warn = 0xFFA500;
+  static success = 0x00ff00;
+  static error = 0xff0000;
+  static info = 0x0000ff;
+  static warn = 0xffa500;
 }
 
 export class Embeds {
-  public static successEmbed(
-    message: string,
-    options?: EmbedOptions
-  ): EmbedBuilder {
-    const embed = new EmbedBuilder()
-      .setColor("#00FF00")
-      .setDescription(message);
+  static async createEmbed(
+    guildId: string,
+    embedPath: string,
+    replacements?: { [key: string]: string }
+  ) {
+    const language = await db.languages.getLanguage(guildId);
+    const languageData = await import(`../../languages/${language}.json`);
 
-    if (options) {
-      if (options.footerText) {
-        embed.setFooter({
-          text: options.footerText,
-          iconURL: options.footerIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.timestamp) {
-        embed.setTimestamp();
-      }
-      if (options.authorText) {
-        embed.setAuthor({
-          name: options.authorText,
-          iconURL: options.authorIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.title) {
-        embed.setTitle(options.title);
-      }
-      if (options.url) {
-        embed.setURL(options.url);
-      }
-      if (options.thumbnail) {
-        embed.setThumbnail(options.thumbnail);
-      }
-      if (options.image) {
-        embed.setImage(options.image);
-      }
-      if (options.fields) {
-        embed.addFields(options.fields);
+    // Split the embedPath into its components
+    const pathComponents = embedPath.split(".");
+
+    // Dynamically access the nested properties
+    let data = languageData;
+    for (const component of pathComponents) {
+      if (data[component] !== undefined) {
+        data = data[component];
+      } else {
+        throw new Error(
+          `Path component "${component}" not found in language data.`
+        );
       }
     }
 
-    return embed;
-  }
+    // Function to replace placeholders in a string
+    const replacePlaceholders = (text: string): string => {
+      if (!replacements) return text;
+      return text.replace(
+        /{(\w+)}/g,
+        (_, key) => replacements[key] || `{${key}}`
+      );
+    };
 
-  public static errorEmbed(
-    message: string,
-    options?: EmbedOptions
-  ): EmbedBuilder {
-    const embed = new EmbedBuilder()
-      .setColor("#FF0000")
-      .setDescription(message);
+    const embed = new EmbedBuilder();
 
-    if (options) {
-      if (options.footerText) {
-        embed.setFooter({
-          text: options.footerText,
-          iconURL: options.footerIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.timestamp) {
-        embed.setTimestamp();
-      }
-      if (options.authorText) {
-        embed.setAuthor({
-          name: options.authorText,
-          iconURL: options.authorIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.title) {
-        embed.setTitle(options.title);
-      }
-      if (options.url) {
-        embed.setURL(options.url);
-      }
-      if (options.thumbnail) {
-        embed.setThumbnail(options.thumbnail);
-      }
-      if (options.image) {
-        embed.setImage(options.image);
-      }
-      if (options.fields) {
-        embed.addFields(options.fields);
-      }
-    }
-
-    return embed;
-  }
-
-  public static infoEmbed(
-    message: string,
-    options?: EmbedOptions
-  ): EmbedBuilder {
-    const embed = new EmbedBuilder()
-      .setColor("#0000FF")
-      .setDescription(message);
-
-    if (options) {
-      if (options.footerText) {
-        embed.setFooter({
-          text: options.footerText,
-          iconURL: options.footerIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.timestamp) {
-        embed.setTimestamp();
-      }
-      if (options.authorText) {
-        embed.setAuthor({
-          name: options.authorText,
-          iconURL: options.authorIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.title) {
-        embed.setTitle(options.title);
-      }
-      if (options.url) {
-        embed.setURL(options.url);
-      }
-      if (options.thumbnail) {
-        embed.setThumbnail(options.thumbnail);
-      }
-      if (options.image) {
-        embed.setImage(options.image);
-      }
-      if (options.fields) {
-        embed.addFields(options.fields);
-      }
-    }
-
-    return embed;
-  }
-
-  public static warnEmbed(
-    message: string,
-    options?: EmbedOptions
-  ): EmbedBuilder {
-    const embed = new EmbedBuilder()
-      .setColor("#FFA500")
-      .setDescription(message);
-
-    if (options) {
-      if (options.footerText) {
-        embed.setFooter({
-          text: options.footerText,
-          iconURL: options.footerIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.timestamp) {
-        embed.setTimestamp();
-      }
-      if (options.authorText) {
-        embed.setAuthor({
-          name: options.authorText,
-          iconURL: options.authorIcon ? config.bot.logo : undefined,
-        });
-      }
-      if (options.title) {
-        embed.setTitle(options.title);
-      }
-      if (options.url) {
-        embed.setURL(options.url);
-      }
-      if (options.thumbnail) {
-        embed.setThumbnail(options.thumbnail);
-      }
-      if (options.image) {
-        embed.setImage(options.image);
-      }
-      if (options.fields) {
-        embed.addFields(options.fields);
-      }
+    // Conditionally append properties to the embed
+    if (data.title) embed.setTitle(replacePlaceholders(data.title));
+    if (data.description)
+      embed.setDescription(replacePlaceholders(data.description));
+    if (data.url) embed.setURL(replacePlaceholders(data.url));
+    if (data.color) embed.setColor(parseInt(replacePlaceholders(data.color).replace("#", ""), 16));
+    if (data.timestamp)
+      embed.setTimestamp(new Date(replacePlaceholders(data.timestamp)));
+    if (data.footer)
+      embed.setFooter({
+        text: replacePlaceholders(data.footer.text),
+        iconURL: replacePlaceholders(data.footer.icon_url),
+      });
+    if (data.image) embed.setImage(replacePlaceholders(data.image));
+    if (data.thumbnail) embed.setThumbnail(replacePlaceholders(data.thumbnail));
+    if (data.author)
+      embed.setAuthor({
+        name: replacePlaceholders(data.author.name),
+        url: replacePlaceholders(data.author.url),
+        iconURL: replacePlaceholders(data.author.icon_url),
+      });
+    if (data.fields) {
+      const fields = data.fields.map(
+        (field: { name: string; value: string; inline?: boolean }) => ({
+          name: replacePlaceholders(field.name),
+          value: replacePlaceholders(field.value),
+          inline: field.inline,
+        })
+      );
+      embed.addFields(fields);
     }
 
     return embed;

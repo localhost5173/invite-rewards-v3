@@ -8,6 +8,7 @@ import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export const data: CommandData = {
   name: "who-used",
@@ -31,7 +32,7 @@ export async function run({ interaction }: SlashCommandProps) {
 
     if (!link) {
       return interaction.followUp({
-        content: "Please provide a link or an invite code.",
+        embeds: [await Embeds.createEmbed(guildId, "invites.whoUsed.noLink")],
         ephemeral: true,
       });
     }
@@ -45,7 +46,7 @@ export async function run({ interaction }: SlashCommandProps) {
     // Check if inviteesList is empty
     if (inviteesList.length === 0) {
       return interaction.followUp({
-        content: `No users have joined using the invite code \`${inviteCode}\`.`,
+        embeds: [await Embeds.createEmbed(guildId, "invites.whoUsed.noUsers")],
         ephemeral: true,
       });
     } else {
@@ -54,6 +55,12 @@ export async function run({ interaction }: SlashCommandProps) {
         (invitee) => `<@!${invitee}>`
       );
       return interaction.followUp({
+        embeds: [
+          await Embeds.createEmbed(guildId, "invites.whoUsed.success", {
+            link: inviteCode,
+            users: inviteeMentionList.join("\n"),
+          }),
+        ],
         content: `Users who joined using invite code \`${inviteCode}\`:\n${inviteeMentionList.join(
           "\n"
         )}`,

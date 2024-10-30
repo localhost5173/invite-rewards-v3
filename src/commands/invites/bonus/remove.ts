@@ -24,12 +24,11 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     await interaction.followUp({
       embeds: [
-        await Embeds.invites.bonus.remove.success(
-          interaction.guildId!,
-          count,
-          user.id,
-          invites
-        ),
+        await Embeds.createEmbed(interaction.guildId!, "invites.bonus.remove", {
+          amount: count.toString(),
+          user: `<@${user.id}>`,
+          total: invites.toString(),
+        }),
       ],
     });
   } catch (error: unknown) {
