@@ -54,7 +54,12 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     default:
       await interaction.reply({
-        embeds: [await Embeds.system.invalidSubcommand(interaction.guildId!)],
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "general.invalidSubcommand"
+          ),
+        ],
         ephemeral: true,
       });
   }

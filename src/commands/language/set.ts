@@ -1,10 +1,9 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
-import {
-  LanguagesList,
-} from "../../utils/db/categories/languages";
+import { getNativeLanguageName, LanguagesList } from "../../utils/db/categories/languages";
 import { Embeds } from "../../utils/embeds/embeds";
+import { Helpers } from "../../utils/helpers/helpers";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -13,17 +12,25 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const language = interaction.options.getString("language");
 
     if (!language) {
-      return interaction.reply({
-        embeds: [await Embeds.languages.set.noLanguage(interaction.guildId!)],
+      return interaction.followUp({
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "language.set.noLanguage"
+          ),
+        ],
         ephemeral: true,
       });
     }
 
     // Check if the language is valid
     if (!Object.values(LanguagesList).includes(language as LanguagesList)) {
-      return interaction.reply({
+      return interaction.followUp({
         embeds: [
-          await Embeds.languages.set.invalidLanguage(interaction.guildId!),
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "language.set.invalidLanguage"
+          ),
         ],
         ephemeral: true,
       });
@@ -32,19 +39,15 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Set the language in the database
     await db.languages.setLanguage(interaction.guildId!, language);
     interaction.followUp({
-      embeds: [await Embeds.languages.set.success(language)],
+      embeds: [
+        await Embeds.createEmbed(interaction.guildId!, "language.set.success", {
+          language: getNativeLanguageName(language) || "Unknown",
+        }),
+      ],
     });
   } catch (error) {
     cs.error("Error while setting language: " + error);
-    try {
-      await interaction.reply({
-        embeds: [
-          await Embeds.system.errorWhileExecutingCommand(interaction.guildId!),
-        ],
-        ephemeral: true,
-      });
-    } catch (error) {
-      cs.error("Error while sending followup message for error:" + error);
-    }
+
+    await Helpers.trySendCommandError(interaction);
   }
 }
