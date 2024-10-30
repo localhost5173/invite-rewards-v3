@@ -2,6 +2,7 @@ import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit'
 import { ApplicationCommandOptionType } from 'discord.js';
 import { devMode } from '../../index.js';
 import { db } from '../../utils/db/db.js';
+import { Embeds } from '../../utils/embeds/embeds.js';
 import { Helpers } from '../../utils/helpers/helpers.js';
 
 export const data: CommandData = {
@@ -25,24 +26,31 @@ export async function run({ interaction, client }: SlashCommandProps) {
     try {
         await interaction.deferReply({ ephemeral: true });
 
-
         if (!targetUser) {
-            return interaction.followUp({ content: "Please provide a user", ephemeral: true });
+            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.noUserProvided');
+            return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
+
         // Find inviter of the target user
         const inviterId = await db.invites.joinedUsers.getInviterOfUser(guildId, targetUser.id);
 
         if (!inviterId) {
-            return interaction.followUp({ content: "I couldn't find the inviter for this user", ephemeral: true });
+            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.noInviterFound');
+            return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
 
         const inviter = await client.users.fetch(inviterId);
 
         if (!inviter) {
-            return interaction.followUp({ content: "I could not resolve the inviter.", ephemeral: true });
+            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.inviterUnresolved');
+            return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
 
-        return interaction.followUp({ content: `The inviter is <@${inviter.id}>`, ephemeral: true });
+        const embed = await Embeds.createEmbed(guildId, 'invites.inviter.success', {
+            user: `<@${targetUser.id}>`,
+            inviter: `<@${inviter.id}>`
+        });
+        return interaction.followUp({ embeds: [embed], ephemeral: true });
     } catch (error) {
         console.error(`Failed to get invites for user ${userId}:`, error);
         

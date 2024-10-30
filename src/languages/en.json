@@ -7,6 +7,10 @@
     "errorWhileExecutingCommand": {
       "title": "Error while executing command",
       "description": "An error occurred while executing the command. Please try again later."
+    },
+    "noUserProvided": {
+      "title": "User Not Provided",
+      "description": "Please provide a valid user to get history for."
     }
   },
   "language": {
@@ -35,11 +39,83 @@
     "bonus": {
       "add": {
         "title": "Success",
-        "description": "Added {amount} bonus invites to {user}. They now have {total} invites in total."
+        "description": "Added {amount} bonus invites to {user}. They now have {total} invites in total.",
+        "color": "#43b581"
       },
       "remove": {
         "title": "Success",
         "description": "Removed {amount} bonus invites from {user}. They now have {total} invites in total."
+      }
+    },
+    "history": {
+      "noHistory": {
+        "title": "No History Found",
+        "description": "No join or leave history found for {user}."
+      },
+      "success": {
+        "title": "Join and Leave History",
+        "description": "History for {user}:"
+      }
+    },
+    "invitedList": {
+      "noUserProvided": {
+        "title": "User Not Provided",
+        "description": "Please provide a valid user to check the invites for."
+      },
+      "noInvites": {
+        "title": "No Invites Found",
+        "description": "{user} has not invited any users."
+      },
+      "success": {
+        "title": "Invited Users List",
+        "description": "Users invited by {user}:\n {invitedUsers}",
+        "color": "#43b581"
+      }
+    },
+    "inviter": {
+      "noUserProvided": {
+        "title": "User Not Provided",
+        "description": "Please provide a valid user to check the inviter for."
+      },
+      "noInviterFound": {
+        "title": "No Inviter Found",
+        "description": "I couldn't find an inviter for the specified user."
+      },
+      "inviterUnresolved": {
+        "title": "Inviter Could Not Be Resolved",
+        "description": "I was unable to resolve the inviter for the specified user."
+      },
+      "success": {
+        "title": "User Inviter",
+        "description": "The inviter for {user} is {inviter}.",
+        "color": "#43b581"
+      }
+    },
+    "invites": {
+      "breakdown": {
+        "title": "Invite Breakdown for {user}",
+        "description": "Here’s the breakdown of invites for {user}:\n**Real**: {real}\n**Bonus**: {bonus}\n**Fake**: {fake}\n**Unverified**: {unverified}",
+        "color": "#43b581"
+      },
+      "total": {
+        "title": "Total Invites",
+        "description": "{user} has **{totalInvites}** invites.",
+        "color": "#43b581"
+      }
+    },
+    "whoUsed": {
+      "noLink": {
+        "title": "No Link Provided",
+        "description": "Please provide a valid invite link to check who used it."
+      },
+      "noUsers": {
+        "title": "No Users Found",
+        "description": "No users found who used the invite link."
+      },
+      "success": {
+        "title": "Users Who Used Invite",
+        "description": "Users who used the invite code {link}:\n{users}",
+        "color": "#43b581"
       }
     }
   },
@@ -63,6 +139,10 @@
         "title": ":x:  Already an auto role",
         "description": "The role {role} is already an auto role."
       },
+      "maxAutoRolesError": {
+        "title": ":x:  Max auto roles",
+        "description": "You have reached the maximum number of auto roles. Please remove an auto role before adding a new one."
+      },
       "success": {
         "title": ":white_check_mark:  Auto role added",
         "description": "The role {role} has been added as an auto role."
@@ -81,7 +161,16 @@
     "view": {
       "success": {
         "title": "Auto roles",
-        "description": "The auto roles for this server are:"
+        "description": "The auto roles for this server are:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
       }
     },
     "assign": {

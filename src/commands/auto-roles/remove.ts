@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction } from "discord.js";
 import { Embeds } from "../../utils/embeds/embeds";
 import { cs } from "../../utils/console/customConsole";
 import { db } from "../../utils/db/db";
+import { Helpers } from "../../utils/helpers/helpers";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -12,7 +13,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Check if the role exists
     if (!role) {
       return interaction.followUp({
-        embeds: [await Embeds.roles.roleNotFoundError(interaction.guildId!)],
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "roles.roleNotFoundError"
+          ),
+        ],
         ephemeral: true,
       });
     }
@@ -22,9 +28,10 @@ export default async function (interaction: ChatInputCommandInteraction) {
     if (!autoroles.includes(role.id)) {
       return interaction.followUp({
         embeds: [
-          await Embeds.autoRoles.remove.notAutoRoleError(
+          await Embeds.createEmbed(
             interaction.guildId!,
-            role.id
+            "autoRoles.remove.notAutoRoleError",
+            { role: `<@&${role.id}>` }
           ),
         ],
         ephemeral: true,
@@ -36,24 +43,16 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     return await interaction.followUp({
       embeds: [
-        await Embeds.autoRoles.remove.success(interaction.guildId!, role.id),
+        await Embeds.createEmbed(
+          interaction.guildId!,
+          "autoRoles.remove.success",
+          { role: `<@&${role.id}>` }
+        ),
       ],
     });
   } catch (error: unknown) {
     cs.error("Error while removing auto-role: " + error);
 
-    // Try to send an error message to the user
-    try {
-      const guildId = interaction.guildId!;
-      await interaction.followUp({
-        embeds: [await Embeds.system.errorWhileExecutingCommand(guildId)],
-        ephemeral: true,
-      });
-    } catch (error: unknown) {
-      cs.error(
-        "Error while trying to send error message in auto-roles remove command" +
-          error
-      );
-    }
+    await Helpers.trySendCommandError(interaction);
   }
 }
