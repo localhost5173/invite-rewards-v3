@@ -5,6 +5,7 @@ export interface JoinedUserDocument extends Document {
   guildId: string;
   inviterId: string;
   userId: string;
+  isVerified: boolean;
   history: {
     joinedAt: Date;
     leftAt: Date | null; // leftAt is null when the user hasn't left yet
@@ -16,6 +17,7 @@ const JoinedUserSchema: Schema = new Schema({
   guildId: { type: String, required: true, index: true },
   inviterId: { type: String, required: true, index: true },
   userId: { type: String, required: true, index: true },
+  isVerified: { type: Boolean, required: true, default: true },
   history: [
     {
       joinedAt: { type: Date, required: true },

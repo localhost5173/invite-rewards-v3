@@ -191,5 +191,67 @@
         }
       }
     }
+  },
+  "verification": {
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "Invalid Configuration",
+          "description": "The verification configuration is invalid. Please check the configuration and try again."
+        },
+        "incorrectAnswer": {
+          "title": "Incorrect Answer",
+          "description": "You provided an incorrect answer. Please try again."
+        }
+      },
+      "pin": {},
+      "all": {
+        "verificationDisabled": {
+          "title": "Verification Disabled",
+          "description": "Verification is disabled in this server."
+        },
+        "alreadyVerified": {
+          "title": "Already Verified",
+          "description": "You are already verified."
+        },
+        "botNotFound": {
+          "title": "Bot Not Found",
+          "description": "I couldn't find myself in the server."
+        },
+        "missingPermissions": {
+          "title": "Missing Permissions",
+          "description": "I don't have the necessary permissions to grant you the verification role."
+        },
+        "roleNotFound": {
+          "title": "Role Not Found",
+          "description": "The verification role was not found in this server."
+        },
+        "managedRole": {
+          "title": "Managed Role",
+          "description": "I can't assign or remove the verification role because it is managed by an integration."
+        },
+        "hierarchyError": {
+          "title": "Missing Permissions",
+          "description": "I can't assign or remove the verification role because it is higher than my highest role. Please move my role above the role you want me to manage."
+        },
+        "unknownType": {
+          "title": "Unknown Type",
+          "description": "The verification type you provided is invalid."
+        },
+        "error": {
+          "title": "Error",
+          "description": "An error occurred while verifying you. Please try again later."
+        },
+        "success": {
+          "title": "Verified",
+          "description": "You have been verified."
+        },
+        "timeout": {
+          "title": "Timeout",
+          "description": "You took too long to answer. Please try again."
+        }
+      }
+    }
   }
 }

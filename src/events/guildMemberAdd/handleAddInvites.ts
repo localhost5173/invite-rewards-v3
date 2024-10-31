@@ -6,11 +6,13 @@ export default async function (guildMember: GuildMember) {
   try {
     if (guildMember.user.bot) return;
     if (!isRealUser(guildMember)) return;
+
     const { guild } = guildMember;
     const currentInvites = await guild.invites.fetch();
     const dbInvites = await db.invites.inviteEntries.getEntriesForGuild(
       guild.id
     );
+    const isVerificationEnabled = await db.verification.isEnabled(guild.id);
 
     let usedInvite: Invite | undefined;
     const vanityCode = guildMember.guild.vanityURLCode; // Check for vanity code
@@ -49,8 +51,29 @@ export default async function (guildMember: GuildMember) {
           cs.dev("Inviter found: " + inviterMember.user.tag);
 
           await sendWelcomeMessage(guildMember, inviterMember);
-          await db.invites.joinedUsers.addEntry(guild.id, inviter.id, guildMember.id);
-          await db.invites.userInvites.addReal(guild.id, inviter.id);
+
+          // Set verified to false if verification is enabled
+          if (isVerificationEnabled) {
+            await db.invites.joinedUsers.addEntry(
+              guild.id,
+              inviter.id,
+              guildMember.id,
+              false,
+            );
+          } else {
+            await db.invites.joinedUsers.addEntry(
+              guild.id,
+              inviter.id,
+              guildMember.id,
+              true,
+            );
+          }
+
+          if (isVerificationEnabled) {
+            await db.invites.userInvites.addUnverified(guild.id, inviter.id);
+          } else {
+            await db.invites.userInvites.addReal(guild.id, inviter.id);
+          }
           await db.invites.inviteEntries.addUse(guild.id, usedInvite.code);
         } catch {
           cs.dev("Inviter member not found.");
