@@ -1,33 +1,54 @@
 import {
   APIInteractionGuildMember,
   ButtonInteraction,
+  EmbedBuilder,
   GuildMember,
   PermissionFlagsBits,
   Role,
 } from "discord.js";
 import { cs } from "../console/customConsole";
+import { Embeds } from "../embeds/embeds";
 
 export default async function (
   interaction: ButtonInteraction,
   roleId: string | null,
   member: GuildMember | APIInteractionGuildMember | null
-): Promise<{ passed: boolean; role: Role | null; message: string }> {
+): Promise<{ passed: boolean; role: Role | null; embed: EmbedBuilder }> {
+  const guildId = interaction.guild!.id;
+
   if (!roleId) {
     return {
       passed: false,
       role: null,
-      message: "Verification is disabled in this server.",
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.verificationDisabled"
+      ),
     };
   }
 
   if (member && "cache" in member.roles && member.roles.cache.has(roleId)) {
-    return { passed: false, role: null, message: "You are already verified" };
+    return {
+      passed: false,
+      role: null,
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.alreadyVerified"
+      ),
+    };
   }
 
   const bot = interaction.guild!.members.me;
   if (!bot) {
     cs.dev("Bot not found in guild while handling auto roles");
-    return { passed: false, role: null, message: "Bot not found in guild" };
+    return {
+      passed: false,
+      role: null,
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.botNotFound"
+      ),
+    };
   }
 
   // Check if the bot has the necessary permissions
@@ -38,7 +59,10 @@ export default async function (
     return {
       passed: false,
       role: null,
-      message: "Bot does not have the necessary permissions to manage roles",
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.missingPermissions"
+      ),
     };
   }
 
@@ -47,7 +71,14 @@ export default async function (
   // Check if the role exists
   if (!role) {
     cs.dev("verificationSimple: Role not found");
-    return { passed: false, role: null, message: "Role not found" };
+    return {
+      passed: false,
+      role: null,
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.roleNotFound"
+      ),
+    };
   }
 
   // Check if the role is managed by an integration
@@ -56,7 +87,10 @@ export default async function (
     return {
       passed: false,
       role: null,
-      message: "Cannot assign a managed role",
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.managedRole"
+      ),
     };
   }
 
@@ -68,10 +102,12 @@ export default async function (
     return {
       passed: false,
       role: null,
-      message:
-        "Bot's highest role must be higher than the role to be managed in order to assign it",
+      embed: await Embeds.createEmbed(
+        guildId,
+        "verification.event.all.hierarchyError"
+      ),
     };
   }
 
-  return { passed: true, role, message: "" };
+  return { passed: true, role, embed: new EmbedBuilder() };
 }
