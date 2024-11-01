@@ -46,7 +46,7 @@ export default async function (
       role: null,
       embed: await Embeds.createEmbed(
         guildId,
-        "verification.event.all.botNotFound"
+        "general.botNotFound"
       ),
     };
   }

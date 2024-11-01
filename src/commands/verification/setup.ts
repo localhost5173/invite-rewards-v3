@@ -14,6 +14,8 @@ import {
 import { cs } from "../../utils/console/customConsole.js";
 import colorString from "color-string";
 import { db } from "../../utils/db/db.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -23,37 +25,34 @@ export default async function (
   const role = interaction.options.getRole("role");
   const channel = interaction.options.getChannel("channel");
 
-  if (!guildId) {
-    return interaction.reply({
-      content: "This command can only be used in a guild.",
-      ephemeral: true,
-    });
-  }
-
   if (!role) {
     return interaction.reply({
-      content: "Please provide a valid role.",
+      embeds: [await Embeds.createEmbed(guildId, "roles.noRoleProvided")],
       ephemeral: true,
     });
   }
 
   if (role.managed) {
     return interaction.reply({
-      content: "Cannot assign a managed role.",
+      embeds: [
+        await Embeds.createEmbed(guildId, "roles.managedRoleAssignError"),
+      ],
       ephemeral: true,
     });
   }
 
   if (!channel || channel.type !== ChannelType.GuildText) {
     return interaction.reply({
-      content: "Please provide a valid channel.",
+      embeds: [await Embeds.createEmbed(guildId, "channels.noChannelProvided")],
       ephemeral: true,
     });
   }
 
   if (!(channel instanceof TextChannel)) {
     return interaction.reply({
-      content: "Please provide a valid text channel.",
+      embeds: [
+        await Embeds.createEmbed(guildId, "channels.invalidChannelType"),
+      ],
       ephemeral: true,
     });
   }
@@ -62,7 +61,7 @@ export default async function (
 
   if (!bot) {
     return interaction.reply({
-      content: "Bot not found in guild.",
+      embeds: [await Embeds.createEmbed(guildId, "general.botNotFound")],
       ephemeral: true,
     });
   }
@@ -70,8 +69,11 @@ export default async function (
   // Check if the bot's highest role is above the role it tries to manage
   if (bot.roles.highest.position <= role.position) {
     return interaction.reply({
-      content:
-        "The bot's highest role must be higher than the role to be managed in order to assign it.",
+      embeds: [
+        await Embeds.createEmbed(guildId, "roles.roleHierarchyError", {
+          role: `<@&${role.id}>`,
+        }),
+      ],
       ephemeral: true,
     });
   }
@@ -190,7 +192,12 @@ export default async function (
 
         if (!question || !answer) {
           return interaction.reply({
-            content: "Please provide a valid question and answer.",
+            embeds: [
+              await Embeds.createEmbed(
+                guildId,
+                "verification.setup.noQuestionAnswer"
+              ),
+            ],
             ephemeral: true,
           });
         }
@@ -209,16 +216,19 @@ export default async function (
     }
 
     await modalInteraction.reply({
-      content: "Verification setup complete.",
+      embeds: [
+        await Embeds.createEmbed(guildId, "verification.setup.success", {
+          channel: `<#${channel.id}>`,
+          role: `<@&${role.id}>`,
+        }),
+      ],
       ephemeral: true,
     });
   } catch (error) {
     cs.error(
       "Error occurred while setting up the verification system: " + error
     );
-    await interaction.reply({
-      content: "An error occurred while setting up the verification system.",
-      ephemeral: true,
-    });
+
+    await Helpers.trySendCommandError(interaction);
   }
 }
