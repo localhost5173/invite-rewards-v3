@@ -1,0 +1,152 @@
+import type {
+  CommandData,
+  SlashCommandProps,
+  CommandOptions,
+} from "commandkit";
+import { ApplicationCommandOptionType } from "discord.js";
+import setFarewellChannel from "./farewell/setFarewellChannel";
+import removeFarewellChannel from "./farewell/removeFarewellChannel";
+import setFarewellMessage from "./farewell/setFarewellMessage";
+import removeFarewellMessage from "./farewell/removeFarewellMessage";
+import { Embeds } from "../../utils/embeds/embeds";
+import viewFarewellMessage from "./farewell/viewFarewellMessage";
+
+export const data: CommandData = {
+  name: "farewell",
+  description: "Configure the farewell message and channel for the server",
+  options: [
+    {
+      name: "channel",
+      description: "Configure where to send the farewell message",
+      type: ApplicationCommandOptionType.SubcommandGroup,
+      options: [
+        {
+          name: "set",
+          description: "Set the farewell channel in the server",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "channel",
+              description: "The channel to send the farewell message in",
+              type: ApplicationCommandOptionType.Channel,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "disable",
+          description: "Remove the farewell channel",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+      ],
+    },
+    {
+      name: "message",
+      description: "Configure the farewell message content",
+      type: ApplicationCommandOptionType.SubcommandGroup,
+      options: [
+        {
+          name: "set-server",
+          description: "Set the farewell message for the server channel",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "message",
+              description: "The message to send in the server channel",
+              type: ApplicationCommandOptionType.String,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "remove-server",
+          description: "Remove the server farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-server",
+          description: "View the server farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "set-dm",
+          description: "Set the farewell message for DMs",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "message",
+              description: "The message to send in a DM",
+              type: ApplicationCommandOptionType.String,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "remove-dm",
+          description: "Remove the DM farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-dm",
+          description: "View the DM farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+      ],
+    },
+  ],
+};
+
+export async function run({ interaction }: SlashCommandProps) {
+  const subcommandGroup = interaction.options.getSubcommandGroup(false);
+  const subcommand = interaction.options.getSubcommand(false);
+
+  const command = `${subcommandGroup ? `${subcommandGroup} ` : ""}${
+    subcommand ? subcommand : ""
+  }`;
+
+  switch (command) {
+    case "channel set":
+      await setFarewellChannel(interaction);
+      break;
+    case "channel disable":
+      await removeFarewellChannel(interaction);
+      break;
+    case "message set-server":
+      await setFarewellMessage(interaction, "server");
+      break;
+    case "message set-dm":
+      await setFarewellMessage(interaction, "dm");
+      break;
+    case "message remove-server":
+      await removeFarewellMessage(interaction, "server");
+      break;
+    case "message remove-dm":
+      await removeFarewellMessage(interaction, "dm");
+      break;
+    case "message view-server":
+      await viewFarewellMessage(interaction, "server");
+      break;
+    case "message view-dm":
+      await viewFarewellMessage(interaction, "dm");
+      break;
+    default:
+      await interaction.reply({
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "general.invalidSubcommand"
+          ),
+        ],
+        ephemeral: true,
+      });
+  }
+}
+
+export const options: CommandOptions = {
+  devOnly: true,
+  userPermissions: ["Administrator"],
+  botPermissions: ["Administrator"],
+  deleted: false,
+  onlyGuild: true,
+  voteLocked: false,
+};
