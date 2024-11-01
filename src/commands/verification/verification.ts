@@ -10,6 +10,7 @@ import {
 import { devMode } from "../../index.js";
 import setupVerification from "./setup.js";
 import disableVerification from "./disable.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export const data: CommandData = {
   name: "verification",
@@ -125,7 +126,12 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     default:
       await interaction.reply({
-        content: "Invalid subcommand",
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "general.invalidSubcommand"
+          ),
+        ],
         ephemeral: true,
       });
   }

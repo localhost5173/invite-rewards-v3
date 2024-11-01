@@ -11,6 +11,10 @@
     "noUserProvided": {
       "title": "User Not Provided",
       "description": "Please provide a valid user to get history for."
+    },
+    "botNotFound": {
+      "title": "Bot Not Found",
+      "description": "I couldn't find myself in the server."
     }
   },
   "language": {
@@ -119,7 +123,21 @@
       }
     }
   },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Channel Not Provided",
+      "description": "Please provide a valid channel."
+    },
+    "invalidChannelType": {
+      "title": "Invalid Channel Type",
+      "description": "The channel you provided is not a text channel."
+    }
+  },
   "roles": {
+    "noRoleProvided": {
+      "title": "Role Not Provided",
+      "description": "Please provide a valid role."
+    },
     "roleNotFoundError": {
       "title": ":x:  Role not found",
       "description": "The role you provided was not found in this server."
@@ -193,6 +211,22 @@
     }
   },
   "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "No Question or Answer Provided",
+        "description": "Please provide a question and answer to set up quetion verification."
+      },
+      "success": {
+        "title": "Verification Setup",
+        "description": "Verification has been set up in channel {channel}. Members will receive the {role} role after verifying."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "Verification Disabled",
+        "description": "Verification has been disabled in this server."
+      }
+    },
     "event": {
       "simple": {},
       "question": {
@@ -214,10 +248,6 @@
         "alreadyVerified": {
           "title": "Already Verified",
           "description": "You are already verified."
-        },
-        "botNotFound": {
-          "title": "Bot Not Found",
-          "description": "I couldn't find myself in the server."
         },
         "missingPermissions": {
           "title": "Missing Permissions",
