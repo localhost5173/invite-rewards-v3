@@ -133,4 +133,8 @@ export class welcomer {
 
     return doc ? doc[location].farewellMessage : null;
   }
+
+  static async getWelcomerSettings(guildId: string) {
+    return await WelcomerModel.findOne({ guildId });
+  }
 }

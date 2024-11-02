@@ -5,11 +5,11 @@ import type {
 } from "commandkit";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { ApplicationCommandOptionType } from "discord.js";
-import setWelcomeChannel from "./welcome/setWelcomeChannel.js";
-import removeWelcomeChannel from "./welcome/removeWelcomeChannel.js";
-import setWelcomeMessage from "./welcome/setWelcomeMessage.js";
-import removeWelcomeMessage from "./welcome/removeWelcomeMessage.js";
-import viewWelcomeMessage from "./welcome/viewWelcomeMessage.js";
+import setChannel from "./func/setChannel.js";
+import removeChannel from "./func/removeChannel.js";
+import setMessage from "./func/setMessage.js";
+import removeMessage from "./func/removeMessage.js";
+import viewMessage from "./func/viewMessage.js";
 
 export const data: CommandData = {
   name: "welcome",
@@ -106,28 +106,28 @@ export async function run({ interaction }: SlashCommandProps) {
 
   switch (command) {
     case "channel set":
-      await setWelcomeChannel(interaction);
+      await setChannel(interaction, "welcome");
       break;
     case "channel disable":
-      await removeWelcomeChannel(interaction);
+      await removeChannel(interaction, "welcome");
       break;
     case "message set-server":
-      await setWelcomeMessage(interaction, "server");
+      await setMessage(interaction, "welcome", "server");
       break;
     case "message set-dm":
-      await setWelcomeMessage(interaction, "dm");
+      await setMessage(interaction, "welcome", "dm");
       break;
     case "message remove-server":
-      await removeWelcomeMessage(interaction, "server");
+      await removeMessage(interaction, "welcome", "server");
       break;
     case "message remove-dm":
-      await removeWelcomeMessage(interaction, "dm");
+      await removeMessage(interaction, "welcome", "dm");
       break;
     case "message view-server":
-      await viewWelcomeMessage(interaction, "server");
+      await viewMessage(interaction, "welcome", "server");
       break;
     case "message view-dm":
-      await viewWelcomeMessage(interaction, "dm");
+      await viewMessage(interaction, "welcome", "dm");
       break;
     default:
       await interaction.reply({

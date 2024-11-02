@@ -5,20 +5,25 @@ import { Helpers } from "../../../utils/helpers/helpers";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
+  type: "welcome" | "farewell",
   location: "server" | "dm"
 ) {
   try {
     const guildId = interaction.guildId!;
-    const welcomeMessage = await db.welcomer.getWelcomeMessage(
-      guildId,
-      location
-    );
+
+    let message: string | null;
+
+    if (type === "welcome") {
+      message = await db.welcomer.getWelcomeMessage(guildId, location);
+    } else {
+      message = await db.welcomer.getFarewellMessage(guildId, location);
+    }
 
     await interaction.reply({
-      content: `Welcome message: ${welcomeMessage}`,
+      content: `${type} message for ${location}: ${message}`,
     });
   } catch (error) {
-    cs.error("Error while viewing welcome message: " + error);
+    cs.error(`Error while viewing ${type} message: ` + error);
 
     await Helpers.trySendCommandError(interaction);
   }
