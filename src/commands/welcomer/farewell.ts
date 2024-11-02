@@ -4,12 +4,12 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import setFarewellChannel from "./farewell/setFarewellChannel";
-import removeFarewellChannel from "./farewell/removeFarewellChannel";
-import setFarewellMessage from "./farewell/setFarewellMessage";
-import removeFarewellMessage from "./farewell/removeFarewellMessage";
 import { Embeds } from "../../utils/embeds/embeds";
-import viewFarewellMessage from "./farewell/viewFarewellMessage";
+import setChannel from "./func/setChannel";
+import removeChannel from "./func/removeChannel";
+import setMessage from "./func/setMessage";
+import removeMessage from "./func/removeMessage";
+import viewMessage from "./func/viewMessage";
 
 export const data: CommandData = {
   name: "farewell",
@@ -106,28 +106,28 @@ export async function run({ interaction }: SlashCommandProps) {
 
   switch (command) {
     case "channel set":
-      await setFarewellChannel(interaction);
+      await setChannel(interaction, "farewell");
       break;
     case "channel disable":
-      await removeFarewellChannel(interaction);
+      await removeChannel(interaction, "farewell");
       break;
     case "message set-server":
-      await setFarewellMessage(interaction, "server");
+      await setMessage(interaction, "farewell", "server");
       break;
     case "message set-dm":
-      await setFarewellMessage(interaction, "dm");
+      await setMessage(interaction, "farewell", "dm");
       break;
     case "message remove-server":
-      await removeFarewellMessage(interaction, "server");
+      await removeMessage(interaction, "farewell", "server");
       break;
     case "message remove-dm":
-      await removeFarewellMessage(interaction, "dm");
+      await removeMessage(interaction, "farewell", "dm");
       break;
     case "message view-server":
-      await viewFarewellMessage(interaction, "server");
+      await viewMessage(interaction, "farewell", "server");
       break;
     case "message view-dm":
-      await viewFarewellMessage(interaction, "dm");
+      await viewMessage(interaction, "farewell", "dm");
       break;
     default:
       await interaction.reply({
