@@ -18,7 +18,7 @@ export default async function (
       await db.welcomer.removeFarewellChannel(guildId);
     }
 
-    await interaction.editReply({
+    await interaction.followUp({
       content: `${type} channel removed`,
     });
   } catch (error) {

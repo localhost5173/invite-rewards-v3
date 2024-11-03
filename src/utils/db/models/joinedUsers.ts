@@ -6,6 +6,7 @@ export interface JoinedUserDocument extends Document {
   inviterId: string;
   userId: string;
   isVerified: boolean;
+  isFake: boolean;
   history: {
     joinedAt: Date;
     leftAt: Date | null; // leftAt is null when the user hasn't left yet
@@ -18,6 +19,7 @@ const JoinedUserSchema: Schema = new Schema({
   inviterId: { type: String, required: true, index: true },
   userId: { type: String, required: true, index: true },
   isVerified: { type: Boolean, required: true, default: true },
+  isFake: { type: Boolean, required: true, default: false },
   history: [
     {
       joinedAt: { type: Date, required: true },

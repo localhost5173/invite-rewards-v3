@@ -4,10 +4,12 @@ import mongoose, { Schema, Document } from "mongoose";
 interface WelcomerServer {
   welcomeChannelId: string | null;
   welcomeMessage: string | null;
+  welcomeVanityMessage: string | null;
   welcomeEmbed: APIEmbed | null;
   farewellChannelId: string | null;
   farewellMessage: string | null;
   farewellEmbed: APIEmbed | null;
+  farewellVanityMessage: string | null;
 }
 
 interface WelcomerDM {
@@ -31,9 +33,11 @@ const WelcomerSchema: Schema = new Schema({
     welcomeChannelId: { type: String, default: null },
     welcomeMessage: { type: String, default: null },
     welcomeEmbed: { type: Object, default: null },
+    welcomeVanityMessage: { type: String, default: null },
     farewellChannelId: { type: String, default: null },
     farewellMessage: { type: String, default: null },
     farewellEmbed: { type: Object, default: null },
+    farewellVanityMessage: { type: String, default: null },
   },
   dm: {
     welcomeMessage: { type: String, default: null },
