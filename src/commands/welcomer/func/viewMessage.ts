@@ -11,6 +11,8 @@ export default async function (
   try {
     const guildId = interaction.guildId!;
 
+    await interaction.deferReply({ ephemeral: true });
+
     let message: string | null;
 
     if (type === "welcome") {
@@ -19,7 +21,7 @@ export default async function (
       message = await db.welcomer.getFarewellMessage(guildId, location);
     }
 
-    await interaction.reply({
+    await interaction.followUp({
       content: `${type} message for ${location}: ${message}`,
     });
   } catch (error) {

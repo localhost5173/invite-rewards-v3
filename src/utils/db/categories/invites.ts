@@ -133,6 +133,26 @@ class usedInvites {
 }
 
 class userInvites {
+  static async addFake(guildId: string, inviterId: string): Promise<void> {
+    try {
+      await UserInvitesModel.findOneAndUpdate(
+        {
+          guildId: guildId,
+          userId: inviterId,
+        },
+        {
+          $inc: { fake: 1 }, // Increment the fake invites count by 1
+        },
+        {
+          upsert: true, // Create the inviter's invite record if it doesn't exist
+          new: true,
+        }
+      );
+    } catch (error: unknown) {
+      cs.error("Error while adding a fake invite to a user: " + error);
+    }
+  }
+
   static async addReal(guildId: string, inviterId: string): Promise<void> {
     try {
       await UserInvitesModel.findOneAndUpdate(
@@ -279,7 +299,8 @@ class joinedUsers {
     guildId: string,
     inviterId: string,
     userId: string,
-    isVerified?: boolean | undefined
+    isVerified?: boolean | undefined,
+    isFake?: boolean | undefined
   ): Promise<void> {
     // Push a new join entry into the history array
     try {
@@ -289,6 +310,7 @@ class joinedUsers {
           userId: userId,
           inviterId: inviterId,
           isVerified: isVerified,
+          isFake: isFake,
         },
         {
           $push: {

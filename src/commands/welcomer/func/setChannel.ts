@@ -20,7 +20,7 @@ export default async function (
       await db.welcomer.setFarewellChannel(guildId, channelId);
     }
 
-    await interaction.reply({
+    await interaction.followUp({
       content: `${type} channel set to <#${channelId}>`,
       ephemeral: true,
     });

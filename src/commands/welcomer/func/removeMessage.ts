@@ -19,7 +19,7 @@ export default async function (
       await db.welcomer.removeFarewellMessage(guildId, location);
     }
 
-    await interaction.editReply({
+    await interaction.followUp({
       content: `${type} message removed for ${location}`,
     });
   } catch (error) {
