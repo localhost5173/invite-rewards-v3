@@ -1,4 +1,4 @@
-import { GuildMember, Invite, TextChannel } from "discord.js";
+import { GuildMember, Invite, TextChannel, EmbedBuilder, APIEmbed } from "discord.js";
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
 
@@ -119,8 +119,9 @@ async function sendWelcomeMessage(
       welcomeChannelId,
       welcomeMessage: serverWelcomeMessage,
       welcomeVanityMessage,
+      welcomeEmbed: serverWelcomeEmbed,
     } = server;
-    const { welcomeMessage: dmWelcomeMessage } = dm;
+    const { welcomeMessage: dmWelcomeMessage, welcomeEmbed: dmWelcomeEmbed } = dm;
 
     // Fetch inviter's invites
     const inviterInvites = inviter
@@ -135,13 +136,22 @@ async function sendWelcomeMessage(
 
       if (welcomeChannel && welcomeChannel.isTextBased()) {
         let welcomeMessage = serverWelcomeMessage;
+        const welcomeEmbed = serverWelcomeEmbed;
 
         // Use vanity welcome message if vanity is true and the message exists
         if (vanity && welcomeVanityMessage) {
           welcomeMessage = welcomeVanityMessage;
         }
 
-        if (welcomeMessage) {
+        if (welcomeEmbed) {
+          const finalWelcomeEmbed = replaceEmbedPlaceholders(
+            welcomeEmbed,
+            guildMember,
+            inviter,
+            inviterInvites
+          );
+          await sendServerWelcomeEmbed(welcomeChannel, finalWelcomeEmbed);
+        } else if (welcomeMessage) {
           const finalWelcomeMessage = replacePlaceholders(
             welcomeMessage,
             guildMember,
@@ -158,7 +168,15 @@ async function sendWelcomeMessage(
     }
 
     // Send welcome message to the user's DM if it exists
-    if (dmWelcomeMessage) {
+    if (dmWelcomeEmbed) {
+      const finalDmWelcomeEmbed = replaceEmbedPlaceholders(
+        dmWelcomeEmbed,
+        guildMember,
+        inviter,
+        inviterInvites
+      );
+      await sendDmWelcomeEmbed(guildMember, finalDmWelcomeEmbed);
+    } else if (dmWelcomeMessage) {
       const finalDmWelcomeMessage = replacePlaceholders(
         dmWelcomeMessage,
         guildMember,
@@ -204,6 +222,88 @@ function replacePlaceholders(
 }
 
 /**
+ * Replaces placeholders in the embed with actual values.
+ */
+function replaceEmbedPlaceholders(
+  embed: APIEmbed,
+  guildMember: GuildMember,
+  inviter: GuildMember | null,
+  inviterInvites:
+    | {
+        real: number;
+        bonus: number;
+        fake: number;
+        unverified: number;
+      }
+    | null
+    | undefined
+): EmbedBuilder {
+  const inviterCount =
+    (inviterInvites?.real ?? 0) + (inviterInvites?.bonus ?? 0);
+  const embedBuilder = new EmbedBuilder(embed);
+
+  if (embed.title) {
+    embedBuilder.setTitle(
+      embed.title
+        .replace("{mention-user}", `<@${guildMember.id}>`)
+        .replace("{username}", guildMember.user.username)
+        .replace("{user-tag}", guildMember.user.tag)
+        .replace("{server-name}", guildMember.guild.name)
+        .replace("{member-count}", guildMember.guild.memberCount.toString())
+        .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
+        .replace("{inviter-count}", inviterCount.toString() || "0")
+        .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
+        .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0")
+    );
+  }
+
+  if (embed.description) {
+    embedBuilder.setDescription(
+      embed.description
+        .replace("{mention-user}", `<@${guildMember.id}>`)
+        .replace("{username}", guildMember.user.username)
+        .replace("{user-tag}", guildMember.user.tag)
+        .replace("{server-name}", guildMember.guild.name)
+        .replace("{member-count}", guildMember.guild.memberCount.toString())
+        .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
+        .replace("{inviter-count}", inviterCount.toString() || "0")
+        .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
+        .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0")
+    );
+  }
+
+  if (embed.fields) {
+    embedBuilder.setFields(
+      embed.fields.map((field) => ({
+        name: field.name
+          .replace("{mention-user}", `<@${guildMember.id}>`)
+          .replace("{username}", guildMember.user.username)
+          .replace("{user-tag}", guildMember.user.tag)
+          .replace("{server-name}", guildMember.guild.name)
+          .replace("{member-count}", guildMember.guild.memberCount.toString())
+          .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
+          .replace("{inviter-count}", inviterCount.toString() || "0")
+          .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
+          .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0"),
+        value: field.value
+          .replace("{mention-user}", `<@${guildMember.id}>`)
+          .replace("{username}", guildMember.user.username)
+          .replace("{user-tag}", guildMember.user.tag)
+          .replace("{server-name}", guildMember.guild.name)
+          .replace("{member-count}", guildMember.guild.memberCount.toString())
+          .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
+          .replace("{inviter-count}", inviterCount.toString() || "0")
+          .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
+          .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0"),
+        inline: field.inline,
+      }))
+    );
+  }
+
+  return embedBuilder;
+}
+
+/**
  * Sends a welcome message to the user's DM.
  */
 async function sendDmWelcomeMessage(
@@ -217,6 +317,23 @@ async function sendDmWelcomeMessage(
   }
 }
 
+/**
+ * Sends a welcome embed to the user's DM.
+ */
+async function sendDmWelcomeEmbed(
+  guildMember: GuildMember,
+  dmWelcomeEmbed: EmbedBuilder
+) {
+  try {
+    await guildMember.send({ embeds: [dmWelcomeEmbed] });
+  } catch (error) {
+    cs.error(`Error while sending DM welcome embed: ${error}`);
+  }
+}
+
+/**
+ * Sends a welcome message to the server channel.
+ */
 async function sendServerWelcomeMessage(
   welcomeChannel: TextChannel,
   serverWelcomeMessage: string
@@ -225,5 +342,19 @@ async function sendServerWelcomeMessage(
     await welcomeChannel.send(serverWelcomeMessage);
   } catch (error) {
     cs.error(`Error while sending server welcome message: ${error}`);
+  }
+}
+
+/**
+ * Sends a welcome embed to the server channel.
+ */
+async function sendServerWelcomeEmbed(
+  welcomeChannel: TextChannel,
+  serverWelcomeEmbed: EmbedBuilder
+) {
+  try {
+    await welcomeChannel.send({ embeds: [serverWelcomeEmbed] });
+  } catch (error) {
+    cs.error(`Error while sending server welcome embed: ${error}`);
   }
 }

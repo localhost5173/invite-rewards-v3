@@ -13,6 +13,7 @@ import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { cs } from "../../utils/console/customConsole.js";
 
 export const data: CommandData = {
   name: "auto-roles",
@@ -79,7 +80,7 @@ export async function run({ interaction }: SlashCommandProps) {
         });
     }
   } catch (error: unknown) {
-    console.error(error);
+    cs.error("Error in auto-roles.ts: " + error);
 
     await Helpers.trySendCommandError(interaction);
   }

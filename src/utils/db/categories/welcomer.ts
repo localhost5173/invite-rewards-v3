@@ -11,6 +11,29 @@ export class welcomer {
     ).exec();
   }
 
+  static removeEmbed(
+    guildId: string,
+    type: "welcome" | "farewell",
+    location: "server" | "dm" | "vanity"
+  ) {
+    return WelcomerModel.findOneAndUpdate(
+      { guildId },
+      { [`${location}.${type}Embed`]: null }
+    ).exec();
+  }
+
+  static async getEmbed(
+    guildId: string,
+    type: "welcome" | "farewell",
+    location: "server" | "dm" | "vanity"
+  ): Promise<APIEmbed | null> {
+    const doc = await WelcomerModel.findOne({ guildId }).select(
+      `${location}.${type}Embed`
+    ).exec();
+
+    return doc ? doc[location][`${type}Embed`] : null;
+  }
+
   static async removeWelcomeChannel(guildId: string) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -52,7 +75,10 @@ export class welcomer {
     ).exec();
   }
 
-  static async removeWelcomeEmbed(guildId: string, location: "server" | "dm" | "vanity") {
+  static async removeWelcomeEmbed(
+    guildId: string,
+    location: "server" | "dm" | "vanity"
+  ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
       { [`${location}.welcomeEmbed`]: null }
@@ -118,7 +144,10 @@ export class welcomer {
     ).exec();
   }
 
-  static async getWelcomeMessage(guildId: string, location: "server" | "dm" | "vanity") {
+  static async getWelcomeMessage(
+    guildId: string,
+    location: "server" | "dm" | "vanity"
+  ) {
     const doc = await WelcomerModel.findOne({ guildId })
       .select(`${location}.welcomeMessage`)
       .exec();
@@ -126,7 +155,10 @@ export class welcomer {
     return doc ? doc[location].welcomeMessage : null;
   }
 
-  static async getFarewellMessage(guildId: string, location: "server" | "dm" | "vanity") {
+  static async getFarewellMessage(
+    guildId: string,
+    location: "server" | "dm" | "vanity"
+  ) {
     const doc = await WelcomerModel.findOne({ guildId })
       .select(`${location}.welcomeMessage`)
       .exec();
@@ -137,4 +169,4 @@ export class welcomer {
   static async getWelcomerSettings(guildId: string) {
     return await WelcomerModel.findOne({ guildId });
   }
-} 
+}

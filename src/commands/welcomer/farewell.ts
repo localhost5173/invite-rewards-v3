@@ -11,6 +11,8 @@ import setMessage from "./func/setMessage";
 import removeMessage from "./func/removeMessage";
 import viewMessage from "./func/viewMessage";
 import setEmbed from "./func/setEmbed";
+import removeEmbed from "./func/removeEmbed";
+import viewEmbed from "./func/viewEmbed";
 
 export const data: CommandData = {
   name: "farewell",
@@ -218,28 +220,28 @@ export async function run({ interaction }: SlashCommandProps) {
       await setEmbed(interaction, "farewell", "server");
       break;
     case "embed set-dm":
-      await setMessage(interaction, "farewell", "dm", true);
+      await setEmbed(interaction, "farewell", "dm");
       break;
     case "embed remove-server":
-      await removeMessage(interaction, "farewell", "server", true);
+      await removeEmbed(interaction, "farewell", "server");
       break;
     case "embed remove-dm":
-      await removeMessage(interaction, "farewell", "dm", true);
+      await removeEmbed(interaction, "farewell", "dm");
       break;
     case "embed view-server":
-      await viewMessage(interaction, "farewell", "server", true);
+      await viewEmbed(interaction, "farewell", "server");
       break;
     case "embed view-dm":
-      await viewMessage(interaction, "farewell", "dm", true);
+      await viewEmbed(interaction, "farewell", "dm");
       break;
     case "embed set-vanity":
-      await setMessage(interaction, "farewell", "vanity", true);
+      await setEmbed(interaction, "farewell", "vanity");
       break;
     case "embed remove-vanity":
-      await removeMessage(interaction, "farewell", "vanity", true);
+      await removeEmbed(interaction, "farewell", "vanity");
       break;
     case "embed view-vanity":
-      await viewMessage(interaction, "farewell", "vanity", true);
+      await viewEmbed(interaction, "farewell", "vanity");
       break;
     default:
       await interaction.reply({
