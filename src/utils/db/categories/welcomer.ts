@@ -21,7 +21,7 @@ export class welcomer {
   static async setWelcomeMessage(
     guildId: string,
     message: string,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -32,7 +32,7 @@ export class welcomer {
 
   static async removeWelcomeMessage(
     guildId: string,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -43,7 +43,7 @@ export class welcomer {
   static async setWelcomeEmbed(
     guildId: string,
     embed: EmbedBuilder,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -52,7 +52,7 @@ export class welcomer {
     ).exec();
   }
 
-  static async removeWelcomeEmbed(guildId: string, location: "server" | "dm") {
+  static async removeWelcomeEmbed(guildId: string, location: "server" | "dm" | "vanity") {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
       { [`${location}.welcomeEmbed`]: null }
@@ -77,7 +77,7 @@ export class welcomer {
   static async setFarewellMessage(
     guildId: string,
     message: string,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -88,7 +88,7 @@ export class welcomer {
 
   static async removeFarewellMessage(
     guildId: string,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -99,7 +99,7 @@ export class welcomer {
   static async setFarewellEmbed(
     guildId: string,
     embed: EmbedBuilder,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ) {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -110,7 +110,7 @@ export class welcomer {
 
   static async removeFarewellEmbed(
     guildId: string,
-    location: "server" | "dm"
+    location: "server" | "dm" | "vanity"
   ): Promise<void> {
     await WelcomerModel.findOneAndUpdate(
       { guildId },
@@ -118,7 +118,7 @@ export class welcomer {
     ).exec();
   }
 
-  static async getWelcomeMessage(guildId: string, location: "server" | "dm") {
+  static async getWelcomeMessage(guildId: string, location: "server" | "dm" | "vanity") {
     const doc = await WelcomerModel.findOne({ guildId })
       .select(`${location}.welcomeMessage`)
       .exec();
@@ -126,7 +126,7 @@ export class welcomer {
     return doc ? doc[location].welcomeMessage : null;
   }
 
-  static async getFarewellMessage(guildId: string, location: "server" | "dm") {
+  static async getFarewellMessage(guildId: string, location: "server" | "dm" | "vanity") {
     const doc = await WelcomerModel.findOne({ guildId })
       .select(`${location}.welcomeMessage`)
       .exec();

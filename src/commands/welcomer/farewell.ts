@@ -10,6 +10,7 @@ import removeChannel from "./func/removeChannel";
 import setMessage from "./func/setMessage";
 import removeMessage from "./func/removeMessage";
 import viewMessage from "./func/viewMessage";
+import setEmbed from "./func/setEmbed";
 
 export const data: CommandData = {
   name: "farewell",
@@ -91,6 +92,81 @@ export const data: CommandData = {
           description: "View the DM farewell message",
           type: ApplicationCommandOptionType.Subcommand,
         },
+        {
+          name: "set-vanity",
+          description: "Set the farewell message for vanity URLs",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "message",
+              description: "The message to send in a vanity URL",
+              type: ApplicationCommandOptionType.String,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "remove-vanity",
+          description: "Remove the vanity farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-vanity",
+          description: "View the vanity farewell message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+      ],
+    },
+    {
+      name: "embed",
+      description: "Configure the farewell message embed",
+      type: ApplicationCommandOptionType.SubcommandGroup,
+      options: [
+        {
+          name: "set-server",
+          description: "Set the farewell message embed for the server channel",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-server",
+          description: "Remove the server farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-server",
+          description: "View the server farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "set-dm",
+          description: "Set the farewell message embed for DMs",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-dm",
+          description: "Remove the DM farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-dm",
+          description: "View the DM farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "set-vanity",
+          description: "Set the farewell message embed for vanity URLs",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-vanity",
+          description: "Remove the vanity farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-vanity",
+          description: "View the vanity farewell message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
       ],
     },
   ],
@@ -128,6 +204,42 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     case "message view-dm":
       await viewMessage(interaction, "farewell", "dm");
+      break;
+    case "message set-vanity":
+      await setMessage(interaction, "farewell", "vanity");
+      break;
+    case "message remove-vanity":
+      await removeMessage(interaction, "farewell", "vanity");
+      break;
+    case "message view-vanity":
+      await viewMessage(interaction, "farewell", "vanity");
+      break;
+    case "embed set-server":
+      await setEmbed(interaction, "farewell", "server");
+      break;
+    case "embed set-dm":
+      await setMessage(interaction, "farewell", "dm", true);
+      break;
+    case "embed remove-server":
+      await removeMessage(interaction, "farewell", "server", true);
+      break;
+    case "embed remove-dm":
+      await removeMessage(interaction, "farewell", "dm", true);
+      break;
+    case "embed view-server":
+      await viewMessage(interaction, "farewell", "server", true);
+      break;
+    case "embed view-dm":
+      await viewMessage(interaction, "farewell", "dm", true);
+      break;
+    case "embed set-vanity":
+      await setMessage(interaction, "farewell", "vanity", true);
+      break;
+    case "embed remove-vanity":
+      await removeMessage(interaction, "farewell", "vanity", true);
+      break;
+    case "embed view-vanity":
+      await viewMessage(interaction, "farewell", "vanity", true);
       break;
     default:
       await interaction.reply({
