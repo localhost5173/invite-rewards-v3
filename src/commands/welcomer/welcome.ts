@@ -91,6 +91,29 @@ export const data: CommandData = {
           description: "View the DM welcome message",
           type: ApplicationCommandOptionType.Subcommand,
         },
+        {
+          name: "set-vanity",
+          description: "Set the vanity welcome message",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "message",
+              description: "The vanity message to send in the server channel",
+              type: ApplicationCommandOptionType.String,
+              required: true,
+            },
+          ],
+        },
+        {
+          name: "remove-vanity",
+          description: "Remove the vanity welcome message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-vanity",
+          description: "View the vanity welcome message",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
       ],
     },
   ],
@@ -128,6 +151,15 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     case "message view-dm":
       await viewMessage(interaction, "welcome", "dm");
+      break;
+    case "message set-vanity":
+      await setMessage(interaction, "welcome", "vanity");
+      break;
+    case "message remove-vanity":
+      await removeMessage(interaction, "welcome", "vanity");
+      break;
+    case "message view-vanity":
+      await viewMessage(interaction, "welcome", "vanity");
       break;
     default:
       await interaction.reply({

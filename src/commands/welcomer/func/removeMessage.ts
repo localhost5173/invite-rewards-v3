@@ -6,7 +6,7 @@ import { Helpers } from "../../../utils/helpers/helpers";
 export default async function (
   interaction: ChatInputCommandInteraction,
   type: "welcome" | "farewell",
-  location: "server" | "dm"
+  location: "server" | "dm" | "vanity"
 ) {
   const guildId = interaction.guildId!;
 

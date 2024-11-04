@@ -19,11 +19,19 @@ interface WelcomerDM {
   farewellEmbed: APIEmbed | null;
 }
 
+interface WelcomerVanity {
+  welcomeMessage: string | null;
+  welcomeEmbed: APIEmbed | null;
+  farewellMessage: string | null;
+  farewellEmbed: APIEmbed | null;
+}
+
 // Define the structure of the document
 export interface WelcomerDocument extends Document {
   guildId: string;
   server: WelcomerServer;
   dm: WelcomerDM;
+  vanity: WelcomerVanity;
 }
 
 // Create the schema
@@ -45,6 +53,12 @@ const WelcomerSchema: Schema = new Schema({
     farewellMessage: { type: String, default: null },
     farewellEmbed: { type: Object, default: null },
   },
+  vanity: {
+    welcomeMessage: { type: String, default: null },
+    welcomeEmbed: { type: Object, default: null },
+    farewellMessage: { type: String, default: null },
+    farewellEmbed: { type: Object, default: null },
+  }
 });
 
 // Method to convert APIEmbed back to EmbedBuilder when fetching data
