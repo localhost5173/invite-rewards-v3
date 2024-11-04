@@ -16,7 +16,6 @@ export class system {
     const language = await db.languages.getLanguage(guildId);
 
     const languageData = await import(`../../languages/${language}.json`);
-    console.log(languageData);
     return new EmbedBuilder()
       .setTitle(languageData.general.errorWhileExecutingCommand.title)
       .setDescription(

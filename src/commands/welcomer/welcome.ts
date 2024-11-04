@@ -10,6 +10,9 @@ import removeChannel from "./func/removeChannel.js";
 import setMessage from "./func/setMessage.js";
 import removeMessage from "./func/removeMessage.js";
 import viewMessage from "./func/viewMessage.js";
+import setEmbed from "./func/setEmbed.js";
+import removeEmbed from "./func/removeEmbed.js";
+import viewEmbed from "./func/viewEmbed.js";
 
 export const data: CommandData = {
   name: "welcome",
@@ -116,6 +119,58 @@ export const data: CommandData = {
         },
       ],
     },
+    {
+      name: "embed",
+      description: "Configure the welcome message embed",
+      type: ApplicationCommandOptionType.SubcommandGroup,
+      options: [
+        {
+          name: "set-server",
+          description: "Set the welcome message embed for the server channel",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-server",
+          description: "Remove the server welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-server",
+          description: "View the server welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "set-dm",
+          description: "Set the welcome message embed for DMs",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-dm",
+          description: "Remove the DM welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-dm",
+          description: "View the DM welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "set-vanity",
+          description: "Set the welcome message embed for vanity URLs",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "remove-vanity",
+          description: "Remove the vanity welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+        {
+          name: "view-vanity",
+          description: "View the vanity welcome message embed",
+          type: ApplicationCommandOptionType.Subcommand,
+        },
+      ],
+    },
   ],
 };
 
@@ -160,6 +215,33 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     case "message view-vanity":
       await viewMessage(interaction, "welcome", "vanity");
+      break;
+    case "embed set-server":
+      await setEmbed(interaction, "welcome", "server");
+      break;
+    case "embed set-dm":
+      await setEmbed(interaction, "welcome", "dm");
+      break;
+    case "embed remove-server":
+      await removeEmbed(interaction, "welcome", "server");
+      break;
+    case "embed remove-dm":
+      await removeEmbed(interaction, "welcome", "dm");
+      break;
+    case "embed view-server":
+      await viewEmbed(interaction, "welcome", "server");
+      break;
+    case "embed view-dm":
+      await viewEmbed(interaction, "welcome", "dm");
+      break;
+    case "embed set-vanity":
+      await setEmbed(interaction, "welcome", "vanity");
+      break;
+    case "embed remove-vanity":
+      await removeEmbed(interaction, "welcome", "vanity");
+      break;
+    case "embed view-vanity":
+      await viewEmbed(interaction, "welcome", "vanity");
       break;
     default:
       await interaction.reply({

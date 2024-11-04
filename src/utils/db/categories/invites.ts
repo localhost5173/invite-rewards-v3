@@ -1,6 +1,6 @@
 import { cs } from "../../console/customConsole";
 import InviteEntryModel from "../models/inviteEntries";
-import JoinedUserModel from "../models/joinedUsers";
+import JoinedUserModel, { JoinedUserDocument } from "../models/joinedUsers";
 import UsedInviteModel from "../models/usedInvites";
 import UserInvitesModel from "../models/userInvites";
 
@@ -412,6 +412,22 @@ class joinedUsers {
     }
 
     return [];
+  }
+
+  static async getJoinedUser(
+    guildId: string,
+    userId: string
+  ): Promise<JoinedUserDocument | null> {
+    const joinedUser = await JoinedUserModel.findOne({
+      guildId: guildId,
+      userId: userId,
+    });
+
+    if (joinedUser) {
+      return joinedUser;
+    }
+
+    return null;
   }
 }
 
