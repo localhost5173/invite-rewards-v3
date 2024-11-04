@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { APIEmbed, EmbedBuilder } from "discord.js";
 import WelcomerModel from "../models/welcomer";
 
 export class welcomer {
@@ -137,4 +137,4 @@ export class welcomer {
   static async getWelcomerSettings(guildId: string) {
     return await WelcomerModel.findOne({ guildId });
   }
-}
+} 
