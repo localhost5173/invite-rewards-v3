@@ -15,6 +15,14 @@
     "botNotFound": {
       "title": "Bot Not Found",
       "description": "I couldn't find myself in the server."
+    },
+    "invalidJson": {
+      "title": "Invalid JSON",
+      "description": "The JSON you provided is invalid."
+    },
+    "embedTooLong": {
+      "title": "Embed Too Long",
+      "description": "The embed you provided is too long. Please shorten it and try again."
     }
   },
   "language": {
