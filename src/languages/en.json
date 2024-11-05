@@ -249,6 +249,10 @@
       },
       "pin": {},
       "all": {
+        "fakeUser": {
+          "title": "Fake User",
+          "description": "You are flagged as a fake user and cannot be verified."
+        },
         "verificationDisabled": {
           "title": "Verification Disabled",
           "description": "Verification is disabled in this server."
@@ -288,6 +292,182 @@
         "timeout": {
           "title": "Timeout",
           "description": "You took too long to answer. Please try again."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "Welcome Channel Removed",
+          "description": "The welcome channel has been removed."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "Farewell Channel Removed",
+          "description": "The farewell channel has been removed."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The welcome embed for the server has been removed."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The welcome embed for DMs has been removed."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The welcome embed for vanity URLs has been removed."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The farewell embed for the server has been removed."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The farewell embed for DMs has been removed."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Embed Removed",
+            "description": "The farewell embed for vanity URLs has been removed."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The welcome message for the server has been removed."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The welcome message for DMs has been removed."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The welcome message for vanity URLs has been removed."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The farewell message for the server has been removed."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The farewell message for DMs has been removed."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Message Removed",
+            "description": "The farewell message for vanity URLs has been removed."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "Embed Set",
+        "description": "The embed has been set."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Welcome Message Set",
+            "description": "The welcome message for the server has been set to \n{message}."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Welcome Message Set",
+            "description": "The welcome message for DMs has been set to \n{message}."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Welcome Message Set",
+            "description": "The welcome message for vanity URLs has been set to \n{message}."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Farewell Message Set",
+            "description": "The farewell message for the server has been set to \n{message}."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Farewell Message Set",
+            "description": "The farewell message for DMs has been set to \n{message}."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Farewell Message Set",
+            "description": "The farewell message for vanity URLs has been set to \n{message}."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "No Embed Set",
+        "description": "No embed has been set."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "No Message Set",
+        "description": "No message has been set."
+      },
+      "success": {
+        "title": "Message",
+        "description": "{message}"
+      }
+    }
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Set the embed",
+        "jsonField": {
+          "title": "JSON of the embed",
+          "label": "JSON of the embed",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
         }
       }
     }

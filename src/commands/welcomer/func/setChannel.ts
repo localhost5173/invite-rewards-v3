@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction } from "discord.js";
+import { ChannelType, ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
 import { Helpers } from "../../../utils/helpers/helpers";
@@ -13,6 +13,15 @@ export default async function (
     const channelId = channel.id;
 
     await interaction.deferReply({ ephemeral: true });
+
+    if (channel.type !== ChannelType.GuildText) {
+      await interaction.followUp({
+        content: "Channel must be a text channel",
+        ephemeral: true,
+      });
+
+      return;
+    }
 
     if (type === "welcome") {
       await db.welcomer.setWelcomeChannel(guildId, channelId);

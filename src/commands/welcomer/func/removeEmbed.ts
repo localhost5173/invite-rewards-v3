@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
 import { Helpers } from "../../../utils/helpers/helpers";
+import { Embeds } from "../../../utils/embeds/embeds";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -11,12 +12,17 @@ export default async function (
   const guildId = interaction.guildId!;
 
   try {
-    cs.dev(`Setting embed for ${location} ${type} message`);
+    await interaction.deferReply({ ephemeral: true });
+    cs.dev(`Removing embed for ${location} ${type}`);
     await db.welcomer.removeEmbed(guildId, type, location);
 
-    await interaction.reply({
-      content: `The embed for the ${location} ${type} message has been removed.`,
-      ephemeral: true,
+    await interaction.followUp({
+      embeds: [
+        await Embeds.createEmbed(
+          guildId,
+          `welcomer.removeEmbed.${type}.${location}.success`
+        ),
+      ],
     });
   } catch (error) {
     cs.error("Error removing embed: " + error);

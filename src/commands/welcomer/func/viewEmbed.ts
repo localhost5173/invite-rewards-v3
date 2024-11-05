@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction, EmbedBuilder } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
 import { Helpers } from "../../../utils/helpers/helpers";
+import { Embeds } from "../../../utils/embeds/embeds";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -15,7 +16,12 @@ export default async function (
 
     if (!apiEmbed) {
       await interaction.reply({
-        content: `No embed set for the ${location} ${type} message.`,
+        embeds: [
+          await Embeds.createEmbed(
+            guildId,
+            `welcomer.viewEmbed.noEmbed`
+          )
+        ],
         ephemeral: true,
       });
 

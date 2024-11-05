@@ -3,7 +3,6 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   EmbedField,
-  ModalBuilder,
   TextInputBuilder,
   TextInputStyle,
 } from "discord.js";
@@ -20,18 +19,16 @@ export default async function (
   const guildId = interaction.guildId!;
 
   try {
-    const modal = new ModalBuilder()
-      .setTitle("Set Embed")
-      .setCustomId("setEmbed");
+    const modal = await Embeds.createModal(guildId, "modals.welcomer.setEmbed");
+    modal.setCustomId("setEmbed");
 
-    const jsonField = new TextInputBuilder()
-      .setCustomId("setEmbedJsonField")
-      .setLabel("JSON of the embed")
-      .setStyle(TextInputStyle.Paragraph)
-      .setRequired(true)
-      .setPlaceholder(
-        '```json\n{\n  "title": "Welcome to the server!",\n  "description": "We hope you enjoy your stay!"```'
-      );
+    const jsonField = await Embeds.createTextField(
+      guildId,
+      "modals.welcomer.setEmbed.jsonField"
+    );
+    jsonField.setCustomId("setEmbedJsonField");
+    jsonField.setRequired(true);
+    jsonField.setStyle(TextInputStyle.Paragraph);
 
     modal.addComponents(
       new ActionRowBuilder<TextInputBuilder>().addComponents(jsonField)
@@ -110,7 +107,7 @@ export default async function (
     }
 
     await modalInteraction.followUp({
-      content: `Successfully set the ${type} embed!`,
+      embeds: [await Embeds.createEmbed(guildId, "welcomer.setEmbed.success")],
       ephemeral: true,
     });
   } catch (error) {

@@ -27,9 +27,9 @@ export class welcomer {
     type: "welcome" | "farewell",
     location: "server" | "dm" | "vanity"
   ): Promise<APIEmbed | null> {
-    const doc = await WelcomerModel.findOne({ guildId }).select(
-      `${location}.${type}Embed`
-    ).exec();
+    const doc = await WelcomerModel.findOne({ guildId })
+      .select(`${location}.${type}Embed`)
+      .exec();
 
     return doc ? doc[location][`${type}Embed`] : null;
   }
@@ -160,9 +160,10 @@ export class welcomer {
     location: "server" | "dm" | "vanity"
   ) {
     const doc = await WelcomerModel.findOne({ guildId })
-      .select(`${location}.welcomeMessage`)
+      .select(location + ".farewellMessage")
       .exec();
 
+    console.log(doc);
     return doc ? doc[location].farewellMessage : null;
   }
 

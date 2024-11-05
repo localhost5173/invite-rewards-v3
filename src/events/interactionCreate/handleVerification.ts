@@ -37,6 +37,24 @@ export default async function (interaction: Interaction) {
       interaction.guild.id
     );
 
+    const isFakeUser = await db.invites.joinedUsers.isFakeUser(
+      interaction.guild.id,
+      interaction.user.id
+    );
+
+    if (isFakeUser) {
+      await interaction.reply({
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guild.id,
+            "verification.event.all.fakeUser"
+          ),
+        ],
+        ephemeral: true,
+      });
+      return;
+    }
+
     if (!verificationObject || !verificationObject.enabled) {
       await interaction.reply({
         embeds: [
@@ -243,7 +261,6 @@ async function handleQuestionVerification(
   activeCollectors.set(interaction.user.id, collector);
 
   collector.on("collect", async (modalInteraction) => {
-
     const userAnswer = modalInteraction.fields.getTextInputValue(
       "verification-question"
     );
@@ -378,7 +395,10 @@ async function handlePinVerification(
         cs.dev("Inviter: " + inviterId);
         if (inviterId) {
           await db.invites.joinedUsers.setVerified(guildId, userId, true);
-          await db.invites.userInvites.swapUnverifiedForReal(guildId, inviterId);
+          await db.invites.userInvites.swapUnverifiedForReal(
+            guildId,
+            inviterId
+          );
         } else {
           cs.dev("Inviter not found while verifying user");
         }
@@ -410,7 +430,9 @@ async function handlePinVerification(
     // Check if the collector ended due to timeout
     if (reason === "time" && userInput.length < 4) {
       await interaction.followUp({
-        embeds: [await Embeds.createEmbed(guildId, "verification.event.all.timeout")],
+        embeds: [
+          await Embeds.createEmbed(guildId, "verification.event.all.timeout"),
+        ],
         ephemeral: true,
       });
     }

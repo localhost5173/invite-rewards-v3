@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
 import { Helpers } from "../../../utils/helpers/helpers";
+import { Embeds } from "../../../utils/embeds/embeds";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -21,9 +22,25 @@ export default async function (
       message = await db.welcomer.getFarewellMessage(guildId, location);
     }
 
-    await interaction.followUp({
-      content: `${type} message for ${location}: ${message}`,
-    });
+    if (!message) {
+      return await interaction.followUp({
+        embeds: [
+          await Embeds.createEmbed(guildId, `welcomer.viewMessage.noMessage`),
+        ],
+      });
+    } else {
+      await interaction.followUp({
+        embeds: [
+          await Embeds.createEmbed(
+            guildId,
+            "welcomer.viewMessage.success",
+            {
+              message: message || "No message set",
+            }
+          ),
+        ],
+      });
+    }
   } catch (error) {
     cs.error(`Error while viewing ${type} message: ` + error);
 
