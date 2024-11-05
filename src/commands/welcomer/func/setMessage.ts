@@ -1,7 +1,8 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
-import { Helpers } from "../../../utils/helpers/helpers";
+import { Helpers } from "../../../utils/helpers/helpers";  
+import { Embeds } from "../../../utils/embeds/embeds";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -22,6 +23,15 @@ export default async function (
 
     await interaction.followUp({
       content: `${location} ${type} message set to: ${message}`,
+      embeds: [
+        await Embeds.createEmbed(
+          guildId,
+          `welcomer.setMessage.${type}.${location}.success`,
+          {
+            message,
+          }
+        ),
+      ],
     });
   } catch (error) {
     cs.error(`Error while setting ${type} message: ` + error);

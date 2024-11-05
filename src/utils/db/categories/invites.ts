@@ -153,6 +153,22 @@ class userInvites {
     }
   }
 
+  static async decrementFake(guildId: string, inviterId: string): Promise<void> {
+    try {
+      await UserInvitesModel.findOneAndUpdate(
+        {
+          guildId: guildId,
+          userId: inviterId,
+        },
+        {
+          $inc: { fake: -1 }, // Decrement the fake invites count by 1
+        }
+      );
+    } catch (error: unknown) {
+      cs.error("Error while decrementing a fake invite from a user: " + error);
+    }
+  }
+
   static async addReal(guildId: string, inviterId: string): Promise<void> {
     try {
       await UserInvitesModel.findOneAndUpdate(
@@ -325,6 +341,14 @@ class joinedUsers {
     } catch (error: unknown) {
       cs.error("error while adding a joined user entry: " + error);
     }
+  }
+
+  static async isFakeUser(guildId: string, userId: string): Promise<boolean> {
+    const joinedUser = await JoinedUserModel.findOne({
+      guildId: guildId,
+      userId: userId,
+    });
+    return joinedUser?.isFake ?? false;
   }
 
   static async isUserVerified(

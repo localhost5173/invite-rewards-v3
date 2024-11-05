@@ -43,6 +43,17 @@
         "description": "Se eliminaron {amount} invitaciones de bonificación de {user}. Ahora tienen {total} invitaciones en total."
       }
     }
-    
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Establecer el embed",
+        "jsonField": {
+          "title": "JSON del embed",
+          "label": "JSON del embed",
+          "placeholder": "{\"title\": \"¡Bienvenido!\", \"description\": \"¡Bienvenido al servidor!\"}"
+        }
+      }
+    }
   }
 }

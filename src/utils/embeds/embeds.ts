@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, ModalBuilder, TextInputBuilder } from "discord.js";
 import { system } from "./system";
 import { autoRoles } from "./autoRoles";
 import { languages } from "./languages";
@@ -81,6 +81,60 @@ export class Embeds {
     }
 
     return embed;
+  }
+
+  static async createModal(guildId: string, modalPath: string) {
+    const language = await db.languages.getLanguage(guildId);
+    const languageData = await import(`../../languages/${language}.json`);
+
+    // Split the modalPath into its components
+    const pathComponents = modalPath.split(".");
+
+    // Dynamically access the nested properties
+    let data = languageData;
+    for (const component of pathComponents) {
+      if (data[component] !== undefined) {
+        data = data[component];
+      } else {
+        throw new Error(
+          `Path component "${component}" not found in language data.`
+        );
+      }
+    }
+
+    const modal = new ModalBuilder();
+    
+    if (data.title) modal.setTitle(data.title);
+
+    return modal;
+  }
+
+  static async createTextField(guildId: string, modalFieldPath: string) {
+    const language = await db.languages.getLanguage(guildId);
+    const languageData = await import(`../../languages/${language}.json`);
+
+    // Split the modalFieldPath into its components
+    const pathComponents = modalFieldPath.split(".");
+
+    // Dynamically access the nested properties
+    let data = languageData;
+    for (const component of pathComponents) {
+      if (data[component] !== undefined) {
+        data = data[component];
+      } else {
+        throw new Error(
+          `Path component "${component}" not found in language data.`
+        );
+      }
+    }
+
+    const field = new TextInputBuilder()
+
+    if (data.label) field.setLabel(data.label);
+    if (data.placeholder) field.setPlaceholder(data.placeholder);
+    if (data.value) field.setValue(data.value);
+
+    return field;
   }
 
   static system = system;
