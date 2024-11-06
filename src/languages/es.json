@@ -54,6 +54,11 @@
           "placeholder": "{\"title\": \"¡Bienvenido!\", \"description\": \"¡Bienvenido al servidor!\"}"
         }
       }
+    },
+    "verification": {
+      "question": {
+        "title": "Verificatione"
+      }
     }
   }
 }

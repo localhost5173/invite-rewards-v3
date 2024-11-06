@@ -470,6 +470,11 @@
           "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
         }
       }
+    },
+    "verification": {
+      "question": {
+        "title": "Verification"
+      }
     }
   }
 }

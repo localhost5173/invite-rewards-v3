@@ -6,7 +6,6 @@ import {
   GuildMemberRoleManager,
   Interaction,
   InteractionCollector,
-  ModalBuilder,
   ModalSubmitInteraction,
   TextInputBuilder,
   TextInputStyle,
@@ -238,7 +237,7 @@ async function handleQuestionVerification(
   }
 
   // Show the question in a modal
-  const modal = questionVerificationModal(question);
+  const modal = await questionVerificationModal(question, guildId);
   await interaction.showModal(modal);
 
   // Create a collector to listen for user input
@@ -384,7 +383,7 @@ async function handlePinVerification(
 
     // If the user input is 4 digits long, check if it matches the PIN
     if (userInput.length >= 4) {
-      // If the PIN is correct, add the role to the user
+      // If the PIN is correct, add the role to the userf
       if (userInput === `${pin}`) {
         // Get the inviter of the user and swap the unverified invite for a real one
         const inviterId = await db.invites.joinedUsers.getInviterOfUser(
@@ -440,10 +439,9 @@ async function handlePinVerification(
 }
 
 // Helper for question-based modal
-function questionVerificationModal(question: string) {
-  const modal = new ModalBuilder()
-    .setCustomId("verification-modal")
-    .setTitle("Verification");
+async function questionVerificationModal(question: string, guildId: string) {
+  const modal = await Embeds.createModal(guildId, "modals.verification.question");
+  modal.setCustomId("verification-modal");
 
   const questionInput = new TextInputBuilder()
     .setCustomId("verification-question")
