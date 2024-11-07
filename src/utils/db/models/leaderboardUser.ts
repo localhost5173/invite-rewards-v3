@@ -13,7 +13,7 @@ const LeaderboardUserSchema: Schema = new Schema({
   guildId: { type: String, required: true, unique: true, index: true },
   userId: { type: String, required: true, unique: true, index: true },
   rank: { type: Number, required: true, default: 0 },
-  invites: { type: Number, required: true, default: 0 }, 
+  invites: { type: Number, required: true, default: 0 },
 });
 
 // Create the model
