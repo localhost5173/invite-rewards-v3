@@ -3,6 +3,7 @@ import { cs } from "../../../utils/console/customConsole";
 import { db } from "../../../utils/db/db";
 import { Helpers } from "../../../utils/helpers/helpers";
 import { Embeds } from "../../../utils/embeds/embeds";
+import { Leaderboards } from "../../../utils/leaderboards/Leaderboards";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -16,6 +17,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       user.id,
       -count
     );
+    await Leaderboards.updateLeaderboards(interaction.guildId!, user.id);
 
     const invites = await db.invites.userInvites.getRealAndBonusInvites(
       interaction.guildId!,
