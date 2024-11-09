@@ -19,6 +19,7 @@
     "@types/color-string": "^1.5.5",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.7.6",
+    "@types/node-cron": "^3.0.11",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.10.0",
     "eslint": "^9.12.0",
@@ -37,6 +38,7 @@
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
     "mongoose": "^8.7.2",
+    "node-cron": "^3.0.3",
     "topgg-autoposter": "^2.0.2"
   }
 }
