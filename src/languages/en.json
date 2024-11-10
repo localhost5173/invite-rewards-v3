@@ -296,6 +296,83 @@
       }
     }
   },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Leaderboard",
+        "description": "The leaderboard for this server is:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "No Data",
+        "description": "The leaderboard is empty."
+      }
+    },
+    "smart": {
+      "daily": {
+        "title": "Smart Daily Leaderboard",
+        "description": "The daily leaderboard for this server is:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Smart Weekly Leaderboard",
+        "description": "The weekly leaderboard for this server is:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Smart Monthly Leaderboard",
+        "description": "The monthly leaderboard for this server is:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Smart All Time Leaderboard",
+        "description": "The all time leaderboard for this server is:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "Max Leaderboards",
+        "description": "You have reached the maximum number of smart leaderboards. Please remove a leaderboard before adding a new one."
+      }
+    },
+    "update": {
+      "invitesTranslation": "invites"
+    }
+  },
   "welcomer": {
     "removeChannel": {
       "welcome": {

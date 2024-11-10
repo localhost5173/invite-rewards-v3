@@ -1,5 +1,6 @@
 import LeaderboardResetModel from "../models/leaderboardReset";
 import LeaderboardUserModel from "../models/leaderboardUsers";
+import SmartLeaderboardModel from "../models/smartLeaderboardModel";
 
 export class leaderboards {
   static async getTopEntries(
@@ -54,7 +55,7 @@ export class leaderboards {
     userId: string,
     leaderboardType: "daily" | "weekly" | "monthly" | "alltime"
   ) {
-    await LeaderboardUserModel.deleteOne({ guildId, userId, leaderboardType });
+    await LeaderboardUserModel.deleteMany({ guildId, userId, leaderboardType });
   }
 
   static async resetTimedLeaderboard(
@@ -79,5 +80,73 @@ export class leaderboards {
     const reset = await LeaderboardResetModel.findOne({ leaderboardType });
 
     return reset?.lastReset;
+  }
+
+  static async saveSmart(
+    guildId: string,
+    channelId: string,
+    messageId: string,
+    leaderboardType: "daily" | "weekly" | "monthly" | "alltime"
+  ) {
+    const doc = new SmartLeaderboardModel({
+      guildId,
+      channelId,
+      messageId,
+      leaderboardType,
+    });
+
+    await doc.save();
+  }
+
+  static async getSmart(guildId: string) {
+    return SmartLeaderboardModel.find({ guildId });
+  }
+
+  static async getSmartByType(
+    guildId: string,
+    leaderboardType: "daily" | "weekly" | "monthly" | "alltime"
+  ) {
+    return SmartLeaderboardModel.find({ guildId, leaderboardType });
+  }
+
+  static async deleteSmart(
+    guildId: string,
+    channelId: string,
+    messageId: string
+  ) {
+    await SmartLeaderboardModel.deleteOne({ guildId, channelId, messageId });
+  }
+
+  static async deleteNegative(
+    guildId: string,
+    leaderboardType: "daily" | "weekly" | "monthly" | "alltime"
+  ) {
+    await LeaderboardUserModel.deleteMany({
+      guildId,
+      inviteCount: { $lt: 1 },
+      leaderboardType,
+    });
+  }
+
+  static async isSmartLeaderboardMessage(
+    guildId: string,
+    channelId: string,
+    messageId: string
+  ): Promise<boolean> {
+    const count = await SmartLeaderboardModel.countDocuments({
+      guildId,
+      channelId,
+      messageId,
+    });
+
+    return count > 0;
+  }
+
+  static async deleteSmartByChannelId(guildId: string, channelId: string) {
+    await SmartLeaderboardModel.deleteMany({ guildId, channelId });
+  }
+
+  static async getSmartLeaderboards(guildId: string) {
+    return SmartLeaderboardModel.find({ guildId });
   }
 }

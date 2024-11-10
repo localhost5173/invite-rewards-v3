@@ -1,5 +1,8 @@
 import dotenv from "dotenv";
-import { Client, GatewayIntentBits } from "discord.js";
+import {
+  Client,
+  GatewayIntentBits,
+} from "discord.js";
 import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -17,6 +20,7 @@ export const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildMessages,
   ],
 });
 
