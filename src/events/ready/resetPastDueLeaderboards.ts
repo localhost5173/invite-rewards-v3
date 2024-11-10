@@ -14,6 +14,7 @@ export default async function () {
 
     if (!lastReset) {
       cs.dev(`No last reset found for ${leaderboardType} leaderboard.`);
+      await db.leaderboards.setLastLeaderboardReset(leaderboardType);
       continue;
     }
 

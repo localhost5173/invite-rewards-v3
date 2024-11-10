@@ -4,7 +4,8 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import getLeaderboard from "./get";
+import viewLeaderboard from "./view.js";
+import createSmart from "./createSmart.js";
 
 export const data: CommandData = {
   name: "leaderboard",
@@ -68,20 +69,37 @@ export const data: CommandData = {
 export async function run({ interaction }: SlashCommandProps) {
   if (!interaction.guild) return;
 
-  const subcommand = interaction.options.getSubcommand();
+  let subcommand = interaction.options.getSubcommand();
+  const smart = interaction.options.getBoolean("smart", false);
+
+  if (smart) {
+    subcommand += "-smart";
+  }
 
   switch (subcommand) {
     case "daily":
-      await getLeaderboard(interaction, "daily");
+      await viewLeaderboard(interaction, "daily");
       break;
     case "weekly":
-      await getLeaderboard(interaction, "weekly");
+      await viewLeaderboard(interaction, "weekly");
       break;
     case "monthly":
-      await getLeaderboard(interaction, "monthly");
+      await viewLeaderboard(interaction, "monthly");
       break;
     case "all-time":
-      await getLeaderboard(interaction, "alltime");
+      await viewLeaderboard(interaction, "alltime");
+      break;
+    case "daily-smart":
+      await createSmart(interaction, "daily");
+      break;
+    case "weekly-smart":
+      await createSmart(interaction, "weekly");
+      break;
+    case "monthly-smart":
+      await createSmart(interaction, "monthly");
+      break;
+    case "all-time-smart":
+      await createSmart(interaction, "alltime");
       break;
     default:
       return;

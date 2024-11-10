@@ -44,6 +44,79 @@
       }
     }
   },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Tabla de Clasificación",
+        "description": "La tabla de clasificación de este servidor es:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "Sin Datos",
+        "description": "La tabla de clasificación está vacía."
+      }
+    },
+    "smart": {
+      "daily": {
+        "title": "Tabla de Clasificación Diaria",
+        "description": "La tabla de clasificación diaria de este servidor es:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Tabla de Clasificación Semanal",
+        "description": "La tabla de clasificación semanal de este servidor es:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Tabla de Clasificación Mensual",
+        "description": "La tabla de clasificación mensual de este servidor es:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Tabla de Clasificación de Todos los Tiempos",
+        "description": "La tabla de clasificación de todos los tiempos de este servidor es:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      }
+    },
+    "update": {
+      "invitesTranslation": "invitaciones"
+    }
+  },
   "modals": {
     "welcomer": {
       "setEmbed": {
