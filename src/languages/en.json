@@ -316,6 +316,10 @@
       }
     },
     "smart": {
+      "success": {
+        "title": "Smart Leaderboard Created",
+        "description": "The smart leaderboard has been created."
+      },
       "daily": {
         "title": "Smart Daily Leaderboard",
         "description": "The daily leaderboard for this server is:",
@@ -370,7 +374,8 @@
       }
     },
     "update": {
-      "invitesTranslation": "invites"
+      "invitesTranslation": "invites",
+      "noEntries": "The leaderboard is empty."
     }
   },
   "welcomer": {

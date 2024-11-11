@@ -7,25 +7,63 @@ import { Embeds } from "../embeds/embeds";
 export class Leaderboards {
   static async updateLeaderboards(guildId: string, userId: string) {
     try {
-      const newInviteCount =
-        await db.invites.userInvites.getRealAndBonusInvites(guildId, userId);
+      const newAllTimeInviteCount =
+        await db.invites.userInvites.getRealAndBonusInvites(
+          guildId,
+          userId,
+          "alltime"
+        );
+      const newDailyInviteCount =
+        await db.invites.userInvites.getRealAndBonusInvites(
+          guildId,
+          userId,
+          "daily"
+        );
+      const newWeeklyInviteCount =
+        await db.invites.userInvites.getRealAndBonusInvites(
+          guildId,
+          userId,
+          "weekly"
+        );
+      const newMonthlyInviteCount =
+        await db.invites.userInvites.getRealAndBonusInvites(
+          guildId,
+          userId,
+          "monthly"
+        );
 
       // Track if any leaderboard type has changed
       let top10Changed = false;
 
       // Update each leaderboard type
       top10Changed =
-        (await updateLeaderboard(guildId, userId, newInviteCount, "daily")) ||
-        top10Changed;
+        (await updateLeaderboard(
+          guildId,
+          userId,
+          newDailyInviteCount,
+          "daily"
+        )) || top10Changed;
       top10Changed =
-        (await updateLeaderboard(guildId, userId, newInviteCount, "weekly")) ||
-        top10Changed;
+        (await updateLeaderboard(
+          guildId,
+          userId,
+          newWeeklyInviteCount,
+          "weekly"
+        )) || top10Changed;
       top10Changed =
-        (await updateLeaderboard(guildId, userId, newInviteCount, "monthly")) ||
-        top10Changed;
+        (await updateLeaderboard(
+          guildId,
+          userId,
+          newMonthlyInviteCount,
+          "monthly"
+        )) || top10Changed;
       top10Changed =
-        (await updateLeaderboard(guildId, userId, newInviteCount, "alltime")) ||
-        top10Changed;
+        (await updateLeaderboard(
+          guildId,
+          userId,
+          newAllTimeInviteCount,
+          "alltime"
+        )) || top10Changed;
 
       // Update smart leaderboards if any top 10 has changed
       if (top10Changed) {
@@ -45,11 +83,16 @@ export class Leaderboards {
     const language = await db.languages.getLanguage(guildId);
     const languageData = await import(`../../languages/${language}.json`);
 
-    const invitesTranslation = languageData.leaderboards.update.invitesTranslation;
+    const invitesTranslation =
+      languageData.leaderboards.update.invitesTranslation;
 
     entries.forEach((entry) => {
       message += `${entry.position}. ${entry.user} - ${entry.invites} ${invitesTranslation}\n`;
     });
+
+    if (entries.length === 0) {
+      message = languageData.leaderboards.update.noEntries;
+    }
 
     return message;
   }
@@ -67,10 +110,9 @@ async function updateLeaderboard(
     leaderboardType
   );
 
-  cs.log("Invite count: " + inviteCount);
   // Delete user's entry if they have no invites
   if (inviteCount <= 0) {
-    cs.log("Deleting user entry");
+    cs.dev("Deleting user entry");
     await db.leaderboards.deleteUserEntry(guildId, userId, leaderboardType);
   }
 
@@ -136,8 +178,6 @@ async function updateSmartLeaderboards(guildId: string) {
       smartLeaderboard.leaderboardType
     );
 
-    cs.log("LEaderbopards: " + leaderboard);
-
     const channelId = smartLeaderboard.channelId;
     const messageId = smartLeaderboard.messageId;
     const leaderboardGuildId = smartLeaderboard.guildId;
@@ -150,7 +190,10 @@ async function updateSmartLeaderboards(guildId: string) {
       };
     });
 
-    const leaderboardMessage = await Leaderboards.formatLeaderboardMessage(guildId, entries);
+    const leaderboardMessage = await Leaderboards.formatLeaderboardMessage(
+      guildId,
+      entries
+    );
 
     const embed = await Embeds.createEmbed(
       guildId,
