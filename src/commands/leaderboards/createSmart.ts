@@ -87,7 +87,7 @@ export default async function (
     );
 
     await interaction.followUp({
-      content: "Leaderboard created successfully!",
+      embeds: [await Embeds.createEmbed(guildId, "leaderboards.smart.success")],
       ephemeral: true,
     });
   } catch (error) {

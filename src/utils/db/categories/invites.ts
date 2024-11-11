@@ -1,5 +1,6 @@
 import { cs } from "../../console/customConsole";
 import InviteEntryModel from "../models/inviteEntries";
+import InviteResetModel from "../models/inviteReset";
 import JoinedUserModel, { JoinedUserDocument } from "../models/joinedUsers";
 import UsedInviteModel from "../models/usedInvites";
 import UserInvitesModel from "../models/userInvites";
@@ -141,7 +142,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { fake: 1 }, // Increment the fake invites count by 1
+          $inc: {
+            fake: 1,
+            "timed.monthly.fake": 1,
+            "timed.weekly.fake": 1,
+            "timed.daily.fake": 1,
+          }, // Increment the fake invites count by 1
         },
         {
           upsert: true, // Create the inviter's invite record if it doesn't exist
@@ -153,7 +159,22 @@ class userInvites {
     }
   }
 
-  static async decrementFake(guildId: string, inviterId: string): Promise<void> {
+  static async getLastReset(inviteType: "monthly" | "weekly" | "daily") {
+    const lastReset = await InviteResetModel.findOne({
+      inviteType,
+    });
+
+    if (lastReset) {
+      return lastReset.lastReset;
+    }
+
+    return null;
+  }
+
+  static async decrementFake(
+    guildId: string,
+    inviterId: string
+  ): Promise<void> {
     try {
       await UserInvitesModel.findOneAndUpdate(
         {
@@ -161,7 +182,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { fake: -1 }, // Decrement the fake invites count by 1
+          $inc: {
+            fake: -1,
+            "timed.monthly.fake": -1,
+            "timed.weekly.fake": -1,
+            "timed.daily.fake": -1,
+          }, // Decrement the fake invites count by 1
         }
       );
     } catch (error: unknown) {
@@ -177,7 +203,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { real: 1 }, // Increment the real invites count by 1
+          $inc: {
+            real: 1,
+            "timed.monthly": 1,
+            "timed.weekly": 1,
+            "timed.daily": 1,
+          }, // Increment the real invites count by 1
         },
         {
           upsert: true, // Create the inviter's invite record if it doesn't exist
@@ -200,7 +231,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { unverified: 1 }, // Increment the unverified invites count by 1
+          $inc: {
+            unverified: 1,
+            "timed.monthly.unverified": 1,
+            "timed.weekly.unverified": 1,
+            "timed.daily.unverified": 1,
+          }, // Increment the unverified invites count by 1
         },
         {
           upsert: true, // Create the inviter's invite record if it doesn't exist
@@ -223,7 +259,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { real: -1 }, // Decrement the real invites count by 1
+          $inc: {
+            real: -1,
+            "timed.monthly": -1,
+            "timed.weekly": -1,
+            "timed.daily": -1,
+          }, // Decrement the real invites count by 1
         }
       );
     } catch (error: unknown) {
@@ -231,13 +272,39 @@ class userInvites {
     }
   }
 
-  static async getRealAndBonusInvites(guildId: string, userId: string) {
+  static async getRealAndBonusInvites(
+    guildId: string,
+    userId: string,
+    timedType: "alltime" | "daily" | "weekly" | "monthly"
+  ): Promise<number> {
     const userInvites = await UserInvitesModel.findOne({
       guildId: guildId,
       userId: userId,
     });
 
-    return (userInvites?.real ?? 0) + (userInvites?.bonus ?? 0);
+    let totalInvites = 0;
+    switch (timedType) {
+      case "alltime":
+        totalInvites = (userInvites?.real ?? 0) + (userInvites?.bonus ?? 0);
+        break;
+      case "daily":
+        totalInvites =
+          (userInvites?.timed.daily.real ?? 0) +
+          (userInvites?.timed.daily.bonus ?? 0);
+        break;
+      case "weekly":
+        totalInvites =
+          (userInvites?.timed.weekly.real ?? 0) +
+          (userInvites?.timed.weekly.bonus ?? 0);
+        break;
+      case "monthly":
+        totalInvites =
+          (userInvites?.timed.monthly.real ?? 0) +
+          (userInvites?.timed.monthly.bonus ?? 0);
+        break;
+    }
+
+    return totalInvites;
   }
 
   static async getInvites(guildId: string, userId: string) {
@@ -269,7 +336,12 @@ class userInvites {
         userId: inviterId,
       },
       {
-        $inc: { bonus: count },
+        $inc: {
+          bonus: count,
+          "timed.monthly.bonus": count,
+          "timed.weekly.bonus": count,
+          "timed.daily.bonus": count,
+        },
       },
       {
         upsert: true,
@@ -288,7 +360,12 @@ class userInvites {
           userId: inviterId,
         },
         {
-          $inc: { unverified: -1 }, // Decrement the unverified invites count by 1
+          $inc: {
+            unverified: -1,
+            "timed.monthly.unverified": -1,
+            "timed.weekly.unverified": -1,
+            "timed.daily.unverified": -1,
+          }, // Decrement the unverified invites count by 1
         }
       );
     } catch (error: unknown) {
@@ -304,7 +381,52 @@ class userInvites {
   ): Promise<void> {
     await UserInvitesModel.findOneAndUpdate(
       { guildId: guildId, userId: inviterId },
-      { $inc: { unverified: -1, real: 1 } } // Decrement unverified and increment real invites
+      {
+        $inc: {
+          unverified: -1,
+          real: 1,
+          "timed.monthly.unverified": -1,
+          "timed.monthly.real": 1,
+          "timed.weekly.unverified": -1,
+          "timed.weekly.real": 1,
+          "timed.daily.unverified": -1,
+          "timed.daily.real": 1,
+        },
+      } // Decrement unverified and increment real invites
+    );
+  }
+
+  static async resetTimedInvites(
+    timedType: "monthly" | "weekly" | "daily"
+  ): Promise<void> {
+    await UserInvitesModel.updateMany(
+      {},
+      {
+        $set: {
+          [`timed.${timedType}.real`]: 0,
+          [`timed.${timedType}.fake`]: 0,
+          [`timed.${timedType}.bonus`]: 0,
+          [`timed.${timedType}.unverified`]: 0,
+        },
+      }
+    );
+  }
+
+  static async setLastReset(
+    inviteType: "monthly" | "weekly" | "daily"
+  ): Promise<void> {
+    await InviteResetModel.updateOne(
+      {
+        inviteType,
+      },
+      {
+        $set: {
+          lastReset: new Date(),
+        },
+      },
+      {
+        upsert: true,
+      }
     );
   }
 }

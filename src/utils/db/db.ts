@@ -6,6 +6,7 @@ import { invites } from "./categories/invites";
 import { verification } from "./categories/verification";
 import { welcomer } from "./categories/welcomer";
 import { leaderboards } from "./categories/leaderboards";
+import { locks } from "./categories/locks";
 
 export class db {
   static autoRoles = AutoRoles;
@@ -14,6 +15,7 @@ export class db {
   static verification = verification;
   static welcomer = welcomer;
   static leaderboards = leaderboards;
+  static locks = locks;
 
   static async connectToDatabase(): Promise<void> {
     try {
