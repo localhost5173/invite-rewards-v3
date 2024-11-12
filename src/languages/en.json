@@ -378,6 +378,94 @@
       "noEntries": "The leaderboard is empty."
     }
   },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "Rewards",
+        "description": "The rewards for this server are:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "\n",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "No Reward Found",
+        "description": "No reward found with the name {rewardName}."
+      },
+      "success": {
+        "title": "Reward Removed",
+        "description": "The reward {rewardName} has been removed."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "Role Not Required",
+        "description": "The role you provided cannot be used for this reward type. Use the `role` reward type instead."
+      },
+      "storeNotRequired": {
+        "title": "Attachment Not Required",
+        "description": "The attachment you provided cannot be used for this reward type. Use the `Message Store` reward type instead."
+      },
+      "alreadyExists": {
+        "title": "Reward Already Exists",
+        "description": "A reward with this name already exists."
+      },
+      "maxReached": {
+        "title": "Max Rewards",
+        "description": "You have reached the maximum number of rewards. Please remove a reward before adding a new one."
+      },
+      "role": {
+        "success": {
+          "title": "Role Reward Added",
+          "description": "The role reward {rewardName} for {role} has been added."
+        },
+        "roleRequired": {
+          "title": "Role Not Provided",
+          "description": "Please provide a valid role to add as a reward."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "Message Not Provided",
+          "description": "Please provide a message to add as a reward."
+        },
+        "success": {
+          "title": "Message Reward Added",
+          "description": "The message reward {rewardName} has been added.",
+          "fields": [
+            {
+              "name": "Message",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "Timed Out",
+          "description": "You took too long to respond. Please try again."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "Message Store Reward Added",
+          "description": "The message store reward {rewardName} has been added."
+        },
+        "fileRequired": {
+          "title": "File Not Provided",
+          "description": "Please provide a file with messages to set as a reward."
+        },
+        "fileEmpty": {
+          "title": "File Empty",
+          "description": "The file you provided is empty or the format is invalid."
+        }
+      }
+    }
+  },
   "welcomer": {
     "removeChannel": {
       "welcome": {
@@ -556,6 +644,18 @@
     "verification": {
       "question": {
         "title": "Verification"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "Configure the reward",
+          "messageField": {
+            "title": "Message",
+            "label": "Message",
+            "placeholder": "You have reached {threshold} invites in the {server-name} server! Thank you for your contribution."
+          }
+        }
       }
     }
   }
