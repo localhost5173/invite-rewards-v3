@@ -35,6 +35,7 @@ export default async function () {
         case "daily":
           if (now.getTime() - lastResetDate.getTime() > 24 * 60 * 60 * 1000) {
             await db.leaderboards.resetTimedLeaderboard("daily");
+            await db.leaderboards.setLastLeaderboardReset("daily");
             cs.log("Daily leaderboards reset successfully after downtime.");
           }
           break;
@@ -44,6 +45,7 @@ export default async function () {
             7 * 24 * 60 * 60 * 1000
           ) {
             await db.leaderboards.resetTimedLeaderboard("weekly");
+            await db.leaderboards.setLastLeaderboardReset("weekly");
             cs.log("Weekly leaderboards reset successfully after downtime.");
           }
           break;
@@ -52,6 +54,7 @@ export default async function () {
           oneMonthAgo.setMonth(now.getMonth() - 1);
           if (lastResetDate < oneMonthAgo) {
             await db.leaderboards.resetTimedLeaderboard("monthly");
+            await db.leaderboards.setLastLeaderboardReset("monthly");
             cs.log("Monthly leaderboards reset successfully after downtime.");
           }
           break;
@@ -75,6 +78,7 @@ export default async function () {
         case "daily":
           if (now.getTime() - lastResetDate.getTime() > 24 * 60 * 60 * 1000) {
             await db.invites.userInvites.resetTimedInvites("daily");
+            await db.invites.userInvites.setLastReset(inviteType);
             cs.log("Daily invites reset successfully after downtime.");
           }
           break;
@@ -84,6 +88,7 @@ export default async function () {
             7 * 24 * 60 * 60 * 1000
           ) {
             await db.invites.userInvites.resetTimedInvites("weekly");
+            await db.invites.userInvites.setLastReset(inviteType);
             cs.log("Weekly invites reset successfully after downtime.");
           }
           break;
@@ -92,6 +97,7 @@ export default async function () {
           oneMonthAgo.setMonth(now.getMonth() - 1);
           if (lastResetDate < oneMonthAgo) {
             await db.invites.userInvites.resetTimedInvites("monthly");
+            await db.invites.userInvites.setLastReset(inviteType);
             cs.log("Monthly invites reset successfully after downtime.");
           }
           break;
