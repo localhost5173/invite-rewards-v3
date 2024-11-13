@@ -665,6 +665,13 @@
           }
         }
       }
+    },
+  "reactionRoles": {
+    "button": {
+      "getRole": {
+        "title": "The amount of reaction roles you want to create (1-5)"
+      }
     }
+  }
   }
 }
