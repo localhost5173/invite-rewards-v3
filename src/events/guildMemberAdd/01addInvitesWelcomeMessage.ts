@@ -1,6 +1,8 @@
 import { GuildMember, Invite, TextChannel, EmbedBuilder, APIEmbed } from "discord.js";
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
+import { Rewards } from "../../utils/rewards/Rewards";
 
 export default async function (guildMember: GuildMember) {
   try {
@@ -76,6 +78,8 @@ export default async function (guildMember: GuildMember) {
               await db.invites.userInvites.addUnverified(guild.id, inviter.id);
             } else {
               await db.invites.userInvites.addReal(guild.id, inviter.id);
+              await Leaderboards.updateLeaderboards(guild.id, inviter.id);
+              await Rewards.handleGiveRewards(guild.id, inviter.id);
             }
           } else {
             // Need to add a case for verification

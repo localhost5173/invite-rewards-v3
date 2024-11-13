@@ -1,6 +1,8 @@
 import { GuildMember, TextChannel, EmbedBuilder, APIEmbed } from "discord.js";
 import { cs } from "../../utils/console/customConsole";
 import { db } from "../../utils/db/db";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
+import { Rewards } from "../../utils/rewards/Rewards";
 
 export default async function (guildMember: GuildMember) {
   try {
@@ -23,6 +25,8 @@ export default async function (guildMember: GuildMember) {
       if (isUserVerified) {
         // Remove real invite from inviter if the user is verified
         await db.invites.userInvites.decrementReal(guildId, inviterId);
+        await Leaderboards.updateLeaderboards(guildId, inviterId);
+        await Rewards.handleGiveRewards(guildId, inviterId);
       } else {
         if (isUserFake) {
           await db.invites.userInvites.decrementFake(guildId, inviterId);
@@ -53,10 +57,8 @@ export default async function (guildMember: GuildMember) {
       inviter = null;
     }
 
-
     // Send farewell message
     await sendFarewellMessage(guildMember, inviter, !inviterId);
-
   } catch (error: unknown) {
     cs.error("Error while handling guildMemberRemove event: " + error);
   }
@@ -81,7 +83,10 @@ async function sendFarewellMessage(
       farewellVanityMessage,
       farewellEmbed: serverFarewellEmbed,
     } = server;
-    const { farewellMessage: dmFarewellMessage, farewellEmbed: dmFarewellEmbed } = dm;
+    const {
+      farewellMessage: dmFarewellMessage,
+      farewellEmbed: dmFarewellEmbed,
+    } = dm;
 
     // Fetch inviter's invites
     const inviterInvites = inviter
@@ -118,7 +123,10 @@ async function sendFarewellMessage(
             inviter,
             inviterInvites
           );
-          await sendServerFarewellMessage(farewellChannel, finalFarewellMessage);
+          await sendServerFarewellMessage(
+            farewellChannel,
+            finalFarewellMessage
+          );
         }
       } else {
         cs.error(
@@ -213,7 +221,10 @@ function replaceEmbedPlaceholders(
         .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
         .replace("{inviter-count}", inviterCount.toString() || "0")
         .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
-        .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0")
+        .replace(
+          "{inviter-bonus-count}",
+          inviterInvites?.bonus.toString() || "0"
+        )
     );
   }
 
@@ -228,7 +239,10 @@ function replaceEmbedPlaceholders(
         .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
         .replace("{inviter-count}", inviterCount.toString() || "0")
         .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
-        .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0")
+        .replace(
+          "{inviter-bonus-count}",
+          inviterInvites?.bonus.toString() || "0"
+        )
     );
   }
 
@@ -243,8 +257,14 @@ function replaceEmbedPlaceholders(
           .replace("{member-count}", guildMember.guild.memberCount.toString())
           .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
           .replace("{inviter-count}", inviterCount.toString() || "0")
-          .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
-          .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0"),
+          .replace(
+            "{inviter-real-count}",
+            inviterInvites?.real.toString() || "0"
+          )
+          .replace(
+            "{inviter-bonus-count}",
+            inviterInvites?.bonus.toString() || "0"
+          ),
         value: field.value
           .replace("{mention-user}", `<@${guildMember.id}>`)
           .replace("{username}", guildMember.user.username)
@@ -253,8 +273,14 @@ function replaceEmbedPlaceholders(
           .replace("{member-count}", guildMember.guild.memberCount.toString())
           .replace("{inviter-tag}", inviter?.user.tag || "Unknown")
           .replace("{inviter-count}", inviterCount.toString() || "0")
-          .replace("{inviter-real-count}", inviterInvites?.real.toString() || "0")
-          .replace("{inviter-bonus-count}", inviterInvites?.bonus.toString() || "0"),
+          .replace(
+            "{inviter-real-count}",
+            inviterInvites?.real.toString() || "0"
+          )
+          .replace(
+            "{inviter-bonus-count}",
+            inviterInvites?.bonus.toString() || "0"
+          ),
         inline: field.inline,
       }))
     );

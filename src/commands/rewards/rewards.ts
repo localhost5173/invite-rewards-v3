@@ -62,6 +62,12 @@ export const data: CommandData = {
           required: false,
         },
         {
+          name: "removable",
+          description: "Whether the role reward is removable",
+          type: ApplicationCommandOptionType.Boolean,
+          required: false,
+        },
+        {
           name: "store",
           description:
             "A file with unique messages to assign as rewards (Only for message store rewards)",

@@ -5,7 +5,8 @@ export class rewards {
     guildId: string,
     inviteThreshold: number,
     rewardName: string,
-    roleId: string
+    roleId: string,
+    removable: boolean
   ) {
     await RewardModel.create({
       guildId,
@@ -13,6 +14,7 @@ export class rewards {
       inviteThreshold,
       rewardType: "role",
       roleId,
+      removable,
     });
   }
 
@@ -56,5 +58,32 @@ export class rewards {
 
   static async getRewards(guildId: string) {
     return await RewardModel.find({ guildId });
+  }
+
+  static async setAsClaimed(guildId: string, rewardName: string, userId: string) {
+    await RewardModel.updateOne(
+      { guildId, rewardName },
+      { $push: { claimedBy: userId } }
+    );
+  }
+
+  static async unclaimReward(guildId: string, rewardName: string, userId: string) {
+    await RewardModel.updateOne(
+      { guildId, rewardName },
+      { $pull: { claimedBy: userId } }
+    );
+  }
+
+  static async shiftFirstMessageFromStore(
+    guildId: string,
+    rewardName: string
+  ) {
+    const reward = await RewardModel.findOne({ guildId, rewardName });
+    if (!reward || !reward.messageStore) return null;
+    const message = reward.messageStore.shift();
+
+    await reward.save();
+
+    return message;
   }
 }
