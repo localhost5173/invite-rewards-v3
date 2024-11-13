@@ -46,6 +46,16 @@ export default async function (interaction: ChatInputCommandInteraction) {
       return;
     }
 
+    if (type !== "role" && removable) {
+      await interaction.reply({
+        embeds: [
+          await Embeds.createEmbed(guildId, "rewards.add.removableNotRequired"),
+        ],
+        ephemeral: true,
+      });
+      return;
+    }
+
     const doesRewardExist = await db.rewards.doesRewardExist(
       guildId,
       rewardName

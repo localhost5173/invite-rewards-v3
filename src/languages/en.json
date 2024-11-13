@@ -412,6 +412,10 @@
         "title": "Role Not Required",
         "description": "The role you provided cannot be used for this reward type. Use the `role` reward type instead."
       },
+      "removableNotRequired": {
+        "title": "Removable Not Required",
+        "description": "The removable option you provided cannot be used for this reward type. Use the `role` reward type instead."
+      },
       "storeNotRequired": {
         "title": "Attachment Not Required",
         "description": "The attachment you provided cannot be used for this reward type. Use the `Message Store` reward type instead."
