@@ -391,6 +391,10 @@
             "inline": true
           }
         ]
+      },
+      "noRewards": {
+        "title": "No Rewards",
+        "description": "There are no rewards set for this server."
       }
     },
     "remove": {

@@ -19,6 +19,8 @@ import { cs } from "../../utils/console/customConsole";
 import checkRolePermissions from "../../utils/helpers/checkRolePermissions";
 import { VerificationDocument } from "../../utils/db/models/verification";
 import { Embeds } from "../../utils/embeds/embeds";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
+import { Rewards } from "../../utils/rewards/Rewards";
 
 // Map to store active collectors for question-based verification
 const activeCollectors = new Map<
@@ -166,15 +168,17 @@ async function handleSimpleVerification(
   if (member.roles instanceof GuildMemberRoleManager) {
     await member.roles.add(role!);
 
-    const inviter = await db.invites.joinedUsers.getInviterOfUser(
+    const inviterId = await db.invites.joinedUsers.getInviterOfUser(
       guildId,
       userId
     );
 
     // If the inviter is found, swap the unverified invite for a real one
-    if (inviter) {
+    if (inviterId) {
       await db.invites.joinedUsers.setVerified(guildId, userId, true);
       await db.invites.userInvites.swapUnverifiedForReal(guildId, userId);
+      await Leaderboards.updateLeaderboards(guildId, inviterId);
+      await Rewards.handleGiveRewards(guildId, inviterId);
     } else {
       cs.dev("Inviter not found while verifying user");
     }
@@ -270,14 +274,16 @@ async function handleQuestionVerification(
       await (member.roles as GuildMemberRoleManager).add(roleId);
 
       // If the inviter is found, swap the unverified invite for a real one
-      const inviter = await db.invites.joinedUsers.getInviterOfUser(
+      const inviterId = await db.invites.joinedUsers.getInviterOfUser(
         guildId,
         userId
       );
 
-      if (inviter) {
+      if (inviterId) {
         await db.invites.joinedUsers.setVerified(guildId, userId, true);
         await db.invites.userInvites.swapUnverifiedForReal(guildId, userId);
+        await Leaderboards.updateLeaderboards(guildId, inviterId);
+        await Rewards.handleGiveRewards(guildId, inviterId);
       } else {
         cs.dev("Inviter not found while verifying user");
       }
@@ -398,6 +404,8 @@ async function handlePinVerification(
             guildId,
             inviterId
           );
+          await Leaderboards.updateLeaderboards(guildId, inviterId);
+          await Rewards.handleGiveRewards(guildId, inviterId);
         } else {
           cs.dev("Inviter not found while verifying user");
         }
@@ -440,7 +448,10 @@ async function handlePinVerification(
 
 // Helper for question-based modal
 async function questionVerificationModal(question: string, guildId: string) {
-  const modal = await Embeds.createModal(guildId, "modals.verification.question");
+  const modal = await Embeds.createModal(
+    guildId,
+    "modals.verification.question"
+  );
   modal.setCustomId("verification-modal");
 
   const questionInput = new TextInputBuilder()

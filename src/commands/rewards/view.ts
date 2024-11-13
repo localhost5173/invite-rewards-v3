@@ -13,8 +13,10 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const rewards = await db.rewards.getRewards(guildId);
 
     if (!rewards.length) {
-      await interaction.reply({
-        content: "There are no rewards set up",
+      await interaction.followUp({
+        embeds: [
+          await Embeds.createEmbed(guildId, "rewards.view.noRewards"),
+        ],
         ephemeral: true,
       });
       return;

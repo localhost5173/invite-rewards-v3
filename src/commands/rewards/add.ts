@@ -23,6 +23,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const inviteThreshold = interaction.options.getInteger("threshold", true);
     const type = interaction.options.getString("type", true) as RewardType;
     const role = interaction.options.getRole("role", false);
+    const removable = interaction.options.getBoolean("removable", false);
     const storeFile = interaction.options.getAttachment("store", false);
 
     if (type !== "role" && role) {
@@ -76,7 +77,8 @@ export default async function (interaction: ChatInputCommandInteraction) {
           guildId,
           inviteThreshold,
           rewardName,
-          role
+          role,
+          removable,
         );
         break;
       }
@@ -112,7 +114,8 @@ async function handleRoleReward(
   guildId: string,
   inviteThreshold: number,
   rewardName: string,
-  role: Role | APIRole | null
+  role: Role | APIRole | null,
+  removable: boolean | null,
 ): Promise<void> {
   if (!role) {
     await interaction.reply({
@@ -127,7 +130,7 @@ async function handleRoleReward(
   const roleId = role.id;
 
   // Add role reward to database
-  await db.rewards.addRoleReward(guildId, inviteThreshold, rewardName, roleId);
+  await db.rewards.addRoleReward(guildId, inviteThreshold, rewardName, roleId, removable || false);
   await interaction.reply({
     embeds: [
       await Embeds.createEmbed(guildId, "rewards.add.role.success", {

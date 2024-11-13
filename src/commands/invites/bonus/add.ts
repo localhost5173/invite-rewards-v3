@@ -4,6 +4,7 @@ import { db } from "../../../utils/db/db";
 import { Helpers } from "../../../utils/helpers/helpers";
 import { Embeds } from "../../../utils/embeds/embeds";
 import { Leaderboards } from "../../../utils/leaderboards/Leaderboards";
+import { Rewards } from "../../../utils/rewards/Rewards";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -14,9 +15,11 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     await db.invites.userInvites.addBonus(interaction.guildId!, user.id, count);
     await Leaderboards.updateLeaderboards(interaction.guildId!, user.id);
+    await Rewards.handleGiveRewards(interaction.guildId!, user.id);
     const invites = await db.invites.userInvites.getRealAndBonusInvites(
       interaction.guildId!,
-      user.id
+      user.id,
+      "alltime"
     );
 
     await interaction.followUp({

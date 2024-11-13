@@ -1,6 +1,8 @@
 import { GuildMember } from "discord.js";
 import { cs } from "../../utils/console/customConsole";
 import { db } from "../../utils/db/db";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
+import { Rewards } from "../../utils/rewards/Rewards";
 
 export default async function (guildMember: GuildMember) {
   try {
@@ -23,6 +25,8 @@ export default async function (guildMember: GuildMember) {
       if (isUserVerified) {
         // Remove real invite from inviter if the user is verified
         await db.invites.userInvites.decrementReal(guildId, inviterId);
+        await Leaderboards.updateLeaderboards(guildId, inviterId);
+        await Rewards.handleGiveRewards(guildId, inviterId);
       } else {
         await db.invites.userInvites.decrementUnverified(guildId, inviterId);
       }

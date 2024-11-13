@@ -5,7 +5,7 @@ import { db } from "../../utils/db/db";
 type Type = "daily" | "weekly" | "monthly";
 
 export default async function () {
-  const lockName = "resetLeaderboardsAndInvites";
+  const lockName = "resetPastDueLeaderboardsAndInvites";
   const lockAcquired = await db.locks.acquireLock(lockName);
 
   if (!lockAcquired) {
