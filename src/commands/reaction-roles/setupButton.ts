@@ -8,6 +8,7 @@ import {
   EmbedBuilder,
   Interaction,
   ModalBuilder,
+  ModalSubmitInteraction,
   RoleSelectMenuBuilder,
   RoleSelectMenuInteraction,
   StringSelectMenuBuilder,
@@ -84,7 +85,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       components: [],
     });
 
-    const buttonStyleData = await getButtonStyle(data.interaction);
+    const buttonStyleData = await getButtonStyle(buttonNameData.interaction);
 
     if (!buttonStyleData) {
       await storedInteraction.editReply({
@@ -248,7 +249,7 @@ async function getButtonName(interaction: RoleSelectMenuInteraction) {
 }
 
 async function getButtonStyle(
-  interaction: RoleSelectMenuInteraction | StringSelectMenuInteraction
+  interaction: RoleSelectMenuInteraction | StringSelectMenuInteraction | ModalSubmitInteraction
 ): Promise<{
   buttonStyle: number;
   interaction: StringSelectMenuInteraction;
@@ -283,12 +284,17 @@ async function getButtonStyle(
       time: 60_000,
     });
 
-    collector?.on("collect", async (i) => {
+    collector?.on("collect", async (i: StringSelectMenuInteraction) => {
       const buttonStyle = parseInt(i.values[0]);
       cs.log("Button style selected: " + buttonStyle);
 
-      await i.deferUpdate(); // Acknowledge the selection
-      resolve({ buttonStyle, interaction: i }); // Update stored interaction
+      try {
+        await i.update({ content: "Button style selected.", components: [] }); // Acknowledge the selection
+        resolve({ buttonStyle, interaction: i }); // Update stored interaction
+      } catch (error) {
+        cs.error("Failed to update interaction: " + error);
+        resolve(null);
+      }
     });
 
     collector?.on("end", async (collected) => {
