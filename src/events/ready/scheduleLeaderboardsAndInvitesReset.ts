@@ -57,6 +57,10 @@ async function resetLeaderboardsAndInvites() {
       await db.invites.userInvites.resetTimedInvites("monthly");
       await db.invites.userInvites.setLastReset("monthly");
 
+      // Reset monthly reaction roles uses
+      await db.reactionRoles.resetUses();
+      await db.reactionRoles.setLastReset();
+
       cs.log("Monthly leaderboards reset successfully.");
     }
   } catch (error) {

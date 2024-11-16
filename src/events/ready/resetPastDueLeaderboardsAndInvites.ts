@@ -104,6 +104,19 @@ export default async function () {
         }
       }
     }
+
+    // Reset monthly reaction roles uses
+    const now = new Date();
+    const oneMonthAgo = new Date(now);
+    const lastReset = await db.reactionRoles.getLastReset();
+    oneMonthAgo.setMonth(now.getMonth() - 1);
+
+    if (!lastReset || lastReset < oneMonthAgo) {
+      await db.reactionRoles.resetUses();
+      await db.reactionRoles.setLastReset();
+      cs.log("Monthly reaction roles uses reset successfully after downtime.");
+    }
+
   } catch (error) {
     cs.error("Error resetting leaderboards and invites: " + error);
   } finally {

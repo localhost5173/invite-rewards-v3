@@ -6,6 +6,7 @@ import {
 } from "discord.js";
 import { cs } from "../../utils/console/customConsole";
 import { Embeds } from "../../utils/embeds/embeds";
+import { db } from "../../utils/db/db";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;
@@ -78,6 +79,7 @@ export default async function (interaction: Interaction) {
         ],
         ephemeral: true,
       });
+      await db.reactionRoles.incrementRemoves(interaction.guildId!);
       return;
     }
 
@@ -96,6 +98,7 @@ export default async function (interaction: Interaction) {
         ],
         ephemeral: true,
       });
+      await db.reactionRoles.incrementAssigns(interaction.guildId!);
     } catch (error) {
       cs.error("An error occurred while assigning role: " + error);
       await interaction.reply({
