@@ -23,6 +23,14 @@
     "embedTooLong": {
       "title": "Embed Too Long",
       "description": "The embed you provided is too long. Please shorten it and try again."
+    },
+    "serverCommand": {
+      "title": "Server Command",
+      "description": "This command can only be used in a server."
+    },
+    "noGroupDm": {
+      "title": "Group DM",
+      "description": "This command can't be used in group DMs."
     }
   },
   "language": {
@@ -157,6 +165,36 @@
     "hierarchyRoleAssignError": {
       "title": ":x:  Missing Permissions",
       "description": "I can't assign or remove the role {role} because it is higher than my highest role. Please move my role above the role you want me to manage."
+    },
+    "noPermissions": {
+      "title": ":x:  Missing Permissions",
+      "description": "I don't have the necessary permissions to grant you the role {role}."
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Roles Not Provided",
+      "description": "Please provide at least 1 valid role."
+    },
+    "success": {
+      "title": "Reaction Roles Created",
+      "description": "The reaction roles have been created."
+    },
+    "roleNoLongerExists": {
+      "title": "Role No Longer Exists",
+      "description": "This reaction role no longer exists in this server."
+    },
+    "roleRemoved": {
+      "title": "Success",
+      "description": "The reaction role {role} has been removed from you."
+    },
+    "roleAssigned": {
+      "title": "Success",
+      "description": "The reaction role {role} has been assigned to you."
+    },
+    "error": {
+      "title": "Error",
+      "description": "An error occurred while assigning the reaction role. Please try again later."
     }
   },
   "autoRoles": {
