@@ -1,13 +1,17 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface ResetsDocument extends Document {
-    resetType: "reactionRoles",
-    lastReset: Date,
+  resetType: "daily" | "weekly" | "monthly";
+  lastReset: Date;
 }
 
 const ResetsShema = new Schema({
-    resetType: { type: String, required: true, enum: ["reactionRoles"] },
-    lastReset: { type: Date, default: Date.now },
+  resetType: {
+    type: String,
+    required: true,
+    enum: ["daily", "weekly", "monthly"],
+  },
+  lastReset: { type: Date, default: Date.now },
 });
 
 export const ResetsModel = mongoose.model<ResetsDocument>(

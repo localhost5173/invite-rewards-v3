@@ -1,4 +1,3 @@
-import LeaderboardResetModel from "../models/leaderboardReset";
 import LeaderboardUserModel from "../models/leaderboardUsers";
 import SmartLeaderboardModel from "../models/smartLeaderboardModel";
 
@@ -62,24 +61,6 @@ export class leaderboards {
     leaderboardType: "daily" | "weekly" | "monthly"
   ) {
     await LeaderboardUserModel.deleteMany({ leaderboardType });
-  }
-
-  static async setLastLeaderboardReset(
-    leaderboardType: "daily" | "weekly" | "monthly"
-  ) {
-    await LeaderboardResetModel.updateOne(
-      { leaderboardType },
-      { lastReset: new Date() },
-      { upsert: true }
-    );
-  }
-
-  static async getLastLeaderboardReset(
-    leaderboardType: "daily" | "weekly" | "monthly"
-  ) {
-    const reset = await LeaderboardResetModel.findOne({ leaderboardType });
-
-    return reset?.lastReset;
   }
 
   static async saveSmart(

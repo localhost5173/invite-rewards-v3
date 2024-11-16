@@ -1,6 +1,5 @@
 import { cs } from "../../console/customConsole";
 import InviteEntryModel from "../models/inviteEntries";
-import InviteResetModel from "../models/inviteReset";
 import JoinedUserModel, { JoinedUserDocument } from "../models/joinedUsers";
 import UsedInviteModel from "../models/usedInvites";
 import UserInvitesModel from "../models/userInvites";
@@ -157,18 +156,6 @@ class userInvites {
     } catch (error: unknown) {
       cs.error("Error while adding a fake invite to a user: " + error);
     }
-  }
-
-  static async getLastReset(inviteType: "monthly" | "weekly" | "daily") {
-    const lastReset = await InviteResetModel.findOne({
-      inviteType,
-    });
-
-    if (lastReset) {
-      return lastReset.lastReset;
-    }
-
-    return null;
   }
 
   static async decrementFake(
@@ -408,24 +395,6 @@ class userInvites {
           [`timed.${timedType}.bonus`]: 0,
           [`timed.${timedType}.unverified`]: 0,
         },
-      }
-    );
-  }
-
-  static async setLastReset(
-    inviteType: "monthly" | "weekly" | "daily"
-  ): Promise<void> {
-    await InviteResetModel.updateOne(
-      {
-        inviteType,
-      },
-      {
-        $set: {
-          lastReset: new Date(),
-        },
-      },
-      {
-        upsert: true,
       }
     );
   }
