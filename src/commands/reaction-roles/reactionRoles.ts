@@ -6,7 +6,6 @@ import type {
 import { ApplicationCommandOptionType } from "discord.js";
 import { Embeds } from "../../utils/embeds/embeds";
 import setupButton from "./setupButton";
-import { cs } from "../../utils/console/customConsole";
 
 export const data: CommandData = {
   name: "reaction-roles",
