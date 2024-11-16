@@ -8,6 +8,7 @@ import { welcomer } from "./categories/welcomer";
 import { leaderboards } from "./categories/leaderboards";
 import { locks } from "./categories/locks";
 import { rewards } from "./categories/rewards";
+import { reactionRoles } from "./categories/reactionRoles";
 
 export class db {
   static autoRoles = AutoRoles;
@@ -18,6 +19,7 @@ export class db {
   static leaderboards = leaderboards;
   static locks = locks;
   static rewards = rewards;
+  static reactionRoles = reactionRoles;
 
   static async connectToDatabase(): Promise<void> {
     try {
