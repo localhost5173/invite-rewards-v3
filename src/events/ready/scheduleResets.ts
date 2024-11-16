@@ -1,9 +1,7 @@
 import cron from "node-cron";
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
-import monthly from "../../utils/resets/monthly";
-import weekly from "../../utils/resets/weekly";
-import daily from "../../utils/resets/daily";
+import { Resets } from "../../utils/resets/Resets";
 
 export default async function () {
   // Schedule the cron job to run daily at midnight UTC
@@ -12,7 +10,7 @@ export default async function () {
     async () => {
       const lockAcquired = await db.locks.acquireLock("resetDailyTasks");
       if (lockAcquired) {
-        await daily();
+        await Resets.resetDaily();
         await db.locks.releaseLock("resetDailyTasks");
       }
     },
@@ -27,7 +25,7 @@ export default async function () {
     async () => {
       const lockAcquired = await db.locks.acquireLock("resetWeeklyTasks");
       if (lockAcquired) {
-        await weekly();
+        await Resets.resetWeekly();
         await db.locks.releaseLock("resetWeeklyTasks");
       }
     },
@@ -42,7 +40,7 @@ export default async function () {
     async () => {
       const lockAcquired = await db.locks.acquireLock("resetMonthlyTasks");
       if (lockAcquired) {
-        await monthly();
+        await Resets.resetMonthly();
         await db.locks.releaseLock("resetMonthlyTasks");
       }
     },

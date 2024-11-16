@@ -1,46 +1,51 @@
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
-import daily from "../../utils/resets/daily";
-import weekly from "../../utils/resets/weekly";
-import monthly from "../../utils/resets/monthly";
+import { Resets } from "../../utils/resets/Resets";
 
 export default async function () {
   const now = new Date();
 
   try {
-    // Get all last resets
-    const lastDailyReset = await db.resets.getLastDailyReset();
-    const lastWeeklyReset = await db.resets.getLastWeeklyReset();
-    const lastMonthlyReset = await db.resets.getLastMonthlyReset();
-
-    // Check and reset daily tasks if needed
-    if (
-      !lastDailyReset ||
-      now.getTime() - new Date(lastDailyReset).getTime() > 24 * 60 * 60 * 1000
-    ) {
-      await daily();
-      await db.resets.setLastDailyReset();
-      cs.log("Daily tasks reset successfully after downtime.");
+    // Acquire lock for daily tasks
+    const dailyLockAcquired = await db.locks.acquireLock("resetPastDueDailyTasks");
+    if (dailyLockAcquired) {
+      const lastDailyReset = await db.resets.getLastDailyReset();
+      if (
+        !lastDailyReset ||
+        now.getTime() - new Date(lastDailyReset).getTime() > 24 * 60 * 60 * 1000
+      ) {
+        await Resets.resetDaily();
+        cs.log("Daily tasks reset successfully after downtime.");
+      }
+      await db.locks.releaseLock("resetPastDueDailyTasks");
     }
 
-    // Check and reset weekly tasks if needed
-    if (
-      !lastWeeklyReset ||
-      now.getTime() - new Date(lastWeeklyReset).getTime() >
-        7 * 24 * 60 * 60 * 1000
-    ) {
-      await weekly();
-      await db.resets.setLastWeeklyReset();
-      cs.log("Weekly tasks reset successfully after downtime.");
+    // Acquire lock for weekly tasks
+    const weeklyLockAcquired = await db.locks.acquireLock("resetPastDueWeeklyTasks");
+    if (weeklyLockAcquired) {
+      const lastWeeklyReset = await db.resets.getLastWeeklyReset();
+      if (
+        !lastWeeklyReset ||
+        now.getTime() - new Date(lastWeeklyReset).getTime() >
+          7 * 24 * 60 * 60 * 1000
+      ) {
+        await Resets.resetWeekly();
+        cs.log("Weekly tasks reset successfully after downtime.");
+      }
+      await db.locks.releaseLock("resetPastDueWeeklyTasks");
     }
 
-    // Check and reset monthly tasks if needed
-    const oneMonthAgo = new Date(now);
-    oneMonthAgo.setMonth(now.getMonth() - 1);
-    if (!lastMonthlyReset || new Date(lastMonthlyReset) < oneMonthAgo) {
-      await monthly();
-      await db.resets.setLastMonthlyReset();
-      cs.log("Monthly tasks reset successfully after downtime.");
+    // Acquire lock for monthly tasks
+    const monthlyLockAcquired = await db.locks.acquireLock("resetPastDueMonthlyTasks");
+    if (monthlyLockAcquired) {
+      const lastMonthlyReset = await db.resets.getLastMonthlyReset();
+      const oneMonthAgo = new Date(now);
+      oneMonthAgo.setMonth(now.getMonth() - 1);
+      if (!lastMonthlyReset || new Date(lastMonthlyReset) < oneMonthAgo) {
+        await Resets.resetMonthly();
+        cs.log("Monthly tasks reset successfully after downtime.");
+      }
+      await db.locks.releaseLock("resetPastDueMonthlyTasks");
     }
   } catch (error) {
     cs.error("Error resetting tasks: " + error);
