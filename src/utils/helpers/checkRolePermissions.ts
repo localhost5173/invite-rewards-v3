@@ -44,10 +44,7 @@ export default async function (
     return {
       passed: false,
       role: null,
-      embed: await Embeds.createEmbed(
-        guildId,
-        "general.botNotFound"
-      ),
+      embed: await Embeds.createEmbed(guildId, "general.botNotFound"),
     };
   }
 

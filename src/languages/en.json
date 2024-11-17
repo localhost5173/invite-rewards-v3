@@ -197,6 +197,24 @@
       "description": "An error occurred while assigning the reaction role. Please try again later."
     }
   },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Creating Giveaway",
+      "description": "Please wait while I create the giveaway."
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **GIVEAWAY** 🎉",
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ends in:** {timeLeft}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Amount of Winners:** `{numberOfWinners}`"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **GIVEAWAY ENDED** 🎉",
+      "description": "🎉 **Giveaway Ended** 🎉 {description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ended:** {endedTimestamp}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Winners:** {winners}"
+    },
+    "translations": {
+      "rewardRole": "Reward Role",
+      "inviteRequirement": "Invite Requirement"
+    }
+  },
   "autoRoles": {
     "add": {
       "alreadyAutoRoleWarning": {
@@ -704,12 +722,12 @@
         }
       }
     },
-  "reactionRoles": {
-    "button": {
-      "getRole": {
-        "title": "The amount of reaction roles you want to create (1-5)"
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "The amount of reaction roles you want to create (1-5)"
+        }
       }
     }
-  }
   }
 }
