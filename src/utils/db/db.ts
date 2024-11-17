@@ -10,6 +10,7 @@ import { locks } from "./categories/locks";
 import { rewards } from "./categories/rewards";
 import { reactionRoles } from "./categories/reactionRoles";
 import { resets } from "./categories/resets";
+import { giveaways } from "./categories/giveaways";
 
 export class db {
   static autoRoles = AutoRoles;
@@ -22,6 +23,7 @@ export class db {
   static rewards = rewards;
   static reactionRoles = reactionRoles;
   static resets = resets;
+  static giveaways = giveaways;
 
   static async connectToDatabase(): Promise<void> {
     try {

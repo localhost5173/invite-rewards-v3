@@ -1,8 +1,5 @@
 import dotenv from "dotenv";
-import {
-  Client,
-  GatewayIntentBits,
-} from "discord.js";
+import { Client, GatewayIntentBits } from "discord.js";
 import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -10,6 +7,7 @@ import { AutoPoster } from "topgg-autoposter";
 import config from "../config.json";
 import { cs } from "./utils/console/customConsole";
 import { db } from "./utils/db/db";
+import { Giveaways } from "./utils/giveaways/Giveaways";
 dotenv.config({ path: ".env" });
 
 const __filename = fileURLToPath(import.meta.url);
@@ -66,3 +64,8 @@ if (!devMode) {
     cs.error(`Error posting server count: ${error}`);
   }
 }
+
+// Handle giveaways
+setInterval(async () => {
+  await Giveaways.checkForEndedGiveaways();
+}, 1000 * 10);

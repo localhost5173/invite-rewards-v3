@@ -3,7 +3,6 @@ import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
 
 export default async function (message: Message) {
-  cs.dev("messageDelete event triggered.");
   const guildId = message.guild?.id;
   if (!guildId || !message.author.bot) return;
 
