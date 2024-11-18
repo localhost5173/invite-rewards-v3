@@ -12,6 +12,7 @@ import { devMode } from "../../index.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { cs } from "../../utils/console/customConsole.js";
 import giveawayDelete from "./giveaway-delete.js";
+import giveawayReroll from "./giveaway-reroll.js";
 
 export const data: CommandData = {
   name: "giveaway",
@@ -126,7 +127,7 @@ export async function run({ interaction }: SlashCommandProps) {
         // giveawayList(interaction);
         break;
       case "reroll":
-        // giveawayReroll(interaction);
+        giveawayReroll(interaction);
         break;
     }
   } catch (error) {

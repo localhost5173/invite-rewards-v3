@@ -27,6 +27,32 @@ export class Giveaways {
     return true;
   }
 
+  static async rerollWinners(guildId: string, giveawayId: number) {
+    const giveaway = await db.giveaways.getGiveaway(guildId, giveawayId);
+    if (!giveaway) return;
+
+    const winners: string[] = [];
+    const entries = [...giveaway.entries]; // Create a copy of the entries array
+
+    // Ensure winners don't exceed the number of entries
+    const numberOfWinners = Math.min(
+      giveaway.numberOfWinners,
+      entries.length
+    );
+
+    for (let i = 0; i < numberOfWinners; i++) {
+      const randomIndex = Math.floor(Math.random() * entries.length);
+      const winner = entries.splice(randomIndex, 1)[0]; // Remove the selected winner from the entries array
+      winners.push(winner);
+    }
+
+    // Mark giveaway as ended and save winners
+    await db.giveaways.setWinners(guildId, giveawayId, winners);
+
+    // Announce winners
+    await announceWinners(giveaway, winners, true);
+  }
+
   static async isEnteredGiveaway(
     guildId: string,
     giveawayId: number,
@@ -145,7 +171,7 @@ export class Giveaways {
   }
 }
 
-async function announceWinners(giveaway: GiveawayDocument, winners: string[]) {
+async function announceWinners(giveaway: GiveawayDocument, winners: string[], reroll = false) {
   cs.log(winners);
 
   const guild =
@@ -204,9 +230,16 @@ async function announceWinners(giveaway: GiveawayDocument, winners: string[]) {
 
   const mentionWinners = winners.map((winner) => `<@${winner}>`).join(", ");
 
-  if (winners.length !== 0) {
+  if (winners.length !== 0 && !reroll
+  ) {
     await (channel as TextChannel).send({
       content: `${mentionWinners} Congratulations! You won the giveaway for **${giveaway.prize}**!`,
+    });
+  }
+
+  if (winners.length !== 0 && reroll) {
+    await (channel as TextChannel).send({
+      content: `${mentionWinners} Congratulations! You won the rerolled giveaway for **${giveaway.prize}**!`,
     });
   }
 }
