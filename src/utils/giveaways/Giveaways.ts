@@ -169,9 +169,30 @@ export class Giveaways {
       await announceWinners(giveaway, winners);
     }
   }
+
+  static async endGiveaway(guildId: string, giveaway: GiveawayDocument) {
+    const winners: string[] = [];
+    const entries = [...giveaway.entries]; // Create a copy of the entries array
+
+    // Ensure winners don't exceed the number of entries
+    const numberOfWinners = Math.min(giveaway.numberOfWinners, entries.length);
+
+    for (let i = 0; i < numberOfWinners; i++) {
+      const randomIndex = Math.floor(Math.random() * entries.length);
+      const winner = entries.splice(randomIndex, 1)[0]; // Remove the selected winner from the entries array
+      winners.push(winner);
+    }
+
+    // Mark giveaway as ended and save winners
+    await db.giveaways.setAsEnded(giveaway.guildId, giveaway.giveawayId);
+    await db.giveaways.setWinners(giveaway.guildId, giveaway.giveawayId, winners);
+
+    // Announce winners
+    await announceWinners(giveaway, winners, false, true);
+  }
 }
 
-async function announceWinners(giveaway: GiveawayDocument, winners: string[], reroll = false) {
+async function announceWinners(giveaway: GiveawayDocument, winners: string[], reroll = false, endTimeNow = false) {
   cs.log(winners);
 
   const guild =
@@ -184,7 +205,11 @@ async function announceWinners(giveaway: GiveawayDocument, winners: string[], re
   if (!channel) return;
   const message = await channel.messages.fetch(giveaway.messageId);
 
-  const endTimeUnix = Math.floor(giveaway.endTime.getTime() / 1000);
+  let endTimeUnix = Math.floor(giveaway.endTime.getTime() / 1000);
+
+  if (endTimeNow) {
+    endTimeUnix = Math.floor(Date.now() / 1000);
+  }
 
   const winnersString =
     winners.map((winner) => `<@${winner}>`).join(", ") || "No winners";
