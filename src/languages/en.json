@@ -208,11 +208,15 @@
     },
     "giveawayEnded": {
       "title": "🎉 **GIVEAWAY ENDED** 🎉",
-      "description": "🎉 **Giveaway Ended** 🎉 {description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ended:** {endedTimestamp}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Winners:** {winners}"
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ended:** {endedTimestamp}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Winners:** {winners}"
     },
     "translations": {
       "rewardRole": "Reward Role",
       "inviteRequirement": "Invite Requirement"
+    },
+    "giveawayPage": {
+      "title": "{status} Giveaway",
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** <@{hostId}>\n**Ends:** <t:{endTime}:R>\n**Entries:** `{entries}`\n**Winners:** `{numberOfWinners}`\n**Giveaway ID:** `{giveawayId}`"
     }
   },
   "autoRoles": {

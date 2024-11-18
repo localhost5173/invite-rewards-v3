@@ -91,4 +91,8 @@ export class giveaways {
   static isEnded(guildId: string, giveawayId: number) {
     return GiveawayModel.findOne({ guildId, giveawayId, ended: true });
   }
+
+  static getGuildGiveaways(guildId: string) {
+    return GiveawayModel.find({ guildId });
+  }
 }
