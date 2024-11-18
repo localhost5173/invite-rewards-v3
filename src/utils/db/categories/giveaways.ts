@@ -87,4 +87,8 @@ export class giveaways {
       { winners }
     );
   }
+
+  static isEnded(guildId: string, giveawayId: number) {
+    return GiveawayModel.findOne({ guildId, giveawayId, ended: true });
+  }
 }
