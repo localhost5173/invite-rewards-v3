@@ -5,6 +5,7 @@ import {
   ChatInputCommandInteraction,
   InteractionCollector,
   ModalSubmitInteraction,
+  PermissionFlagsBits,
   Role,
   TextInputBuilder,
   TextInputStyle,
@@ -137,6 +138,41 @@ async function handleRoleReward(
     return;
   }
 
+  const bot = interaction.guild!.members.me;
+  if (!bot) return cs.dev("Bot not found in guild while creating role reward");
+
+  // Check if the bot has the necessary permissions
+  if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
+    await interaction.reply({
+      embeds: [
+        await Embeds.createEmbed(guildId, "rewards.noPermissions"),
+      ],
+      ephemeral: true,
+    });
+    return
+  }
+
+  if (role.managed) {
+    await interaction.reply({
+      embeds: [
+        await Embeds.createEmbed(guildId, "roles.managedRoleAssignError"),
+      ],
+      ephemeral: true,
+    });
+    return;
+  }
+
+  if (bot.roles.highest.position <= role.position) {
+    await interaction.reply({
+      embeds: [
+        await Embeds.createEmbed(guildId, "roles.hierarchyRoleAssignError"),
+      ],
+      ephemeral: true,
+    });
+
+    return;
+  }
+
   const roleId = role.id;
 
   // Add role reward to database
@@ -256,10 +292,10 @@ async function handleMessageStoreReward(
 
   if (links.length === 0) {
     return interaction.followUp({
-        embeds: [
-            await Embeds.createEmbed(guildId, "rewards.add.messageStore.fileEmpty"),
-        ],
-        ephemeral: true,
+      embeds: [
+        await Embeds.createEmbed(guildId, "rewards.add.messageStore.fileEmpty"),
+      ],
+      ephemeral: true,
     });
   }
 
