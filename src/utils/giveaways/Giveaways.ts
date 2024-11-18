@@ -1,4 +1,4 @@
-import { TextBasedChannel, TextChannel } from "discord.js";
+import { PermissionFlagsBits, TextBasedChannel, TextChannel } from "discord.js";
 import { client } from "../..";
 import { db } from "../db/db";
 import { GiveawayDocument } from "../db/models/giveaway";
@@ -267,4 +267,41 @@ async function announceWinners(giveaway: GiveawayDocument, winners: string[], re
       content: `${mentionWinners} Congratulations! You won the rerolled giveaway for **${giveaway.prize}**!`,
     });
   }
+
+  if (giveaway.rewardRoleId) {
+    for (const winner of winners) {
+      await giveRewardRole(giveaway.guildId, winner, giveaway.rewardRoleId);
+    }
+  }
+}
+
+async function giveRewardRole(guildId: string, userId: string, rewardRoleId: string) {
+  const guild =
+    client.guilds.cache.get(guildId) || (await client.guilds.fetch(guildId));
+  const member = await guild.members.fetch(userId);
+
+  const rewardRole = guild.roles.cache.get(rewardRoleId) || (await guild.roles.fetch(rewardRoleId));
+
+  if (!rewardRole) return;
+
+  const bot = guild.members.me;
+  if (!bot) return cs.dev("Bot not found in guild while handling giveaway reward roles");
+  if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
+    cs.dev(
+      "Bot does not have the necessary permissions to manage roles while giving reward role"
+    );
+  }
+
+  if (rewardRole.managed) {
+    cs.dev("handleAutoRoles: Cannot assign a managed role");
+    return;
+  }
+
+  if (bot.roles.highest.position <= rewardRole.position) {
+    cs.dev(
+      "handleAutoRoles: Bot's highest role must be higher than the role to be managed in order to assign it"
+    );
+  }
+
+  await member.roles.add(rewardRole);
 }
