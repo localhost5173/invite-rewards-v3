@@ -10,23 +10,25 @@ import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { GiveawayEmbedBuilder } from "../../utils/giveaways/GiveawayEmbedBuilder.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guild?.id || !interaction.channel?.id) return;
 
   try {
     const guild = interaction.guild;
+    const guildId = guild.id;
 
     if (interaction.channel instanceof PartialGroupDMChannel) {
       return interaction.reply({
-        content: "This command is not available in group DMs.",
+        embeds: [await Embeds.createEmbed(guildId, "general.noGroupDm")],
         ephemeral: true,
       });
     }
 
     if (!interaction.channel.isTextBased()) {
       return interaction.reply({
-        content: "This command is not available in text channels.",
+        embeds: [await Embeds.createEmbed(guildId, "general.textChannelOnly")],
         ephemeral: true,
       });
     }
@@ -45,12 +47,13 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     if (numberOfWinners < 1 || numberOfWinners > 10) {
       return interaction.followUp({
-        content: "Number of winners must be between 1 and 10.",
+        embeds: [
+          await Embeds.createEmbed(guildId, "giveaways.invalidNumberOfWinners"),
+        ],
         ephemeral: true,
       });
     }
 
-    const guildId = guild.id;
     const channelId = interaction.channel.id;
     const hostId = interaction.user.id;
 
@@ -60,22 +63,31 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
       if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
         return interaction.followUp({
-          content: "The bot does not have permissions to manage roles.",
+          embeds: [await Embeds.createEmbed(guildId, "roles.noPermissions", {
+            role: `<@&${rewardRole.id}>`,
+          })],
           ephemeral: true,
         });
       }
 
       if (rewardRole.managed) {
         return interaction.followUp({
-          content: "Cannot assign a managed role.",
+          embeds: [
+            await Embeds.createEmbed(guildId, "roles.managedRoleAssignError", {
+              role: rewardRole.name,
+            }),
+          ],
           ephemeral: true,
         });
       }
 
       if (bot.roles.highest.position <= rewardRole.position) {
         return interaction.followUp({
-          content:
-            "The bot's highest role must be higher than the role to assign it.",
+          embeds: [
+            await Embeds.createEmbed(guildId, "roles.hierarchyRoleAssignError", {
+              role: rewardRole.name,
+            }),
+          ],
           ephemeral: true,
         });
       }
@@ -159,7 +171,9 @@ export default async function (interaction: ChatInputCommandInteraction) {
     });
 
     await interaction.followUp({
-      content: `Giveaway created for **${prize}** with **${numberOfWinners}** winner(s) and a duration of **${duration}**! The giveaway ID is **${giveawayId}**.`,
+      embeds: [
+        await Embeds.createEmbed(guildId, "giveaways.giveawayCreated"),
+      ],
       ephemeral: true,
     });
   } catch (error) {
