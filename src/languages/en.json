@@ -41,6 +41,17 @@
       "description": "You took too long to respond. Please try again."
     }
   },
+  "validations": {
+    "voteLocked": {
+      "title": "Vote Locked Command",
+      "description": "You have to vote for the bot before you can use this command."
+    },
+    "voteTranslation": "Vote",
+    "guildOnly": {
+      "title": "Guild Only Command",
+      "description": "This command can only be used in a server."
+    }
+  },
   "language": {
     "set": {
       "invalidLanguage": {
