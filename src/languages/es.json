@@ -117,6 +117,70 @@
       "invitesTranslation": "invitaciones"
     }
   },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Creando Sorteo",
+      "description": "Por favor, espera mientras creo el sorteo."
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **SORTEO** 🎉",
+      "description": "{description}\n**Premio:** *{prize}*\n**Organizado por:** {host}\n**Termina en:** {timeLeft}\n**ID del Sorteo:** `{giveawayId}`\n**Participaciones:** `{entries}`\n**Cantidad de Ganadores:** `{numberOfWinners}`"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **SORTEO TERMINADO** 🎉",
+      "description": "{description}\n**Premio:** *{prize}*\n**Organizado por:** {host}\n**Finalizó:** {endedTimestamp}\n**ID del Sorteo:** `{giveawayId}`\n**Participaciones:** `{entries}`\n**Ganadores:** {winners}"
+    },
+    "translations": {
+      "rewardRole": "Rol de Recompensa",
+      "inviteRequirement": "Requisito de Invitación",
+      "ended": "Finalizado",
+      "active": "Activo",
+      "showEnded": "Mostrar Finalizados",
+      "showActive": "Mostrar Activos",
+      "noActiveGiveawaysFound": "No se encontraron sorteos activos.",
+      "noEndedGiveawaysFound": "No se encontraron sorteos finalizados."
+    },
+    "giveawayPage": {
+      "title": "Sorteo {status}",
+      "description": "{description}\n**Premio:** *{prize}*\n**Organizado por:** <@{hostId}>\n**Termina:** <t:{endTime}:R>\n**Participaciones:** `{entries}`\n**Ganadores:** `{numberOfWinners}`\n**ID del Sorteo:** `{giveawayId}`"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Número de Ganadores Inválido",
+      "description": "El número de ganadores debe estar entre 1 y 10."
+    },
+    "giveawayCreated": {
+      "title": "Sorteo Creado",
+      "description": "El sorteo ha sido creado."
+    },
+    "giveawayNotFound": {
+      "title": "Sorteo No Encontrado",
+      "description": "El sorteo con el ID {giveawayId} no fue encontrado."
+    },
+    "giveawayDeleted": {
+      "title": "Sorteo Eliminado",
+      "description": "El sorteo con el ID {giveawayId} ha sido eliminado."
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Sorteo Ya Finalizado",
+      "description": "El sorteo con el ID {giveawayId} ya ha finalizado."
+    },
+    "giveawayRerolled": {
+      "title": "Sorteo Re-sorteado",
+      "description": "El sorteo con el ID {giveawayId} ha sido re-sorteado."
+    },
+    "giveawayEndedReply": {
+      "title": "Sorteo Finalizado",
+      "description": "El sorteo con el ID {giveawayId} ha sido finalizado."
+    },
+    "giveawayStillActive": {
+      "title": "Sorteo Aún Activo",
+      "description": "El sorteo con el ID {giveawayId} aún está activo. Considera finalizarlo con /giveaway end {giveawayId}."
+    },
+    "noGiveawaysFound": {
+      "title": "No Se Encontraron Sorteos",
+      "description": "No se encontraron sorteos."
+    }
+  },
   "modals": {
     "welcomer": {
       "setEmbed": {

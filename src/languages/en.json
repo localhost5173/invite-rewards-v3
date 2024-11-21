@@ -31,6 +31,14 @@
     "noGroupDm": {
       "title": "Group DM",
       "description": "This command can't be used in group DMs."
+    },
+    "textChannelOnly": {
+      "title": "Text Channel Only",
+      "description": "This command can only be used in text channels."
+    },
+    "interactionTimedOut": {
+      "title": "Interaction Timed Out",
+      "description": "You took too long to respond. Please try again."
     }
   },
   "language": {
@@ -168,7 +176,7 @@
     },
     "noPermissions": {
       "title": ":x:  Missing Permissions",
-      "description": "I don't have the necessary permissions to grant you the role {role}."
+      "description": "I don't have the necessary permissions to manage the role {role}."
     }
   },
   "reactionRoles": {
@@ -212,11 +220,53 @@
     },
     "translations": {
       "rewardRole": "Reward Role",
-      "inviteRequirement": "Invite Requirement"
+      "inviteRequirement": "Invite Requirement",
+      "ended": "Ended",
+      "active": "Active",
+      "showEnded": "Show Ended",
+      "showActive": "Show Active",
+      "noActiveGiveawaysFound": "No active giveaways found.",
+      "noEndedGiveawaysFound": "No ended giveaways found."
     },
     "giveawayPage": {
       "title": "{status} Giveaway",
       "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** <@{hostId}>\n**Ends:** <t:{endTime}:R>\n**Entries:** `{entries}`\n**Winners:** `{numberOfWinners}`\n**Giveaway ID:** `{giveawayId}`"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Invalid Number of Winners",
+      "description": "The number of winners must be between 1 and 10."
+    },
+    "giveawayCreated": {
+      "title": "Giveaway Created",
+      "description": "The giveaway has been created."
+    },
+    "giveawayNotFound": {
+      "title": "Giveaway Not Found",
+      "description": "The giveaway with the ID {giveawayId} was not found."
+    },
+    "giveawayDeleted": {
+      "title": "Giveaway Deleted",
+      "description": "The giveaway with the ID {giveawayId} has been deleted."
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Giveaway Already Ended",
+      "description": "The giveaway with the ID {giveawayId} has already ended."
+    },
+    "giveawayRerolled": {
+      "title": "Giveaway Rerolled",
+      "description": "The giveaway with the ID {giveawayId} has been rerolled."
+    },
+    "giveawayEndedReply": {
+      "title": "Giveaway Ended",
+      "description": "The giveaway with the ID {giveawayId} has been ended."
+    },
+    "giveawayStillActive": {
+      "title": "Giveaway Still Active",
+      "description": "The giveaway with the ID {giveawayId} is still active. Consider ending it with /giveaway end {giveawayId}."
+    },
+    "noGiveawaysFound": {
+      "title": "No Giveaways Found",
+      "description": "No giveaways found."
     }
   },
   "autoRoles": {

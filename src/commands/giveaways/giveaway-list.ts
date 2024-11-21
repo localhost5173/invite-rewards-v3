@@ -19,7 +19,9 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
         if (!guildGiveaways.length) {
             await interaction.reply({
-                content: "No giveaways found",
+                embeds: [
+                    await Embeds.createEmbed(guildId, "giveaways.noGiveawaysFound"),
+                ],
                 ephemeral: true,
             });
             return;
@@ -27,7 +29,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
         if (interaction.channel instanceof PartialGroupDMChannel) {
             await interaction.reply({
-                content: "This command is not available in group DMs",
+                embeds: [await Embeds.createEmbed(guildId, "general.noGroupDm")],
                 ephemeral: true,
             });
             return;
@@ -36,6 +38,16 @@ export default async function (interaction: ChatInputCommandInteraction) {
         let currentPage = 0;
         let showActiveOnly = true;
 
+        const language = await db.languages.getLanguage(guildId);
+        const languageData = await import(`../../languages/${language}.json`);
+
+        const endedTranslation = languageData.giveaways.translations.ended;
+        const activeTranslation = languageData.giveaways.translations.active;
+        const showEndedTranslation = languageData.giveaways.translations.showEnded;
+        const showActiveTranslation = languageData.giveaways.translations.showActive;
+        const noActiveGiveawaysFoundTranslation = languageData.giveaways.translations.noActiveGiveawaysFound;
+        const noEndedGiveawaysFoundTranslation = languageData.giveaways.translations.noEndedGiveawaysFound;
+
         const filterGiveaways = (activeOnly: boolean) =>
             guildGiveaways.filter((giveaway) => (activeOnly ? !giveaway.ended : giveaway.ended));
 
@@ -43,8 +55,8 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
         const createNoGiveawaysEmbed = () => {
             const description = showActiveOnly
-                ? "No active giveaways found."
-                : "No ended giveaways found.";
+                ? noActiveGiveawaysFoundTranslation
+                : noEndedGiveawaysFoundTranslation;
             return new EmbedBuilder().setDescription(description).setColor("Red");
         };
 
@@ -62,7 +74,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
                 numberOfWinners: giveaway.numberOfWinners.toString(),
                 entries: giveaway.entries.length.toString(),
                 giveawayId: giveaway.giveawayId.toString(),
-                status: giveaway.ended ? "Ended" : "Active",
+                status: giveaway.ended ? endedTranslation : activeTranslation,
                 description: giveaway.description,
             };
 
@@ -106,7 +118,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
                     .setDisabled(giveaways.length === 0 || currentPage === giveaways.length - 1),
                 new ButtonBuilder()
                     .setCustomId("giveaway-toggle-status")
-                    .setLabel(showActiveOnly ? "Show Ended" : "Show Active")
+                    .setLabel(showActiveOnly ? showEndedTranslation : showActiveTranslation)
                     .setStyle(ButtonStyle.Success)
             );
 
@@ -160,7 +172,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
         collector?.on("end", async () => {
             try {
                 await interaction.editReply({
-                    content: "Interaction ended. Please re-run the command to interact again.",
+                    embeds: [await Embeds.createEmbed(guildId, "general.interactionTimedOut")],
                     components: [],
                 });
             } catch {

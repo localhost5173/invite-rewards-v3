@@ -3,43 +3,56 @@ import { cs } from "../../utils/console/customConsole";
 import { Helpers } from "../../utils/helpers/helpers";
 import { db } from "../../utils/db/db";
 import { Giveaways } from "../../utils/giveaways/Giveaways";
+import { Embeds } from "../../utils/embeds/embeds";
 
 export default async function (interaction: ChatInputCommandInteraction) {
-    const guildId = interaction.guildId!;
-    try {
-        const giveawayId = parseInt(interaction.options.getString("id", true));
+  const guildId = interaction.guildId!;
+  try {
+    const giveawayId = parseInt(interaction.options.getString("id", true));
 
-        const giveaway = await db.giveaways.getGiveaway(guildId, giveawayId);
+    const giveaway = await db.giveaways.getGiveaway(guildId, giveawayId);
 
-        if (!giveaway) {
-            await interaction.reply({
-                content: "Giveaway not found",
-                ephemeral: true,
-            });
+    if (!giveaway) {
+      await interaction.reply({
+        embeds: [
+          await Embeds.createEmbed(guildId, "giveaways.giveawayNotFound", {
+            giveawayId: giveawayId.toString(),
+          }),
+        ],
+        ephemeral: true,
+      });
 
-            return;
-        }
-
-        const isEnded = await db.giveaways.isEnded(guildId, giveawayId);
-
-        if (!isEnded) {
-            await interaction.reply({
-                content: "Giveaway is still active",
-                ephemeral: true,
-            });
-
-            return
-        }
-
-        await Giveaways.rerollWinners(guildId, giveawayId);
-
-        await interaction.reply({
-            content: "Giveaway rerolled",
-            ephemeral: true,
-        });
-    } catch (error) {
-        cs.error("Error while rerolling giveaway: "+ error);
-
-        await Helpers.trySendCommandError(interaction);
+      return;
     }
+
+    const isEnded = await db.giveaways.isEnded(guildId, giveawayId);
+
+    if (!isEnded) {
+      await interaction.reply({
+        embeds: [
+            await Embeds.createEmbed(guildId, "giveaways.giveawayStillActive", {
+                giveawayId: giveawayId.toString(),
+            }),
+        ],
+        ephemeral: true,
+      });
+
+      return;
+    }
+
+    await Giveaways.rerollWinners(guildId, giveawayId);
+
+    await interaction.reply({
+      embeds: [
+        await Embeds.createEmbed(guildId, "giveaways.giveawayRerolled", {
+          giveawayId: giveawayId.toString(),
+        }),
+      ],
+      ephemeral: true,
+    });
+  } catch (error) {
+    cs.error("Error while rerolling giveaway: " + error);
+
+    await Helpers.trySendCommandError(interaction);
+  }
 }

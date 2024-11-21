@@ -6,15 +6,18 @@ import {
 import { db } from "../../utils/db/db";
 import { cs } from "../../utils/console/customConsole";
 import { Helpers } from "../../utils/helpers/helpers";
+import { Embeds } from "../../utils/embeds/embeds";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) return;
   if (!interaction.channel) return;
 
   try {
+    const guildId = interaction.guildId;
+
     if (interaction.channel instanceof PartialGroupDMChannel) {
       return interaction.reply({
-        content: "This command is not available in group DMs.",
+        embeds: [await Embeds.createEmbed(guildId, "general.noGroupDm")],
         ephemeral: true,
       });
     }
@@ -35,7 +38,11 @@ export default async function (interaction: ChatInputCommandInteraction) {
       giveaway.messageId === undefined
     ) {
       return interaction.followUp({
-        content: "The giveaway does not exist.",
+        embeds: [
+          await Embeds.createEmbed(guildId, "giveaways.giveawayDoesntExist", {
+            giveawayId,
+          }),
+        ],
         ephemeral: true,
       });
     }
@@ -52,7 +59,11 @@ export default async function (interaction: ChatInputCommandInteraction) {
     await message.delete();
 
     await interaction.followUp({
-      content: "Giveaway deleted!",
+      embeds: [
+        await Embeds.createEmbed(guildId, "giveaways.giveawayNotFound", {
+          giveawayId,
+        }),
+      ],
       ephemeral: true,
     });
   } catch (error) {
