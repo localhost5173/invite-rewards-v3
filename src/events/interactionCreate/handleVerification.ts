@@ -74,7 +74,9 @@ export default async function (interaction: Interaction) {
       | APIInteractionGuildMember;
     if (!member) {
       await interaction.reply({
-        content: "Member not found in guild while handling auto roles",
+        embeds: [
+          await Embeds.createEmbed(interaction.guild.id, "general.interactionProcessError"),
+        ],
         ephemeral: true,
       });
       return cs.dev("Member not found in guild while handling auto roles");
@@ -411,18 +413,16 @@ async function handlePinVerification(
         }
 
         await i.update({
-          content: "Verification successful!",
           components: [],
-          embeds: [updatedEmbed],
+          embeds: [updatedEmbed, await Embeds.createEmbed(guildId, "verification.event.all.success")],
         });
         await (member.roles as GuildMemberRoleManager).add(
           verificationObject.roleId!
         );
       } else {
         await i.update({
-          content: "Verification failed. Incorrect PIN.",
           components: [],
-          embeds: [updatedEmbed],
+          embeds: [updatedEmbed, await Embeds.createEmbed(guildId, "verification.event.pin.incorrectPin")],
         });
       }
       collector.stop();

@@ -61,9 +61,6 @@ export async function run({ interaction }: SlashCommandProps) {
             users: inviteeMentionList.join("\n"),
           }),
         ],
-        content: `Users who joined using invite code \`${inviteCode}\`:\n${inviteeMentionList.join(
-          "\n"
-        )}`,
         ephemeral: true,
       });
     }

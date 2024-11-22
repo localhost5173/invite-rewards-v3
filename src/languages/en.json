@@ -39,6 +39,10 @@
     "interactionTimedOut": {
       "title": "Interaction Timed Out",
       "description": "You took too long to respond. Please try again."
+    },
+    "interactionProcessError": {
+      "title": "Interaction Process Error",
+      "description": "An error occurred while processing the interaction. Please try again."
     }
   },
   "validations": {
@@ -278,6 +282,26 @@
     "noGiveawaysFound": {
       "title": "No Giveaways Found",
       "description": "No giveaways found."
+    },
+    "enteredGiveaway": {
+      "title": "Enter Giveaway",
+      "description": "You have entered the giveaway!"
+    },
+    "leftGiveaway": {
+      "title": "Left Giveaway",
+      "description": "You have left the giveaway."
+    },
+    "cannotEnterGiveaway": {
+      "title": "Cannot Enter Giveaway",
+      "description": "You cannot enter this giveaway."
+    },
+    "giveawayWon": {
+      "title": "Giveaway Ended!",
+      "description": "{mentionWinners} Congratulations! You won the giveaway for **{prize}**!"
+    },
+    "giveawayRerolledWon": {
+      "title": "Giveaway Rerolled!",
+      "description": "{mentionWinners} Congratulations! You won the rerolled giveaway for **{prize}**!"
     }
   },
   "autoRoles": {
@@ -368,7 +392,12 @@
           "description": "You provided an incorrect answer. Please try again."
         }
       },
-      "pin": {},
+      "pin": {
+        "incorrectPin": {
+          "title": "Incorrect Pin",
+          "description": "You provided an incorrect pin. Please try again."
+        }
+      },
       "all": {
         "fakeUser": {
           "title": "Fake User",
@@ -757,6 +786,14 @@
         "title": "Message",
         "description": "{message}"
       }
+    },
+    "translations": {
+      "welcome": "Welcome",
+      "farewell": "Farewell"
+    },
+    "setChannel": {
+      "title": "Channel Set",
+      "description": "{channelType} channel has been set to {channel}."
     }
   },
   "modals": {

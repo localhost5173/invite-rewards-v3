@@ -4,6 +4,7 @@ import { db } from "../db/db";
 import { GiveawayDocument } from "../db/models/giveaway";
 import { cs } from "../console/customConsole";
 import { GiveawayEmbedBuilder } from "./GiveawayEmbedBuilder";
+import { Embeds } from "../embeds/embeds";
 
 export class Giveaways {
   static async canUserEnterGiveaway(
@@ -258,13 +259,23 @@ async function announceWinners(giveaway: GiveawayDocument, winners: string[], re
   if (winners.length !== 0 && !reroll
   ) {
     await (channel as TextChannel).send({
-      content: `${mentionWinners} Congratulations! You won the giveaway for **${giveaway.prize}**!`,
+      embeds: [
+        await Embeds.createEmbed(giveaway.guildId, "giveaways.giveawayWon", {
+          prize: giveaway.prize,
+          mentionWinners: mentionWinners,
+        })
+      ]
     });
   }
 
   if (winners.length !== 0 && reroll) {
     await (channel as TextChannel).send({
-      content: `${mentionWinners} Congratulations! You won the rerolled giveaway for **${giveaway.prize}**!`,
+      embeds: [
+        await Embeds.createEmbed(giveaway.guildId, "giveaways.giveawayRerolledWon", {
+          prize: giveaway.prize,
+          mentionWinners: mentionWinners,
+        })
+      ]
     });
   }
 
