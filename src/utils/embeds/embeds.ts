@@ -15,11 +15,15 @@ class color {
 
 export class Embeds {
   static async createEmbed(
-    guildId: string,
+    guildId: string | null,
     embedPath: string,
     replacements?: { [key: string]: string }
   ) {
-    const language = await db.languages.getLanguage(guildId);
+    let language = "en";
+
+    if (guildId) {
+      language = await db.languages.getLanguage(guildId);
+    }
     const languageData = await import(`../../languages/${language}.json`);
 
     // Split the embedPath into its components
@@ -104,8 +108,13 @@ export class Embeds {
     return data;
   }
 
-  static async createModal(guildId: string, modalPath: string) {
-    const language = await db.languages.getLanguage(guildId);
+  static async createModal(guildId: string | null, modalPath: string) {
+
+    let language = "en";
+    if (guildId) {
+      language = await db.languages.getLanguage(guildId);
+    }
+
     const languageData = await import(`../../languages/${language}.json`);
 
     // Split the modalPath into its components
@@ -124,7 +133,7 @@ export class Embeds {
     }
 
     const modal = new ModalBuilder();
-    
+
     if (data.title) modal.setTitle(data.title);
 
     return modal;

@@ -796,6 +796,10 @@
       "description": "{channelType} channel has been set to {channel}."
     }
   },
+  "feedback": {
+    "title": "Feedback submitted",
+    "description": "Thank you for submitting your feedback."
+  },
   "modals": {
     "welcomer": {
       "setEmbed": {
@@ -810,6 +814,21 @@
     "verification": {
       "question": {
         "title": "Verification"
+      }
+    },
+    "feedback": {
+      "title": "Feedback Form",
+      "feedbackTypeField": {
+        "label": "Feedback Type (Bug Report, Suggestion, etc.)",
+        "placeholder": "E.g., Bug Report"
+      },
+      "feedbackField": {
+        "label": "Please describe your feedback",
+        "placeholder": "Describe the issue or suggestion"
+      },
+      "satisfactionField": {
+        "label": "How satisfied are you with the bot? (1-5)",
+        "placeholder": "Rate from 1 to 5"
       }
     },
     "rewards": {
