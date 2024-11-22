@@ -22,7 +22,6 @@ export default async function (
     }
 
     await interaction.followUp({
-      content: `${location} ${type} message set to: ${message}`,
       embeds: [
         await Embeds.createEmbed(
           guildId,

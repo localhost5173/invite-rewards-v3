@@ -1,6 +1,7 @@
 import { Interaction } from "discord.js";
 import { Giveaways } from "../../utils/giveaways/Giveaways";
 import { cs } from "../../utils/console/customConsole";
+import { Embeds } from "../../utils/embeds/embeds";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;
@@ -22,7 +23,9 @@ export default async function (interaction: Interaction) {
       ))
     ) {
       await interaction.followUp({
-        content: "You cannot enter this giveaway.",
+        embeds: [
+          await Embeds.createEmbed(interaction.guild.id, "giveaways.cannotEnterGiveaway")
+        ],
         ephemeral: true,
       });
       return;
@@ -37,13 +40,17 @@ export default async function (interaction: Interaction) {
     ) {
       await Giveaways.enterGiveaway(interaction.guild.id, giveawayId, userId);
       await interaction.followUp({
-        content: "You have entered the giveaway!",
+        embeds: [
+          await Embeds.createEmbed(interaction.guild.id, "giveaways.enteredGiveaway")
+        ],
         ephemeral: true,
       });
     } else {
       Giveaways.leaveGiveaway(interaction.guild.id, giveawayId, userId);
       await interaction.followUp({
-        content: "You have left the giveaway! Are you sure about this?",
+        embeds: [
+          await Embeds.createEmbed(interaction.guild.id, "giveaways.leftGiveaway")
+        ],
         ephemeral: true,
       });
     }

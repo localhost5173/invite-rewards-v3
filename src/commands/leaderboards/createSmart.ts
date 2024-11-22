@@ -28,7 +28,9 @@ export default async function (
       channel instanceof PartialGroupDMChannel
     ) {
       await interaction.followUp({
-        content: "Please run this command in a text channel.",
+        embeds: [
+          await Embeds.createEmbed(guildId, "general.textChannelOnly"),
+        ],
         ephemeral: true,
       });
       return;

@@ -2,6 +2,7 @@ import { ChannelType, ChatInputCommandInteraction } from "discord.js";
 import { db } from "../../../utils/db/db";
 import { cs } from "../../../utils/console/customConsole";
 import { Helpers } from "../../../utils/helpers/helpers";
+import { Embeds } from "../../../utils/embeds/embeds";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -16,7 +17,9 @@ export default async function (
 
     if (channel.type !== ChannelType.GuildText) {
       await interaction.followUp({
-        content: "Channel must be a text channel",
+        embeds: [
+          await Embeds.createEmbed(guildId, "general.textChannelOnly"),
+        ],
         ephemeral: true,
       });
 
@@ -29,8 +32,16 @@ export default async function (
       await db.welcomer.setFarewellChannel(guildId, channelId);
     }
 
+    const welcomeTranslation = await Embeds.getStringTranslation(guildId, "welcomer.translations.welcome");
+    const farewellTranslation = await Embeds.getStringTranslation(guildId, "welcomer.translations.farewell");
+
     await interaction.followUp({
-      content: `${type} channel set to <#${channelId}>`,
+      embeds: [
+        await Embeds.createEmbed(guildId, `welcomer.setChannel`, {
+          channel: `<#${channelId}>`,
+          channelType: type === "welcome" ? welcomeTranslation : farewellTranslation
+        }
+        )],
       ephemeral: true,
     });
   } catch (error) {
