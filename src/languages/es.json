@@ -117,6 +117,15 @@
       "invitesTranslation": "invitaciones"
     }
   },
+  "inviteBot": {
+    "success": {
+      "title": "Invitar al bot",
+      "description": "Haz clic en los botones de abajo para invitar al bot a tu servidor o visita nuestro sitio web."
+    },
+    "inviteBotTranslation": "Invitar bot",
+    "supportServerTranslation": "Servidor de soporte",
+    "visitWebsiteTranslation": "Visitar sitio web"
+  },
   "giveaways": {
     "creatingGiveaway": {
       "title": "...Creando Sorteo",

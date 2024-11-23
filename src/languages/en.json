@@ -45,6 +45,22 @@
       "description": "An error occurred while processing the interaction. Please try again."
     }
   },
+  "inviteBot": {
+    "success": {
+      "title": "Invite the bot",
+      "description": "Click the buttons below to invite the bot to your server or visit our website!"
+    },
+    "inviteBotTranslation": "Invite Bot",
+    "supportServerTranslation": "Support Server",
+    "visitWebsiteTranslation": "Visit Website"
+  },
+  "vote": {
+    "success": {
+      "title": "Vote for the bot",
+      "description": "Click the button below to vote for the bot on top.gg!"
+    },
+    "voteTranslation": "Vote"
+  },
   "validations": {
     "voteLocked": {
       "title": "Vote Locked Command",

@@ -87,8 +87,12 @@ export class Embeds {
     return embed;
   }
 
-  static async getStringTranslation(guildId: string, path: string) {
-    const language = await db.languages.getLanguage(guildId);
+  static async getStringTranslation(guildId: string | null, path: string) {
+    let language = "en"
+
+    if (guildId) {
+      language = await db.languages.getLanguage(guildId);
+    }
     const languageData = await import(`../../languages/${language}.json`);
 
     const pathComponents = path.split(".");
