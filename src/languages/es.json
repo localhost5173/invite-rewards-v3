@@ -117,6 +117,21 @@
       "invitesTranslation": "invitaciones"
     }
   },
+  "placeholders": {
+    "mention-user": "Menciona al usuario invitado",
+    "username": "El nombre de usuario del invitado",
+    "user-tag": "La etiqueta del usuario invitado",
+    "server-name": "El nombre del servidor",
+    "member-count": "El número total de miembros del servidor",
+    "inviter-tag": "La etiqueta del invitador",
+    "inviter-count": "El número total de invitaciones del invitador",
+    "inviter-real-count": "El número real de invitaciones del invitador",
+    "inviter-fake-count": "El número de invitaciones falsas del invitador",
+    "embed": {
+      "title": "Marcadores de posición",
+      "description": "Aquí están los marcadores de posición que puedes usar en mensajes y embeds de invitación: \n {placeholders}"
+    }
+  },
   "inviteBot": {
     "success": {
       "title": "Invitar al bot",

@@ -1,0 +1,69 @@
+import type {
+  CommandData,
+  SlashCommandProps,
+  CommandOptions,
+} from "commandkit";
+import { Embeds } from "../utils/embeds/embeds";
+import { db } from "../utils/db/db";
+
+export const data: CommandData = {
+  name: "placeholders",
+  description: "See all the placeholders that can be used in invite messages and embeds",
+};
+
+export async function run({ interaction }: SlashCommandProps) {
+  let language = "en";
+
+  if (interaction.guildId) {
+    language = await db.languages.getLanguage(interaction.guildId);
+  }
+
+  const languageData = await import(`../languages/${language}.json`);
+  const placeholderData = languageData.placeholders;
+
+  const placeholders = [
+    { name: "`{mention-user}`", description: placeholderData["mention-user"] },
+    { name: "`{username}`", description: placeholderData["username"] },
+    { name: "`{user-tag}`", description: placeholderData["user-tag"] },
+    { name: "`{server-name}`", description: placeholderData["server-name"] },
+    {
+      name: "`{member-count}`",
+      description: placeholderData["member-count"],
+    },
+    { name: "`{inviter-tag}`", description: placeholderData["inviter-tag"] },
+    {
+      name: "`{inviter-count}`",
+      description: placeholderData["inviter-count"],
+    },
+    {
+      name: "`{inviter-real-count}`",
+      description: placeholderData["inviter-real-count"],
+    },
+    {
+      name: "`{inviter-fake-count}`",
+      description: placeholderData["inviter-fake-count"],
+    },
+  ];
+
+  const placeholdersString = placeholders
+    .map((placeholder) => `${placeholder.name} - ${placeholder.description}`)
+    .join("\n");
+  const embed = await Embeds.createEmbed(
+    interaction.guildId,
+    "placeholders.embed",
+    {
+      placeholders: placeholdersString,
+    }
+  );
+
+  await interaction.reply({ embeds: [embed], ephemeral: true });
+}
+
+export const options: CommandOptions = {
+  devOnly: true,
+  userPermissions: ["Administrator"],
+  botPermissions: ["Administrator"],
+  deleted: false,
+  onlyGuild: true,
+  voteLocked: false,
+};

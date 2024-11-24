@@ -61,6 +61,21 @@
     },
     "voteTranslation": "Vote"
   },
+  "placeholders": {
+    "mention-user": "Mentions the invited user",
+    "username": "The username of the invited user",
+    "user-tag": "The tag of the invited user",
+    "server-name": "The name of the server",
+    "member-count": "The total member count of the server",
+    "inviter-tag": "The tag of the inviter",
+    "inviter-count": "The total invite count of the inviter",
+    "inviter-real-count": "The real invite count of the inviter",
+    "inviter-fake-count": "The fake invite count of the inviter",
+    "embed": {
+      "title": "Placeholders",
+      "description": "Here are the placeholders you can use in invite messages and embeds: \n {placeholders}"
+    }
+  },
   "validations": {
     "voteLocked": {
       "title": "Vote Locked Command",
