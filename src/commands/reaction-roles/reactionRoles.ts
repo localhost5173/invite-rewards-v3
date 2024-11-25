@@ -6,6 +6,7 @@ import type {
 import { ApplicationCommandOptionType } from "discord.js";
 import { Embeds } from "../../utils/embeds/embeds";
 import setupButton from "./setupButton";
+import { devMode } from "../..";
 
 export const data: CommandData = {
   name: "reaction-roles",
@@ -174,7 +175,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: true,
+  devOnly: devMode,
   userPermissions: ["ManageRoles"],
   botPermissions: ["SendMessages", "EmbedLinks", "ManageRoles"],
   deleted: false,
