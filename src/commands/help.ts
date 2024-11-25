@@ -14,18 +14,6 @@ import {
 } from "discord.js";
 import botconfig from "../../config.json" assert { type: "json" };
 
-export const data: CommandData = {
-    name: "help",
-    description: "Displays a list of all available commands.",
-};
-
-export const options: CommandOptions = {
-    devOnly: false,
-    userPermissions: [],
-    botPermissions: ["SendMessages", "EmbedLinks"],
-    deleted: false,
-};
-
 interface Command {
     name: string;
     description: string;
@@ -41,6 +29,11 @@ interface Field {
     inline: boolean;
 }
 
+export const data: CommandData = {
+    name: "help",
+    description: "Displays a list of all available commands.",
+};
+
 export async function run({ interaction }: SlashCommandProps) {
     if (!interaction.guild) return;
 
@@ -48,7 +41,9 @@ export async function run({ interaction }: SlashCommandProps) {
 
     if (interaction.channel instanceof PartialGroupDMChannel) {
         return interaction.reply({
-            content: "This command is not available in group DMs.",
+            embeds: [
+                await Embeds.createEmbed(interaction.guild.id, "general.noGroupDm"),
+            ],
             ephemeral: true,
         });
     }
@@ -171,3 +166,10 @@ export async function run({ interaction }: SlashCommandProps) {
         });
     });
 }
+
+export const options: CommandOptions = {
+    devOnly: false,
+    userPermissions: [],
+    botPermissions: ["SendMessages", "EmbedLinks"],
+    deleted: false,
+};

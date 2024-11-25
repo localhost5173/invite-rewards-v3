@@ -113,6 +113,10 @@
         {
           "name": "/who-used",
           "description": "Find out who used an invite link."
+        },
+        {
+          "name": "/history",
+          "description": "View the join and leave history of a user."
         }
       ],
       "giveaways": [
