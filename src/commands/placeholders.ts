@@ -61,8 +61,8 @@ export async function run({ interaction }: SlashCommandProps) {
 
 export const options: CommandOptions = {
   devOnly: true,
-  userPermissions: ["Administrator"],
-  botPermissions: ["Administrator"],
+  userPermissions: [],
+  botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,
   onlyGuild: true,
   voteLocked: false,
