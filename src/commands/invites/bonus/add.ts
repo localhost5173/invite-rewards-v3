@@ -32,7 +32,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       ],
     });
   } catch (error: unknown) {
-    cs.error("Error while handling bonus-invites remove command: " + error);
+    cs.error("Error while handling bonus-invites add command: " + error);
 
     await Helpers.trySendCommandError(interaction);
   }

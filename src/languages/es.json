@@ -9,6 +9,364 @@
       "description": "Ocurrió un error al ejecutar el comando. Por favor, inténtalo de nuevo más tarde."
     }
   },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Página {page} de {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Gestión de Invitaciones",
+      "giveaways": "Sorteos",
+      "autoRoles": "Roles Automáticos",
+      "language": "Idioma",
+      "leaderboards": "Tablas de Clasificación",
+      "reactionRoles": "Roles de Reacción",
+      "rewards": "Recompensas",
+      "verification": "Verificación",
+      "welcomer": "Bienvenida",
+      "miscellaneous": "Misceláneo",
+      "next": "Siguiente",
+      "previous": "Anterior"
+    },
+    "additionalFields": [
+      {
+        "name": "Comentarios",
+        "value": "Si tienes algún comentario, quieres reportar un error o sugerir una nueva función, por favor usa el comando /feedback. ¡Tus comentarios son muy apreciados!",
+        "inline": false
+      },
+      {
+        "name": "Invítame",
+        "value": "[Haz clic para invitarme a tu servidor!]({botInviteLink})",
+        "inline": true
+      },
+      {
+        "name": "Guía",
+        "value": "[Haz clic para la guía del bot.]({botGuideLink})",
+        "inline": true
+      },
+      {
+        "name": "Servidor de Soporte",
+        "value": "[Haz clic para unirte al servidor de soporte!]({supportServerLink})",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Añadir invitaciones adicionales a un usuario."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Eliminar invitaciones adicionales de un usuario."
+        },
+        {
+          "name": "/inviter",
+          "description": "Descubrir quién invitó a un usuario."
+        },
+        {
+          "name": "/invites",
+          "description": "Obtener el total de invitaciones de un usuario."
+        },
+        {
+          "name": "/invited-list",
+          "description": "Ver todos los usuarios invitados por un usuario."
+        },
+        {
+          "name": "/who-used",
+          "description": "Descubrir quién usó un enlace de invitación."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Crear un sorteo."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "Terminar un sorteo."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Eliminar un sorteo."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Volver a sortear un sorteo."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "Listar todos los sorteos."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Añadir un rol automático."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Eliminar un rol automático."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "Ver todos los roles automáticos."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Establecer el idioma del bot."
+        },
+        {
+          "name": "/language view",
+          "description": "Ver el idioma actual."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "Ver la tabla de clasificación diaria, o crear una que se actualice automáticamente."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "Ver la tabla de clasificación semanal, o crear una que se actualice automáticamente."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "Ver la tabla de clasificación mensual, o crear una que se actualice automáticamente."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "Ver la tabla de clasificación de todos los tiempos, o crear una que se actualice automáticamente."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Crear roles de reacción basados en botones."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Añadir una recompensa basada en invitaciones."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Eliminar una recompensa basada en invitaciones."
+        },
+        {
+          "name": "/rewards view",
+          "description": "Ver todas las recompensas basadas en invitaciones."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Configurar verificación simple en tu servidor."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Configurar verificación por pregunta en tu servidor."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Configurar verificación por pin en tu servidor."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Desactivar el sistema de verificación."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Establecer el canal de despedida en el servidor."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Eliminar el canal de despedida."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Establecer el mensaje de despedida para el canal del servidor."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Eliminar el mensaje de despedida del servidor."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "Ver el mensaje de despedida del servidor."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "Establecer el mensaje de despedida para DMs."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "Eliminar el mensaje de despedida de DMs."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "Ver el mensaje de despedida de DMs."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Establecer el mensaje de despedida para URLs personalizadas."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Eliminar el mensaje de despedida de URLs personalizadas."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "Ver el mensaje de despedida de URLs personalizadas."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Establecer el mensaje de despedida embebido para el canal del servidor."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Eliminar el mensaje de despedida embebido del servidor."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "Ver el mensaje de despedida embebido del servidor."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "Establecer el mensaje de despedida embebido para DMs."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "Eliminar el mensaje de despedida embebido de DMs."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "Ver el mensaje de despedida embebido de DMs."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Establecer el mensaje de despedida embebido para URLs personalizadas."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Eliminar el mensaje de despedida embebido de URLs personalizadas."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "Ver el mensaje de despedida embebido de URLs personalizadas."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Establecer el canal de bienvenida en el servidor."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Eliminar el canal de bienvenida."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Establecer el mensaje de bienvenida para el canal del servidor."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Eliminar el mensaje de bienvenida del servidor."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "Ver el mensaje de bienvenida del servidor."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "Establecer el mensaje de bienvenida para DMs."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "Eliminar el mensaje de bienvenida de DMs."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "Ver el mensaje de bienvenida de DMs."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Establecer el mensaje de bienvenida para URLs personalizadas."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Eliminar el mensaje de bienvenida de URLs personalizadas."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "Ver el mensaje de bienvenida de URLs personalizadas."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Establecer el mensaje de bienvenida embebido para el canal del servidor."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Eliminar el mensaje de bienvenida embebido del servidor."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "Ver el mensaje de bienvenida embebido del servidor."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "Establecer el mensaje de bienvenida embebido para DMs."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "Eliminar el mensaje de bienvenida embebido de DMs."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "Ver el mensaje de bienvenida embebido de DMs."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Establecer el mensaje de bienvenida embebido para URLs personalizadas."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Eliminar el mensaje de bienvenida embebido de URLs personalizadas."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "Ver el mensaje de bienvenida embebido de URLs personalizadas."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "Ver todos los comandos."
+        },
+        {
+          "name": "/feedback",
+          "description": "Enviar comentarios o sugerir nuevas funciones al desarrollador del bot."
+        },
+        {
+          "name": "/invite",
+          "description": "Invitar al bot a tu servidor."
+        },
+        {
+          "name": "/placeholders",
+          "description": "Ver todos los marcadores de posición que puedes usar en mensajes de invitación y embebidos."
+        },
+        {
+          "name": "/vote",
+          "description": "Votar por el bot en top.gg."
+        }
+      ]
+    }
+  },
   "language": {
     "set": {
       "invalidLanguage": {

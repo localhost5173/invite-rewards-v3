@@ -12,59 +12,71 @@ import { Embeds } from "../../../utils/embeds/embeds.js";
 import { Helpers } from "../../../utils/helpers/helpers.js";
 
 export const data: CommandData = {
-  name: "bonus-invites",
+  name: "bonus",
   description: "Manage bonus invites",
   options: [
     {
-      name: "add",
-      description: "Add fake invites to a user",
-      type: ApplicationCommandOptionType.Subcommand,
+      name: "invites",
+      description: "Manage bonus invites",
+      type: ApplicationCommandOptionType.SubcommandGroup,
       options: [
         {
-          name: "user",
-          description: "The user",
-          type: ApplicationCommandOptionType.User,
-          required: true,
+          name: "add",
+          description: "Add fake invites to a user",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "user",
+              description: "The user",
+              type: ApplicationCommandOptionType.User,
+              required: true,
+            },
+            {
+              name: "count",
+              description: "The amount of invites to add",
+              type: ApplicationCommandOptionType.Integer,
+              required: true,
+            },
+          ],
         },
         {
-          name: "count",
-          description: "The amount of invites to add",
-          type: ApplicationCommandOptionType.Integer,
-          required: true,
+          name: "remove",
+          description: "Remove fake invites from a user",
+          type: ApplicationCommandOptionType.Subcommand,
+          options: [
+            {
+              name: "user",
+              description: "The user",
+              type: ApplicationCommandOptionType.User,
+              required: true,
+            },
+            {
+              name: "count",
+              description: "The amount of invites to remove",
+              type: ApplicationCommandOptionType.Integer,
+              required: true,
+            },
+          ],
         },
-      ],
-    },
-    {
-      name: "remove",
-      description: "Remove fake invites from a user",
-      type: ApplicationCommandOptionType.Subcommand,
-      options: [
-        {
-          name: "user",
-          description: "The user",
-          type: ApplicationCommandOptionType.User,
-          required: true,
-        },
-        {
-          name: "count",
-          description: "The amount of invites to remove",
-          type: ApplicationCommandOptionType.Integer,
-          required: true,
-        },
-      ],
+      ]
     },
   ],
 };
 
 export async function run({ interaction }: SlashCommandProps) {
+  const subcommandGroup = interaction.options.getSubcommandGroup(false);
   const subcommand = interaction.options.getSubcommand(false);
 
+  const command = `${subcommandGroup ? `${subcommandGroup} ` : ""}${
+    subcommand ? subcommand : ""
+  }`;
+
   try {
-    switch (subcommand) {
-      case "add":
+    switch (command) {
+      case "invites add":
         await addFakeInvites(interaction);
         break;
-      case "remove":
+      case "invites remove":
         await removeFakeInvites(interaction);
         break;
       default:

@@ -45,6 +45,364 @@
       "description": "An error occurred while processing the interaction. Please try again."
     }
   },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Page {page} of {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Invite Management",
+      "giveaways": "Giveaways",
+      "autoRoles": "Auto Roles",
+      "language": "Language",
+      "leaderboards": "Leaderboards",
+      "reactionRoles": "Reaction Roles",
+      "rewards": "Rewards",
+      "verification": "Verification",
+      "welcomer": "Welcomer",
+      "miscellaneous": "Miscellaneous",
+      "next": "Next",
+      "previous": "Previous"
+    },
+    "additionalFields": [
+      {
+        "name": "Feedback",
+        "value": "If you have any feedback, want to report a bug or suggest a new feature, please use the /feedback command. Your feedback is greatly appreciated!",
+        "inline": false
+      },
+      {
+        "name": "Invite Me",
+        "value": "[Click to invite me to your server!]({botInviteLink})",
+        "inline": true
+      },
+      {
+        "name": "Guide",
+        "value": "[Click for the bot guide.]({botGuideLink})",
+        "inline": true
+      },
+      {
+        "name": "Support Server",
+        "value": "[Click to join the support server!]({supportServerLink})",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Add bonus invites to a user."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Remove bonus invites from a user."
+        },
+        {
+          "name": "/inviter",
+          "description": "Find out who invited a user."
+        },
+        {
+          "name": "/invites",
+          "description": "Get the total invites of a user."
+        },
+        {
+          "name": "/invited-list",
+          "description": "View all the users invited by a user."
+        },
+        {
+          "name": "/who-used",
+          "description": "Find out who used an invite link."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Create a giveaway."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "End a giveaway."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Delete a giveaway."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Reroll a giveaway."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "List all the giveaways."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Add an auto role."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Remove an auto role."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "View all the auto roles."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Set the language for the bot."
+        },
+        {
+          "name": "/language view",
+          "description": "View the current language."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "View the daily leaderboard, or create an auto-updating one."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "View the weekly leaderboard, or create an auto-updating one."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "View the monthly leaderboard, or create an auto-updating one."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "View the all-time leaderboard, or create an auto-updating one."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Create button-based reaction roles."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Add an invite-based reward."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Remove an invite-based reward."
+        },
+        {
+          "name": "/rewards view",
+          "description": "View all the invite-based rewards."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Set up simple verification in your server."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Set up question verification in your server."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Set up pin verification in your server."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Disables the verification system."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Set the farewell channel in the server."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Remove the farewell channel."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Set the farewell message for the server channel."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Remove the server farewell message."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "View the server farewell message."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "Set the farewell message for DMs."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "Remove the DM farewell message."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "View the DM farewell message."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Set the farewell message for vanity URLs."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Remove the vanity farewell message."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "View the vanity farewell message."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Set the farewell message embed for the server channel."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Remove the server farewell message embed."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "View the server farewell message embed."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "Set the farewell message embed for DMs."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "Remove the DM farewell message embed."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "View the DM farewell message embed."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Set the farewell message embed for vanity URLs."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Remove the vanity farewell message embed."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "View the vanity farewell message embed."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Set the welcome channel in the server."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Remove the welcome channel."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Set the welcome message for the server channel."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Remove the server welcome message."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "View the server welcome message."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "Set the welcome message for DMs."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "Remove the DM welcome message."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "View the DM welcome message."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Set the vanity welcome message."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Remove the vanity welcome message."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "View the vanity welcome message."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Set the welcome message embed for the server channel."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Remove the server welcome message embed."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "View the server welcome message embed."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "Set the welcome message embed for DMs."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "Remove the DM welcome message embed."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "View the DM welcome message embed."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Set the welcome message embed for vanity URLs."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Remove the vanity welcome message embed."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "View the vanity welcome message embed."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "View all the commands."
+        },
+        {
+          "name": "/feedback",
+          "description": "Send feedback or suggest new features to the bot developer."
+        },
+        {
+          "name": "/invite",
+          "description": "Invite the bot to your server."
+        },
+        {
+          "name": "/placeholders",
+          "description": "View all the placeholders you can use in invite messages and embeds."
+        },
+        {
+          "name": "/vote",
+          "description": "Vote for the bot on top.gg."
+        }
+      ]
+    }
+  },
   "inviteBot": {
     "success": {
       "title": "Invite the bot",
