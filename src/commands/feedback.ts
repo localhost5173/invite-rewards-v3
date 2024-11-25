@@ -112,4 +112,6 @@ export const options: CommandOptions = {
   userPermissions: ["ManageGuild"],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,
+  onlyGuild: false,
+  voteLocked: false,
 };

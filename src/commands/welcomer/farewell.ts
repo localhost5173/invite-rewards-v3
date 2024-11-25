@@ -13,6 +13,7 @@ import viewMessage from "./func/viewMessage";
 import setEmbed from "./func/setEmbed";
 import removeEmbed from "./func/removeEmbed";
 import viewEmbed from "./func/viewEmbed";
+import { devMode } from "../..";
 
 export const data: CommandData = {
   name: "farewell",
@@ -257,7 +258,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: true,
+  devOnly: devMode,
   userPermissions: ["ManageGuild"],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

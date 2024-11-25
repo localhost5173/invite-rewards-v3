@@ -5,6 +5,7 @@ import type {
 } from "commandkit";
 import { Embeds } from "../utils/embeds/embeds";
 import { db } from "../utils/db/db";
+import { devMode } from "..";
 
 export const data: CommandData = {
   name: "placeholders",
@@ -60,10 +61,10 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: true,
+  devOnly: devMode,
   userPermissions: [],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,
-  onlyGuild: true,
+  onlyGuild: false,
   voteLocked: false,
 };

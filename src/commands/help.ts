@@ -13,6 +13,7 @@ import {
     PartialGroupDMChannel,
 } from "discord.js";
 import botconfig from "../../config.json" assert { type: "json" };
+import { devMode } from "..";
 
 interface Command {
     name: string;
@@ -168,8 +169,10 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-    devOnly: false,
+    devOnly: devMode,
     userPermissions: [],
     botPermissions: ["SendMessages", "EmbedLinks"],
     deleted: false,
+    onlyGuild: false,
+    voteLocked: false,
 };
