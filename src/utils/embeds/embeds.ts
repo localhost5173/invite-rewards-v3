@@ -60,11 +60,17 @@ export class Embeds {
     if (data.color) embed.setColor(parseInt(replacePlaceholders(data.color).replace("#", ""), 16));
     if (data.timestamp)
       embed.setTimestamp(new Date(replacePlaceholders(data.timestamp)));
-    if (data.footer)
-      embed.setFooter({
-        text: replacePlaceholders(data.footer.text),
-        iconURL: replacePlaceholders(data.footer.icon_url),
-      });
+    if (data.footer) {
+      if (data.footer.text && data.footer.icon_url)
+        embed.setFooter({
+          text: replacePlaceholders(data.footer.text),
+          iconURL: replacePlaceholders(data.footer.icon_url),
+        });
+      if (data.footer.text && !data.footer.icon_url)
+        embed.setFooter({
+          text: replacePlaceholders(data.footer.text),
+        });
+    }
     if (data.image) embed.setImage(replacePlaceholders(data.image));
     if (data.thumbnail) embed.setThumbnail(replacePlaceholders(data.thumbnail));
     if (data.author)
@@ -85,6 +91,31 @@ export class Embeds {
     }
 
     return embed;
+  }
+
+  static async getJson(guildId: string | null, path: string) {
+    let language = "en"
+
+    if (guildId) {
+      language = await db.languages.getLanguage(guildId);
+    }
+    const languageData = await import(`../../languages/${language}.json`);
+
+    const pathComponents = path.split(".");
+
+    // Dynamically access the nested properties
+    let data = languageData;
+    for (const component of pathComponents) {
+      if (data[component] !== undefined) {
+        data = data[component];
+      } else {
+        throw new Error(
+          `Path component "${component}" not found in language data.`
+        );
+      }
+    }
+
+    return data;
   }
 
   static async getStringTranslation(guildId: string | null, path: string) {
