@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Subperintah tidak valid",
+      "description": "Subperintah yang Anda berikan tidak valid.",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Kesalahan saat menjalankan perintah",
+      "description": "Terjadi kesalahan saat menjalankan perintah.",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "Pengguna Tidak Disediakan",
+      "description": "Harap berikan pengguna yang valid untuk mendapatkan riwayat.",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "Bot Tidak Ditemukan",
+      "description": "Saya tidak dapat menemukan diri saya di server.",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "JSON tidak valid",
+      "description": "JSON yang Anda berikan tidak valid.",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "Penyematan Terlalu Panjang",
+      "description": "Sematan yang Anda berikan terlalu panjang.",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "Perintah Server",
+      "description": "Perintah ini hanya dapat digunakan di server.",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "Grup DM",
+      "description": "Perintah ini tidak dapat digunakan di DM grup.",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "Hanya Saluran Teks",
+      "description": "Perintah ini hanya dapat digunakan di saluran teks.",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "Waktu Interaksi Habis",
+      "description": "Kamu terlalu lama membalasnya.",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "Kesalahan Proses Interaksi",
+      "description": "Terjadi kesalahan saat memproses interaksi.",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Halaman {page} dari {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Manajemen Undangan",
+      "giveaways": "Hadiah",
+      "autoRoles": "Peran Otomatis",
+      "language": "Bahasa",
+      "leaderboards": "Papan peringkat",
+      "reactionRoles": "Peran Reaksi",
+      "rewards": "Hadiah",
+      "verification": "Verifikasi",
+      "welcomer": "Penyambut",
+      "miscellaneous": "Aneka ragam",
+      "next": "Berikutnya",
+      "previous": "Sebelumnya"
+    },
+    "additionalFields": [
+      {
+        "name": "Masukan",
+        "value": "Jika Anda mempunyai masukan, ingin melaporkan bug atau menyarankan fitur baru, silakan gunakan perintah / feedback.",
+        "inline": false
+      },
+      {
+        "name": "Undang Saya",
+        "value": "[Klik untuk mengundang saya ke server Anda!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "Memandu",
+        "value": "[Klik untuk panduan bot.]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "Server Dukungan",
+        "value": "[Klik untuk bergabung dengan server dukungan!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Tambahkan undangan bonus ke pengguna."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Hapus undangan bonus dari pengguna."
+        },
+        {
+          "name": "/inviter",
+          "description": "Cari tahu siapa yang mengundang pengguna."
+        },
+        {
+          "name": "/invites",
+          "description": "Dapatkan total undangan pengguna."
+        },
+        {
+          "name": "/invited-list",
+          "description": "Lihat semua pengguna yang diundang oleh pengguna."
+        },
+        {
+          "name": "/who-used",
+          "description": "Cari tahu siapa yang menggunakan tautan undangan."
+        },
+        {
+          "name": "/history",
+          "description": "Lihat riwayat bergabung dan keluar dari pengguna."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Buat hadiah."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "Akhiri hadiah."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Hapus hadiah."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Putar ulang hadiahnya."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "Daftarkan semua hadiahnya."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Tambahkan peran otomatis."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Hapus peran otomatis."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "Lihat semua peran otomatis."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Atur bahasa untuk bot."
+        },
+        {
+          "name": "/language view",
+          "description": "Lihat bahasa saat ini."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "Lihat papan peringkat harian, atau buat papan peringkat yang diperbarui secara otomatis."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "Lihat papan peringkat mingguan, atau buat papan peringkat yang diperbarui secara otomatis."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "Lihat papan peringkat bulanan, atau buat papan peringkat yang diperbarui secara otomatis."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "Lihat papan peringkat sepanjang masa, atau buat papan peringkat yang diperbarui secara otomatis."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Buat peran reaksi berbasis tombol."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Tambahkan hadiah berbasis undangan."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Hapus hadiah berbasis undangan."
+        },
+        {
+          "name": "/rewards view",
+          "description": "Lihat semua hadiah berbasis undangan."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Siapkan verifikasi sederhana di server Anda."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Siapkan verifikasi pertanyaan di server Anda."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Siapkan verifikasi pin di server Anda."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Menonaktifkan sistem verifikasi."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Atur saluran perpisahan di server."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Hapus saluran perpisahan."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Atur pesan perpisahan untuk saluran server."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Hapus pesan perpisahan server."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "Lihat pesan perpisahan server."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "Atur pesan perpisahan untuk DM."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "Hapus pesan perpisahan DM."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "Lihat pesan perpisahan DM."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Setel pesan perpisahan untuk URL cantik."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Hapus pesan perpisahan yang sia-sia."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "Lihat pesan perpisahan kesombongan."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Atur penyematan pesan perpisahan untuk saluran server."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Hapus penyematan pesan perpisahan server."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "Lihat penyematan pesan perpisahan server."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "Atur penyematan pesan perpisahan untuk DM."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "Hapus penyematan pesan perpisahan DM."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "Lihat penyematan pesan perpisahan DM."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Atur penyematan pesan perpisahan untuk URL cantik."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Hapus penyematan pesan perpisahan kesombongan."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "Lihat penyematan pesan perpisahan kesombongan."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Atur saluran selamat datang di server."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Hapus saluran selamat datang."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Atur pesan selamat datang untuk saluran server."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Hapus pesan selamat datang server."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "Lihat pesan selamat datang server."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "Atur pesan selamat datang untuk DM."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "Hapus pesan selamat datang DM."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "Lihat pesan selamat datang DM."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Atur pesan selamat datang yang cantik."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Hapus pesan selamat datang yang cantik."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "Lihat pesan selamat datang kesombongan."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Atur penyematan pesan selamat datang untuk saluran server."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Hapus penyematan pesan selamat datang server."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "Lihat penyematan pesan selamat datang server."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "Atur penyematan pesan selamat datang untuk DM."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "Hapus penyematan pesan selamat datang DM."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "Lihat penyematan pesan selamat datang DM."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Setel penyematan pesan selamat datang untuk URL cantik."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Hapus penyematan pesan selamat datang yang cantik."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "Lihat penyematan pesan selamat datang kesombongan."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "Lihat semua perintah."
+        },
+        {
+          "name": "/feedback",
+          "description": "Kirim masukan atau sarankan fitur baru ke pengembang bot."
+        },
+        {
+          "name": "/invite",
+          "description": "Undang bot ke server Anda."
+        },
+        {
+          "name": "/placeholders",
+          "description": "Lihat semua placeholder yang dapat Anda gunakan dalam pesan undangan dan penyematan."
+        },
+        {
+          "name": "/vote",
+          "description": "Pilih bot di top.gg."
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "Undang botnya",
+      "description": "Klik tombol di bawah untuk mengundang bot ke server Anda atau kunjungi situs web kami!",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "Undang Bot",
+    "supportServerTranslation": "Server Dukungan",
+    "visitWebsiteTranslation": "Kunjungi Situs Web"
+  },
+  "vote": {
+    "success": {
+      "title": "Pilih botnya",
+      "description": "Klik tombol di bawah untuk memilih bot di top.gg!",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "Memilih"
+  },
+  "placeholders": {
+    "mention-user": "Menyebutkan pengguna yang diundang",
+    "username": "Nama pengguna pengguna yang diundang",
+    "user-tag": "Tag pengguna yang diundang",
+    "server-name": "Nama servernya",
+    "member-count": "Jumlah total anggota server",
+    "inviter-tag": "Tag pengundang",
+    "inviter-count": "Jumlah total undangan dari pengundang",
+    "inviter-real-count": "Jumlah undangan sebenarnya dari pengundang",
+    "inviter-fake-count": "Jumlah undangan palsu dari pengundang",
+    "embed": {
+      "title": "Penampung",
+      "description": "Berikut adalah placeholder yang dapat Anda gunakan dalam pesan undangan dan penyematan: {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "Perintah Suara Terkunci",
+      "description": "Anda harus memilih bot sebelum dapat menggunakan perintah ini.",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "Memilih",
+    "guildOnly": {
+      "title": "Perintah Khusus Persekutuan",
+      "description": "Perintah ini hanya dapat digunakan di server.",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Bahasa tidak valid",
+        "description": "Bahasa yang Anda berikan tidak valid.",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "Tidak ada bahasa",
+        "description": "Anda tidak menyediakan bahasa.",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "Kumpulan bahasa",
+        "description": "Bahasa telah disetel ke {language} .",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Bahasa saat ini",
+        "description": "Bahasa saat ini adalah {language} .",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "Kesuksesan",
+      "description": "Ditambahkan {amount} bonus undangan ke {user} .  {total} total undangan.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "Kesuksesan",
+      "description": "DIHAPUS {amount} bonus undangan dari {user} .  {total} total undangan.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "Tidak Ada Riwayat yang Ditemukan",
+      "description": "Tidak ditemukan riwayat bergabung atau keluar {user} .",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Bergabunglah dan Tinggalkan Sejarah",
+      "description": "Sejarah untuk {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "Pengguna Tidak Disediakan",
+      "description": "Harap berikan pengguna yang valid untuk memeriksa undangan.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "Tidak Ada Undangan yang Ditemukan",
+      "description": "{user} belum mengundang pengguna mana pun.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Daftar Pengguna yang Diundang",
+      "description": "Pengguna diundang oleh {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "Pengguna Tidak Disediakan",
+      "description": "Harap berikan pengguna yang valid untuk memeriksa pengundang.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "Tidak Ditemukan Pengundang",
+      "description": "Saya tidak dapat menemukan pengundang untuk pengguna tertentu.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "Pengundang Tidak Dapat Diselesaikan",
+      "description": "Saya tidak dapat menyelesaikan pengundang untuk pengguna tertentu.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Pengundang Pengguna",
+      "description": "Pengundang untuk {user} adalah {inviter} .",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "Perincian Undangan untuk {user}",
+      "description": "Berikut rincian undangannya {user} :\n {real} **Bonus**: {bonus} **Palsu**: {fake} **Belum terverifikasi**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "Jumlah Undangan",
+      "description": "{user} memiliki ** {totalInvites} ** undangan.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "Tidak Ada Tautan yang Disediakan",
+      "description": "Harap berikan tautan undangan yang valid untuk memeriksa siapa yang menggunakannya.",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "Tidak Ada Pengguna yang Ditemukan",
+      "description": "Tidak ditemukan pengguna yang menggunakan tautan undangan.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Pengguna yang Menggunakan Undangan",
+      "description": "Pengguna yang menggunakan kode undangan {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Saluran Tidak Disediakan",
+      "description": "Harap berikan saluran yang valid.",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "Jenis Saluran Tidak Valid",
+      "description": "Saluran yang Anda berikan bukan saluran teks.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "Peran Tidak Disediakan",
+      "description": "Harap berikan peran yang valid.",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: Peran tidak ditemukan",
+      "description": "Peran yang Anda berikan tidak ditemukan di server ini.",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: Peran terkelola",
+      "description": "Saya tidak dapat menetapkan atau menghapus peran tersebut {role} karena dikelola secara integrasi.",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: Izin Tidak Ada",
+      "description": "Saya tidak dapat menetapkan atau menghapus peran tersebut {role} karena itu lebih tinggi dari peran tertinggi saya.",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: Izin Tidak Ada",
+      "description": "Saya tidak memiliki izin yang diperlukan untuk mengelola peran tersebut {role} .",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Peran Tidak Disediakan",
+      "description": "Harap berikan setidaknya 1 peran yang valid.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Peran Reaksi Dibuat",
+      "description": "Peran reaksi telah dibuat.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "Peran Sudah Tidak Ada Lagi",
+      "description": "Peran reaksi ini tidak ada lagi di server ini.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "Kesuksesan",
+      "description": "Peran reaksi {role} telah dihapus darimu.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "Kesuksesan",
+      "description": "Peran reaksi {role} telah ditugaskan padamu.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "Kesalahan",
+      "description": "Terjadi kesalahan saat menetapkan peran reaksi.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Membuat Hadiah",
+      "description": "Harap tunggu sementara saya membuat giveaway.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **GIVEAWAY** 🎉",
+      "description": "{description} **Hadiah:** * {prize} *\n {host} **Berakhir pada:** {timeLeft} **ID Hadiah:** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **GIVEAWAY BERAKHIR** 🎉",
+      "description": "{description} **Hadiah:** * {prize} *\n {host} **Berakhir:** {endedTimestamp} **ID Hadiah:** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "Peran Hadiah",
+      "inviteRequirement": "Persyaratan Undangan",
+      "ended": "Berakhir",
+      "active": "Aktif",
+      "showEnded": "Pertunjukan Berakhir",
+      "showActive": "Tampilkan Aktif",
+      "noActiveGiveawaysFound": "Tidak ditemukan hadiah aktif.",
+      "noEndedGiveawaysFound": "Tidak ada hadiah akhir yang ditemukan."
+    },
+    "giveawayPage": {
+      "title": "{status} Memberi secara gratis",
+      "description": "{description} **Hadiah:** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Jumlah Pemenang Tidak Valid",
+      "description": "Jumlah pemenang harus antara 1 dan 10.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "Hadiah Dibuat",
+      "description": "Hadiah telah dibuat.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "Hadiah Tidak Ditemukan",
+      "description": "Hadiah dengan ID {giveawayId} tidak ditemukan.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "Hadiah Dihapus",
+      "description": "Hadiah dengan ID {giveawayId} telah dihapus.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Giveaway Sudah Berakhir",
+      "description": "Hadiah dengan ID {giveawayId} sudah berakhir.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "Hadiah Diputar Ulang",
+      "description": "Hadiah dengan ID {giveawayId} telah diputar ulang.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "Hadiah Berakhir",
+      "description": "Hadiah dengan ID {giveawayId} telah berakhir.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "Hadiah Masih Aktif",
+      "description": "Hadiah dengan ID {giveawayId} masih aktif.  {giveawayId} .",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "Tidak Ada Hadiah yang Ditemukan",
+      "description": "Tidak ada hadiah yang ditemukan.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "Ikuti Hadiahnya",
+      "description": "Anda telah mengikuti giveawaynya!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "Hadiah Kiri",
+      "description": "Anda telah meninggalkan giveaway.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "Tidak Dapat Mengikuti Giveaway",
+      "description": "Anda tidak dapat mengikuti giveaway ini.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "Hadiah Berakhir!",
+      "description": "{mentionWinners} Selamat!  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "Hadiah Diputar Ulang!",
+      "description": "{mentionWinners} Selamat!  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: Sudah menjadi peran otomatis",
+        "description": "Perannya {role} sudah menjadi peran otomatis."
+      },
+      "maxAutoRolesError": {
+        "title": ":x: Peran otomatis maksimal",
+        "description": "Anda telah mencapai jumlah maksimum peran otomatis."
+      },
+      "success": {
+        "title": ":white_check_mark: Peran otomatis ditambahkan",
+        "description": "Perannya {role} telah ditambahkan sebagai peran otomatis."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: Bukan peran otomatis",
+        "description": "Perannya {role} bukan peran otomatis."
+      },
+      "success": {
+        "title": ":white_check_mark: Peran otomatis dihapus",
+        "description": "Perannya {role} telah dihapus sebagai peran otomatis."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Peran otomatis",
+        "description": "Peran otomatis untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: Izin Tidak Ada",
+        "description": "Saya mencoba untuk menetapkan peran otomatis kepada anggota baru, namun tidak dapat melakukannya karena saya tidak memiliki izin \"Kelola Peran\".",
+        "dmDescription": ":wave: Saya mencoba untuk menetapkan peran otomatis kepada anggota baru {serverName} , namun tidak dapat melakukannya karena saya tidak memiliki izin \"Kelola Peran\".",
+        "footer": {
+          "text": "Kesalahan Penetapan Peran Otomatis"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: Izin Tidak Ada",
+        "description": "Saya mencoba untuk menetapkan peran otomatis kepada anggota baru, namun tidak dapat melakukannya karena peran yang saya coba tetapkan lebih tinggi daripada peran tertinggi saya.",
+        "dmDescription": ":wave: Saya mencoba untuk menetapkan peran otomatis kepada anggota baru {serverName} , tetapi tidak dapat melakukannya karena peran yang saya coba tetapkan lebih tinggi daripada peran tertinggi saya.",
+        "footer": {
+          "text": "Kesalahan Penetapan Peran Otomatis"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "Tidak Ada Pertanyaan atau Jawaban yang Disediakan",
+        "description": "Harap berikan pertanyaan dan jawaban untuk menyiapkan verifikasi pertanyaan."
+      },
+      "success": {
+        "title": "Pengaturan Verifikasi",
+        "description": "Verifikasi telah disiapkan di saluran {channel} .  {role} peran setelah memverifikasi."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "Verifikasi Dinonaktifkan",
+        "description": "Verifikasi telah dinonaktifkan di server ini."
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "Konfigurasi Tidak Valid",
+          "description": "Konfigurasi verifikasi tidak valid."
+        },
+        "incorrectAnswer": {
+          "title": "Jawaban Salah",
+          "description": "Anda memberikan jawaban yang salah."
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "Pin salah",
+          "description": "Anda memberikan pin yang salah."
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "Pengguna Palsu",
+          "description": "Anda ditandai sebagai pengguna palsu dan tidak dapat diverifikasi."
+        },
+        "verificationDisabled": {
+          "title": "Verifikasi Dinonaktifkan",
+          "description": "Verifikasi dinonaktifkan di server ini."
+        },
+        "alreadyVerified": {
+          "title": "Sudah Terverifikasi",
+          "description": "Anda sudah terverifikasi."
+        },
+        "missingPermissions": {
+          "title": "Izin Hilang",
+          "description": "Saya tidak memiliki izin yang diperlukan untuk memberi Anda peran verifikasi."
+        },
+        "roleNotFound": {
+          "title": "Peran Tidak Ditemukan",
+          "description": "Peran verifikasi tidak ditemukan di server ini."
+        },
+        "managedRole": {
+          "title": "Peran Terkelola",
+          "description": "Saya tidak dapat menetapkan atau menghapus peran verifikasi karena peran tersebut dikelola oleh integrasi."
+        },
+        "hierarchyError": {
+          "title": "Izin Hilang",
+          "description": "Saya tidak dapat menetapkan atau menghapus peran verifikasi karena lebih tinggi dari peran tertinggi saya."
+        },
+        "unknownType": {
+          "title": "Tipe Tidak Diketahui",
+          "description": "Jenis verifikasi yang Anda berikan tidak valid."
+        },
+        "error": {
+          "title": "Kesalahan",
+          "description": "Terjadi kesalahan saat memverifikasi Anda."
+        },
+        "success": {
+          "title": "Terverifikasi",
+          "description": "Anda telah diverifikasi."
+        },
+        "timeout": {
+          "title": "Batas waktu",
+          "description": "Kamu terlalu lama menjawabnya."
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Papan peringkat",
+        "description": "Papan peringkat untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "Tidak Ada Data",
+        "description": "Papan peringkat kosong."
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "Papan Peringkat Cerdas Dibuat",
+        "description": "Papan peringkat cerdas telah dibuat."
+      },
+      "daily": {
+        "title": "Papan Peringkat Harian Cerdas",
+        "description": "Papan peringkat harian untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Papan Peringkat Mingguan Cerdas",
+        "description": "Papan peringkat mingguan untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Papan Peringkat Bulanan Cerdas",
+        "description": "Papan peringkat bulanan untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Papan Peringkat Cerdas Sepanjang Masa",
+        "description": "Papan peringkat sepanjang masa untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "Papan Peringkat Maks",
+        "description": "Anda telah mencapai jumlah maksimum papan peringkat cerdas."
+      }
+    },
+    "update": {
+      "invitesTranslation": "mengundang",
+      "noEntries": "Papan peringkat kosong."
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "Hadiah",
+        "description": "Hadiah untuk server ini adalah:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "Tidak Ada Hadiah",
+        "description": "Tidak ada hadiah yang ditetapkan untuk server ini."
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "Tidak Ada Hadiah yang Ditemukan",
+        "description": "Tidak ditemukan imbalan dengan nama tersebut {rewardName} ."
+      },
+      "success": {
+        "title": "Hadiah Dihapus",
+        "description": "Hadiahnya {rewardName} telah dihapus."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "Peran Tidak Diperlukan",
+        "description": "Peran yang Anda berikan tidak dapat digunakan untuk jenis hadiah ini."
+      },
+      "removableNotRequired": {
+        "title": "Dapat Dilepas Tidak Diperlukan",
+        "description": "Opsi yang dapat dilepas yang Anda berikan tidak dapat digunakan untuk jenis hadiah ini."
+      },
+      "storeNotRequired": {
+        "title": "Lampiran Tidak Diperlukan",
+        "description": "Lampiran yang Anda berikan tidak dapat digunakan untuk jenis hadiah ini."
+      },
+      "alreadyExists": {
+        "title": "Hadiah Sudah Ada",
+        "description": "Hadiah dengan nama ini sudah ada."
+      },
+      "maxReached": {
+        "title": "Hadiah Maks",
+        "description": "Anda telah mencapai jumlah hadiah maksimum."
+      },
+      "role": {
+        "success": {
+          "title": "Hadiah Peran Ditambahkan",
+          "description": "Hadiah peran {rewardName} untuk {role} telah ditambahkan."
+        },
+        "roleRequired": {
+          "title": "Peran Tidak Disediakan",
+          "description": "Harap berikan peran yang valid untuk ditambahkan sebagai hadiah."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "Pesan Tidak Disediakan",
+          "description": "Silakan berikan pesan untuk ditambahkan sebagai hadiah."
+        },
+        "success": {
+          "title": "Hadiah Pesan Ditambahkan",
+          "description": "Hadiah pesannya {rewardName} telah ditambahkan.",
+          "fields": [
+            {
+              "name": "Pesan",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "Waktu Habis",
+          "description": "Kamu terlalu lama membalasnya."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "Hadiah Toko Pesan Ditambahkan",
+          "description": "Hadiah penyimpanan pesan {rewardName} telah ditambahkan."
+        },
+        "fileRequired": {
+          "title": "Berkas Tidak Disediakan",
+          "description": "Harap berikan file dengan pesan untuk ditetapkan sebagai hadiah."
+        },
+        "fileEmpty": {
+          "title": "Berkas Kosong",
+          "description": "File yang Anda berikan kosong atau formatnya tidak valid."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "Saluran Selamat Datang Dihapus",
+          "description": "Saluran selamat datang telah dihapus."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "Saluran Perpisahan Dihapus",
+          "description": "Saluran perpisahan telah dihapus."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Sematan selamat datang untuk server telah dihapus."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Sematan selamat datang untuk DM telah dihapus."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Penyematan selamat datang untuk URL cantik telah dihapus."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Sematan perpisahan untuk server telah dihapus."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Sematan perpisahan untuk DM telah dihapus."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Penyematan Dihapus",
+            "description": "Sematan perpisahan untuk URL cantik telah dihapus."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan selamat datang untuk server telah dihapus."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan selamat datang untuk DM telah dihapus."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan selamat datang untuk URL cantik telah dihapus."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan perpisahan untuk server telah dihapus."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan perpisahan untuk DM telah dihapus."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Pesan Dihapus",
+            "description": "Pesan perpisahan untuk URL cantik telah dihapus."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "Sematkan Set",
+        "description": "Penyematan telah ditetapkan."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Kumpulan Pesan Selamat Datang",
+            "description": "Pesan selamat datang untuk server telah disetel ke {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Kumpulan Pesan Selamat Datang",
+            "description": "Pesan selamat datang untuk DM telah disetel ke {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Kumpulan Pesan Selamat Datang",
+            "description": "Pesan selamat datang untuk URL cantik telah disetel ke {message} ."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Kumpulan Pesan Perpisahan",
+            "description": "Pesan perpisahan untuk server telah disetel ke {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Kumpulan Pesan Perpisahan",
+            "description": "Pesan perpisahan untuk DM telah disetel ke {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Kumpulan Pesan Perpisahan",
+            "description": "Pesan perpisahan untuk URL cantik telah disetel ke {message} ."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "Tidak Ada Set Sematan",
+        "description": "Tidak ada penyematan yang disetel."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "Tidak Ada Pesan yang Ditetapkan",
+        "description": "Tidak ada pesan yang disetel."
+      },
+      "success": {
+        "title": "Pesan",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "Selamat datang",
+      "farewell": "Selamat tinggal"
+    },
+    "setChannel": {
+      "title": "Kumpulan Saluran",
+      "description": "{channelType} saluran telah disetel ke {channel} ."
+    }
+  },
+  "feedback": {
+    "title": "Masukan Dikirim",
+    "description": "Terima kasih telah mengirimkan tanggapan Anda."
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Atur penyematannya",
+        "jsonField": {
+          "title": "JSON dari penyematan",
+          "label": "JSON dari penyematan",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "Verifikasi"
+      }
+    },
+    "feedback": {
+      "title": "Formulir Umpan Balik",
+      "feedbackTypeField": {
+        "label": "Jenis Umpan Balik (Laporan Bug, Saran, dll.)",
+        "placeholder": "Misalnya, Laporan Bug"
+      },
+      "feedbackField": {
+        "label": "Silakan jelaskan tanggapan Anda",
+        "placeholder": "Jelaskan masalah atau sarannya"
+      },
+      "satisfactionField": {
+        "label": "Seberapa puaskah Anda dengan bot tersebut?",
+        "placeholder": "Nilai dari 1 hingga 5"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "Konfigurasikan hadiahnya",
+          "messageField": {
+            "title": "Pesan",
+            "label": "Pesan",
+            "placeholder": "Anda telah mencapai {threshold} undangan di {server-name} pelayan!"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "Jumlah peran reaksi yang ingin Anda buat (1-5)"
+        }
+      }
+    }
+  }
+}

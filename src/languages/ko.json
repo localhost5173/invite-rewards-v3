@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "잘못된 하위 명령",
+      "description": "제공한 하위 명령이 잘못되었습니다.",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "명령을 실행하는 중 오류가 발생했습니다.",
+      "description": "명령을 실행하는 동안 오류가 발생했습니다.",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "사용자가 제공되지 않음",
+      "description": "기록을 가져올 유효한 사용자를 입력하세요.",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "봇을 찾을 수 없음",
+      "description": "서버에서 자신을 찾을 수 없습니다.",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "잘못된 JSON",
+      "description": "제공한 JSON이 잘못되었습니다.",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "너무 긴 삽입",
+      "description": "제공한 삽입 내용이 너무 깁니다.",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "서버 명령",
+      "description": "이 명령은 서버에서만 사용할 수 있습니다.",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "그룹DM",
+      "description": "이 명령은 그룹 DM에서는 사용할 수 없습니다.",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "텍스트 채널만",
+      "description": "이 명령은 텍스트 채널에서만 사용할 수 있습니다.",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "상호작용 시간이 초과되었습니다",
+      "description": "응답하는 데 시간이 너무 오래 걸렸습니다.",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "상호작용 프로세스 오류",
+      "description": "상호작용을 처리하는 동안 오류가 발생했습니다.",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "페이지 {page} ~의 {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "초대 관리",
+      "giveaways": "경품",
+      "autoRoles": "자동 역할",
+      "language": "언어",
+      "leaderboards": "리더보드",
+      "reactionRoles": "반응 역할",
+      "rewards": "보상",
+      "verification": "확인",
+      "welcomer": "환영하는 사람",
+      "miscellaneous": "여러 가지 잡다한",
+      "next": "다음",
+      "previous": "이전의"
+    },
+    "additionalFields": [
+      {
+        "name": "피드백",
+        "value": "피드백이 있거나 버그를 보고하고 싶거나 새로운 기능을 제안하고 싶다면 /feedback 명령을 사용해 주세요.",
+        "inline": false
+      },
+      {
+        "name": "나를 초대하세요",
+        "value": "[서버에 초대하려면 클릭하세요!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "가이드",
+        "value": "[클릭하시면 봇 가이드를 보실 수 있습니다.]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "지원 서버",
+        "value": "[지원 서버에 참여하려면 클릭하세요!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "사용자에게 보너스 초대를 추가합니다."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "사용자로부터 보너스 초대를 제거합니다."
+        },
+        {
+          "name": "/inviter",
+          "description": "누가 사용자를 초대했는지 알아보세요."
+        },
+        {
+          "name": "/invites",
+          "description": "사용자의 총 초대를 가져옵니다."
+        },
+        {
+          "name": "/invited-list",
+          "description": "사용자가 초대한 모든 사용자를 봅니다."
+        },
+        {
+          "name": "/who-used",
+          "description": "누가 초대 링크를 사용했는지 알아보세요."
+        },
+        {
+          "name": "/history",
+          "description": "사용자의 가입 및 탈퇴 기록을 봅니다."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "경품을 만들어 보세요."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "경품을 종료합니다."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "경품을 삭제하세요."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "경품을 다시 굴립니다."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "모든 경품을 나열하십시오."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "자동 역할을 추가합니다."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "자동 역할을 제거합니다."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "모든 자동 역할을 봅니다."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "봇의 언어를 설정합니다."
+        },
+        {
+          "name": "/language view",
+          "description": "현재 언어를 봅니다."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "일일 순위표를 보거나 자동 업데이트되는 순위표를 만드세요."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "주간 순위표를 보거나 자동 업데이트되는 순위표를 만드세요."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "월별 리더보드를 보거나 자동 업데이트되는 리더보드를 만드세요."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "전체 시간 순위표를 보거나 자동 업데이트되는 순위표를 만드세요."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "버튼 기반 반응 역할을 만듭니다."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "초대 기반 보상을 추가하세요."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "초대 기반 보상을 제거합니다."
+        },
+        {
+          "name": "/rewards view",
+          "description": "초대 기반 보상을 모두 확인하세요."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "서버에 간단한 인증을 설정하세요."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "서버에서 질문 확인을 설정하세요."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "서버에서 핀 확인을 설정하세요."
+        },
+        {
+          "name": "/verification disable",
+          "description": "검증 시스템을 비활성화합니다."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "서버에서 작별 채널을 설정하세요."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "작별 채널을 제거하세요."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "서버 채널에 대한 작별 메시지를 설정합니다."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "서버 작별 메시지를 제거합니다."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "서버 작별 메시지를 확인하세요."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "DM으로 보낼 작별 메시지를 설정하세요."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "DM 작별 메시지를 삭제하세요."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "DM 작별 메시지를 확인하세요."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "가상 URL에 대한 작별 메시지를 설정합니다."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "허영심 작별 메시지를 삭제하세요."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "허영심 작별 메시지를 확인하세요."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "서버 채널에 대한 작별 메시지 삽입을 설정합니다."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "서버 작별 인사 메시지 삽입을 제거합니다."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "서버 작별 인사 메시지 삽입을 확인하세요."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "DM에 대한 작별 메시지 삽입을 설정합니다."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "DM 작별 메시지 삽입을 삭제하세요."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "DM 작별 메시지 삽입을 확인하세요."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "별칭 URL에 대한 작별 인사 삽입을 설정합니다."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "허영적인 작별 메시지 삽입을 제거하세요."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "허영의 작별 메시지 삽입을 확인하세요."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "서버에서 환영 채널을 설정합니다."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "환영 채널을 제거하세요."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "서버 채널에 대한 환영 메시지를 설정합니다."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "서버 환영 메시지를 제거합니다."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "서버 환영 메시지를 확인하세요."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "DM에 대한 환영 메시지를 설정합니다."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "DM 환영 메시지를 삭제하세요."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "DM 환영 메시지를 확인하세요."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "허영 환영 메시지를 설정합니다."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "허영 환영 메시지를 제거하십시오."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "허영 환영 메시지를 확인하세요."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "서버 채널에 대한 환영 메시지 포함을 설정합니다."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "서버 환영 메시지 삽입을 제거합니다."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "서버 환영 메시지 삽입을 확인하세요."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "DM에 대한 환영 메시지 삽입을 설정합니다."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "DM 환영 메시지 삽입을 제거하세요."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "DM 환영 메시지 삽입을 확인하세요."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "가상 URL에 대한 환영 메시지 삽입을 설정합니다."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "허영 환영 메시지 삽입을 제거하세요."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "허영 환영 메시지 삽입을 확인하세요."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "모든 명령을 봅니다."
+        },
+        {
+          "name": "/feedback",
+          "description": "봇 개발자에게 피드백을 보내거나 새로운 기능을 제안하세요."
+        },
+        {
+          "name": "/invite",
+          "description": "서버에 봇을 초대하세요."
+        },
+        {
+          "name": "/placeholders",
+          "description": "초대 메시지 및 삽입에 사용할 수 있는 모든 자리 표시자를 확인하세요."
+        },
+        {
+          "name": "/vote",
+          "description": "top.gg에서 봇에게 투표하세요."
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "봇 초대",
+      "description": "아래 버튼을 클릭하여 봇을 서버에 초대하거나 당사 웹사이트를 방문하세요!",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "봇 초대",
+    "supportServerTranslation": "지원 서버",
+    "visitWebsiteTranslation": "웹사이트 방문"
+  },
+  "vote": {
+    "success": {
+      "title": "봇에게 투표하세요",
+      "description": "top.gg의 봇에 투표하려면 아래 버튼을 클릭하세요!",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "투표"
+  },
+  "placeholders": {
+    "mention-user": "초대된 사용자를 언급합니다.",
+    "username": "초대된 사용자의 사용자 이름",
+    "user-tag": "초대된 사용자의 태그",
+    "server-name": "서버 이름",
+    "member-count": "서버의 총 구성원 수",
+    "inviter-tag": "초대자의 태그",
+    "inviter-count": "초대자의 총 초대 수",
+    "inviter-real-count": "초대자의 실제 초대 횟수",
+    "inviter-fake-count": "초대자의 가짜 초대 횟수",
+    "embed": {
+      "title": "자리 표시자",
+      "description": "초대 메시지 및 삽입에 사용할 수 있는 자리 표시자는 다음과 같습니다. {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "투표 잠김 명령",
+      "description": "이 명령을 사용하려면 먼저 봇에 투표해야 합니다.",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "투표",
+    "guildOnly": {
+      "title": "길드 전용 명령",
+      "description": "이 명령은 서버에서만 사용할 수 있습니다.",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "잘못된 언어",
+        "description": "제공한 언어가 잘못되었습니다.",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "언어 없음",
+        "description": "언어를 제공하지 않았습니다.",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "언어 세트",
+        "description": "언어는 다음과 같이 설정되었습니다. {language} .",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "현재 언어",
+        "description": "현재 언어는 {language} .",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "성공",
+      "description": "추가됨 {amount} 보너스 초대 {user} .  {total} 총 초대합니다.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "성공",
+      "description": "제거됨 {amount} 보너스 초대 {user} .  {total} 총 초대합니다.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "기록을 찾을 수 없습니다",
+      "description": "에 대한 가입 또는 탈퇴 기록이 없습니다. {user} .",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "가입 및 탈퇴 내역",
+      "description": "에 대한 기록 {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "사용자가 제공되지 않음",
+      "description": "초대를 확인할 유효한 사용자를 입력하세요.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "초대를 찾을 수 없습니다",
+      "description": "{user} 님은 사용자를 초대하지 않았습니다.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "초대된 사용자 목록",
+      "description": "초대한 사용자 {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "사용자가 제공되지 않음",
+      "description": "초대자를 확인할 수 있는 유효한 사용자를 입력하세요.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "초대자를 찾을 수 없습니다",
+      "description": "지정된 사용자의 초대자를 찾을 수 없습니다.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "초대자를 확인할 수 없습니다.",
+      "description": "지정된 사용자의 초대자를 확인할 수 없습니다.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "사용자 초대자",
+      "description": "초대자는 {user} ~이다 {inviter} .",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "초대 분석: {user}",
+      "description": "초대 내용은 다음과 같습니다. {user} :\n {real} **보너스**: {bonus} **가짜**: {fake} **확인되지 않음**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "총 초대 수",
+      "description": "{user} 가지다 ** {totalInvites} ** 초대합니다.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "링크가 제공되지 않음",
+      "description": "누가 사용했는지 확인하려면 유효한 초대 링크를 제공하세요.",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "사용자를 찾을 수 없습니다",
+      "description": "초대 링크를 사용한 사용자를 찾을 수 없습니다.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "초대를 사용한 사용자",
+      "description": "초대코드를 사용한 사용자 {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "채널이 제공되지 않음",
+      "description": "유효한 채널을 입력하세요.",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "잘못된 채널 유형",
+      "description": "제공하신 채널은 텍스트 채널이 아닙니다.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "역할이 제공되지 않음",
+      "description": "유효한 역할을 입력하세요.",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: 역할을 찾을 수 없습니다.",
+      "description": "제공한 역할을 이 서버에서 찾을 수 없습니다.",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: 관리 역할",
+      "description": "역할을 할당하거나 제거할 수 없습니다. {role} 통합으로 관리되기 때문입니다.",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: 권한 누락",
+      "description": "역할을 할당하거나 제거할 수 없습니다. {role} 왜냐하면 그것은 나의 가장 높은 역할보다 높기 때문입니다.",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: 권한 누락",
+      "description": "역할을 관리하는 데 필요한 권한이 없습니다. {role} .",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "제공되지 않는 역할",
+      "description": "유효한 역할을 1개 이상 제공하세요.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "생성된 반응 역할",
+      "description": "반응 역할이 생성되었습니다.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "역할이 더 이상 존재하지 않습니다.",
+      "description": "이 반응 역할은 이 서버에 더 이상 존재하지 않습니다.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "성공",
+      "description": "반응 역할 {role} 당신에게서 제거되었습니다.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "성공",
+      "description": "반응 역할 {role} 당신에게 할당되었습니다.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "오류",
+      "description": "반응 역할을 할당하는 중에 오류가 발생했습니다.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...경품 제작 중",
+      "description": "경품을 만드는 동안 잠시 기다려 주세요.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **경품** 🎉",
+      "description": "{description} **상:** * {prize} *\n {host} **끝나는 날짜:** {timeLeft} **경품 ID:** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **경품 행사가 종료되었습니다** 🎉",
+      "description": "{description} **상:** * {prize} *\n {host} **종료됨:** {endedTimestamp} **경품 ID:** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "보상 역할",
+      "inviteRequirement": "초대 요구 사항",
+      "ended": "종료됨",
+      "active": "활동적인",
+      "showEnded": "쇼가 종료되었습니다",
+      "showActive": "활성 표시",
+      "noActiveGiveawaysFound": "활성화된 경품을 찾을 수 없습니다.",
+      "noEndedGiveawaysFound": "종료된 경품을 찾을 수 없습니다."
+    },
+    "giveawayPage": {
+      "title": "{status} 경품",
+      "description": "{description} **상:** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "잘못된 우승자 수",
+      "description": "당첨자 수는 1명에서 10명 사이여야 합니다.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "경품이 생성되었습니다",
+      "description": "경품이 생성되었습니다.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "경품을 찾을 수 없음",
+      "description": "신분증을 지참한 경품 {giveawayId} 발견되지 않았습니다.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "경품이 삭제되었습니다.",
+      "description": "신분증을 지참한 경품 {giveawayId} 삭제되었습니다.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "경품 행사가 이미 종료되었습니다",
+      "description": "신분증을 지참한 경품 {giveawayId} 이미 종료되었습니다.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "경품이 다시 출시되었습니다.",
+      "description": "신분증을 지참한 경품 {giveawayId} 다시 롤업되었습니다.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "경품 행사 종료",
+      "description": "신분증을 지참한 경품 {giveawayId} 종료되었습니다.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "경품 행사가 아직 진행 중입니다.",
+      "description": "신분증을 지참한 경품 {giveawayId} 여전히 활동 중입니다.  {giveawayId} .",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "경품을 찾을 수 없습니다",
+      "description": "검색된 경품이 없습니다.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "경품을 입력하세요",
+      "description": "경품 응모에 참여하셨습니다!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "남은 경품",
+      "description": "사은품을 남겨두셨습니다.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "경품 응모 불가",
+      "description": "본 경품에 응모하실 수 없습니다.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "경품행사 종료!",
+      "description": "{mentionWinners} 축하해요!  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "공짜가 다시 출시되었습니다!",
+      "description": "{mentionWinners} 축하해요!  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: 이미 자동 역할임",
+        "description": "역할 {role} 은(는) 이미 자동 역할입니다."
+      },
+      "maxAutoRolesError": {
+        "title": ":x: 최대 자동 역할",
+        "description": "최대 자동 역할 수에 도달했습니다."
+      },
+      "success": {
+        "title": ":white_check_mark: 자동 역할이 추가되었습니다.",
+        "description": "역할 {role} 자동 역할로 추가되었습니다."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: 자동 역할이 아님",
+        "description": "역할 {role} 자동 역할이 아닙니다."
+      },
+      "success": {
+        "title": ":white_check_mark: 자동 역할이 제거되었습니다.",
+        "description": "역할 {role} 자동 역할에서 제거되었습니다."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "자동 역할",
+        "description": "이 서버의 자동 역할은 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: 권한 누락",
+        "description": "새 구성원에게 자동 역할을 할당하려고 했지만 \"역할 관리\" 권한이 없기 때문에 할당할 수 없었습니다.",
+        "dmDescription": ":wave: 새 구성원에게 자동 역할을 할당하려고 했습니다. {serverName} , 그러나 \"역할 관리\" 권한이 없기 때문에 그렇게 할 수 없습니다.",
+        "footer": {
+          "text": "자동 역할 할당 오류"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: 권한 누락",
+        "description": "새 회원에게 자동 역할을 할당하려고 했지만 할당하려는 역할이 내 최고 역할보다 높기 때문에 할당할 수 없었습니다.",
+        "dmDescription": ":wave: 새 구성원에게 자동 역할을 할당하려고 했습니다. {serverName} , 그러나 할당하려는 역할이 내 최고 역할보다 높기 때문에 할당할 수 없습니다.",
+        "footer": {
+          "text": "자동 역할 할당 오류"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "질문이나 답변이 제공되지 않음",
+        "description": "질문확인 설정을 위해 질문과 답변을 입력해주세요."
+      },
+      "success": {
+        "title": "검증 설정",
+        "description": "채널에 인증이 설정되었습니다. {channel} .  {role} 확인 후 역할을 수행합니다."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "확인이 비활성화되었습니다.",
+        "description": "이 서버에서는 확인이 비활성화되었습니다."
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "잘못된 구성",
+          "description": "확인 구성이 잘못되었습니다."
+        },
+        "incorrectAnswer": {
+          "title": "오답",
+          "description": "잘못된 답변을 제공하셨습니다."
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "잘못된 핀",
+          "description": "잘못된 핀을 제공하셨습니다."
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "가짜 사용자",
+          "description": "귀하는 가짜 사용자로 신고되어 확인할 수 없습니다."
+        },
+        "verificationDisabled": {
+          "title": "확인이 비활성화되었습니다.",
+          "description": "이 서버에서는 확인이 비활성화되어 있습니다."
+        },
+        "alreadyVerified": {
+          "title": "이미 확인됨",
+          "description": "이미 확인되었습니다."
+        },
+        "missingPermissions": {
+          "title": "누락된 권한",
+          "description": "귀하에게 확인 역할을 부여하는 데 필요한 권한이 없습니다."
+        },
+        "roleNotFound": {
+          "title": "역할을 찾을 수 없음",
+          "description": "이 서버에서 확인 역할을 찾을 수 없습니다."
+        },
+        "managedRole": {
+          "title": "관리 역할",
+          "description": "확인 역할은 통합으로 관리되기 때문에 할당하거나 제거할 수 없습니다."
+        },
+        "hierarchyError": {
+          "title": "누락된 권한",
+          "description": "확인 역할은 내 최고 역할보다 높기 때문에 할당하거나 제거할 수 없습니다."
+        },
+        "unknownType": {
+          "title": "알 수 없는 유형",
+          "description": "제공한 확인 유형이 잘못되었습니다."
+        },
+        "error": {
+          "title": "오류",
+          "description": "본인을 인증하는 중에 오류가 발생했습니다."
+        },
+        "success": {
+          "title": "확인됨",
+          "description": "귀하는 확인되었습니다."
+        },
+        "timeout": {
+          "title": "시간 초과",
+          "description": "답변하는 데 시간이 너무 오래 걸렸습니다."
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "리더보드",
+        "description": "이 서버의 순위표는 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "데이터 없음",
+        "description": "리더보드가 비어 있습니다."
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "스마트 리더보드가 생성되었습니다.",
+        "description": "스마트 리더보드가 생성되었습니다."
+      },
+      "daily": {
+        "title": "스마트 데일리 리더보드",
+        "description": "이 서버의 일일 순위표는 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "스마트 주간 리더보드",
+        "description": "이 서버의 주간 순위표는 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "스마트 월간 리더보드",
+        "description": "이 서버의 월간 순위표는 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "스마트 올타임 리더보드",
+        "description": "이 서버의 전체 순위표는 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "최대 순위표",
+        "description": "최대 스마트 리더보드 수에 도달했습니다."
+      }
+    },
+    "update": {
+      "invitesTranslation": "초대",
+      "noEntries": "리더보드가 비어 있습니다."
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "보상",
+        "description": "이 서버의 보상은 다음과 같습니다.",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "보상 없음",
+        "description": "이 서버에는 보상이 설정되어 있지 않습니다."
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "보상을 찾을 수 없습니다",
+        "description": "이름과 일치하는 보상을 찾을 수 없습니다. {rewardName} ."
+      },
+      "success": {
+        "title": "보상이 제거되었습니다.",
+        "description": "보상 {rewardName} 제거되었습니다."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "역할이 필요하지 않음",
+        "description": "제공하신 역할은 이 보상 유형에 사용할 수 없습니다."
+      },
+      "removableNotRequired": {
+        "title": "제거 가능 불필요",
+        "description": "귀하가 제공한 제거 가능한 옵션은 이 보상 유형에 사용할 수 없습니다."
+      },
+      "storeNotRequired": {
+        "title": "첨부 파일이 필요하지 않음",
+        "description": "제공하신 첨부 파일은 이 보상 유형에 사용할 수 없습니다."
+      },
+      "alreadyExists": {
+        "title": "보상이 이미 존재합니다.",
+        "description": "같은 이름의 보상이 이미 존재합니다."
+      },
+      "maxReached": {
+        "title": "최대 보상",
+        "description": "최대 보상 개수에 도달했습니다."
+      },
+      "role": {
+        "success": {
+          "title": "역할 보상이 추가되었습니다.",
+          "description": "역할 보상 {rewardName} ~을 위한 {role} 추가되었습니다."
+        },
+        "roleRequired": {
+          "title": "역할이 제공되지 않음",
+          "description": "보상으로 추가하려면 유효한 역할을 입력하세요."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "메시지가 제공되지 않음",
+          "description": "보상으로 추가할 메시지를 입력해주세요."
+        },
+        "success": {
+          "title": "메시지 보상이 추가되었습니다",
+          "description": "메시지 보상 {rewardName} 추가되었습니다.",
+          "fields": [
+            {
+              "name": "메시지",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "시간 초과",
+          "description": "응답하는 데 시간이 너무 오래 걸렸습니다."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "메시지 저장소 보상이 추가되었습니다.",
+          "description": "메시지 저장소 보상 {rewardName} 추가되었습니다."
+        },
+        "fileRequired": {
+          "title": "파일이 제공되지 않음",
+          "description": "보상으로 설정할 메시지가 포함된 파일을 제공해 주세요."
+        },
+        "fileEmpty": {
+          "title": "파일이 비어 있음",
+          "description": "제공한 파일이 비어 있거나 형식이 잘못되었습니다."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "환영 채널이 제거되었습니다.",
+          "description": "환영 채널이 삭제되었습니다."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "작별 채널이 삭제되었습니다.",
+          "description": "작별채널이 삭제되었습니다."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "서버의 환영 포함이 제거되었습니다."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "DM에 대한 환영 삽입이 제거되었습니다."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "가상 URL에 대한 환영 삽입이 제거되었습니다."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "서버의 작별 임베드가 제거되었습니다."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "DM의 작별 인사 포함이 제거되었습니다."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "삽입이 제거되었습니다.",
+            "description": "별칭 URL에 대한 작별 삽입이 제거되었습니다."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "서버의 환영 메시지가 제거되었습니다."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "DM 환영 메시지가 삭제되었습니다."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "가상 URL에 대한 환영 메시지가 제거되었습니다."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "서버의 작별 인사가 삭제되었습니다."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "DM의 작별 인사가 삭제되었습니다."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "메시지가 삭제되었습니다.",
+            "description": "가상 URL의 작별 메시지가 삭제되었습니다."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "세트 삽입",
+        "description": "삽입이 설정되었습니다."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "환영 메시지 세트",
+            "description": "서버의 환영 메시지가 다음과 같이 설정되었습니다. {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "환영 메시지 세트",
+            "description": "DM 환영 메시지가 다음과 같이 설정되었습니다. {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "환영 메시지 세트",
+            "description": "가상 URL에 대한 환영 메시지가 다음과 같이 설정되었습니다. {message} ."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "이별 메시지 세트",
+            "description": "서버의 작별 메시지가 다음으로 설정되었습니다. {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "이별 메시지 세트",
+            "description": "DM의 작별 인사가 다음과 같이 설정되었습니다. {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "이별 메시지 세트",
+            "description": "가상 URL에 대한 작별 메시지가 다음으로 설정되었습니다. {message} ."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "포함 세트 없음",
+        "description": "삽입이 설정되지 않았습니다."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "설정된 메시지 없음",
+        "description": "설정된 메시지가 없습니다."
+      },
+      "success": {
+        "title": "메시지",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "환영",
+      "farewell": "작별"
+    },
+    "setChannel": {
+      "title": "채널 세트",
+      "description": "{channelType} 채널이 다음으로 설정되었습니다. {channel} ."
+    }
+  },
+  "feedback": {
+    "title": "피드백이 제출되었습니다.",
+    "description": "피드백을 제출해 주셔서 감사합니다."
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "삽입 설정",
+        "jsonField": {
+          "title": "삽입의 JSON",
+          "label": "삽입의 JSON",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "확인"
+      }
+    },
+    "feedback": {
+      "title": "피드백 양식",
+      "feedbackTypeField": {
+        "label": "피드백 유형(버그 리포트, 제안 등)",
+        "placeholder": "예: 버그 신고"
+      },
+      "feedbackField": {
+        "label": "피드백을 설명해 주세요.",
+        "placeholder": "문제나 제안 사항을 설명하세요."
+      },
+      "satisfactionField": {
+        "label": "봇에 얼마나 만족하시나요?",
+        "placeholder": "1부터 5까지 평가"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "보상 구성",
+          "messageField": {
+            "title": "메시지",
+            "label": "메시지",
+            "placeholder": "당신은 도달했습니다 {threshold} 에 초대합니다 {server-name} 섬기는 사람!"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "생성하려는 반응 역할의 양(1-5)"
+        }
+      }
+    }
+  }
+}

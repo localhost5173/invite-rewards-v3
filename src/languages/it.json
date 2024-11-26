@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Sottocomando non valido",
+      "description": "Il sottocomando fornito non è valido.",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Errore durante l'esecuzione del comando",
+      "description": "Si è verificato un errore durante l'esecuzione del comando.",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "Utente non fornito",
+      "description": "Fornisci un utente valido per il quale ottenere la cronologia.",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "Bot non trovato",
+      "description": "Non sono riuscito a trovarmi nel server.",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "JSON non valido",
+      "description": "Il JSON fornito non è valido.",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "Incorpora troppo a lungo",
+      "description": "L'incorporamento che hai fornito è troppo lungo.",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "Comando del server",
+      "description": "Questo comando può essere utilizzato solo in un server.",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "Gruppo DM",
+      "description": "Questo comando non può essere utilizzato nei messaggi diretti di gruppo.",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "Solo canale di testo",
+      "description": "Questo comando può essere utilizzato solo nei canali di testo.",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "Interazione scaduta",
+      "description": "Ci hai messo troppo tempo per rispondere.",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "Errore del processo di interazione",
+      "description": "Si è verificato un errore durante l'elaborazione dell'interazione.",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Pagina {page} Di {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Gestione degli inviti",
+      "giveaways": "Omaggi",
+      "autoRoles": "Ruoli automatici",
+      "language": "Lingua",
+      "leaderboards": "Classifiche",
+      "reactionRoles": "Ruoli di reazione",
+      "rewards": "Premi",
+      "verification": "Verifica",
+      "welcomer": "Benvenuto",
+      "miscellaneous": "Varie",
+      "next": "Prossimo",
+      "previous": "Precedente"
+    },
+    "additionalFields": [
+      {
+        "name": "Feedback",
+        "value": "Se hai feedback, vuoi segnalare un bug o suggerire una nuova funzionalità, utilizza il comando /feedback.",
+        "inline": false
+      },
+      {
+        "name": "Invitami",
+        "value": "[Clicca per invitarmi sul tuo server!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "Guida",
+        "value": "[Fare clic per la guida al bot.]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "Server di supporto",
+        "value": "[Fai clic per unirti al server di supporto!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Aggiungi inviti bonus a un utente."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Rimuovere gli inviti bonus da un utente."
+        },
+        {
+          "name": "/inviter",
+          "description": "Scopri chi ha invitato un utente."
+        },
+        {
+          "name": "/invites",
+          "description": "Ottieni gli inviti totali di un utente."
+        },
+        {
+          "name": "/invited-list",
+          "description": "Visualizza tutti gli utenti invitati da un utente."
+        },
+        {
+          "name": "/who-used",
+          "description": "Scopri chi ha utilizzato un link di invito."
+        },
+        {
+          "name": "/history",
+          "description": "Visualizza la cronologia di adesione e abbandono di un utente."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Crea un omaggio."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "Termina un omaggio."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Elimina un omaggio."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Rilancia un omaggio."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "Elenca tutti gli omaggi."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Aggiungi un ruolo automatico."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Rimuovi un ruolo automatico."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "Visualizza tutti i ruoli automatici."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Imposta la lingua per il bot."
+        },
+        {
+          "name": "/language view",
+          "description": "Visualizza la lingua corrente."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "Visualizza la classifica giornaliera o creane una con aggiornamento automatico."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "Visualizza la classifica settimanale o creane una con aggiornamento automatico."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "Visualizza la classifica mensile o creane una con aggiornamento automatico."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "Visualizza la classifica di tutti i tempi o creane una con aggiornamento automatico."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Crea ruoli di reazione basati su pulsanti."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Aggiungi un premio basato su invito."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Rimuovi un premio basato su invito."
+        },
+        {
+          "name": "/rewards view",
+          "description": "Visualizza tutti i premi basati su invito."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Configura la verifica semplice nel tuo server."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Configura la verifica delle domande nel tuo server."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Configura la verifica del pin nel tuo server."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Disabilita il sistema di verifica."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Imposta il canale di addio nel server."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Rimuovere il canale d'addio."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Imposta il messaggio di addio per il canale del server."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Rimuovi il messaggio di addio del server."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "Visualizza il messaggio di addio del server."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "Imposta il messaggio di addio per i DM."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "Rimuovi il messaggio di addio DM."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "Visualizza il messaggio di addio in DM."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Imposta il messaggio di addio per gli URL vanity."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Rimuovi il messaggio di addio vanitoso."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "Visualizza il messaggio di addio vanitoso."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Imposta l'incorporamento del messaggio di addio per il canale del server."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Rimuovere il messaggio di addio incorporato del server."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "Visualizza il messaggio di addio del server incorporato."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "Imposta il messaggio di addio incorporato per i DM."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "Rimuovi il messaggio di addio DM incorporato."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "Visualizza il messaggio di addio DM incorporato."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Imposta l'incorporamento del messaggio di addio per gli URL vanity."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Rimuovi il messaggio di addio vanity incorporato."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "Visualizza il messaggio di addio vanity incorporato."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Imposta il canale di benvenuto nel server."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Rimuovi il canale di benvenuto."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Imposta il messaggio di benvenuto per il canale del server."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Rimuovere il messaggio di benvenuto del server."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "Visualizza il messaggio di benvenuto del server."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "Imposta il messaggio di benvenuto per i DM."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "Rimuovi il messaggio di benvenuto del DM."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "Visualizza il messaggio di benvenuto del DM."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Imposta il messaggio di benvenuto vanity."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Rimuovi il messaggio di benvenuto vanitoso."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "Visualizza il messaggio di benvenuto vanity."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Imposta l'incorporamento del messaggio di benvenuto per il canale del server."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Rimuovere il messaggio di benvenuto del server incorporato."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "Visualizza il messaggio di benvenuto del server incorporato."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "Imposta l'incorporamento del messaggio di benvenuto per i DM."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "Rimuovi il messaggio di benvenuto DM incorporato."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "Visualizza il messaggio di benvenuto DM incorporato."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Imposta l'incorporamento del messaggio di benvenuto per gli URL vanity."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Rimuovi il messaggio di benvenuto vanity incorporato."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "Visualizza il messaggio di benvenuto Vanity incorporato."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "Visualizza tutti i comandi."
+        },
+        {
+          "name": "/feedback",
+          "description": "Invia feedback o suggerisci nuove funzionalità allo sviluppatore del bot."
+        },
+        {
+          "name": "/invite",
+          "description": "Invita il bot sul tuo server."
+        },
+        {
+          "name": "/placeholders",
+          "description": "Visualizza tutti i segnaposto che puoi utilizzare nei messaggi di invito e negli incorporamenti."
+        },
+        {
+          "name": "/vote",
+          "description": "Vota per il bot su top.gg."
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "Invita il bot",
+      "description": "Fai clic sui pulsanti sottostanti per invitare il bot sul tuo server o visitare il nostro sito web!",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "Invita Bot",
+    "supportServerTranslation": "Server di supporto",
+    "visitWebsiteTranslation": "Visita il sito web"
+  },
+  "vote": {
+    "success": {
+      "title": "Vota per il bot",
+      "description": "Fai clic sul pulsante in basso per votare per il bot su top.gg!",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "Votare"
+  },
+  "placeholders": {
+    "mention-user": "Menziona l'utente invitato",
+    "username": "Il nome utente dell'utente invitato",
+    "user-tag": "Il tag dell'utente invitato",
+    "server-name": "Il nome del server",
+    "member-count": "Il conteggio totale dei membri del server",
+    "inviter-tag": "Il tag dell'invitante",
+    "inviter-count": "Il conteggio totale degli inviti dell'invitante",
+    "inviter-real-count": "Il numero reale di inviti dell'invitante",
+    "inviter-fake-count": "Il conteggio degli inviti falsi dell'invitante",
+    "embed": {
+      "title": "Segnaposto",
+      "description": "Ecco i segnaposto che puoi utilizzare nei messaggi di invito e negli incorporamenti: {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "Comando Voto Bloccato",
+      "description": "Devi votare per il bot prima di poter utilizzare questo comando.",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "Votare",
+    "guildOnly": {
+      "title": "Comando solo della gilda",
+      "description": "Questo comando può essere utilizzato solo in un server.",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Lingua non valida",
+        "description": "La lingua fornita non è valida.",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "Nessuna lingua",
+        "description": "Non hai fornito una lingua.",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "Impostazione della lingua",
+        "description": "La lingua è stata impostata su {language} .",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Lingua attuale",
+        "description": "La lingua attuale è {language} .",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "Successo",
+      "description": "Aggiunto {amount} bonus inviti a {user} .  {total} inviti in totale.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "Successo",
+      "description": "RIMOSSO {amount} inviti bonus da {user} .  {total} inviti in totale.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "Nessuna cronologia trovata",
+      "description": "Nessuna cronologia di adesione o uscita trovata per {user} .",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Unisciti e abbandona la cronologia",
+      "description": "Storia per {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "Utente non fornito",
+      "description": "Fornisci un utente valido per controllare gli inviti.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "Nessun invito trovato",
+      "description": "{user} non ha invitato alcun utente.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Elenco utenti invitati",
+      "description": "Utenti invitati da {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "Utente non fornito",
+      "description": "Fornisci un utente valido per verificare l'invitante.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "Nessun invitato trovato",
+      "description": "Non sono riuscito a trovare un invitante per l'utente specificato.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "Impossibile risolvere l'autore dell'invito",
+      "description": "Non sono riuscito a risolvere l'invitante per l'utente specificato.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Invitatore utente",
+      "description": "L'invitante per {user} È {inviter} .",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "Ripartizione degli inviti per {user}",
+      "description": "Ecco la ripartizione degli inviti per {user} :\n {real} **Bonus**: {bonus} **Impostore**: {fake} **Non verificato**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "Inviti totali",
+      "description": "{user} ha ** {totalInvites} **invita.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "Nessun collegamento fornito",
+      "description": "Fornisci un link di invito valido per verificare chi lo ha utilizzato.",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "Nessun utente trovato",
+      "description": "Nessun utente trovato che ha utilizzato il collegamento di invito.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Utenti che hanno utilizzato Invito",
+      "description": "Utenti che hanno utilizzato il codice di invito {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Canale non fornito",
+      "description": "Fornisci un canale valido.",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "Tipo di canale non valido",
+      "description": "Il canale che hai fornito non è un canale di testo.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "Ruolo non fornito",
+      "description": "Fornisci un ruolo valido.",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: Ruolo non trovato",
+      "description": "Il ruolo che hai fornito non è stato trovato in questo server.",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: ruolo gestito",
+      "description": "Non posso assegnare o rimuovere il ruolo {role} perché è gestito da un'integrazione.",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: Autorizzazioni mancanti",
+      "description": "Non posso assegnare o rimuovere il ruolo {role} perché è più alto del mio ruolo più alto.",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: Autorizzazioni mancanti",
+      "description": "Non dispongo delle autorizzazioni necessarie per gestire il ruolo {role} .",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Ruoli non forniti",
+      "description": "Fornisci almeno 1 ruolo valido.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Ruoli di reazione creati",
+      "description": "I ruoli di reazione sono stati creati.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "Il ruolo non esiste più",
+      "description": "Questo ruolo di reazione non esiste più in questo server.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "Successo",
+      "description": "Il ruolo di reazione {role} ti è stato rimosso.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "Successo",
+      "description": "Il ruolo di reazione {role} ti è stato assegnato.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "Errore",
+      "description": "Si è verificato un errore durante l'assegnazione del ruolo di reazione.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Creazione di un omaggio",
+      "description": "Per favore attendi mentre creo il giveaway.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **GIVEAWAY** 🎉",
+      "description": "{description} **Premio:** * {prize} *\n {host} **Termina tra:** {timeLeft} **ID omaggio:** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **GIVEAWAY TERMINATO** 🎉",
+      "description": "{description} **Premio:** * {prize} *\n {host} **Finito:** {endedTimestamp} **ID omaggio:** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "Ruolo di ricompensa",
+      "inviteRequirement": "Requisiti di invito",
+      "ended": "Finito",
+      "active": "Attivo",
+      "showEnded": "Spettacolo terminato",
+      "showActive": "Mostra attivo",
+      "noActiveGiveawaysFound": "Nessun giveaway attivo trovato.",
+      "noEndedGiveawaysFound": "Nessun omaggio finito trovato."
+    },
+    "giveawayPage": {
+      "title": "{status} Dare via",
+      "description": "{description} **Premio:** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Numero di vincitori non valido",
+      "description": "Il numero dei vincitori deve essere compreso tra 1 e 10.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "Omaggio creato",
+      "description": "Il giveaway è stato creato.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "Omaggio non trovato",
+      "description": "L'omaggio con l'ID {giveawayId} non è stato trovato.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "Omaggio eliminato",
+      "description": "L'omaggio con l'ID {giveawayId} è stato cancellato.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Giveaway già terminato",
+      "description": "L'omaggio con l'ID {giveawayId} è già finito.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "Giveaway rilanciato",
+      "description": "L'omaggio con l'ID {giveawayId} è stato rilanciato.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "Giveaway terminato",
+      "description": "L'omaggio con l'ID {giveawayId} è stato terminato.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "Giveaway ancora attivo",
+      "description": "L'omaggio con l'ID {giveawayId} è ancora attivo.  {giveawayId} .",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "Nessun omaggio trovato",
+      "description": "Nessun omaggio trovato.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "Partecipa al Giveaway",
+      "description": "Hai partecipato al giveaway!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "Omaggio sinistro",
+      "description": "Hai lasciato il giveaway.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "Impossibile partecipare al giveaway",
+      "description": "Non puoi partecipare a questo giveaway.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "Giveaway terminato!",
+      "description": "{mentionWinners} Congratulazioni!  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "Giveaway rilanciato!",
+      "description": "{mentionWinners} Congratulazioni!  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: Già un ruolo automatico",
+        "description": "Il ruolo {role} è già un ruolo automatico."
+      },
+      "maxAutoRolesError": {
+        "title": ":x: Ruoli automatici massimi",
+        "description": "Hai raggiunto il numero massimo di ruoli automatici."
+      },
+      "success": {
+        "title": ":white_check_mark: Ruolo automatico aggiunto",
+        "description": "Il ruolo {role} è stato aggiunto come ruolo automatico."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: Non è un ruolo automatico",
+        "description": "Il ruolo {role} non è un ruolo automatico."
+      },
+      "success": {
+        "title": ":white_check_mark: Ruolo automatico rimosso",
+        "description": "Il ruolo {role} è stato rimosso come ruolo automatico."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Ruoli automatici",
+        "description": "I ruoli automatici per questo server sono:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: Autorizzazioni mancanti",
+        "description": "Ho tentato di assegnare un ruolo automatico a un nuovo membro, ma non sono riuscito a farlo perché non dispongo dell'autorizzazione \"Gestisci ruoli\".",
+        "dmDescription": ":wave: Ho tentato di assegnare un ruolo automatico a un nuovo membro in {serverName} , ma non sono riuscito a farlo perché non dispongo dell'autorizzazione \"Gestisci ruoli\".",
+        "footer": {
+          "text": "Errore di assegnazione automatica del ruolo"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: Autorizzazioni mancanti",
+        "description": "Ho tentato di assegnare un ruolo automatico a un nuovo membro, ma non ci sono riuscito perché il ruolo che stavo cercando di assegnare è superiore al mio ruolo più alto.",
+        "dmDescription": ":wave: Ho tentato di assegnare un ruolo automatico a un nuovo membro in {serverName} , ma non sono riuscito a farlo perché il ruolo che stavo cercando di assegnare è superiore al mio ruolo più alto.",
+        "footer": {
+          "text": "Errore di assegnazione automatica del ruolo"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "Nessuna domanda o risposta fornita",
+        "description": "Fornisci una domanda e una risposta per impostare la verifica della domanda."
+      },
+      "success": {
+        "title": "Configurazione della verifica",
+        "description": "La verifica è stata impostata nel canale {channel} .  {role} ruolo dopo la verifica."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "Verifica disabilitata",
+        "description": "La verifica è stata disabilitata in questo server."
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "Configurazione non valida",
+          "description": "La configurazione di verifica non è valida."
+        },
+        "incorrectAnswer": {
+          "title": "Risposta errata",
+          "description": "Hai fornito una risposta errata."
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "Perno errato",
+          "description": "Hai fornito un pin errato."
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "Utente falso",
+          "description": "Sei contrassegnato come utente falso e non puoi essere verificato."
+        },
+        "verificationDisabled": {
+          "title": "Verifica disabilitata",
+          "description": "La verifica è disabilitata in questo server."
+        },
+        "alreadyVerified": {
+          "title": "Già verificato",
+          "description": "Sei già verificato."
+        },
+        "missingPermissions": {
+          "title": "Autorizzazioni mancanti",
+          "description": "Non dispongo delle autorizzazioni necessarie per concederti il ​​ruolo di verifica."
+        },
+        "roleNotFound": {
+          "title": "Ruolo non trovato",
+          "description": "Il ruolo di verifica non è stato trovato in questo server."
+        },
+        "managedRole": {
+          "title": "Ruolo gestito",
+          "description": "Non posso assegnare o rimuovere il ruolo di verifica perché è gestito da un'integrazione."
+        },
+        "hierarchyError": {
+          "title": "Autorizzazioni mancanti",
+          "description": "Non posso assegnare o rimuovere il ruolo di verifica perché è superiore al mio ruolo più alto."
+        },
+        "unknownType": {
+          "title": "Tipo sconosciuto",
+          "description": "Il tipo di verifica che hai fornito non è valido."
+        },
+        "error": {
+          "title": "Errore",
+          "description": "Si è verificato un errore durante la verifica."
+        },
+        "success": {
+          "title": "Verificato",
+          "description": "Sei stato verificato."
+        },
+        "timeout": {
+          "title": "Tempo scaduto",
+          "description": "Ci hai messo troppo tempo per rispondere."
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Classifica",
+        "description": "La classifica per questo server è:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "Nessun dato",
+        "description": "La classifica è vuota."
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "Classifica intelligente creata",
+        "description": "La classifica intelligente è stata creata."
+      },
+      "daily": {
+        "title": "Classifica giornaliera intelligente",
+        "description": "La classifica giornaliera per questo server è:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Classifica settimanale intelligente",
+        "description": "La classifica settimanale per questo server è:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Classifica mensile intelligente",
+        "description": "La classifica mensile per questo server è:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Classifica intelligente di tutti i tempi",
+        "description": "La classifica di tutti i tempi per questo server è:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "Classifiche massime",
+        "description": "Hai raggiunto il numero massimo di classifiche intelligenti."
+      }
+    },
+    "update": {
+      "invitesTranslation": "invita",
+      "noEntries": "La classifica è vuota."
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "Premi",
+        "description": "Le ricompense per questo server sono:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "Nessun premio",
+        "description": "Non sono previsti premi per questo server."
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "Nessuna ricompensa trovata",
+        "description": "Nessuna ricompensa trovata con questo nome {rewardName} ."
+      },
+      "success": {
+        "title": "Premio rimosso",
+        "description": "La ricompensa {rewardName} è stato rimosso."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "Ruolo non richiesto",
+        "description": "Il ruolo che hai fornito non può essere utilizzato per questo tipo di premio."
+      },
+      "removableNotRequired": {
+        "title": "Rimovibile non richiesto",
+        "description": "L'opzione rimovibile che hai fornito non può essere utilizzata per questo tipo di premio."
+      },
+      "storeNotRequired": {
+        "title": "Allegato non richiesto",
+        "description": "L'allegato che hai fornito non può essere utilizzato per questo tipo di premio."
+      },
+      "alreadyExists": {
+        "title": "La ricompensa esiste già",
+        "description": "Esiste già una ricompensa con questo nome."
+      },
+      "maxReached": {
+        "title": "Premi massimi",
+        "description": "Hai raggiunto il numero massimo di premi."
+      },
+      "role": {
+        "success": {
+          "title": "Aggiunta ricompensa per il ruolo",
+          "description": "La ricompensa del ruolo {rewardName} per {role} è stato aggiunto."
+        },
+        "roleRequired": {
+          "title": "Ruolo non fornito",
+          "description": "Fornisci un ruolo valido da aggiungere come ricompensa."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "Messaggio non fornito",
+          "description": "Fornisci un messaggio da aggiungere come ricompensa."
+        },
+        "success": {
+          "title": "Aggiunto premio messaggio",
+          "description": "La ricompensa del messaggio {rewardName} è stato aggiunto.",
+          "fields": [
+            {
+              "name": "Messaggio",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "Timeout",
+          "description": "Ci hai messo troppo tempo per rispondere."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "Aggiunto premio del negozio di messaggi",
+          "description": "La ricompensa del negozio di messaggi {rewardName} è stato aggiunto."
+        },
+        "fileRequired": {
+          "title": "File non fornito",
+          "description": "Fornisci un file con i messaggi da impostare come ricompensa."
+        },
+        "fileEmpty": {
+          "title": "File vuoto",
+          "description": "Il file fornito è vuoto o il formato non è valido."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "Canale di benvenuto rimosso",
+          "description": "Il canale di benvenuto è stato rimosso."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "Canale d'addio rimosso",
+          "description": "Il canale dell'addio è stato rimosso."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di benvenuto per il server è stato rimosso."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di benvenuto per i DM è stato rimosso."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di benvenuto per i vanity URL è stato rimosso."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di addio per il server è stato rimosso."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di addio per i DM è stato rimosso."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Incorpora rimosso",
+            "description": "L'incorporamento di addio per i vanity URL è stato rimosso."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio di benvenuto per il server è stato rimosso."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio di benvenuto per i DM è stato rimosso."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio di benvenuto per i vanity URL è stato rimosso."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio d'addio per il server è stato rimosso."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio di addio per i DM è stato rimosso."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Messaggio rimosso",
+            "description": "Il messaggio di addio per i vanity URL è stato rimosso."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "Incorpora insieme",
+        "description": "L'incorporamento è stato impostato."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Insieme di messaggi di benvenuto",
+            "description": "Il messaggio di benvenuto per il server è stato impostato su {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Insieme di messaggi di benvenuto",
+            "description": "Il messaggio di benvenuto per i DM è stato impostato su {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Insieme di messaggi di benvenuto",
+            "description": "Il messaggio di benvenuto per i vanity URL è stato impostato su {message} ."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Set di messaggi di addio",
+            "description": "Il messaggio d'addio per il server è stato impostato su {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Set di messaggi di addio",
+            "description": "Il messaggio di addio per i DM è stato impostato su {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Set di messaggi di addio",
+            "description": "Il messaggio di addio per gli URL vanity è stato impostato su {message} ."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "Nessun set di incorporamento",
+        "description": "Non è stato impostato alcun incorporamento."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "Nessun messaggio impostato",
+        "description": "Nessun messaggio è stato impostato."
+      },
+      "success": {
+        "title": "Messaggio",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "Benvenuto",
+      "farewell": "Addio"
+    },
+    "setChannel": {
+      "title": "Impostazione canali",
+      "description": "{channelType} il canale è stato impostato su {channel} ."
+    }
+  },
+  "feedback": {
+    "title": "Feedback inviato",
+    "description": "Grazie per aver inviato il tuo feedback."
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Imposta l'incorporamento",
+        "jsonField": {
+          "title": "JSON dell'incorporamento",
+          "label": "JSON dell'incorporamento",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "Verifica"
+      }
+    },
+    "feedback": {
+      "title": "Modulo di feedback",
+      "feedbackTypeField": {
+        "label": "Tipo di feedback (segnalazione di bug, suggerimento, ecc.)",
+        "placeholder": "Ad esempio, segnalazione di bug"
+      },
+      "feedbackField": {
+        "label": "Descrivi il tuo feedback",
+        "placeholder": "Descrivi il problema o il suggerimento"
+      },
+      "satisfactionField": {
+        "label": "Quanto sei soddisfatto del bot?",
+        "placeholder": "Voto da 1 a 5"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "Configura la ricompensa",
+          "messageField": {
+            "title": "Messaggio",
+            "label": "Messaggio",
+            "placeholder": "Hai raggiunto {threshold} invita nel {server-name} server!"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "La quantità di ruoli di reazione che desideri creare (1-5)"
+        }
+      }
+    }
+  }
+}

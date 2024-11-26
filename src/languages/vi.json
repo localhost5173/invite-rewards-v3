@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Lệnh phụ không hợp lệ",
+      "description": "Lệnh phụ bạn cung cấp không hợp lệ.",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Lỗi khi thực hiện lệnh",
+      "description": "Đã xảy ra lỗi khi thực hiện lệnh.",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "Người dùng không được cung cấp",
+      "description": "Vui lòng cung cấp người dùng hợp lệ để lấy lịch sử.",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "Không tìm thấy bot",
+      "description": "Tôi không thể tìm thấy chính mình trong máy chủ.",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "JSON không hợp lệ",
+      "description": "JSON bạn cung cấp không hợp lệ.",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "Nhúng quá lâu",
+      "description": "Phần nhúng bạn cung cấp quá dài.",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "Lệnh máy chủ",
+      "description": "Lệnh này chỉ có thể được sử dụng trong máy chủ.",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "Nhóm DM",
+      "description": "Lệnh này không thể được sử dụng trong nhóm DM.",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "Chỉ kênh văn bản",
+      "description": "Lệnh này chỉ có thể được sử dụng trong các kênh văn bản.",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "Hết thời gian tương tác",
+      "description": "Bạn mất quá nhiều thời gian để trả lời.",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "Lỗi quá trình tương tác",
+      "description": "Đã xảy ra lỗi khi xử lý tương tác.",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Trang {page} của {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Mời quản lý",
+      "giveaways": "Quà tặng",
+      "autoRoles": "Vai trò tự động",
+      "language": "Ngôn ngữ",
+      "leaderboards": "Bảng xếp hạng",
+      "reactionRoles": "Vai trò phản ứng",
+      "rewards": "Phần thưởng",
+      "verification": "Xác minh",
+      "welcomer": "người chào đón",
+      "miscellaneous": "Linh tinh",
+      "next": "Kế tiếp",
+      "previous": "Trước"
+    },
+    "additionalFields": [
+      {
+        "name": "Nhận xét",
+        "value": "Nếu bạn có bất kỳ phản hồi nào, muốn báo cáo lỗi hoặc đề xuất tính năng mới, vui lòng sử dụng lệnh /feedback.",
+        "inline": false
+      },
+      {
+        "name": "Mời tôi",
+        "value": "[Click để mời tôi đến máy chủ của bạn!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "Hướng dẫn",
+        "value": "[Nhấp để xem hướng dẫn về bot.]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "Máy chủ hỗ trợ",
+        "value": "[Click để tham gia máy chủ hỗ trợ!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Thêm lời mời thưởng cho người dùng."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Xóa lời mời thưởng khỏi người dùng."
+        },
+        {
+          "name": "/inviter",
+          "description": "Tìm hiểu xem ai đã mời người dùng."
+        },
+        {
+          "name": "/invites",
+          "description": "Nhận tổng số lời mời của người dùng."
+        },
+        {
+          "name": "/invited-list",
+          "description": "Xem tất cả người dùng được người dùng mời."
+        },
+        {
+          "name": "/who-used",
+          "description": "Tìm ra ai đã sử dụng liên kết mời."
+        },
+        {
+          "name": "/history",
+          "description": "Xem lịch sử tham gia và rời khỏi của người dùng."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Tạo quà tặng."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "Kết thúc quà tặng."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Xóa quà tặng."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Reroll một quà tặng."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "Liệt kê tất cả các quà tặng."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Thêm vai trò tự động."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Xóa vai trò tự động."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "Xem tất cả các vai trò tự động."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Đặt ngôn ngữ cho bot."
+        },
+        {
+          "name": "/language view",
+          "description": "Xem ngôn ngữ hiện tại."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "Xem bảng xếp hạng hàng ngày hoặc tạo bảng xếp hạng tự động cập nhật."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "Xem bảng xếp hạng hàng tuần hoặc tạo bảng xếp hạng tự động cập nhật."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "Xem bảng xếp hạng hàng tháng hoặc tạo bảng xếp hạng tự động cập nhật."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "Xem bảng xếp hạng mọi thời đại hoặc tạo bảng xếp hạng tự động cập nhật."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Tạo vai trò phản ứng dựa trên nút."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Thêm phần thưởng dựa trên lời mời."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Xóa phần thưởng dựa trên lời mời."
+        },
+        {
+          "name": "/rewards view",
+          "description": "Xem tất cả các phần thưởng dựa trên lời mời."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Thiết lập xác minh đơn giản trong máy chủ của bạn."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Thiết lập xác minh câu hỏi trong máy chủ của bạn."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Thiết lập xác minh mã pin trong máy chủ của bạn."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Vô hiệu hóa hệ thống xác minh."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Đặt kênh chia tay trong máy chủ."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Xóa kênh chia tay."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Đặt thông báo chia tay cho kênh máy chủ."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Xóa tin nhắn chia tay máy chủ."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "Xem tin nhắn chia tay máy chủ."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "Đặt tin nhắn chia tay cho DM."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "Xóa tin nhắn chia tay DM."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "Xem tin nhắn chia tay DM."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Đặt thông báo chia tay cho các URL vô nghĩa."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Xóa tin nhắn chia tay phù phiếm."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "Xem tin nhắn chia tay phù phiếm."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Đặt tin nhắn chia tay nhúng cho kênh máy chủ."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Xóa tin nhắn chia tay máy chủ được nhúng."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "Xem tin nhắn chia tay máy chủ được nhúng."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "Đặt tin nhắn chia tay được nhúng cho DM."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "Xóa tin nhắn chia tay DM được nhúng."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "Xem tin nhắn chia tay DM được nhúng."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Đặt thông báo chia tay được nhúng cho các URL vô nghĩa."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Loại bỏ tin nhắn chia tay phù phiếm được nhúng."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "Xem tin nhắn chia tay phù phiếm được nhúng."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Đặt kênh chào mừng trong máy chủ."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Xóa kênh chào mừng."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Đặt thông báo chào mừng cho kênh máy chủ."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Xóa thông báo chào mừng của máy chủ."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "Xem thông báo chào mừng của máy chủ."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "Đặt tin nhắn chào mừng cho DM."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "Xóa tin nhắn chào mừng DM."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "Xem tin nhắn chào mừng DM."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Đặt thông báo chào mừng phù phiếm."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Xóa tin nhắn chào mừng phù phiếm."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "Xem tin nhắn chào mừng phù phiếm."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Đặt nhúng thông báo chào mừng cho kênh máy chủ."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Loại bỏ phần nhúng thông báo chào mừng của máy chủ."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "Xem tin nhắn chào mừng được nhúng trên máy chủ."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "Đặt tin nhắn chào mừng được nhúng cho DM."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "Xóa tin nhắn chào mừng DM được nhúng."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "Xem tin nhắn chào mừng DM được nhúng."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Đặt nhúng thông điệp chào mừng cho các URL ảo."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Loại bỏ tin nhắn chào mừng phù phiếm được nhúng."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "Xem tin nhắn chào mừng phù phiếm được nhúng."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "Xem tất cả các lệnh."
+        },
+        {
+          "name": "/feedback",
+          "description": "Gửi phản hồi hoặc đề xuất tính năng mới cho nhà phát triển bot."
+        },
+        {
+          "name": "/invite",
+          "description": "Mời bot vào máy chủ của bạn."
+        },
+        {
+          "name": "/placeholders",
+          "description": "Xem tất cả các phần giữ chỗ mà bạn có thể sử dụng trong tin nhắn mời và nội dung nhúng."
+        },
+        {
+          "name": "/vote",
+          "description": "Bình chọn cho bot trên top.gg."
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "Mời bot",
+      "description": "Nhấp vào các nút bên dưới để mời bot đến máy chủ của bạn hoặc truy cập trang web của chúng tôi!",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "Mời Bot",
+    "supportServerTranslation": "Máy chủ hỗ trợ",
+    "visitWebsiteTranslation": "Truy cập trang web"
+  },
+  "vote": {
+    "success": {
+      "title": "Bình chọn cho bot",
+      "description": "Hãy nhấp vào nút bên dưới để bình chọn cho bot trên top.gg!",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "Bỏ phiếu"
+  },
+  "placeholders": {
+    "mention-user": "Đề cập đến người dùng được mời",
+    "username": "Tên người dùng của người dùng được mời",
+    "user-tag": "Thẻ của người dùng được mời",
+    "server-name": "Tên của máy chủ",
+    "member-count": "Tổng số thành viên của máy chủ",
+    "inviter-tag": "Tag của người mời",
+    "inviter-count": "Tổng số lời mời của người mời",
+    "inviter-real-count": "Số lượng lời mời thực sự của người mời",
+    "inviter-fake-count": "Số lượng lời mời giả của người mời",
+    "embed": {
+      "title": "Phần giữ chỗ",
+      "description": "Dưới đây là các phần giữ chỗ bạn có thể sử dụng trong tin nhắn mời và nội dung nhúng: {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "Lệnh khóa phiếu bầu",
+      "description": "Bạn phải bỏ phiếu cho bot trước khi có thể sử dụng lệnh này.",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "Bỏ phiếu",
+    "guildOnly": {
+      "title": "Lệnh chỉ của bang hội",
+      "description": "Lệnh này chỉ có thể được sử dụng trong máy chủ.",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Ngôn ngữ không hợp lệ",
+        "description": "Ngôn ngữ bạn cung cấp không hợp lệ.",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "Không có ngôn ngữ",
+        "description": "Bạn đã không cung cấp một ngôn ngữ.",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "Bộ ngôn ngữ",
+        "description": "Ngôn ngữ đã được đặt thành {language} .",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Ngôn ngữ hiện tại",
+        "description": "Ngôn ngữ hiện tại là {language} .",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "Thành công",
+      "description": "Đã thêm {amount} tiền thưởng mời đến {user} .  {total} tổng số lời mời.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "Thành công",
+      "description": "LOẠI BỎ {amount} lời mời thưởng từ {user} .  {total} tổng số lời mời.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "Không tìm thấy lịch sử",
+      "description": "Không tìm thấy lịch sử tham gia hoặc rời khỏi {user} .",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Lịch sử tham gia và rời khỏi",
+      "description": "Lịch sử cho {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "Người dùng không được cung cấp",
+      "description": "Vui lòng cung cấp người dùng hợp lệ để kiểm tra lời mời.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "Không tìm thấy lời mời nào",
+      "description": "{user} chưa mời bất kỳ người dùng nào.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Danh sách người dùng được mời",
+      "description": "Người dùng được mời bởi {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "Người dùng không được cung cấp",
+      "description": "Vui lòng cung cấp người dùng hợp lệ để kiểm tra người mời.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "Không tìm thấy người mời",
+      "description": "Tôi không thể tìm thấy người mời cho người dùng được chỉ định.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "Không thể giải quyết được người mời",
+      "description": "Tôi không thể giải quyết lời mời cho người dùng được chỉ định.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Người mời người dùng",
+      "description": "Người mời cho {user} là {inviter} .",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "Phân tích mời cho {user}",
+      "description": "Đây là bảng phân tích lời mời dành cho {user} :\n {real} **Thưởng**: {bonus} **Giả mạo**: {fake} **Chưa được xác minh**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "Tổng số lời mời",
+      "description": "{user} có ** {totalInvites} ** lời mời.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "Không có liên kết được cung cấp",
+      "description": "Vui lòng cung cấp liên kết mời hợp lệ để kiểm tra xem ai đã sử dụng nó.",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "Không tìm thấy người dùng",
+      "description": "Không tìm thấy người dùng nào đã sử dụng liên kết mời.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Người dùng đã sử dụng Lời mời",
+      "description": "Người dùng đã sử dụng mã mời {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Kênh không được cung cấp",
+      "description": "Vui lòng cung cấp một kênh hợp lệ.",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "Loại kênh không hợp lệ",
+      "description": "Kênh bạn cung cấp không phải là kênh văn bản.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "Vai trò không được cung cấp",
+      "description": "Vui lòng cung cấp một vai trò hợp lệ.",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: Không tìm thấy vai trò",
+      "description": "Không tìm thấy vai trò bạn cung cấp trong máy chủ này.",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: Vai trò được quản lý",
+      "description": "Tôi không thể chỉ định hoặc xóa vai trò {role} bởi vì nó được quản lý bởi sự tích hợp.",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: Thiếu quyền",
+      "description": "Tôi không thể chỉ định hoặc xóa vai trò {role} vì nó cao hơn vai trò cao nhất của tôi.",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: Thiếu quyền",
+      "description": "Tôi không có quyền cần thiết để quản lý vai trò {role} .",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Vai trò không được cung cấp",
+      "description": "Vui lòng cung cấp ít nhất 1 vai trò hợp lệ.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Vai trò phản ứng đã được tạo",
+      "description": "Các vai trò phản ứng đã được tạo.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "Vai trò không còn tồn tại",
+      "description": "Vai trò phản ứng này không còn tồn tại trong máy chủ này.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "Thành công",
+      "description": "Vai trò phản ứng {role} đã bị xóa khỏi bạn.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "Thành công",
+      "description": "Vai trò phản ứng {role} đã được giao cho bạn.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "Lỗi",
+      "description": "Đã xảy ra lỗi khi gán vai trò phản ứng.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Tạo quà tặng",
+      "description": "Vui lòng đợi trong khi tôi tạo quà tặng.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **Tặng quà** 🎉",
+      "description": "{description} **Phần thưởng:** * {prize} *\n {host} **Kết thúc sau:** {timeLeft} **ID quà tặng:** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **TẶNG QUÀ ĐÃ KẾT THÚC** 🎉",
+      "description": "{description} **Phần thưởng:** * {prize} *\n {host} **Đã kết thúc:** {endedTimestamp} **ID quà tặng:** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "Vai trò phần thưởng",
+      "inviteRequirement": "Yêu cầu mời",
+      "ended": "Đã kết thúc",
+      "active": "Tích cực",
+      "showEnded": "Hiển thị đã kết thúc",
+      "showActive": "Hiển thị hoạt động",
+      "noActiveGiveawaysFound": "Không tìm thấy quà tặng đang hoạt động.",
+      "noEndedGiveawaysFound": "Không tìm thấy quà tặng đã kết thúc."
+    },
+    "giveawayPage": {
+      "title": "{status} Quà tặng",
+      "description": "{description} **Phần thưởng:** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Số người chiến thắng không hợp lệ",
+      "description": "Số lượng người chiến thắng phải từ 1 đến 10.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "Đã tạo quà tặng",
+      "description": "Quà tặng đã được tạo.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "Không tìm thấy quà tặng",
+      "description": "Quà tặng có ID {giveawayId} đã không được tìm thấy.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "Đã xóa quà tặng",
+      "description": "Quà tặng có ID {giveawayId} đã bị xóa.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Quà tặng đã kết thúc",
+      "description": "Quà tặng có ID {giveawayId} đã kết thúc rồi.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "Quà tặng được cuộn lại",
+      "description": "Quà tặng có ID {giveawayId} đã được cuộn lại.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "Quà tặng đã kết thúc",
+      "description": "Quà tặng có ID {giveawayId} đã kết thúc.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "Quà tặng vẫn còn hoạt động",
+      "description": "Quà tặng có ID {giveawayId} vẫn còn hoạt động.  {giveawayId} .",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "Không tìm thấy quà tặng",
+      "description": "Không tìm thấy quà tặng.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "Nhập quà tặng",
+      "description": "Bạn đã tham gia quà tặng!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "Quà tặng còn lại",
+      "description": "Bạn đã rời khỏi quà tặng.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "Không thể nhập quà tặng",
+      "description": "Bạn không thể tham gia quà tặng này.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "Quà tặng đã kết thúc!",
+      "description": "{mentionWinners} Chúc mừng!  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "Quà tặng được quay lại!",
+      "description": "{mentionWinners} Chúc mừng!  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: Đã có vai trò tự động",
+        "description": "Vai trò {role} đã là một vai trò tự động."
+      },
+      "maxAutoRolesError": {
+        "title": ":x: Vai trò tự động tối đa",
+        "description": "Bạn đã đạt đến số lượng vai trò tự động tối đa."
+      },
+      "success": {
+        "title": ":white_check_mark: Đã thêm vai trò tự động",
+        "description": "Vai trò {role} đã được thêm vào dưới dạng vai trò tự động."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: Không phải là vai trò tự động",
+        "description": "Vai trò {role} không phải là một vai trò tự động."
+      },
+      "success": {
+        "title": ":white_check_mark: Đã xóa vai trò tự động",
+        "description": "Vai trò {role} đã bị xóa dưới dạng vai trò tự động."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Vai trò tự động",
+        "description": "Các vai trò tự động cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: Thiếu quyền",
+        "description": "Tôi đã cố gắng chỉ định vai trò tự động cho thành viên mới nhưng không thể thực hiện được vì tôi không có quyền \"Quản lý vai trò\".",
+        "dmDescription": ":wave: Tôi đã cố gắng gán vai trò tự động cho một thành viên mới trong {serverName} , nhưng không thể làm như vậy vì tôi không có quyền \"Quản lý vai trò\".",
+        "footer": {
+          "text": "Lỗi tự động gán vai trò"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: Thiếu quyền",
+        "description": "Tôi đã cố gắng chỉ định vai trò tự động cho một thành viên mới nhưng không thể thực hiện được vì vai trò mà tôi đang cố gắng chỉ định cao hơn vai trò cao nhất của tôi.",
+        "dmDescription": ":wave: Tôi đã cố gắng gán vai trò tự động cho một thành viên mới trong {serverName} , nhưng không thể thực hiện được vì vai trò mà tôi đang cố gắng giao cao hơn vai trò cao nhất của tôi.",
+        "footer": {
+          "text": "Lỗi tự động gán vai trò"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "Không có câu hỏi hoặc câu trả lời nào được cung cấp",
+        "description": "Vui lòng cung cấp câu hỏi và câu trả lời để thiết lập xác minh câu hỏi."
+      },
+      "success": {
+        "title": "Thiết lập xác minh",
+        "description": "Xác minh đã được thiết lập trong kênh {channel} .  {role} vai trò sau khi xác minh."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "Xác minh bị vô hiệu hóa",
+        "description": "Xác minh đã bị vô hiệu hóa trong máy chủ này."
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "Cấu hình không hợp lệ",
+          "description": "Cấu hình xác minh không hợp lệ."
+        },
+        "incorrectAnswer": {
+          "title": "Câu trả lời sai",
+          "description": "Bạn đã đưa ra câu trả lời sai."
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "Ghim không chính xác",
+          "description": "Bạn đã cung cấp mã pin không chính xác."
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "Người dùng giả mạo",
+          "description": "Bạn bị gắn cờ là người dùng giả mạo và không thể xác minh được."
+        },
+        "verificationDisabled": {
+          "title": "Xác minh bị vô hiệu hóa",
+          "description": "Xác minh bị vô hiệu hóa trong máy chủ này."
+        },
+        "alreadyVerified": {
+          "title": "Đã được xác minh",
+          "description": "Bạn đã được xác minh."
+        },
+        "missingPermissions": {
+          "title": "Thiếu quyền",
+          "description": "Tôi không có quyền cần thiết để cấp cho bạn vai trò xác minh."
+        },
+        "roleNotFound": {
+          "title": "Không tìm thấy vai trò",
+          "description": "Không tìm thấy vai trò xác minh trong máy chủ này."
+        },
+        "managedRole": {
+          "title": "Vai trò được quản lý",
+          "description": "Tôi không thể chỉ định hoặc xóa vai trò xác minh vì vai trò này được quản lý bởi một tổ chức tích hợp."
+        },
+        "hierarchyError": {
+          "title": "Thiếu quyền",
+          "description": "Tôi không thể chỉ định hoặc xóa vai trò xác minh vì nó cao hơn vai trò cao nhất của tôi."
+        },
+        "unknownType": {
+          "title": "Loại không xác định",
+          "description": "Loại xác minh bạn cung cấp không hợp lệ."
+        },
+        "error": {
+          "title": "Lỗi",
+          "description": "Đã xảy ra lỗi khi xác minh bạn."
+        },
+        "success": {
+          "title": "Đã xác minh",
+          "description": "Bạn đã được xác minh."
+        },
+        "timeout": {
+          "title": "Hết giờ",
+          "description": "Bạn mất quá nhiều thời gian để trả lời."
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Bảng xếp hạng",
+        "description": "Bảng xếp hạng cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "Không có dữ liệu",
+        "description": "Bảng xếp hạng trống."
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "Đã tạo bảng xếp hạng thông minh",
+        "description": "Bảng xếp hạng thông minh đã được tạo."
+      },
+      "daily": {
+        "title": "Bảng xếp hạng thông minh hàng ngày",
+        "description": "Bảng xếp hạng hàng ngày cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Bảng xếp hạng hàng tuần thông minh",
+        "description": "Bảng xếp hạng hàng tuần cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Bảng xếp hạng thông minh hàng tháng",
+        "description": "Bảng xếp hạng hàng tháng cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Bảng xếp hạng thông minh mọi thời đại",
+        "description": "Bảng xếp hạng mọi thời đại của máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "Bảng xếp hạng tối đa",
+        "description": "Bạn đã đạt đến số lượng bảng xếp hạng thông minh tối đa."
+      }
+    },
+    "update": {
+      "invitesTranslation": "lời mời",
+      "noEntries": "Bảng xếp hạng trống."
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "Phần thưởng",
+        "description": "Phần thưởng cho máy chủ này là:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "Không có phần thưởng",
+        "description": "Không có phần thưởng nào được đặt cho máy chủ này."
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "Không tìm thấy phần thưởng",
+        "description": "Không tìm thấy phần thưởng có tên {rewardName} ."
+      },
+      "success": {
+        "title": "Đã xóa phần thưởng",
+        "description": "Phần thưởng {rewardName} đã được gỡ bỏ."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "Vai trò không bắt buộc",
+        "description": "Không thể sử dụng vai trò bạn cung cấp cho loại phần thưởng này."
+      },
+      "removableNotRequired": {
+        "title": "Có thể tháo rời Không cần thiết",
+        "description": "Tùy chọn có thể tháo rời mà bạn cung cấp không thể được sử dụng cho loại phần thưởng này."
+      },
+      "storeNotRequired": {
+        "title": "Tệp đính kèm không bắt buộc",
+        "description": "Không thể sử dụng tệp đính kèm bạn cung cấp cho loại phần thưởng này."
+      },
+      "alreadyExists": {
+        "title": "Phần thưởng đã tồn tại",
+        "description": "Phần thưởng có tên này đã tồn tại."
+      },
+      "maxReached": {
+        "title": "Phần thưởng tối đa",
+        "description": "Bạn đã đạt đến số lượng phần thưởng tối đa."
+      },
+      "role": {
+        "success": {
+          "title": "Đã thêm phần thưởng vai trò",
+          "description": "Phần thưởng vai trò {rewardName} vì {role} đã được thêm vào."
+        },
+        "roleRequired": {
+          "title": "Vai trò không được cung cấp",
+          "description": "Vui lòng cung cấp vai trò hợp lệ để thêm làm phần thưởng."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "Tin nhắn không được cung cấp",
+          "description": "Vui lòng cung cấp một tin nhắn để thêm làm phần thưởng."
+        },
+        "success": {
+          "title": "Đã thêm phần thưởng tin nhắn",
+          "description": "Phần thưởng tin nhắn {rewardName} đã được thêm vào.",
+          "fields": [
+            {
+              "name": "Tin nhắn",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "Đã hết thời gian",
+          "description": "Bạn mất quá nhiều thời gian để trả lời."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "Đã thêm phần thưởng của Cửa hàng Tin nhắn",
+          "description": "Phần thưởng lưu trữ tin nhắn {rewardName} đã được thêm vào."
+        },
+        "fileRequired": {
+          "title": "Tệp không được cung cấp",
+          "description": "Vui lòng cung cấp một tập tin có tin nhắn để đặt làm phần thưởng."
+        },
+        "fileEmpty": {
+          "title": "Tệp trống",
+          "description": "Tệp bạn cung cấp trống hoặc định dạng không hợp lệ."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "Kênh chào mừng đã bị xóa",
+          "description": "Kênh chào mừng đã bị xóa."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "Kênh chia tay đã bị xóa",
+          "description": "Kênh chia tay đã bị xóa."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chào mừng dành cho máy chủ đã bị xóa."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chào mừng dành cho DM đã bị xóa."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chào mừng cho các URL ảo đã bị xóa."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chia tay cho máy chủ đã bị xóa."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chia tay dành cho DM đã bị xóa."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Đã xóa nhúng",
+            "description": "Phần nhúng chia tay cho các URL ảo đã bị xóa."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Thông báo chào mừng cho máy chủ đã bị xóa."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Thông báo chào mừng dành cho DM đã bị xóa."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Thông báo chào mừng cho các URL ảo đã bị xóa."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Thông báo chia tay máy chủ đã bị xóa."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Tin nhắn chia tay dành cho DM đã bị xóa."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Tin nhắn đã bị xóa",
+            "description": "Thông báo chia tay cho các URL ảo đã bị xóa."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "Bộ nhúng",
+        "description": "Việc nhúng đã được thiết lập."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Bộ tin nhắn chào mừng",
+            "description": "Thông báo chào mừng cho máy chủ đã được đặt thành {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Bộ tin nhắn chào mừng",
+            "description": "Thông báo chào mừng dành cho DM đã được đặt thành {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Bộ tin nhắn chào mừng",
+            "description": "Thông báo chào mừng cho các URL ảo đã được đặt thành {message} ."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Bộ tin nhắn chia tay",
+            "description": "Thông báo chia tay máy chủ đã được đặt thành {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Bộ tin nhắn chia tay",
+            "description": "Tin nhắn chia tay dành cho DM đã được đặt thành {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Bộ tin nhắn chia tay",
+            "description": "Thông báo chia tay cho các URL ảo đã được đặt thành {message} ."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "Không có bộ nhúng",
+        "description": "Không có nhúng nào được thiết lập."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "Không có tin nhắn nào được đặt",
+        "description": "Không có tin nhắn nào được thiết lập."
+      },
+      "success": {
+        "title": "Tin nhắn",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "Chào mừng",
+      "farewell": "Tạm biệt"
+    },
+    "setChannel": {
+      "title": "Tập hợp kênh",
+      "description": "{channelType} kênh đã được đặt thành {channel} ."
+    }
+  },
+  "feedback": {
+    "title": "Đã gửi phản hồi",
+    "description": "Cảm ơn bạn đã gửi phản hồi của bạn."
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Đặt nhúng",
+        "jsonField": {
+          "title": "JSON của phần nhúng",
+          "label": "JSON của phần nhúng",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "Xác minh"
+      }
+    },
+    "feedback": {
+      "title": "Mẫu phản hồi",
+      "feedbackTypeField": {
+        "label": "Loại phản hồi (Báo cáo lỗi, Đề xuất, v.v.)",
+        "placeholder": "Ví dụ: Báo cáo lỗi"
+      },
+      "feedbackField": {
+        "label": "Vui lòng mô tả phản hồi của bạn",
+        "placeholder": "Mô tả vấn đề hoặc gợi ý"
+      },
+      "satisfactionField": {
+        "label": "Bạn hài lòng với bot đến mức nào?",
+        "placeholder": "Đánh giá từ 1 đến 5"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "Cấu hình phần thưởng",
+          "messageField": {
+            "title": "Tin nhắn",
+            "label": "Tin nhắn",
+            "placeholder": "Bạn đã đạt được {threshold} lời mời trong {server-name} máy chủ!"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "Số lượng vai trò phản ứng bạn muốn tạo (1-5)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "Geçersiz alt komut",
+      "description": "Sağladığınız alt komut geçersiz.",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "Komut yürütülürken hata oluştu",
+      "description": "Komut yürütülürken bir hata oluştu.",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "Kullanıcı Sağlanmadı",
+      "description": "Lütfen geçmişinin alınacağı geçerli bir kullanıcı belirtin.",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "Bot Bulunamadı",
+      "description": "Kendimi sunucuda bulamadım.",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "Geçersiz JSON",
+      "description": "Sağladığınız JSON geçersiz.",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "Çok Uzun Yerleştir",
+      "description": "Sağladığınız yerleştirme çok uzun.",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "Sunucu Komutu",
+      "description": "Bu komut yalnızca bir sunucuda kullanılabilir.",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "Grup DM'si",
+      "description": "Bu komut grup DM'lerinde kullanılamaz.",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "Yalnızca Metin Kanalı",
+      "description": "Bu komut yalnızca metin kanallarında kullanılabilir.",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "Etkileşim Zaman Aşımına Uğradı",
+      "description": "Yanıt vermeniz çok uzun sürdü.",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "Etkileşim Süreci Hatası",
+      "description": "Etkileşim işlenirken bir hata oluştu.",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "Sayfa {page} ile ilgili {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "Davet Yönetimi",
+      "giveaways": "Hediyeler",
+      "autoRoles": "Otomatik Roller",
+      "language": "Dil",
+      "leaderboards": "Skor tabloları",
+      "reactionRoles": "Reaksiyon Rolleri",
+      "rewards": "Ödüller",
+      "verification": "Doğrulama",
+      "welcomer": "Karşılamacı",
+      "miscellaneous": "Çeşitli",
+      "next": "Sonraki",
+      "previous": "Öncesi"
+    },
+    "additionalFields": [
+      {
+        "name": "Geri bildirim",
+        "value": "Herhangi bir geri bildiriminiz varsa, bir hatayı bildirmek veya yeni bir özellik önermek istiyorsanız lütfen /feedback komutunu kullanın.",
+        "inline": false
+      },
+      {
+        "name": "Beni Davet Et",
+        "value": "[Beni sunucunuza davet etmek için tıklayın!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "Rehber",
+        "value": "[Bot rehberi için tıklayın.]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "Destek Sunucusu",
+        "value": "[Destek sunucusuna katılmak için tıklayın!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "Bir kullanıcıya bonus davetler ekleyin."
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "Bir kullanıcıdan bonus davetlerini kaldırın."
+        },
+        {
+          "name": "/inviter",
+          "description": "Bir kullanıcıyı kimin davet ettiğini öğrenin."
+        },
+        {
+          "name": "/invites",
+          "description": "Bir kullanıcının toplam davetini alın."
+        },
+        {
+          "name": "/invited-list",
+          "description": "Bir kullanıcı tarafından davet edilen tüm kullanıcıları görüntüleyin."
+        },
+        {
+          "name": "/who-used",
+          "description": "Davet bağlantısını kimin kullandığını öğrenin."
+        },
+        {
+          "name": "/history",
+          "description": "Bir kullanıcının katılma ve ayrılma geçmişini görüntüleyin."
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "Bir hediye oluşturun."
+        },
+        {
+          "name": "/giveaway end",
+          "description": "Bir hediyeyi sonlandırın."
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "Bir hediyeyi silin."
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "Bir hediyeyi yeniden kaydedin."
+        },
+        {
+          "name": "/giveaway list",
+          "description": "Tüm hediyeleri listeleyin."
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "Otomatik rol ekleyin."
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "Otomatik rolü kaldırın."
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "Tüm otomatik rolleri görüntüleyin."
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "Botun dilini ayarlayın."
+        },
+        {
+          "name": "/language view",
+          "description": "Geçerli dili görüntüleyin."
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "Günlük skor tablosunu görüntüleyin veya otomatik olarak güncellenen bir skor tablosu oluşturun."
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "Haftalık skor tablosunu görüntüleyin veya otomatik olarak güncellenen bir skor tablosu oluşturun."
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "Aylık skor tablosunu görüntüleyin veya otomatik olarak güncellenen bir skor tablosu oluşturun."
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "Tüm zamanların lider tablosunu görüntüleyin veya otomatik olarak güncellenen bir tablo oluşturun."
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "Düğme tabanlı reaksiyon rolleri oluşturun."
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "Davete dayalı bir ödül ekleyin."
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "Davete dayalı bir ödülü kaldırın."
+        },
+        {
+          "name": "/rewards view",
+          "description": "Davete dayalı tüm ödülleri görüntüleyin."
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "Sunucunuzda basit doğrulamayı ayarlayın."
+        },
+        {
+          "name": "/verification setup question",
+          "description": "Sunucunuzda soru doğrulamayı ayarlayın."
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "Sunucunuzda pin doğrulamayı ayarlayın."
+        },
+        {
+          "name": "/verification disable",
+          "description": "Doğrulama sistemini devre dışı bırakır."
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "Sunucudaki veda kanalını ayarlayın."
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "Veda kanalını kaldırın."
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "Sunucu kanalı için veda mesajını ayarlayın."
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "Sunucu veda mesajını kaldırın."
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "Sunucu veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "DM'ler için veda mesajını ayarlayın."
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "DM veda mesajını kaldırın."
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "DM veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "Özel URL'ler için veda mesajını ayarlayın."
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "Gösterişli veda mesajını kaldırın."
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "Gösterişli veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "Sunucu kanalı için veda mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "Sunucuya veda mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "Sunucu veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "DM'ler için veda mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "DM veda mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "DM veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "Özel URL'ler için veda mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "Gösterişli veda mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "Gösterişli veda mesajını görüntüleyin."
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "Sunucudaki karşılama kanalını ayarlayın."
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "Karşılama kanalını kaldırın."
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "Sunucu kanalı için karşılama mesajını ayarlayın."
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "Sunucu karşılama mesajını kaldırın."
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "Sunucu karşılama mesajını görüntüleyin."
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "DM'ler için karşılama mesajını ayarlayın."
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "DM karşılama mesajını kaldırın."
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "DM karşılama mesajını görüntüleyin."
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "Gösterişli karşılama mesajını ayarlayın."
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "Gösterişli karşılama mesajını kaldırın."
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "Gösterişli karşılama mesajını görüntüleyin."
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "Sunucu kanalı için karşılama mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "Sunucu karşılama mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "Sunucu karşılama mesajı yerleştirmesini görüntüleyin."
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "DM'ler için hoş geldiniz mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "DM karşılama mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "DM karşılama mesajını görüntüleyin."
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "Özel URL'ler için hoş geldiniz mesajı yerleştirmeyi ayarlayın."
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "Gösterişli karşılama mesajı yerleştirmesini kaldırın."
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "Gösterişli karşılama mesajını görüntüleyin."
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "Tüm komutları görüntüleyin."
+        },
+        {
+          "name": "/feedback",
+          "description": "Bot geliştiricisine geri bildirim gönderin veya yeni özellikler önerin."
+        },
+        {
+          "name": "/invite",
+          "description": "Botu sunucunuza davet edin."
+        },
+        {
+          "name": "/placeholders",
+          "description": "Davet mesajlarında ve yerleştirmelerde kullanabileceğiniz tüm yer tutucuları görüntüleyin."
+        },
+        {
+          "name": "/vote",
+          "description": "Top.gg'de bota oy verin."
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "Botu davet et",
+      "description": "Botu sunucunuza davet etmek veya web sitemizi ziyaret etmek için aşağıdaki düğmelere tıklayın!",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "Botu Davet Et",
+    "supportServerTranslation": "Destek Sunucusu",
+    "visitWebsiteTranslation": "Web Sitesini Ziyaret Edin"
+  },
+  "vote": {
+    "success": {
+      "title": "Bot'a oy verin",
+      "description": "Top.gg'deki bota oy vermek için aşağıdaki butona tıklayın!",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "Oy"
+  },
+  "placeholders": {
+    "mention-user": "Davet edilen kullanıcıdan bahseder",
+    "username": "Davet edilen kullanıcının kullanıcı adı",
+    "user-tag": "Davet edilen kullanıcının etiketi",
+    "server-name": "Sunucunun adı",
+    "member-count": "Sunucunun toplam üye sayısı",
+    "inviter-tag": "Davet edenin etiketi",
+    "inviter-count": "Davet edenin toplam davet sayısı",
+    "inviter-real-count": "Davet edenin gerçek davet sayısı",
+    "inviter-fake-count": "Davet edenin sahte davet sayısı",
+    "embed": {
+      "title": "Yer tutucular",
+      "description": "Davet mesajlarında ve yerleştirmelerde kullanabileceğiniz yer tutucular şunlardır: {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "Oy Kilitli Komut",
+      "description": "Bu komutu kullanmadan önce bota oy vermelisiniz.",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "Oy",
+    "guildOnly": {
+      "title": "Sadece Lonca Komutanlığı",
+      "description": "Bu komut yalnızca bir sunucuda kullanılabilir.",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "Geçersiz dil",
+        "description": "Sağladığınız dil geçersiz.",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "Dil yok",
+        "description": "Bir dil sağlamadınız.",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "Dil seti",
+        "description": "Dil şu şekilde ayarlandı: {language} .",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Mevcut dil",
+        "description": "Mevcut dil {language} .",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "Başarı",
+      "description": "Eklendi {amount} bonus davetleri {user} .  {total} toplamda davet ediyor.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "Başarı",
+      "description": "Kaldırıldı {amount} bonus davetleri {user} .  {total} toplamda davet ediyor.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "Geçmiş Bulunamadı",
+      "description": "Şunun için katılma veya ayrılma geçmişi bulunamadı: {user} .",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Geçmişe Katılın ve Ayrılın",
+      "description": "Geçmişi {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "Kullanıcı Sağlanmadı",
+      "description": "Lütfen davetleri kontrol etmek için geçerli bir kullanıcı belirtin.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "Davet Bulunamadı",
+      "description": "{user} hiçbir kullanıcıyı davet etmedi.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Davet Edilen Kullanıcılar Listesi",
+      "description": "Tarafından davet edilen kullanıcılar {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "Kullanıcı Sağlanmadı",
+      "description": "Lütfen davet edeni kontrol etmek için geçerli bir kullanıcı belirtin.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "Davet Eden Bulunamadı",
+      "description": "Belirtilen kullanıcı için davet eden bulamadım.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "Davet Eden Kişi Çözümlenemedi",
+      "description": "Belirtilen kullanıcı için davet edeni çözümleyemedim.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Kullanıcı Davet Eden",
+      "description": "Davet eden {user} öyle {inviter} .",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "Şunun için Arızayı Davet Et: {user}",
+      "description": "İşte davetlerin dökümü {user} :\n {real} **Bonus**: {bonus} **Sahte**: {fake} **Doğrulanmamış**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "Toplam Davet Sayısı",
+      "description": "{user} sahip olmak ** {totalInvites} ** davet ediyor.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "Bağlantı Sağlanmadı",
+      "description": "Kimin kullandığını kontrol etmek için lütfen geçerli bir davet bağlantısı sağlayın.",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "Kullanıcı Bulunamadı",
+      "description": "Davet bağlantısını kullanan kullanıcı bulunamadı.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Daveti Kullanan Kullanıcılar",
+      "description": "Davet kodunu kullanan kullanıcılar {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Kanal Sağlanmadı",
+      "description": "Lütfen geçerli bir kanal belirtin.",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "Geçersiz Kanal Türü",
+      "description": "Verdiğiniz kanal bir metin kanalı değil.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "Rol Sağlanmadı",
+      "description": "Lütfen geçerli bir rol belirtin.",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: Rol bulunamadı",
+      "description": "Belirttiğiniz rol bu sunucuda bulunamadı.",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: Yönetilen rol",
+      "description": "Rolü atayamıyorum veya kaldıramıyorum {role} Çünkü bir entegrasyonla yönetiliyor.",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: Eksik İzinler",
+      "description": "Rolü atayamıyorum veya kaldıramıyorum {role} çünkü bu benim en yüksek rolümden daha yüksek.",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: Eksik İzinler",
+      "description": "Rolü yönetmek için gerekli izinlere sahip değilim {role} .",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Sağlanmayan Roller",
+      "description": "Lütfen en az 1 geçerli rol sağlayın.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Tepki Rolleri Oluşturuldu",
+      "description": "Reaksiyon rolleri oluşturuldu.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "Rol Artık Mevcut Değil",
+      "description": "Bu reaksiyon rolü artık bu sunucuda mevcut değil.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "Başarı",
+      "description": "Tepki rolü {role} sizden kaldırıldı.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "Başarı",
+      "description": "Tepki rolü {role} sana atandı.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "Hata",
+      "description": "Reaksiyon rolü atanırken bir hata oluştu.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Hediye Oluşturma",
+      "description": "Ben hediyeyi oluştururken lütfen bekleyin.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **ÇEKİLİŞ** 🎉",
+      "description": "{description} **Ödül:** * {prize} *\n {host} **Bitiş tarihi:** {timeLeft} **Çekiliş Kimliği:** ` {giveawayId} '\n {entries} '\n {numberOfWinners} '",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **ÇEKİLİŞ SONA ERDİ** 🎉",
+      "description": "{description} **Ödül:** * {prize} *\n {host} **Bitti:** {endedTimestamp} **Çekiliş Kimliği:** ` {giveawayId} '\n {entries} '\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "Ödül Rolü",
+      "inviteRequirement": "Davet Gereksinimi",
+      "ended": "Sona erdi",
+      "active": "Aktif",
+      "showEnded": "Sona Erenleri Göster",
+      "showActive": "Etkinliği Göster",
+      "noActiveGiveawaysFound": "Aktif hediye bulunamadı.",
+      "noEndedGiveawaysFound": "Biten bir hediye bulunamadı."
+    },
+    "giveawayPage": {
+      "title": "{status} Vermek",
+      "description": "{description} **Ödül:** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} '\n {numberOfWinners} '\n {giveawayId} '",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Geçersiz Kazanan Sayısı",
+      "description": "Kazananların sayısı 1 ile 10 arasında olmalıdır.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "Çekiliş Oluşturuldu",
+      "description": "Hediye oluşturuldu.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "Hediye Bulunamadı",
+      "description": "Kimlikle birlikte hediye {giveawayId} bulunamadı.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "Çekiliş Silindi",
+      "description": "Kimlikle birlikte hediye {giveawayId} silindi.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Çekiliş Zaten Sona Erdi",
+      "description": "Kimlikle birlikte hediye {giveawayId} çoktan sona erdi.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "Çekiliş Yeniden Düzenlendi",
+      "description": "Kimlikle birlikte hediye {giveawayId} yeniden oynatıldı.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "Çekiliş Sona Erdi",
+      "description": "Kimlikle birlikte hediye {giveawayId} sonlandırıldı.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "Çekiliş Hala Aktif",
+      "description": "Kimlikle birlikte hediye {giveawayId} hala aktif.  {giveawayId} .",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "Hediye Bulunamadı",
+      "description": "Hediye bulunamadı.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "Çekilişe Girin",
+      "description": "Çekilişe katıldınız!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "Sol Çekiliş",
+      "description": "Hediyeyi bıraktınız.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "Çekilişe Girilemiyor",
+      "description": "Bu çekilişe giremezsiniz.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "Çekiliş Sona Erdi!",
+      "description": "{mentionWinners} Tebrikler!  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "Çekiliş Yeniden Düzenlendi!",
+      "description": "{mentionWinners} Tebrikler!  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: Zaten otomatik bir rol",
+        "description": "Rol {role} zaten otomatik bir roldür."
+      },
+      "maxAutoRolesError": {
+        "title": ":x: Maksimum otomatik roller",
+        "description": "Maksimum otomatik rol sayısına ulaştınız."
+      },
+      "success": {
+        "title": ":white_check_mark: Otomatik rol eklendi",
+        "description": "Rol {role} Otomatik rol olarak eklendi."
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: Otomatik rol değil",
+        "description": "Rol {role} otomatik bir rol değildir."
+      },
+      "success": {
+        "title": ":white_check_mark: \"Otomatik rol kaldırıldı\"",
+        "description": "Rol {role} otomatik rol olarak kaldırıldı."
+      }
+    },
+    "view": {
+      "success": {
+        "title": "Otomatik roller",
+        "description": "Bu sunucunun otomatik rolleri şunlardır:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: Eksik İzinler",
+        "description": "Yeni bir üyeye otomatik rol atamayı denedim ancak \"Rolleri Yönetme\" iznim olmadığı için bunu yapamadım.",
+        "dmDescription": ":wave: Yeni bir üyeye otomatik rol atamaya çalıştım {serverName} , ancak \"Rolleri Yönetme\" iznine sahip olmadığım için bunu yapamadım.",
+        "footer": {
+          "text": "Otomatik Rol Atama Hatası"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: Eksik İzinler",
+        "description": "Yeni bir üyeye otomatik rol atamayı denedim ancak atamaya çalıştığım rol en yüksek rolümden daha yüksek olduğundan bunu yapamadım.",
+        "dmDescription": ":wave: Yeni bir üyeye otomatik rol atamaya çalıştım {serverName} , ancak atamaya çalıştığım rol en yüksek rolümden daha yüksek olduğu için bunu yapamadım.",
+        "footer": {
+          "text": "Otomatik Rol Atama Hatası"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "Soru veya Cevap Sağlanmadı",
+        "description": "Soru doğrulamayı ayarlamak için lütfen bir soru ve cevap belirtin."
+      },
+      "success": {
+        "title": "Doğrulama Kurulumu",
+        "description": "Kanalda doğrulama ayarlandı {channel} .  {role} Doğruladıktan sonra rol."
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "Doğrulama Devre Dışı",
+        "description": "Bu sunucuda doğrulama devre dışı bırakıldı."
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "Geçersiz Yapılandırma",
+          "description": "Doğrulama yapılandırması geçersiz."
+        },
+        "incorrectAnswer": {
+          "title": "Yanlış Cevap",
+          "description": "Yanlış cevap verdiniz."
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "Yanlış Pin",
+          "description": "Yanlış bir pin sağladınız."
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "Sahte Kullanıcı",
+          "description": "Sahte kullanıcı olarak işaretlendiniz ve doğrulanamazsınız."
+        },
+        "verificationDisabled": {
+          "title": "Doğrulama Devre Dışı",
+          "description": "Bu sunucuda doğrulama devre dışı bırakıldı."
+        },
+        "alreadyVerified": {
+          "title": "Zaten Doğrulandı",
+          "description": "Zaten doğrulandınız."
+        },
+        "missingPermissions": {
+          "title": "Eksik İzinler",
+          "description": "Size doğrulama rolünü vermek için gerekli izinlere sahip değilim."
+        },
+        "roleNotFound": {
+          "title": "Rol Bulunamadı",
+          "description": "Doğrulama rolü bu sunucuda bulunamadı."
+        },
+        "managedRole": {
+          "title": "Yönetilen Rol",
+          "description": "Bir entegrasyon tarafından yönetildiği için doğrulama rolünü atayamıyorum veya kaldıramıyorum."
+        },
+        "hierarchyError": {
+          "title": "Eksik İzinler",
+          "description": "Doğrulama rolünü atayamıyorum veya kaldıramıyorum çünkü bu benim en yüksek rolümden daha yüksek."
+        },
+        "unknownType": {
+          "title": "Bilinmeyen Tür",
+          "description": "Sağladığınız doğrulama türü geçersiz."
+        },
+        "error": {
+          "title": "Hata",
+          "description": "Sizi doğrularken bir hata oluştu."
+        },
+        "success": {
+          "title": "Doğrulandı",
+          "description": "Doğrulandınız."
+        },
+        "timeout": {
+          "title": "Zaman aşımı",
+          "description": "Cevap vermen çok uzun sürdü."
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "Liderlik tablosu",
+        "description": "Bu sunucunun sıralama tablosu şu şekildedir:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "Veri Yok",
+        "description": "Skor tablosu boş."
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "Akıllı Skor Tablosu Oluşturuldu",
+        "description": "Akıllı skor tablosu oluşturuldu."
+      },
+      "daily": {
+        "title": "Akıllı Günlük Skor Tablosu",
+        "description": "Bu sunucunun günlük skor tablosu şu şekildedir:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "Akıllı Haftalık Skor Tablosu",
+        "description": "Bu sunucunun haftalık liderlik tablosu şu şekildedir:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "Akıllı Aylık Skor Tablosu",
+        "description": "Bu sunucunun aylık skor tablosu şu şekildedir:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "Tüm Zamanların Akıllı Skor Tablosu",
+        "description": "Bu sunucunun tüm zamanların skor tablosu şu şekildedir:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "Maksimum Skor Tabloları",
+        "description": "Maksimum akıllı skor tablosu sayısına ulaştınız."
+      }
+    },
+    "update": {
+      "invitesTranslation": "davet ediyor",
+      "noEntries": "Skor tablosu boş."
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "Ödüller",
+        "description": "Bu sunucunun ödülleri şunlardır:",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "Ödül Yok",
+        "description": "Bu sunucu için belirlenmiş bir ödül yok."
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "Ödül Bulunamadı",
+        "description": "Bu isimle ödül bulunamadı {rewardName} ."
+      },
+      "success": {
+        "title": "Ödül Kaldırıldı",
+        "description": "Ödül {rewardName} kaldırıldı."
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "Rol Gerekli Değil",
+        "description": "Sağladığınız rol bu ödül türü için kullanılamaz."
+      },
+      "removableNotRequired": {
+        "title": "Çıkarılabilir Gerekli Değil",
+        "description": "Sağladığınız çıkarılabilir seçenek bu ödül türü için kullanılamaz."
+      },
+      "storeNotRequired": {
+        "title": "Ek Gerekli Değil",
+        "description": "Sağladığınız ek bu ödül türü için kullanılamaz."
+      },
+      "alreadyExists": {
+        "title": "Ödül Zaten Var",
+        "description": "Bu ada sahip bir ödül zaten mevcut."
+      },
+      "maxReached": {
+        "title": "Maksimum Ödüller",
+        "description": "Maksimum ödül sayısına ulaştınız."
+      },
+      "role": {
+        "success": {
+          "title": "Rol Ödülü Eklendi",
+          "description": "Rol ödülü {rewardName} için {role} eklendi."
+        },
+        "roleRequired": {
+          "title": "Rol Sağlanmadı",
+          "description": "Lütfen ödül olarak eklenecek geçerli bir rol sağlayın."
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "Mesaj Sağlanmadı",
+          "description": "Lütfen ödül olarak eklemek için bir mesaj gönderin."
+        },
+        "success": {
+          "title": "Mesaj Ödülü Eklendi",
+          "description": "Mesaj ödülü {rewardName} eklendi.",
+          "fields": [
+            {
+              "name": "Mesaj",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "Zaman aşımına uğradı",
+          "description": "Yanıt vermeniz çok uzun sürdü."
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "Mesaj Mağazası Ödülü Eklendi",
+          "description": "Mesaj mağazası ödülü {rewardName} eklendi."
+        },
+        "fileRequired": {
+          "title": "Dosya Sağlanmadı",
+          "description": "Lütfen ödül olarak ayarlanacak mesajları içeren bir dosya sağlayın."
+        },
+        "fileEmpty": {
+          "title": "Dosya Boş",
+          "description": "Sağladığınız dosya boş veya format geçersiz."
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "Hoş Geldiniz Kanalı Kaldırıldı",
+          "description": "Karşılama kanalı kaldırıldı."
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "Veda Kanalı Kaldırıldı",
+          "description": "Veda kanalı kaldırıldı."
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "Sunucuya hoş geldiniz yerleştirmesi kaldırıldı."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "DM'ler için hoş geldiniz yerleştirmesi kaldırıldı."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "Özel URL'ler için hoş geldiniz yerleştirmesi kaldırıldı."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "Sunucuya veda yerleştirmesi kaldırıldı."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "DM'ler için veda yerleştirmesi kaldırıldı."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Yerleştirme Kaldırıldı",
+            "description": "Özel URL'lere veda yerleştirmesi kaldırıldı."
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "Sunucunun karşılama mesajı kaldırıldı."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "DM'lere yönelik karşılama mesajı kaldırıldı."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "Özel URL'lere yönelik karşılama mesajı kaldırıldı."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "Sunucuya veda mesajı kaldırıldı."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "DM'lere veda mesajı kaldırıldı."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Mesaj Kaldırıldı",
+            "description": "Özel URL'lere yönelik veda mesajı kaldırıldı."
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "Gömme Seti",
+        "description": "Yerleştirme ayarlandı."
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "Hoş Geldiniz Mesajı Seti",
+            "description": "Sunucu için karşılama mesajı şu şekilde ayarlandı: {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Hoş Geldiniz Mesajı Seti",
+            "description": "DM'ler için karşılama mesajı şu şekilde ayarlandı: {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Hoş Geldiniz Mesajı Seti",
+            "description": "Özel URL'ler için karşılama mesajı şu şekilde ayarlandı: {message} ."
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "Veda Mesajı Seti",
+            "description": "Sunucu için veda mesajı şu şekilde ayarlandı: {message} ."
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "Veda Mesajı Seti",
+            "description": "DM'ler için veda mesajı şu şekilde ayarlandı: {message} ."
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "Veda Mesajı Seti",
+            "description": "Özel URL'ler için veda mesajı şu şekilde ayarlandı: {message} ."
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "Yerleştirme Seti Yok",
+        "description": "Hiçbir yerleştirme ayarlanmadı."
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "Mesaj Seti Yok",
+        "description": "Hiçbir mesaj ayarlanmadı."
+      },
+      "success": {
+        "title": "Mesaj",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "Hoş geldin",
+      "farewell": "Veda"
+    },
+    "setChannel": {
+      "title": "Kanal Seti",
+      "description": "{channelType} kanal şu ​​şekilde ayarlandı: {channel} ."
+    }
+  },
+  "feedback": {
+    "title": "Geri Bildirim Gönderildi",
+    "description": "Geri bildiriminizi gönderdiğiniz için teşekkür ederiz."
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "Yerleştirmeyi ayarlayın",
+        "jsonField": {
+          "title": "Yerleştirmenin JSON'u",
+          "label": "Yerleştirmenin JSON'u",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "Doğrulama"
+      }
+    },
+    "feedback": {
+      "title": "Geri Bildirim Formu",
+      "feedbackTypeField": {
+        "label": "Geri Bildirim Türü (Hata Raporu, Öneri vb.)",
+        "placeholder": "Ör. Hata Raporu"
+      },
+      "feedbackField": {
+        "label": "Lütfen geri bildiriminizi açıklayın",
+        "placeholder": "Sorunu veya öneriyi açıklayın"
+      },
+      "satisfactionField": {
+        "label": "Bottan ne kadar memnunsunuz?",
+        "placeholder": "1'den 5'e kadar puan verin"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "Ödülü yapılandır",
+          "messageField": {
+            "title": "Mesaj",
+            "label": "Mesaj",
+            "placeholder": "ulaştın {threshold} davet ediyor {server-name} sunucu!"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "Oluşturmak istediğiniz reaksiyon rollerinin miktarı (1-5)"
+        }
+      }
+    }
+  }
+}

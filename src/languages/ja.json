@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "無効なサブコマンド",
+      "description": "指定したサブコマンドは無効です。",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "コマンド実行時のエラー",
+      "description": "コマンドの実行中にエラーが発生しました。",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "ユーザーが提供されていません",
+      "description": "履歴を取得する有効なユーザーを指定してください。",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "ボットが見つかりません",
+      "description": "サーバー内で自分自身を見つけることができませんでした。",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "無効な JSON",
+      "description": "指定した JSON は無効です。",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "埋め込み長すぎます",
+      "description": "提供した埋め込みが長すぎます。",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "サーバーコマンド",
+      "description": "このコマンドはサーバーでのみ使用できます。",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "グループDM",
+      "description": "このコマンドはグループ DM では使用できません。",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "テキストチャンネルのみ",
+      "description": "このコマンドはテキスト チャネルでのみ使用できます。",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "インタラクションがタイムアウトしました",
+      "description": "応答するのに時間がかかりすぎました。",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "インタラクションプロセスエラー",
+      "description": "インタラクションの処理中にエラーが発生しました。",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "ページ {page} の {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "管理者の招待",
+      "giveaways": "プレゼント",
+      "autoRoles": "自動役割",
+      "language": "言語",
+      "leaderboards": "リーダーボード",
+      "reactionRoles": "リアクションの役割",
+      "rewards": "報酬",
+      "verification": "検証",
+      "welcomer": "歓迎者",
+      "miscellaneous": "その他",
+      "next": "次",
+      "previous": "前の"
+    },
+    "additionalFields": [
+      {
+        "name": "フィードバック",
+        "value": "フィードバックがある場合、バグを報告する場合、または新機能を提案する場合は、/フィードバック コマンドを使用してください。",
+        "inline": false
+      },
+      {
+        "name": "招待してください",
+        "value": "[クリックしてサーバーに招待してください!]( {botInviteLink} )",
+        "inline": true
+      },
+      {
+        "name": "ガイド",
+        "value": "[ボットガイドについてはクリックしてください。]( {botGuideLink} )",
+        "inline": true
+      },
+      {
+        "name": "サポートサーバー",
+        "value": "[クリックしてサポートサーバーに参加してください!]( {supportServerLink} )",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "ユーザーにボーナスの招待を追加します。"
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "ユーザーからのボーナス招待を削除します。"
+        },
+        {
+          "name": "/inviter",
+          "description": "誰がユーザーを招待したかを調べます。"
+        },
+        {
+          "name": "/invites",
+          "description": "ユーザーの合計招待を取得します。"
+        },
+        {
+          "name": "/invited-list",
+          "description": "ユーザーによって招待されたすべてのユーザーを表示します。"
+        },
+        {
+          "name": "/who-used",
+          "description": "誰が招待リンクを使用したかを調べます。"
+        },
+        {
+          "name": "/history",
+          "description": "ユーザーの参加と脱退の履歴を表示します。"
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "プレゼントを作成します。"
+        },
+        {
+          "name": "/giveaway end",
+          "description": "プレゼントを終了します。"
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "プレゼントを削除します。"
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "プレゼントをリロールします。"
+        },
+        {
+          "name": "/giveaway list",
+          "description": "すべての特典をリストします。"
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "自動役割を追加します。"
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "自動役割を削除します。"
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "すべての自動役割を表示します。"
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "ボットの言語を設定します。"
+        },
+        {
+          "name": "/language view",
+          "description": "現在の言語を表示します。"
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "毎日のリーダーボードを表示するか、自動更新されるリーダーボードを作成します。"
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "毎週のリーダーボードを表示するか、自動更新されるリーダーボードを作成します。"
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "毎月のリーダーボードを表示するか、自動更新されるリーダーボードを作成します。"
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "過去のリーダーボードを表示するか、自動更新されるリーダーボードを作成します。"
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "ボタンベースのリアクションロールを作成します。"
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "招待ベースの報酬を追加します。"
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "招待ベースの報酬を削除します。"
+        },
+        {
+          "name": "/rewards view",
+          "description": "招待ベースの報酬をすべて表示します。"
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "サーバーに簡単な検証を設定します。"
+        },
+        {
+          "name": "/verification setup question",
+          "description": "サーバーで質問の検証を設定します。"
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "サーバーで PIN 検証をセットアップします。"
+        },
+        {
+          "name": "/verification disable",
+          "description": "検証システムを無効にします。"
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "サーバーに別れチャンネルを設定します。"
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "お別れチャンネルを削除します。"
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "サーバーチャネルの別れのメッセージを設定します。"
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "サーバーの別れのメッセージを削除します。"
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "サーバーの別れのメッセージを表示します。"
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "DMのお別れメッセージを設定します。"
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "DMのお別れメッセージを削除します。"
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "DM のお別れメッセージをご覧ください。"
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "バニティ URL の別れのメッセージを設定します。"
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "虚栄心のある別れのメッセージを削除します。"
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "バニティのお別れメッセージをご覧ください。"
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "サーバーチャネルの別れのメッセージの埋め込みを設定します。"
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "サーバーの別れのメッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "サーバーの別れのメッセージの埋め込みを表示します。"
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "DMのお別れメッセージの埋め込みを設定します。"
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "DM のお別れメッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "埋め込まれた DM のお別れメッセージを表示します。"
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "バニティ URL に別れのメッセージの埋め込みを設定します。"
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "バニティの別れのメッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "埋め込まれたバニティの別れのメッセージを表示します。"
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "サーバーにウェルカム チャネルを設定します。"
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "ウェルカム チャンネルを削除します。"
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "サーバーチャネルのウェルカムメッセージを設定します。"
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "サーバーのウェルカム メッセージを削除します。"
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "サーバーのウェルカム メッセージを表示します。"
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "DMのウェルカムメッセージを設定します。"
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "DM のウェルカム メッセージを削除します。"
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "DM のウェルカム メッセージを表示します。"
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "バニティウェルカムメッセージを設定します。"
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "バニティウェルカムメッセージを削除します。"
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "バニティのウェルカム メッセージを表示します。"
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "サーバー チャネルのウェルカム メッセージの埋め込みを設定します。"
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "サーバーのウェルカム メッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "サーバーのウェルカム メッセージの埋め込みを表示します。"
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "DM のウェルカム メッセージの埋め込みを設定します。"
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "DM のウェルカム メッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "DM のウェルカム メッセージの埋め込みを表示します。"
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "バニティ URL のウェルカム メッセージ埋め込みを設定します。"
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "バニティウェルカムメッセージの埋め込みを削除します。"
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "バニティのウェルカム メッセージの埋め込みを表示します。"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "すべてのコマンドを表示します。"
+        },
+        {
+          "name": "/feedback",
+          "description": "ボット開発者にフィードバックを送信したり、新機能を提案したりできます。"
+        },
+        {
+          "name": "/invite",
+          "description": "ボットをサーバーに招待します。"
+        },
+        {
+          "name": "/placeholders",
+          "description": "招待メッセージや埋め込みで使用できるすべてのプレースホルダーを表示します。"
+        },
+        {
+          "name": "/vote",
+          "description": "top.gg のボットに投票してください。"
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "ボットを招待する",
+      "description": "下のボタンをクリックしてボットをサーバーに招待するか、当社の Web サイトにアクセスしてください。",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "ボットを招待する",
+    "supportServerTranslation": "サポートサーバー",
+    "visitWebsiteTranslation": "ウェブサイトにアクセス"
+  },
+  "vote": {
+    "success": {
+      "title": "ボットに投票する",
+      "description": "下のボタンをクリックして、top.gg のボットに投票してください。",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "投票する"
+  },
+  "placeholders": {
+    "mention-user": "招待されたユーザーに言及します",
+    "username": "招待されたユーザーのユーザー名",
+    "user-tag": "招待されたユーザーのタグ",
+    "server-name": "サーバーの名前",
+    "member-count": "サーバーの総メンバー数",
+    "inviter-tag": "招待者のタグ",
+    "inviter-count": "招待者の合計招待数",
+    "inviter-real-count": "招待者の実際の招待数",
+    "inviter-fake-count": "招待者の偽の招待数",
+    "embed": {
+      "title": "プレースホルダー",
+      "description": "招待メッセージや埋め込みで使用できるプレースホルダーは次のとおりです。 {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "投票ロックされたコマンド",
+      "description": "このコマンドを使用する前に、ボットに投票する必要があります。",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "投票する",
+    "guildOnly": {
+      "title": "ギルド専用コマンド",
+      "description": "このコマンドはサーバーでのみ使用できます。",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "無効な言語",
+        "description": "指定した言語は無効です。",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "言語なし",
+        "description": "あなたは言語を提供しませんでした。",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "言語セット",
+        "description": "言語は次のように設定されています {language} 。",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "現在の言語",
+        "description": "現在の言語は {language} 。",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "成功",
+      "description": "追加した {amount} ボーナスへの招待 {user} 。 {total} 合計で招待します。",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "成功",
+      "description": "削除されました {amount} からのボーナス招待 {user} 。 {total} 合計で招待します。",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "履歴が見つかりません",
+      "description": "の参加または退席履歴が見つかりませんでした {user} 。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "参加と脱退の履歴",
+      "description": "の歴史 {user} :",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "ユーザーが提供されていません",
+      "description": "招待を確認する有効なユーザーを指定してください。",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "招待が見つかりませんでした",
+      "description": "{user} はユーザーを招待していません。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "招待されたユーザーのリスト",
+      "description": "招待されたユーザー {user} : {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "ユーザーが提供されていません",
+      "description": "招待者を確認するための有効なユーザーを指定してください。",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "招待者が見つかりませんでした",
+      "description": "指定されたユーザーの招待者が見つかりませんでした。",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "招待者を解決できませんでした",
+      "description": "指定されたユーザーの招待者を解決できませんでした。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "ユーザー招待者",
+      "description": "の招待者は、 {user} は {inviter} 。",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "内訳を招待 {user}",
+      "description": "招待状の内訳はこちら {user} :\n {real} **ボーナス**： {bonus} **偽物**： {fake} **未確認**: {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "合計招待数",
+      "description": "{user} もっている ** {totalInvites} ** が招待します。",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "リンクが提供されていません",
+      "description": "誰が使用したかを確認するには、有効な招待リンクを提供してください。",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "ユーザーが見つかりませんでした",
+      "description": "招待リンクを使用したユーザーは見つかりませんでした。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "招待を使用したユーザー",
+      "description": "招待コードを使用したユーザー {link} : {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "チャンネルが提供されていません",
+      "description": "有効なチャネルを指定してください。",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "無効なチャネルタイプ",
+      "description": "指定したチャネルはテキスト チャネルではありません。",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "役割が提供されていません",
+      "description": "有効な役割を指定してください。",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: 役割が見つかりません",
+      "description": "指定したロールはこのサーバーに見つかりませんでした。",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: 管理対象ロール",
+      "description": "役割を割り当てたり削除したりできません {role} 統合によって管理されているためです。",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: 権限がありません",
+      "description": "役割を割り当てたり削除したりできません {role} それは私の最高の役割よりも高いからです。",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: 権限がありません",
+      "description": "ロールを管理するために必要な権限がありません {role} 。",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "役割が提供されていません",
+      "description": "有効な役割を少なくとも 1 つ指定してください。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "作成されたリアクションロール",
+      "description": "リアクションロールが作成されました。",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "役割はもう存在しません",
+      "description": "このリアクション ロールはこのサーバーには存在しません。",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "成功",
+      "description": "リアクションの役割 {role} あなたから削除されました。",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "成功",
+      "description": "リアクションの役割 {role} があなたに割り当てられました。",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "エラー",
+      "description": "リアクション役割の割り当て中にエラーが発生しました。",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...プレゼントの作成",
+      "description": "プレゼントを作成するまでお待ちください。",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **プレゼント** 🎉",
+      "description": "{description} **賞：** * {prize} *\n {host} **終了時刻:** {timeLeft} **プレゼントID:** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **プレゼントは終了しました** 🎉",
+      "description": "{description} **賞：** * {prize} *\n {host} **終了:** {endedTimestamp} **プレゼントID:** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "報酬の役割",
+      "inviteRequirement": "招待要件",
+      "ended": "終了しました",
+      "active": "アクティブ",
+      "showEnded": "ショーは終了しました",
+      "showActive": "アクティブを表示",
+      "noActiveGiveawaysFound": "有効なプレゼントは見つかりませんでした。",
+      "noEndedGiveawaysFound": "終了したプレゼントは見つかりませんでした。"
+    },
+    "giveawayPage": {
+      "title": "{status} 譲る",
+      "description": "{description} **賞：** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "無効な当選者数",
+      "description": "当選者の数は 1 から 10 まででなければなりません。",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "プレゼントが作成されました",
+      "description": "プレゼントが作成されました。",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "プレゼントが見つかりません",
+      "description": "IDでプレゼント {giveawayId} 見つかりませんでした。",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "プレゼントが削除されました",
+      "description": "IDでプレゼント {giveawayId} は削除されました。",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "プレゼントはすでに終了しました",
+      "description": "IDでプレゼント {giveawayId} すでに終了しています。",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "プレゼントがリロールされました",
+      "description": "IDでプレゼント {giveawayId} リロールされました。",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "プレゼントは終了しました",
+      "description": "IDでプレゼント {giveawayId} は終了しました。",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "プレゼントはまだ有効です",
+      "description": "IDでプレゼント {giveawayId} まだ活動中です。  {giveawayId} 。",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "プレゼントが見つかりませんでした",
+      "description": "プレゼントは見つかりませんでした。",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "プレゼントに応募する",
+      "description": "プレゼントにエントリーしました！",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "残りのプレゼント",
+      "description": "プレゼントを残しました。",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "プレゼントに応募できません",
+      "description": "このプレゼントには応募できません。",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "プレゼントは終了しました！",
+      "description": "{mentionWinners} おめでとう！  {prize} **!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "プレゼントがリセマラされました！",
+      "description": "{mentionWinners} おめでとう！  {prize} **!",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: すでに自動ロールです",
+        "description": "役割 {role} はすでに自動役割です。"
+      },
+      "maxAutoRolesError": {
+        "title": ":x: 自動ロールの最大数",
+        "description": "自動役割の最大数に達しました。"
+      },
+      "success": {
+        "title": ":white_check_mark: 自動役割が追加されました",
+        "description": "役割 {role} 自動役割として追加されました。"
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: 自動ロールではありません",
+        "description": "役割 {role} は自動役割ではありません。"
+      },
+      "success": {
+        "title": ":white_check_mark: 自動役割が削除されました",
+        "description": "役割 {role} 自動役割として削除されました。"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "自動役割",
+        "description": "このサーバーの自動役割は次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: 権限がありません",
+        "description": "新しいメンバーに自動ロールを割り当てようとしましたが、「ロールの管理」権限がないため、割り当てることができませんでした。",
+        "dmDescription": ":wave: の新しいメンバーに自動ロールを割り当てようとしました {serverName} , しかし、「役割の管理」権限がないため、実行できませんでした。",
+        "footer": {
+          "text": "自動役割割り当てエラー"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: 権限がありません",
+        "description": "新しいメンバーに自動ロールを割り当てようとしましたが、割り当てようとしていたロールが私の最高のロールよりも上位であるため、割り当てることができませんでした。",
+        "dmDescription": ":wave: の新しいメンバーに自動ロールを割り当てようとしました {serverName} 、しかし、私が割り当てようとしていたロールが私の最高のロールよりも高いため、割り当てることができませんでした。",
+        "footer": {
+          "text": "自動役割割り当てエラー"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "質問も回答もありません",
+        "description": "質問検証を設定するには、質問と回答を入力してください。"
+      },
+      "success": {
+        "title": "検証のセットアップ",
+        "description": "チャンネルに検証が設定されました {channel} 。 {role} 確認後の役割。"
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "検証が無効です",
+        "description": "このサーバーでは検証が無効になっています。"
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "無効な構成",
+          "description": "検証構成が無効です。"
+        },
+        "incorrectAnswer": {
+          "title": "不正解",
+          "description": "間違った答えを提供しました。"
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "間違ったピン",
+          "description": "間違った PIN を指定しました。"
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "偽のユーザー",
+          "description": "あなたは偽のユーザーとしてフラグが立てられているため、検証できません。"
+        },
+        "verificationDisabled": {
+          "title": "検証が無効です",
+          "description": "このサーバーでは検証が無効になっています。"
+        },
+        "alreadyVerified": {
+          "title": "すでに検証済み",
+          "description": "あなたはすでに認証されています。"
+        },
+        "missingPermissions": {
+          "title": "権限がありません",
+          "description": "あなたに検証ロールを付与するために必要な権限がありません。"
+        },
+        "roleNotFound": {
+          "title": "役割が見つかりません",
+          "description": "このサーバーには検証ロールが見つかりませんでした。"
+        },
+        "managedRole": {
+          "title": "管理された役割",
+          "description": "検証ロールは統合によって管理されているため、割り当てまたは削除できません。"
+        },
+        "hierarchyError": {
+          "title": "権限がありません",
+          "description": "検証ロールは私の最上位のロールよりも上位であるため、割り当てまたは削除できません。"
+        },
+        "unknownType": {
+          "title": "不明なタイプ",
+          "description": "指定した検証タイプは無効です。"
+        },
+        "error": {
+          "title": "エラー",
+          "description": "本人確認中にエラーが発生しました。"
+        },
+        "success": {
+          "title": "確認済み",
+          "description": "確認されました。"
+        },
+        "timeout": {
+          "title": "タイムアウト",
+          "description": "答えるのに時間がかかりすぎました。"
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "リーダーボード",
+        "description": "このサーバーのリーダーボードは次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "データなし",
+        "description": "リーダーボードは空です。"
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "スマートリーダーボードが作成されました",
+        "description": "スマートリーダーボードが作成されました。"
+      },
+      "daily": {
+        "title": "スマートデイリーリーダーボード",
+        "description": "このサーバーの毎日のリーダーボードは次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "スマートウィークリーリーダーボード",
+        "description": "このサーバーの週間リーダーボードは次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "スマート月間リーダーボード",
+        "description": "このサーバーの月間リーダーボードは次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "スマートオールタイムリーダーボード",
+        "description": "このサーバーの歴代リーダーボードは次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "最大リーダーボード",
+        "description": "スマート リーダーボードの最大数に達しました。"
+      }
+    },
+    "update": {
+      "invitesTranslation": "招待します",
+      "noEntries": "リーダーボードは空です。"
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "報酬",
+        "description": "このサーバーの報酬は次のとおりです。",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "報酬なし",
+        "description": "このサーバーには報酬が設定されていません。"
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "報酬が見つかりませんでした",
+        "description": "この名前の報酬は見つかりませんでした {rewardName} 。"
+      },
+      "success": {
+        "title": "報酬が削除されました",
+        "description": "報酬 {rewardName} は削除されました。"
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "役割は不要です",
+        "description": "指定したロールは、この報酬タイプには使用できません。"
+      },
+      "removableNotRequired": {
+        "title": "取り外し可能 不要",
+        "description": "提供された取り外し可能なオプションは、この特典タイプには使用できません。"
+      },
+      "storeNotRequired": {
+        "title": "添付不要",
+        "description": "提供された添付ファイルは、この特典タイプには使用できません。"
+      },
+      "alreadyExists": {
+        "title": "報酬はすでに存在します",
+        "description": "この名前の報酬はすでに存在します。"
+      },
+      "maxReached": {
+        "title": "最大報酬",
+        "description": "報酬の最大数に達しました。"
+      },
+      "role": {
+        "success": {
+          "title": "役割報酬の追加",
+          "description": "役割報酬 {rewardName} のために {role} が追加されました。"
+        },
+        "roleRequired": {
+          "title": "役割が提供されていません",
+          "description": "報酬として追加する有効な役割を指定してください。"
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "メッセージが提供されていません",
+          "description": "報酬として追加するメッセージを入力してください。"
+        },
+        "success": {
+          "title": "メッセージ報酬を追加しました",
+          "description": "メッセージ報酬 {rewardName} が追加されました。",
+          "fields": [
+            {
+              "name": "メッセージ",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "タイムアウトしました",
+          "description": "応答するのに時間がかかりすぎました。"
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "メッセージストア報酬の追加",
+          "description": "メッセージストアの報酬 {rewardName} が追加されました。"
+        },
+        "fileRequired": {
+          "title": "ファイルが提供されていません",
+          "description": "報酬として設定するメッセージを含むファイルを提供してください。"
+        },
+        "fileEmpty": {
+          "title": "ファイルが空です",
+          "description": "指定したファイルが空であるか、形式が無効です。"
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "ウェルカム チャンネルが削除されました",
+          "description": "ウェルカムチャンネルは削除されました。"
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "お別れチャンネルが削除されました",
+          "description": "お別れチャンネルは削除されました。"
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "サーバーのウェルカム埋め込みは削除されました。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "DM へのウェルカム埋め込みは削除されました。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "バニティ URL のウェルカム埋め込みは削除されました。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "サーバーの別れの埋め込みは削除されました。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "DM の別れの埋め込みは削除されました。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "埋め込みが削除されました",
+            "description": "バニティ URL の別れの埋め込みは削除されました。"
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "サーバーのウェルカム メッセージが削除されました。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "DMのウェルカムメッセージは削除されました。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "バニティ URL のウェルカム メッセージは削除されました。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "サーバーへの別れのメッセージは削除されました。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "DMのお別れメッセージは削除させていただきました。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "メッセージが削除されました",
+            "description": "バニティ URL の別れのメッセージは削除されました。"
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "埋め込みセット",
+        "description": "埋め込みが設定されました。"
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "ウェルカムメッセージセット",
+            "description": "サーバーのウェルカム メッセージは次のように設定されています。 {message} 。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "ウェルカムメッセージセット",
+            "description": "DMのウェルカムメッセージが以下に設定されました。 {message} 。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "ウェルカムメッセージセット",
+            "description": "バニティ URL のウェルカム メッセージは次のように設定されました。 {message} 。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "お別れメッセージセット",
+            "description": "サーバーへの別れのメッセージが次のように設定されました。 {message} 。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "お別れメッセージセット",
+            "description": "DMのお別れメッセージを以下に設定しました。 {message} 。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "お別れメッセージセット",
+            "description": "バニティ URL の別れのメッセージは次のように設定されました。 {message} 。"
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "埋め込みセットがありません",
+        "description": "埋め込みが設定されていません。"
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "メッセージが設定されていません",
+        "description": "メッセージが設定されていません。"
+      },
+      "success": {
+        "title": "メッセージ",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "いらっしゃいませ",
+      "farewell": "別れ"
+    },
+    "setChannel": {
+      "title": "チャンネルセット",
+      "description": "{channelType} チャンネルはに設定されました {channel} 。"
+    }
+  },
+  "feedback": {
+    "title": "フィードバックが送信されました",
+    "description": "フィードバックをお送りいただきありがとうございます。"
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "埋め込みを設定する",
+        "jsonField": {
+          "title": "埋め込みのJSON",
+          "label": "埋め込みのJSON",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "検証"
+      }
+    },
+    "feedback": {
+      "title": "フィードバックフォーム",
+      "feedbackTypeField": {
+        "label": "フィードバックの種類 (バグレポート、提案など)",
+        "placeholder": "例: バグレポート"
+      },
+      "feedbackField": {
+        "label": "フィードバックについて説明してください",
+        "placeholder": "問題または提案について説明する"
+      },
+      "satisfactionField": {
+        "label": "ボットにどの程度満足していますか?",
+        "placeholder": "1 ～ 5 の評価"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "報酬を設定する",
+          "messageField": {
+            "title": "メッセージ",
+            "label": "メッセージ",
+            "placeholder": "到達しました {threshold} に招待します {server-name} サーバ！"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "作成するリアクション ロールの数 (1 ～ 5)"
+        }
+      }
+    }
+  }
+}

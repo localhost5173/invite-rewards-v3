@@ -1,0 +1,1306 @@
+{
+  "general": {
+    "invalidSubcommand": {
+      "title": "子命令无效",
+      "description": "您提供的子命令无效。",
+      "color": "#FF0000"
+    },
+    "errorWhileExecutingCommand": {
+      "title": "执行命令时出错",
+      "description": "执行命令时发生错误。",
+      "color": "#FF0000"
+    },
+    "noUserProvided": {
+      "title": "未提供用户",
+      "description": "请提供一个有效的用户来获取其历史记录。",
+      "color": "#FFA500"
+    },
+    "botNotFound": {
+      "title": "未找到机器人",
+      "description": "我在服务器中找不到自己。",
+      "color": "#FFA500"
+    },
+    "invalidJson": {
+      "title": "无效的 JSON",
+      "description": "您提供的 JSON 无效。",
+      "color": "#FF0000"
+    },
+    "embedTooLong": {
+      "title": "嵌入太长",
+      "description": "您提供的嵌入内容太长。",
+      "color": "#FFA500"
+    },
+    "serverCommand": {
+      "title": "服务器命令",
+      "description": "该命令只能在服务器中使用。",
+      "color": "#FFA500"
+    },
+    "noGroupDm": {
+      "title": "小组DM",
+      "description": "该命令不能在群组 DM 中使用。",
+      "color": "#FFA500"
+    },
+    "textChannelOnly": {
+      "title": "仅文本频道",
+      "description": "该命令只能在文本通道中使用。",
+      "color": "#FFA500"
+    },
+    "interactionTimedOut": {
+      "title": "交互超时",
+      "description": "你花了太长时间才回复。",
+      "color": "#FFA500"
+    },
+    "interactionProcessError": {
+      "title": "交互过程错误",
+      "description": "处理交互时发生错误。",
+      "color": "#FF0000"
+    }
+  },
+  "help": {
+    "embed": {
+      "title": "{category}",
+      "footer": {
+        "text": "页 {page} 的 {totalPages}"
+      }
+    },
+    "translations": {
+      "inviteManagement": "邀请管理",
+      "giveaways": "赠品",
+      "autoRoles": "自动角色",
+      "language": "语言",
+      "leaderboards": "排行榜",
+      "reactionRoles": "反应角色",
+      "rewards": "奖励",
+      "verification": "确认",
+      "welcomer": "欢迎者",
+      "miscellaneous": "各种各样的",
+      "next": "下一个",
+      "previous": "以前的"
+    },
+    "additionalFields": [
+      {
+        "name": "反馈",
+        "value": "如果您有任何反馈、想要报告错误或建议新功能，请使用 /feedback 命令。",
+        "inline": false
+      },
+      {
+        "name": "邀请我",
+        "value": "[点击邀请我加入你的服务器！]( {botInviteLink} ）",
+        "inline": true
+      },
+      {
+        "name": "指导",
+        "value": "[点击获取机器人指南。]( {botGuideLink} ）",
+        "inline": true
+      },
+      {
+        "name": "支持服务器",
+        "value": "[点击加入支持服务器！]( {supportServerLink} ）",
+        "inline": true
+      }
+    ],
+    "commands": {
+      "inviteManagement": [
+        {
+          "name": "/bonus invites add",
+          "description": "向用户添加奖金邀请。"
+        },
+        {
+          "name": "/bonus invites remove",
+          "description": "删除用户的奖励邀请。"
+        },
+        {
+          "name": "/inviter",
+          "description": "找出谁邀请了用户。"
+        },
+        {
+          "name": "/invites",
+          "description": "获取用户的总邀请数。"
+        },
+        {
+          "name": "/invited-list",
+          "description": "查看某个用户邀请的所有用户。"
+        },
+        {
+          "name": "/who-used",
+          "description": "找出谁使用了邀请链接。"
+        },
+        {
+          "name": "/history",
+          "description": "查看用户的加入和离开历史记录。"
+        }
+      ],
+      "giveaways": [
+        {
+          "name": "/giveaway create",
+          "description": "创建赠品。"
+        },
+        {
+          "name": "/giveaway end",
+          "description": "结束赠品。"
+        },
+        {
+          "name": "/giveaway delete",
+          "description": "删除赠品。"
+        },
+        {
+          "name": "/giveaway reroll",
+          "description": "重新滚动赠品。"
+        },
+        {
+          "name": "/giveaway list",
+          "description": "列出所有赠品。"
+        }
+      ],
+      "autoRoles": [
+        {
+          "name": "/auto-roles add-role",
+          "description": "添加自动角色。"
+        },
+        {
+          "name": "/auto-roles remove-role",
+          "description": "删除自动角色。"
+        },
+        {
+          "name": "/auto-roles view",
+          "description": "查看所有自动角色。"
+        }
+      ],
+      "language": [
+        {
+          "name": "/language set",
+          "description": "设置机器人的语言。"
+        },
+        {
+          "name": "/language view",
+          "description": "查看当前语言。"
+        }
+      ],
+      "leaderboards": [
+        {
+          "name": "/leaderboard daily",
+          "description": "查看每日排行榜，或创建一个自动更新的排行榜。"
+        },
+        {
+          "name": "/leaderboard weekly",
+          "description": "查看每周排行榜，或创建一个自动更新的排行榜。"
+        },
+        {
+          "name": "/leaderboard monthly",
+          "description": "查看每月排行榜，或创建自动更新的排行榜。"
+        },
+        {
+          "name": "/leaderboard all-time",
+          "description": "查看历史排行榜，或创建一个自动更新的排行榜。"
+        }
+      ],
+      "reactionRoles": [
+        {
+          "name": "/reaction-roles button create",
+          "description": "创建基于按钮的反应角色。"
+        }
+      ],
+      "rewards": [
+        {
+          "name": "/rewards add-reward",
+          "description": "添加基于邀请的奖励。"
+        },
+        {
+          "name": "/rewards remove-reward",
+          "description": "删除基于邀请的奖励。"
+        },
+        {
+          "name": "/rewards view",
+          "description": "查看所有基于邀请的奖励。"
+        }
+      ],
+      "verification": [
+        {
+          "name": "/verification setup simple",
+          "description": "在您的服务器中设置简单的验证。"
+        },
+        {
+          "name": "/verification setup question",
+          "description": "在您的服务器中设置问题验证。"
+        },
+        {
+          "name": "/verification setup pin",
+          "description": "在您的服务器中设置 PIN 验证。"
+        },
+        {
+          "name": "/verification disable",
+          "description": "禁用验证系统。"
+        }
+      ],
+      "welcomer": [
+        {
+          "name": "/farewell channel set",
+          "description": "在服务器中设置告别频道。"
+        },
+        {
+          "name": "/farewell channel disable",
+          "description": "删除告别通道。"
+        },
+        {
+          "name": "/farewell message set-server",
+          "description": "设置服务器通道的告别消息。"
+        },
+        {
+          "name": "/farewell message remove-server",
+          "description": "删除服务器告别消息。"
+        },
+        {
+          "name": "/farewell message view-server",
+          "description": "查看服务器告别消息。"
+        },
+        {
+          "name": "/farewell message set-dm",
+          "description": "设置 DM 的告别信息。"
+        },
+        {
+          "name": "/farewell message remove-dm",
+          "description": "删除 DM 告别消息。"
+        },
+        {
+          "name": "/farewell message view-dm",
+          "description": "查看 DM 告别信息。"
+        },
+        {
+          "name": "/farewell message set-vanity",
+          "description": "设置个性 URL 的告别消息。"
+        },
+        {
+          "name": "/farewell message remove-vanity",
+          "description": "删除虚荣的告别信息。"
+        },
+        {
+          "name": "/farewell message view-vanity",
+          "description": "查看虚荣的告别信息。"
+        },
+        {
+          "name": "/farewell embed set-server",
+          "description": "设置服务器通道的告别消息嵌入。"
+        },
+        {
+          "name": "/farewell embed remove-server",
+          "description": "删除嵌入的服务器告别消息。"
+        },
+        {
+          "name": "/farewell embed view-server",
+          "description": "查看嵌入的服务器告别消息。"
+        },
+        {
+          "name": "/farewell embed set-dm",
+          "description": "设置 DM 的告别消息嵌入。"
+        },
+        {
+          "name": "/farewell embed remove-dm",
+          "description": "删除嵌入的 DM 告别消息。"
+        },
+        {
+          "name": "/farewell embed view-dm",
+          "description": "查看嵌入的 DM 告别消息。"
+        },
+        {
+          "name": "/farewell embed set-vanity",
+          "description": "设置个性 URL 的告别消息嵌入。"
+        },
+        {
+          "name": "/farewell embed remove-vanity",
+          "description": "删除嵌入的虚荣告别消息。"
+        },
+        {
+          "name": "/farewell embed view-vanity",
+          "description": "查看嵌入的虚荣告别消息。"
+        },
+        {
+          "name": "/welcome channel set",
+          "description": "在服务器中设置欢迎频道。"
+        },
+        {
+          "name": "/welcome channel disable",
+          "description": "删除欢迎频道。"
+        },
+        {
+          "name": "/welcome message set-server",
+          "description": "设置服务器通道的欢迎消息。"
+        },
+        {
+          "name": "/welcome message remove-server",
+          "description": "删除服务器欢迎消息。"
+        },
+        {
+          "name": "/welcome message view-server",
+          "description": "查看服务器欢迎消息。"
+        },
+        {
+          "name": "/welcome message set-dm",
+          "description": "设置 DM 的欢迎信息。"
+        },
+        {
+          "name": "/welcome message remove-dm",
+          "description": "删除 DM 欢迎消息。"
+        },
+        {
+          "name": "/welcome message view-dm",
+          "description": "查看 DM 欢迎消息。"
+        },
+        {
+          "name": "/welcome message set-vanity",
+          "description": "设置虚荣欢迎信息。"
+        },
+        {
+          "name": "/welcome message remove-vanity",
+          "description": "删除虚荣的欢迎信息。"
+        },
+        {
+          "name": "/welcome message view-vanity",
+          "description": "查看虚荣欢迎消息。"
+        },
+        {
+          "name": "/welcome embed set-server",
+          "description": "设置服务器通道的欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed remove-server",
+          "description": "删除服务器欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed view-server",
+          "description": "查看嵌入的服务器欢迎消息。"
+        },
+        {
+          "name": "/welcome embed set-dm",
+          "description": "设置 DM 的欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed remove-dm",
+          "description": "删除 DM 欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed view-dm",
+          "description": "查看嵌入的 DM 欢迎消息。"
+        },
+        {
+          "name": "/welcome embed set-vanity",
+          "description": "设置个性 URL 的欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed remove-vanity",
+          "description": "删除虚荣的欢迎消息嵌入。"
+        },
+        {
+          "name": "/welcome embed view-vanity",
+          "description": "查看嵌入的虚荣欢迎消息。"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "name": "/help",
+          "description": "查看所有命令。"
+        },
+        {
+          "name": "/feedback",
+          "description": "向机器人开发人员发送反馈或建议新功能。"
+        },
+        {
+          "name": "/invite",
+          "description": "邀请机器人到您的服务器。"
+        },
+        {
+          "name": "/placeholders",
+          "description": "查看可在邀请消息和嵌入中使用的所有占位符。"
+        },
+        {
+          "name": "/vote",
+          "description": "在 top.gg 上为机器人投票。"
+        }
+      ]
+    }
+  },
+  "inviteBot": {
+    "success": {
+      "title": "邀请机器人",
+      "description": "单击下面的按钮邀请机器人访问您的服务器或访问我们的网站！",
+      "color": "#7289da"
+    },
+    "inviteBotTranslation": "邀请机器人",
+    "supportServerTranslation": "支持服务器",
+    "visitWebsiteTranslation": "访问网站"
+  },
+  "vote": {
+    "success": {
+      "title": "为机器人投票",
+      "description": "单击下面的按钮为 top.gg 上的机器人投票！",
+      "color": "#faa61a"
+    },
+    "voteTranslation": "投票"
+  },
+  "placeholders": {
+    "mention-user": "提及受邀请的用户",
+    "username": "受邀用户的用户名",
+    "user-tag": "被邀请用户的标签",
+    "server-name": "服务器名称",
+    "member-count": "服务器总成员数",
+    "inviter-tag": "邀请者标签",
+    "inviter-count": "邀请人总邀请次数",
+    "inviter-real-count": "邀请人真实邀请数",
+    "inviter-fake-count": "邀请人的虚假邀请数",
+    "embed": {
+      "title": "占位符",
+      "description": "以下是您可以在邀请消息和嵌入中使用的占位符： {placeholders}",
+      "color": "#7289da"
+    }
+  },
+  "validations": {
+    "voteLocked": {
+      "title": "投票锁定命令",
+      "description": "您必须先投票给机器人，然后才能使用此命令。",
+      "color": "#ff4500"
+    },
+    "voteTranslation": "投票",
+    "guildOnly": {
+      "title": "公会专用命令",
+      "description": "该命令只能在服务器中使用。",
+      "color": "#ff4500"
+    }
+  },
+  "language": {
+    "set": {
+      "invalidLanguage": {
+        "title": "无效语言",
+        "description": "您提供的语言无效。",
+        "color": "#ff4500"
+      },
+      "noLanguage": {
+        "title": "没有语言",
+        "description": "你没有提供语言。",
+        "color": "#ff4500"
+      },
+      "success": {
+        "title": "语言设置",
+        "description": "语言已设置为 {language} 。",
+        "color": "#43b581"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "当前语言",
+        "description": "当前语言是 {language} 。",
+        "color": "#43b581"
+      }
+    }
+  },
+  "bonusInvites": {
+    "add": {
+      "title": "成功",
+      "description": "额外 {amount} 奖金邀请 {user} 。 {total} 邀请总数。",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "成功",
+      "description": "已删除 {amount} 奖金邀请来自 {user} 。 {total} 邀请总数。",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "未找到历史记录",
+      "description": "未找到加入或离开历史记录 {user} 。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "加入和离开历史记录",
+      "description": "历史 {user} ：",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "未提供用户",
+      "description": "请提供有效的用户以检查邀请。",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "未找到邀请",
+      "description": "{user} 尚未邀请任何用户。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "受邀用户名单",
+      "description": "邀请的用户 {user} ： {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "未提供用户",
+      "description": "请提供有效的用户以检查邀请者。",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "未找到邀请人",
+      "description": "我找不到指定用户的邀请者。",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "无法解析邀请人",
+      "description": "我无法解析指定用户的邀请者。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "用户邀请者",
+      "description": "邀请人为 {user} 是 {inviter} 。",
+      "color": "#43b581"
+    }
+  },
+  "invites": {
+    "breakdown": {
+      "title": "邀请细目 {user}",
+      "description": "以下是邀请细目 {user} ：\n {real} **奖金**： {bonus} **伪造的**： {fake} **未经验证**： {unverified}",
+      "color": "#43b581"
+    },
+    "total": {
+      "title": "邀请总数",
+      "description": "{user} 有 ** {totalInvites} ** 邀请。",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "未提供链接",
+      "description": "请提供有效的邀请链接以检查谁使用了它。",
+      "color": "#ff4500"
+    },
+    "noUsers": {
+      "title": "未找到用户",
+      "description": "没有找到使用邀请链接的用户。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "使用邀请的用户",
+      "description": "使用邀请码的用户 {link} ： {users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "未提供频道",
+      "description": "请提供有效渠道。",
+      "color": "#ff4500"
+    },
+    "invalidChannelType": {
+      "title": "通道类型无效",
+      "description": "您提供的频道不是文本频道。",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "未提供角色",
+      "description": "请提供有效的角色。",
+      "color": "#ff4500"
+    },
+    "roleNotFoundError": {
+      "title": ":x: 找不到角色",
+      "description": "在此服务器中找不到您提供的角色。",
+      "color": "#ff4500"
+    },
+    "managedRoleAssignError": {
+      "title": ":x: 托管角色",
+      "description": "我无法分配或删除该角色 {role} 因为它是由集成管理的。",
+      "color": "#ff4500"
+    },
+    "hierarchyRoleAssignError": {
+      "title": ":x: 缺少权限",
+      "description": "我无法分配或删除该角色 {role} 因为它比我的最高角色还要高。",
+      "color": "#ff4500"
+    },
+    "noPermissions": {
+      "title": ":x: 缺少权限",
+      "description": "我没有管理该角色所需的权限 {role} 。",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "未提供角色",
+      "description": "请提供至少 1 个有效角色。",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "创建的反应角色",
+      "description": "反应角色已创建。",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "角色不再存在",
+      "description": "该反应角色在此服务器中不再存在。",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "成功",
+      "description": "反应作用 {role} 已从你身上删除。",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "成功",
+      "description": "反应作用 {role} 已分配给您。",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "错误",
+      "description": "分配反应角色时发生错误。",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...创建赠品",
+      "description": "我正在创建赠品，请稍候。",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **赠品** 🎉",
+      "description": "{description} **奖品：** * {prize} *\n {host} **结束于：** {timeLeft} **赠品 ID：** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **赠品结束** 🎉",
+      "description": "{description} **奖品：** * {prize} *\n {host} **结束：** {endedTimestamp} **赠品 ID：** ` {giveawayId} `\n {entries} `\n {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "奖励角色",
+      "inviteRequirement": "邀请要求",
+      "ended": "结束",
+      "active": "积极的",
+      "showEnded": "显示结束",
+      "showActive": "显示活动",
+      "noActiveGiveawaysFound": "未发现有效赠品。",
+      "noEndedGiveawaysFound": "未找到结束的赠品。"
+    },
+    "giveawayPage": {
+      "title": "{status} 送",
+      "description": "{description} **奖品：** * {prize} *\n {hostId} >\n {endTime} :R>\n {entries} `\n {numberOfWinners} `\n {giveawayId} `",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "获奖者数量无效",
+      "description": "获胜者人数必须在 1 到 10 之间。",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "赠品已创建",
+      "description": "赠品已创建。",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "未找到赠品",
+      "description": "凭身份证即可获赠 {giveawayId} 没有找到。",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "赠品已删除",
+      "description": "凭身份证即可获赠 {giveawayId} 已被删除。",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "赠品已经结束",
+      "description": "凭身份证即可获赠 {giveawayId} 已经结束了。",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "赠品重新推出",
+      "description": "凭身份证即可获赠 {giveawayId} 已被重新滚动。",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "赠品结束",
+      "description": "凭身份证即可获赠 {giveawayId} 已结束。",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "赠品仍然活跃",
+      "description": "凭身份证即可获赠 {giveawayId} 仍然活跃。 {giveawayId} 。",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "未找到赠品",
+      "description": "没有找到赠品。",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "输入赠品",
+      "description": "您已进入抽奖环节！",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "左赠品",
+      "description": "您已经离开了赠品。",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "无法进入赠品",
+      "description": "您不能参加此赠品活动。",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "赠品结束！",
+      "description": "{mentionWinners} 恭喜！ {prize} **！",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "赠品重发！",
+      "description": "{mentionWinners} 恭喜！ {prize} **！",
+      "color": "#43b581"
+    }
+  },
+  "autoRoles": {
+    "add": {
+      "alreadyAutoRoleWarning": {
+        "title": ":x: 已经是自动角色",
+        "description": "角色 {role} 已经是一个自动角色。"
+      },
+      "maxAutoRolesError": {
+        "title": ":x: 最大自动角色",
+        "description": "您已达到自动角色的最大数量。"
+      },
+      "success": {
+        "title": ":white_check_mark: 添加自动角色",
+        "description": "角色 {role} 已添加为自动角色。"
+      }
+    },
+    "remove": {
+      "notAutoRoleError": {
+        "title": ":x: 不是自动角色",
+        "description": "角色 {role} 不是自动角色。"
+      },
+      "success": {
+        "title": "：white_check_mark：自动角色已删除",
+        "description": "角色 {role} 已作为自动角色被删除。"
+      }
+    },
+    "view": {
+      "success": {
+        "title": "自动角色",
+        "description": "该服务器的自动角色是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{autoRoles}",
+            "inline": true
+          }
+        ],
+        "thumbnail": "{guildIcon}"
+      }
+    },
+    "assign": {
+      "noManageRolesPermissionError": {
+        "title": ":x: 缺少权限",
+        "description": "我尝试将自动角色分配给新成员，但无法执行此操作，因为我没有“管理角色”权限。",
+        "dmDescription": ":wave: 我尝试将自动角色分配给新成员 {serverName} ，但无法这样做，因为我没有“管理角色”权限。",
+        "footer": {
+          "text": "自动角色分配错误"
+        }
+      },
+      "hierarchyRoleAssignError": {
+        "title": ":x: 缺少权限",
+        "description": "我尝试为新成员分配自动角色，但无法这样做，因为我尝试分配的角色高于我的最高角色。",
+        "dmDescription": ":wave: 我尝试将自动角色分配给新成员 {serverName} ，但无法这样做，因为我试图分配的角色高于我的最高角色。",
+        "footer": {
+          "text": "自动角色分配错误"
+        }
+      }
+    }
+  },
+  "verification": {
+    "setup": {
+      "noQuestionAnswer": {
+        "title": "没有提供问题或答案",
+        "description": "请提供问题和答案以设置问题验证。"
+      },
+      "success": {
+        "title": "验证设置",
+        "description": "通道已设置验证 {channel} 。 {role} 验证后的作用。"
+      }
+    },
+    "disable": {
+      "success": {
+        "title": "验证已禁用",
+        "description": "此服务器中已禁用验证。"
+      }
+    },
+    "event": {
+      "simple": {},
+      "question": {
+        "invalidConfig": {
+          "title": "无效配置",
+          "description": "验证配置无效。"
+        },
+        "incorrectAnswer": {
+          "title": "错误答案",
+          "description": "您提供了错误的答案。"
+        }
+      },
+      "pin": {
+        "incorrectPin": {
+          "title": "引脚不正确",
+          "description": "您提供的 PIN 码不正确。"
+        }
+      },
+      "all": {
+        "fakeUser": {
+          "title": "假用户",
+          "description": "您被标记为假用户，无法验证。"
+        },
+        "verificationDisabled": {
+          "title": "验证已禁用",
+          "description": "此服务器中禁用验证。"
+        },
+        "alreadyVerified": {
+          "title": "已验证",
+          "description": "您已经通过验证。"
+        },
+        "missingPermissions": {
+          "title": "缺少权限",
+          "description": "我没有授予您验证角色所需的权限。"
+        },
+        "roleNotFound": {
+          "title": "未找到角色",
+          "description": "在此服务器中找不到验证角色。"
+        },
+        "managedRole": {
+          "title": "托管角色",
+          "description": "我无法分配或删除验证角色，因为它是由集成管理的。"
+        },
+        "hierarchyError": {
+          "title": "缺少权限",
+          "description": "我无法分配或删除验证角色，因为它高于我的最高角色。"
+        },
+        "unknownType": {
+          "title": "未知类型",
+          "description": "您提供的验证类型无效。"
+        },
+        "error": {
+          "title": "错误",
+          "description": "验证您时发生错误。"
+        },
+        "success": {
+          "title": "已验证",
+          "description": "您已被验证。"
+        },
+        "timeout": {
+          "title": "暂停",
+          "description": "你花了太长时间才回答。"
+        }
+      }
+    }
+  },
+  "leaderboards": {
+    "view": {
+      "success": {
+        "title": "排行榜",
+        "description": "该服务器的排行榜是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "empty": {
+        "title": "无数据",
+        "description": "排行榜是空的。"
+      }
+    },
+    "smart": {
+      "success": {
+        "title": "智能排行榜已创建",
+        "description": "智能排行榜已创建。"
+      },
+      "daily": {
+        "title": "智能每日排行榜",
+        "description": "该服务器的每日排行榜是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "weekly": {
+        "title": "智能每周排行榜",
+        "description": "该服务器的每周排行榜是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "monthly": {
+        "title": "智能每月排行榜",
+        "description": "该服务器的每月排行榜是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "allTime": {
+        "title": "智能历史排行榜",
+        "description": "该服务器的历史排行榜是：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{leaderboard}",
+            "inline": true
+          }
+        ]
+      },
+      "maxLeaderboards": {
+        "title": "最大排行榜",
+        "description": "您已达到智能排行榜的最大数量。"
+      }
+    },
+    "update": {
+      "invitesTranslation": "邀请",
+      "noEntries": "排行榜是空的。"
+    }
+  },
+  "rewards": {
+    "view": {
+      "success": {
+        "title": "奖励",
+        "description": "该服务器的奖励为：",
+        "color": "#43b581",
+        "fields": [
+          {
+            "name": "",
+            "value": "{rewards}",
+            "inline": true
+          }
+        ]
+      },
+      "noRewards": {
+        "title": "无奖励",
+        "description": "该服务器没有设置奖励。"
+      }
+    },
+    "remove": {
+      "notFound": {
+        "title": "没有找到奖励",
+        "description": "未找到与该名称相关的奖励 {rewardName} 。"
+      },
+      "success": {
+        "title": "奖励已移除",
+        "description": "奖励 {rewardName} 已被删除。"
+      }
+    },
+    "add": {
+      "roleNotRequired": {
+        "title": "角色不需要",
+        "description": "您提供的角色不能用于此奖励类型。"
+      },
+      "removableNotRequired": {
+        "title": "不需要可拆卸",
+        "description": "您提供的可移除选项不能用于此奖励类型。"
+      },
+      "storeNotRequired": {
+        "title": "不需要附件",
+        "description": "您提供的附件不能用于此奖励类型。"
+      },
+      "alreadyExists": {
+        "title": "奖励已经存在",
+        "description": "具有此名称的奖励已存在。"
+      },
+      "maxReached": {
+        "title": "最高奖励",
+        "description": "您已达到奖励数量上限。"
+      },
+      "role": {
+        "success": {
+          "title": "添加角色奖励",
+          "description": "角色奖励 {rewardName} 为了 {role} 已添加。"
+        },
+        "roleRequired": {
+          "title": "未提供角色",
+          "description": "请提供有效的角色来添加作为奖励。"
+        }
+      },
+      "message": {
+        "messageRequired": {
+          "title": "未提供消息",
+          "description": "请留言添加作为奖励。"
+        },
+        "success": {
+          "title": "已添加留言奖励",
+          "description": "留言奖励 {rewardName} 已添加。",
+          "fields": [
+            {
+              "name": "信息",
+              "value": "{message}"
+            }
+          ]
+        },
+        "timedOut": {
+          "title": "超时",
+          "description": "你花了太长时间才回复。"
+        }
+      },
+      "messageStore": {
+        "success": {
+          "title": "新增消息商店奖励",
+          "description": "消息存储奖励 {rewardName} 已添加。"
+        },
+        "fileRequired": {
+          "title": "未提供文件",
+          "description": "请提供包含消息的文件以设置为奖励。"
+        },
+        "fileEmpty": {
+          "title": "文件为空",
+          "description": "您提供的文件为空或格式无效。"
+        }
+      }
+    }
+  },
+  "welcomer": {
+    "removeChannel": {
+      "welcome": {
+        "success": {
+          "title": "欢迎频道已删除",
+          "description": "欢迎频道已被删除。"
+        }
+      },
+      "farewell": {
+        "success": {
+          "title": "告别频道已删除",
+          "description": "告别频道已被删除。"
+        }
+      }
+    },
+    "removeEmbed": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "服务器的欢迎嵌入已被删除。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "DM 的欢迎嵌入已被删除。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "个性 URL 的欢迎嵌入已被删除。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "服务器的告别嵌入已被删除。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "DM 的告别嵌入已被删除。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "嵌入已删除",
+            "description": "虚荣网址的告别嵌入已被删除。"
+          }
+        }
+      }
+    },
+    "removeMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "消息已删除",
+            "description": "服务器的欢迎消息已被删除。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "消息已删除",
+            "description": "DM 的欢迎信息已被删除。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "消息已删除",
+            "description": "个性 URL 的欢迎消息已被删除。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "消息已删除",
+            "description": "服务器的告别消息已被删除。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "消息已删除",
+            "description": "DM 的告别信息已被删除。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "消息已删除",
+            "description": "个性 URL 的告别消息已被删除。"
+          }
+        }
+      }
+    },
+    "setEmbed": {
+      "success": {
+        "title": "嵌入集",
+        "description": "嵌入已设置。"
+      }
+    },
+    "setMessage": {
+      "welcome": {
+        "server": {
+          "success": {
+            "title": "欢迎留言集",
+            "description": "服务器的欢迎消息已设置为 {message} 。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "欢迎留言集",
+            "description": "DM 的欢迎信息已设置为 {message} 。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "欢迎留言集",
+            "description": "个性 URL 的欢迎消息已设置为 {message} 。"
+          }
+        }
+      },
+      "farewell": {
+        "server": {
+          "success": {
+            "title": "告别留言集",
+            "description": "服务器的告别消息已设置为 {message} 。"
+          }
+        },
+        "dm": {
+          "success": {
+            "title": "告别留言集",
+            "description": "DM 的告别信息已设置为 {message} 。"
+          }
+        },
+        "vanity": {
+          "success": {
+            "title": "告别留言集",
+            "description": "个性 URL 的告别消息已设置为 {message} 。"
+          }
+        }
+      }
+    },
+    "viewEmbed": {
+      "noEmbed": {
+        "title": "无嵌入集",
+        "description": "尚未设置嵌入。"
+      }
+    },
+    "viewMessage": {
+      "noMessage": {
+        "title": "未设置消息",
+        "description": "尚未设置消息。"
+      },
+      "success": {
+        "title": "信息",
+        "description": "{message}"
+      }
+    },
+    "translations": {
+      "welcome": "欢迎",
+      "farewell": "告别"
+    },
+    "setChannel": {
+      "title": "频道设置",
+      "description": "{channelType} 频道已设置为 {channel} 。"
+    }
+  },
+  "feedback": {
+    "title": "反馈已提交",
+    "description": "感谢您提交反馈。"
+  },
+  "modals": {
+    "welcomer": {
+      "setEmbed": {
+        "title": "设置嵌入",
+        "jsonField": {
+          "title": "嵌入的 JSON",
+          "label": "嵌入的 JSON",
+          "placeholder": "{\"title\": \"Welcome!\", \"description\": \"Welcome to the server!\"}"
+        }
+      }
+    },
+    "verification": {
+      "question": {
+        "title": "确认"
+      }
+    },
+    "feedback": {
+      "title": "反馈表",
+      "feedbackTypeField": {
+        "label": "反馈类型（错误报告、建议等）",
+        "placeholder": "例如，错误报告"
+      },
+      "feedbackField": {
+        "label": "请描述您的反馈",
+        "placeholder": "描述问题或建议"
+      },
+      "satisfactionField": {
+        "label": "您对机器人的满意度如何？",
+        "placeholder": "评分从 1 到 5"
+      }
+    },
+    "rewards": {
+      "add": {
+        "message": {
+          "title": "配置奖励",
+          "messageField": {
+            "title": "信息",
+            "label": "信息",
+            "placeholder": "您已达到 {threshold} 邀请在 {server-name} 服务器！"
+          }
+        }
+      }
+    },
+    "reactionRoles": {
+      "button": {
+        "getRole": {
+          "title": "您想要创建的反应角色数量（1-5）"
+        }
+      }
+    }
+  }
+}

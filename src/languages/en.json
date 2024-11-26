@@ -491,271 +491,269 @@
       }
     }
   },
+  "bonusInvites": {
+    "add": {
+      "title": "Success",
+      "description": "Added {amount} bonus invites to {user}. They now have {total} invites in total.",
+      "color": "#43b581"
+    },
+    "remove": {
+      "title": "Success",
+      "description": "Removed {amount} bonus invites from {user}. They now have {total} invites in total.",
+      "color": "#43b581"
+    }
+  },
+  "history": {
+    "noHistory": {
+      "title": "No History Found",
+      "description": "No join or leave history found for {user}.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Join and Leave History",
+      "description": "History for {user}:",
+      "color": "#43b581"
+    }
+  },
+  "invitedList": {
+    "noUserProvided": {
+      "title": "User Not Provided",
+      "description": "Please provide a valid user to check the invites for.",
+      "color": "#ff4500"
+    },
+    "noInvites": {
+      "title": "No Invites Found",
+      "description": "{user} has not invited any users.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "Invited Users List",
+      "description": "Users invited by {user}:\n {invitedUsers}",
+      "color": "#43b581"
+    }
+  },
+  "inviter": {
+    "noUserProvided": {
+      "title": "User Not Provided",
+      "description": "Please provide a valid user to check the inviter for.",
+      "color": "#ff4500"
+    },
+    "noInviterFound": {
+      "title": "No Inviter Found",
+      "description": "I couldn't find an inviter for the specified user.",
+      "color": "#ff4500"
+    },
+    "inviterUnresolved": {
+      "title": "Inviter Could Not Be Resolved",
+      "description": "I was unable to resolve the inviter for the specified user.",
+      "color": "#ff4500"
+    },
+    "success": {
+      "title": "User Inviter",
+      "description": "The inviter for {user} is {inviter}.",
+      "color": "#43b581"
+    }
+  },
   "invites": {
-    "bonus": {
-      "add": {
-        "title": "Success",
-        "description": "Added {amount} bonus invites to {user}. They now have {total} invites in total.",
-        "color": "#43b581"
-      },
-      "remove": {
-        "title": "Success",
-        "description": "Removed {amount} bonus invites from {user}. They now have {total} invites in total.",
-        "color": "#43b581"
-      }
+    "breakdown": {
+      "title": "Invite Breakdown for {user}",
+      "description": "Here’s the breakdown of invites for {user}:\n**Real**: {real}\n**Bonus**: {bonus}\n**Fake**: {fake}\n**Unverified**: {unverified}",
+      "color": "#43b581"
     },
-    "history": {
-      "noHistory": {
-        "title": "No History Found",
-        "description": "No join or leave history found for {user}.",
-        "color": "#ff4500"
-      },
-      "success": {
-        "title": "Join and Leave History",
-        "description": "History for {user}:",
-        "color": "#43b581"
-      }
+    "total": {
+      "title": "Total Invites",
+      "description": "{user} has **{totalInvites}** invites.",
+      "color": "#43b581"
+    }
+  },
+  "whoUsed": {
+    "noLink": {
+      "title": "No Link Provided",
+      "description": "Please provide a valid invite link to check who used it.",
+      "color": "#ff4500"
     },
-    "invitedList": {
-      "noUserProvided": {
-        "title": "User Not Provided",
-        "description": "Please provide a valid user to check the invites for.",
-        "color": "#ff4500"
-      },
-      "noInvites": {
-        "title": "No Invites Found",
-        "description": "{user} has not invited any users.",
-        "color": "#ff4500"
-      },
-      "success": {
-        "title": "Invited Users List",
-        "description": "Users invited by {user}:\n {invitedUsers}",
-        "color": "#43b581"
-      }
+    "noUsers": {
+      "title": "No Users Found",
+      "description": "No users found who used the invite link.",
+      "color": "#ff4500"
     },
-    "inviter": {
-      "noUserProvided": {
-        "title": "User Not Provided",
-        "description": "Please provide a valid user to check the inviter for.",
-        "color": "#ff4500"
-      },
-      "noInviterFound": {
-        "title": "No Inviter Found",
-        "description": "I couldn't find an inviter for the specified user.",
-        "color": "#ff4500"
-      },
-      "inviterUnresolved": {
-        "title": "Inviter Could Not Be Resolved",
-        "description": "I was unable to resolve the inviter for the specified user.",
-        "color": "#ff4500"
-      },
-      "success": {
-        "title": "User Inviter",
-        "description": "The inviter for {user} is {inviter}.",
-        "color": "#43b581"
-      }
+    "success": {
+      "title": "Users Who Used Invite",
+      "description": "Users who used the invite code {link}:\n{users}",
+      "color": "#43b581"
+    }
+  },
+  "channels": {
+    "noChannelProvided": {
+      "title": "Channel Not Provided",
+      "description": "Please provide a valid channel.",
+      "color": "#ff4500"
     },
-    "invites": {
-      "breakdown": {
-        "title": "Invite Breakdown for {user}",
-        "description": "Here’s the breakdown of invites for {user}:\n**Real**: {real}\n**Bonus**: {bonus}\n**Fake**: {fake}\n**Unverified**: {unverified}",
-        "color": "#43b581"
-      },
-      "total": {
-        "title": "Total Invites",
-        "description": "{user} has **{totalInvites}** invites.",
-        "color": "#43b581"
-      }
+    "invalidChannelType": {
+      "title": "Invalid Channel Type",
+      "description": "The channel you provided is not a text channel.",
+      "color": "#ff4500"
+    }
+  },
+  "roles": {
+    "noRoleProvided": {
+      "title": "Role Not Provided",
+      "description": "Please provide a valid role.",
+      "color": "#ff4500"
     },
-    "whoUsed": {
-      "noLink": {
-        "title": "No Link Provided",
-        "description": "Please provide a valid invite link to check who used it.",
-        "color": "#ff4500"
-      },
-      "noUsers": {
-        "title": "No Users Found",
-        "description": "No users found who used the invite link.",
-        "color": "#ff4500"
-      },
-      "success": {
-        "title": "Users Who Used Invite",
-        "description": "Users who used the invite code {link}:\n{users}",
-        "color": "#43b581"
-      }
+    "roleNotFoundError": {
+      "title": ":x:  Role not found",
+      "description": "The role you provided was not found in this server.",
+      "color": "#ff4500"
     },
-    "channels": {
-      "noChannelProvided": {
-        "title": "Channel Not Provided",
-        "description": "Please provide a valid channel.",
-        "color": "#ff4500"
-      },
-      "invalidChannelType": {
-        "title": "Invalid Channel Type",
-        "description": "The channel you provided is not a text channel.",
-        "color": "#ff4500"
-      }
+    "managedRoleAssignError": {
+      "title": ":x:  Managed role",
+      "description": "I can't assign or remove the role {role} because it is managed by an integration.",
+      "color": "#ff4500"
     },
-    "roles": {
-      "noRoleProvided": {
-        "title": "Role Not Provided",
-        "description": "Please provide a valid role.",
-        "color": "#ff4500"
-      },
-      "roleNotFoundError": {
-        "title": ":x:  Role not found",
-        "description": "The role you provided was not found in this server.",
-        "color": "#ff4500"
-      },
-      "managedRoleAssignError": {
-        "title": ":x:  Managed role",
-        "description": "I can't assign or remove the role {role} because it is managed by an integration.",
-        "color": "#ff4500"
-      },
-      "hierarchyRoleAssignError": {
-        "title": ":x:  Missing Permissions",
-        "description": "I can't assign or remove the role {role} because it is higher than my highest role. Please move my role above the role you want me to manage.",
-        "color": "#ff4500"
-      },
-      "noPermissions": {
-        "title": ":x:  Missing Permissions",
-        "description": "I don't have the necessary permissions to manage the role {role}.",
-        "color": "#ff4500"
-      }
+    "hierarchyRoleAssignError": {
+      "title": ":x:  Missing Permissions",
+      "description": "I can't assign or remove the role {role} because it is higher than my highest role. Please move my role above the role you want me to manage.",
+      "color": "#ff4500"
     },
-    "reactionRoles": {
-      "noRolesProvided": {
-        "title": "Roles Not Provided",
-        "description": "Please provide at least 1 valid role.",
-        "color": "#ff4500"
-      },
-      "success": {
-        "title": "Reaction Roles Created",
-        "description": "The reaction roles have been created.",
-        "color": "#43b581"
-      },
-      "roleNoLongerExists": {
-        "title": "Role No Longer Exists",
-        "description": "This reaction role no longer exists in this server.",
-        "color": "#ff4500"
-      },
-      "roleRemoved": {
-        "title": "Success",
-        "description": "The reaction role {role} has been removed from you.",
-        "color": "#43b581"
-      },
-      "roleAssigned": {
-        "title": "Success",
-        "description": "The reaction role {role} has been assigned to you.",
-        "color": "#43b581"
-      },
-      "error": {
-        "title": "Error",
-        "description": "An error occurred while assigning the reaction role. Please try again later.",
-        "color": "#ff4500"
-      }
+    "noPermissions": {
+      "title": ":x:  Missing Permissions",
+      "description": "I don't have the necessary permissions to manage the role {role}.",
+      "color": "#ff4500"
+    }
+  },
+  "reactionRoles": {
+    "noRolesProvided": {
+      "title": "Roles Not Provided",
+      "description": "Please provide at least 1 valid role.",
+      "color": "#ff4500"
     },
-    "giveaways": {
-      "creatingGiveaway": {
-        "title": "...Creating Giveaway",
-        "description": "Please wait while I create the giveaway.",
-        "color": "#7289da"
-      },
-      "giveawayNotEnded": {
-        "title": "🎉 **GIVEAWAY** 🎉",
-        "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ends in:** {timeLeft}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Amount of Winners:** `{numberOfWinners}`",
-        "color": "#faa61a"
-      },
-      "giveawayEnded": {
-        "title": "🎉 **GIVEAWAY ENDED** 🎉",
-        "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ended:** {endedTimestamp}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Winners:** {winners}",
-        "color": "#faa61a"
-      },
-      "translations": {
-        "rewardRole": "Reward Role",
-        "inviteRequirement": "Invite Requirement",
-        "ended": "Ended",
-        "active": "Active",
-        "showEnded": "Show Ended",
-        "showActive": "Show Active",
-        "noActiveGiveawaysFound": "No active giveaways found.",
-        "noEndedGiveawaysFound": "No ended giveaways found."
-      },
-      "giveawayPage": {
-        "title": "{status} Giveaway",
-        "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** <@{hostId}>\n**Ends:** <t:{endTime}:R>\n**Entries:** `{entries}`\n**Winners:** `{numberOfWinners}`\n**Giveaway ID:** `{giveawayId}`",
-        "color": "#7289da"
-      },
-      "invalidNumberOfWinners": {
-        "title": "Invalid Number of Winners",
-        "description": "The number of winners must be between 1 and 10.",
-        "color": "#ff4500"
-      },
-      "giveawayCreated": {
-        "title": "Giveaway Created",
-        "description": "The giveaway has been created.",
-        "color": "#43b581"
-      },
-      "giveawayNotFound": {
-        "title": "Giveaway Not Found",
-        "description": "The giveaway with the ID {giveawayId} was not found.",
-        "color": "#ff4500"
-      },
-      "giveawayDeleted": {
-        "title": "Giveaway Deleted",
-        "description": "The giveaway with the ID {giveawayId} has been deleted.",
-        "color": "#43b581"
-      },
-      "giveawayAlreadyEnded": {
-        "title": "Giveaway Already Ended",
-        "description": "The giveaway with the ID {giveawayId} has already ended.",
-        "color": "#ff4500"
-      },
-      "giveawayRerolled": {
-        "title": "Giveaway Rerolled",
-        "description": "The giveaway with the ID {giveawayId} has been rerolled.",
-        "color": "#43b581"
-      },
-      "giveawayEndedReply": {
-        "title": "Giveaway Ended",
-        "description": "The giveaway with the ID {giveawayId} has been ended.",
-        "color": "#faa61a"
-      },
-      "giveawayStillActive": {
-        "title": "Giveaway Still Active",
-        "description": "The giveaway with the ID {giveawayId} is still active. Consider ending it with /giveaway end {giveawayId}.",
-        "color": "#faa61a"
-      },
-      "noGiveawaysFound": {
-        "title": "No Giveaways Found",
-        "description": "No giveaways found.",
-        "color": "#ff4500"
-      },
-      "enteredGiveaway": {
-        "title": "Enter Giveaway",
-        "description": "You have entered the giveaway!",
-        "color": "#43b581"
-      },
-      "leftGiveaway": {
-        "title": "Left Giveaway",
-        "description": "You have left the giveaway.",
-        "color": "#43b581"
-      },
-      "cannotEnterGiveaway": {
-        "title": "Cannot Enter Giveaway",
-        "description": "You cannot enter this giveaway.",
-        "color": "#ff4500"
-      },
-      "giveawayWon": {
-        "title": "Giveaway Ended!",
-        "description": "{mentionWinners} Congratulations! You won the giveaway for **{prize}**!",
-        "color": "#43b581"
-      },
-      "giveawayRerolledWon": {
-        "title": "Giveaway Rerolled!",
-        "description": "{mentionWinners} Congratulations! You won the rerolled giveaway for **{prize}**!",
-        "color": "#43b581"
-      }
+    "success": {
+      "title": "Reaction Roles Created",
+      "description": "The reaction roles have been created.",
+      "color": "#43b581"
+    },
+    "roleNoLongerExists": {
+      "title": "Role No Longer Exists",
+      "description": "This reaction role no longer exists in this server.",
+      "color": "#ff4500"
+    },
+    "roleRemoved": {
+      "title": "Success",
+      "description": "The reaction role {role} has been removed from you.",
+      "color": "#43b581"
+    },
+    "roleAssigned": {
+      "title": "Success",
+      "description": "The reaction role {role} has been assigned to you.",
+      "color": "#43b581"
+    },
+    "error": {
+      "title": "Error",
+      "description": "An error occurred while assigning the reaction role. Please try again later.",
+      "color": "#ff4500"
+    }
+  },
+  "giveaways": {
+    "creatingGiveaway": {
+      "title": "...Creating Giveaway",
+      "description": "Please wait while I create the giveaway.",
+      "color": "#7289da"
+    },
+    "giveawayNotEnded": {
+      "title": "🎉 **GIVEAWAY** 🎉",
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ends in:** {timeLeft}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Amount of Winners:** `{numberOfWinners}`",
+      "color": "#faa61a"
+    },
+    "giveawayEnded": {
+      "title": "🎉 **GIVEAWAY ENDED** 🎉",
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** {host}\n**Ended:** {endedTimestamp}\n**Giveaway ID:** `{giveawayId}`\n**Entries:** `{entries}`\n**Winners:** {winners}",
+      "color": "#faa61a"
+    },
+    "translations": {
+      "rewardRole": "Reward Role",
+      "inviteRequirement": "Invite Requirement",
+      "ended": "Ended",
+      "active": "Active",
+      "showEnded": "Show Ended",
+      "showActive": "Show Active",
+      "noActiveGiveawaysFound": "No active giveaways found.",
+      "noEndedGiveawaysFound": "No ended giveaways found."
+    },
+    "giveawayPage": {
+      "title": "{status} Giveaway",
+      "description": "{description}\n**Prize:** *{prize}*\n**Hosted by:** <@{hostId}>\n**Ends:** <t:{endTime}:R>\n**Entries:** `{entries}`\n**Winners:** `{numberOfWinners}`\n**Giveaway ID:** `{giveawayId}`",
+      "color": "#7289da"
+    },
+    "invalidNumberOfWinners": {
+      "title": "Invalid Number of Winners",
+      "description": "The number of winners must be between 1 and 10.",
+      "color": "#ff4500"
+    },
+    "giveawayCreated": {
+      "title": "Giveaway Created",
+      "description": "The giveaway has been created.",
+      "color": "#43b581"
+    },
+    "giveawayNotFound": {
+      "title": "Giveaway Not Found",
+      "description": "The giveaway with the ID {giveawayId} was not found.",
+      "color": "#ff4500"
+    },
+    "giveawayDeleted": {
+      "title": "Giveaway Deleted",
+      "description": "The giveaway with the ID {giveawayId} has been deleted.",
+      "color": "#43b581"
+    },
+    "giveawayAlreadyEnded": {
+      "title": "Giveaway Already Ended",
+      "description": "The giveaway with the ID {giveawayId} has already ended.",
+      "color": "#ff4500"
+    },
+    "giveawayRerolled": {
+      "title": "Giveaway Rerolled",
+      "description": "The giveaway with the ID {giveawayId} has been rerolled.",
+      "color": "#43b581"
+    },
+    "giveawayEndedReply": {
+      "title": "Giveaway Ended",
+      "description": "The giveaway with the ID {giveawayId} has been ended.",
+      "color": "#faa61a"
+    },
+    "giveawayStillActive": {
+      "title": "Giveaway Still Active",
+      "description": "The giveaway with the ID {giveawayId} is still active. Consider ending it with /giveaway end {giveawayId}.",
+      "color": "#faa61a"
+    },
+    "noGiveawaysFound": {
+      "title": "No Giveaways Found",
+      "description": "No giveaways found.",
+      "color": "#ff4500"
+    },
+    "enteredGiveaway": {
+      "title": "Enter Giveaway",
+      "description": "You have entered the giveaway!",
+      "color": "#43b581"
+    },
+    "leftGiveaway": {
+      "title": "Left Giveaway",
+      "description": "You have left the giveaway.",
+      "color": "#43b581"
+    },
+    "cannotEnterGiveaway": {
+      "title": "Cannot Enter Giveaway",
+      "description": "You cannot enter this giveaway.",
+      "color": "#ff4500"
+    },
+    "giveawayWon": {
+      "title": "Giveaway Ended!",
+      "description": "{mentionWinners} Congratulations! You won the giveaway for **{prize}**!",
+      "color": "#43b581"
+    },
+    "giveawayRerolledWon": {
+      "title": "Giveaway Rerolled!",
+      "description": "{mentionWinners} Congratulations! You won the rerolled giveaway for **{prize}**!",
+      "color": "#43b581"
     }
   },
   "autoRoles": {
