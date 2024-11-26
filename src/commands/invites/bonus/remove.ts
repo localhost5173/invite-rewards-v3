@@ -29,7 +29,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     await interaction.followUp({
       embeds: [
-        await Embeds.createEmbed(interaction.guildId!, "invites.bonus.remove", {
+        await Embeds.createEmbed(interaction.guildId!, "bonusInvites.remove", {
           amount: count.toString(),
           user: `<@${user.id}>`,
           total: invites.toString(),
