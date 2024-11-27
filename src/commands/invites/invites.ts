@@ -37,7 +37,7 @@ export async function run({ interaction }: SlashCommandProps) {
         const unverified = invites?.unverified ?? 0;
 
         if (breakdown) {
-            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.invites.breakdown", {
+            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.breakdown", {
                 user: user.tag,
                 real: real.toString(),
                 bonus: bonus.toString(),
@@ -47,7 +47,7 @@ export async function run({ interaction }: SlashCommandProps) {
             await interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             const totalInvites = real + bonus;
-            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.invites.total", {
+            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.total", {
                 user: user.tag,
                 totalInvites: totalInvites.toString(),
             });

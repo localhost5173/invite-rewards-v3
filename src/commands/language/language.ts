@@ -27,8 +27,9 @@ export const data: CommandData = {
           description: "The language to set",
           type: ApplicationCommandOptionType.String,
           required: true,
-          choices: Object.entries(LanguagesList).map(([value]) => ({
-            name: TranslatedLanguages[value as LanguagesList],
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          choices: Object.entries(LanguagesList).map(([key, value]) => ({
+            name: TranslatedLanguages[value as keyof typeof TranslatedLanguages],
             value,
           })),
         },
