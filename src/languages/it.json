@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "Classifica intelligente di tutti i tempi",
         "description": "La classifica di tutti i tempi per questo server è:",
         "color": "#43b581",

@@ -38,7 +38,7 @@ export default async function (
 
     const smartLeaderboards = await db.leaderboards.getSmart(guildId);
 
-    if (smartLeaderboards.length >= 1) {
+    if (smartLeaderboards.length >= 4) {
       await interaction.followUp({
         embeds: [
           await Embeds.createEmbed(

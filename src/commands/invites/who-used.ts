@@ -32,7 +32,7 @@ export async function run({ interaction }: SlashCommandProps) {
 
     if (!link) {
       return interaction.followUp({
-        embeds: [await Embeds.createEmbed(guildId, "invites.whoUsed.noLink")],
+        embeds: [await Embeds.createEmbed(guildId, "whoUsed.noLink")],
         ephemeral: true,
       });
     }
@@ -46,7 +46,7 @@ export async function run({ interaction }: SlashCommandProps) {
     // Check if inviteesList is empty
     if (inviteesList.length === 0) {
       return interaction.followUp({
-        embeds: [await Embeds.createEmbed(guildId, "invites.whoUsed.noUsers")],
+        embeds: [await Embeds.createEmbed(guildId, "whoUsed.noUsers")],
         ephemeral: true,
       });
     } else {
@@ -56,7 +56,7 @@ export async function run({ interaction }: SlashCommandProps) {
       );
       return interaction.followUp({
         embeds: [
-          await Embeds.createEmbed(guildId, "invites.whoUsed.success", {
+          await Embeds.createEmbed(guildId, "whoUsed.success", {
             link: inviteCode,
             users: inviteeMentionList.join("\n"),
           }),

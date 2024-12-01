@@ -32,7 +32,7 @@ export async function run({ interaction }: SlashCommandProps) {
     if (!targetUser) {
       const embed = await Embeds.createEmbed(
         guildId,
-        "invites.invitedList.noUserProvided"
+        "invitedList.noUserProvided"
       );
       return interaction.followUp({ embeds: [embed], ephemeral: true });
     }
@@ -48,7 +48,7 @@ export async function run({ interaction }: SlashCommandProps) {
     if (invitedUsersMentions.length === 0) {
       const embed = await Embeds.createEmbed(
         guildId,
-        "invites.invitedList.noInvites",
+        "invitedList.noInvites",
         {
           user: targetUser.username,
         }
@@ -57,7 +57,7 @@ export async function run({ interaction }: SlashCommandProps) {
     } else {
       const embed = await Embeds.createEmbed(
         guildId,
-        "invites.invitedList.success",
+        "invitedList.success",
         {
           user: targetUser.username,
           invitedUsers: invitedUsersMentions.join(", "),

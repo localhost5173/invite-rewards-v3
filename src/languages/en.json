@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "Smart All Time Leaderboard",
         "description": "The all time leaderboard for this server is:",
         "color": "#43b581",

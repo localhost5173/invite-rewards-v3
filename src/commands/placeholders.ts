@@ -6,58 +6,70 @@ import type {
 import { Embeds } from "../utils/embeds/embeds";
 import { db } from "../utils/db/db";
 import { devMode } from "..";
+import { cs } from "../utils/console/customConsole";
+import { Helpers } from "../utils/helpers/helpers";
 
 export const data: CommandData = {
   name: "placeholders",
-  description: "See all the placeholders that can be used in invite messages and embeds",
+  description:
+    "See all the placeholders that can be used in invite messages and embeds",
 };
 
 export async function run({ interaction }: SlashCommandProps) {
   let language = "en";
 
-  if (interaction.guildId) {
-    language = await db.languages.getLanguage(interaction.guildId);
-  }
-
-  const languageData = await import(`../languages/${language}.json`);
-  const placeholderData = languageData.placeholders;
-
-  const placeholders = [
-    { name: "`{mention-user}`", description: placeholderData["mention-user"] },
-    { name: "`{username}`", description: placeholderData["username"] },
-    { name: "`{user-tag}`", description: placeholderData["user-tag"] },
-    { name: "`{server-name}`", description: placeholderData["server-name"] },
-    {
-      name: "`{member-count}`",
-      description: placeholderData["member-count"],
-    },
-    { name: "`{inviter-tag}`", description: placeholderData["inviter-tag"] },
-    {
-      name: "`{inviter-count}`",
-      description: placeholderData["inviter-count"],
-    },
-    {
-      name: "`{inviter-real-count}`",
-      description: placeholderData["inviter-real-count"],
-    },
-    {
-      name: "`{inviter-fake-count}`",
-      description: placeholderData["inviter-fake-count"],
-    },
-  ];
-
-  const placeholdersString = placeholders
-    .map((placeholder) => `${placeholder.name} - ${placeholder.description}`)
-    .join("\n");
-  const embed = await Embeds.createEmbed(
-    interaction.guildId,
-    "placeholders.embed",
-    {
-      placeholders: placeholdersString,
+  try {
+    if (interaction.guildId) {
+      language = await db.languages.getLanguage(interaction.guildId);
     }
-  );
 
-  await interaction.reply({ embeds: [embed], ephemeral: true });
+    const languageData = await import(`../languages/${language}.json`);
+    const placeholderData = languageData.placeholders;
+
+    const placeholders = [
+      {
+        name: "`{mention-user}`",
+        description: placeholderData["mention-user"],
+      },
+      { name: "`{username}`", description: placeholderData["username"] },
+      { name: "`{user-tag}`", description: placeholderData["user-tag"] },
+      { name: "`{server-name}`", description: placeholderData["server-name"] },
+      {
+        name: "`{member-count}`",
+        description: placeholderData["member-count"],
+      },
+      { name: "`{inviter-tag}`", description: placeholderData["inviter-tag"] },
+      {
+        name: "`{inviter-count}`",
+        description: placeholderData["inviter-count"],
+      },
+      {
+        name: "`{inviter-real-count}`",
+        description: placeholderData["inviter-real-count"],
+      },
+      {
+        name: "`{inviter-fake-count}`",
+        description: placeholderData["inviter-fake-count"],
+      },
+    ];
+
+    const placeholdersString = placeholders
+      .map((placeholder) => `${placeholder.name} - ${placeholder.description}`)
+      .join("\n");
+    const embed = await Embeds.createEmbed(
+      interaction.guildId,
+      "placeholders.embed",
+      {
+        placeholders: placeholdersString,
+      }
+    );
+
+    await interaction.reply({ embeds: [embed], ephemeral: true });
+  } catch (error) {
+    cs.error("error in placeholders.ts: " + error);
+
+    await Helpers.trySendCommandError(interaction);
+  }
 }
 
 export const options: CommandOptions = {

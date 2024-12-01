@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "智能历史排行榜",
         "description": "该服务器的历史排行榜是：",
         "color": "#43b581",

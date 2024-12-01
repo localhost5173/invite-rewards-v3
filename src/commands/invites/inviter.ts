@@ -27,7 +27,7 @@ export async function run({ interaction, client }: SlashCommandProps) {
         await interaction.deferReply({ ephemeral: true });
 
         if (!targetUser) {
-            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.noUserProvided');
+            const embed = await Embeds.createEmbed(guildId, 'inviter.noUserProvided');
             return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
 
@@ -35,18 +35,18 @@ export async function run({ interaction, client }: SlashCommandProps) {
         const inviterId = await db.invites.joinedUsers.getInviterOfUser(guildId, targetUser.id);
 
         if (!inviterId) {
-            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.noInviterFound');
+            const embed = await Embeds.createEmbed(guildId, 'inviter.noInviterFound');
             return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
 
         const inviter = await client.users.fetch(inviterId);
 
         if (!inviter) {
-            const embed = await Embeds.createEmbed(guildId, 'invites.inviter.inviterUnresolved');
+            const embed = await Embeds.createEmbed(guildId, 'inviter.inviterUnresolved');
             return interaction.followUp({ embeds: [embed], ephemeral: true });
         }
 
-        const embed = await Embeds.createEmbed(guildId, 'invites.inviter.success', {
+        const embed = await Embeds.createEmbed(guildId, 'inviter.success', {
             user: `<@${targetUser.id}>`,
             inviter: `<@${inviter.id}>`
         });

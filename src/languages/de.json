@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "Intelligente Bestenliste aller Zeiten",
         "description": "Die Bestenliste aller Zeiten für diesen Server ist:",
         "color": "#43b581",

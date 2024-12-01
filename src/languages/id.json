@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "Papan Peringkat Cerdas Sepanjang Masa",
         "description": "Papan peringkat sepanjang masa untuk server ini adalah:",
         "color": "#43b581",
