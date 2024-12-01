@@ -10,12 +10,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     const guildId = interaction.guildId!;
     const guildIcon = interaction.guild!.iconURL()!;
-    const autoRoles = await db.autoRoles.getRoles(guildId);
+    const autoRoles = await db.autoRoles.getRoles(guildId) || [];
 
     return await interaction.followUp({
       embeds: [
         await Embeds.createEmbed(guildId, "autoRoles.view.success", {
-          autoRoles: autoRoles.map((role: string) => `<@&${role}>`).join(", "),
+          autoRoles: autoRoles.map((role: string) => `<@&${role}>`).join(", ") || " ",
           guildIcon: guildIcon,
         }),
       ],
