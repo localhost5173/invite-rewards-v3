@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "Tüm Zamanların Akıllı Skor Tablosu",
         "description": "Bu sunucunun tüm zamanların skor tablosu şu şekildedir:",
         "color": "#43b581",

@@ -60,7 +60,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     await interaction.followUp({
       embeds: [
-        await Embeds.createEmbed(guildId, "giveaways.giveawayNotFound", {
+        await Embeds.createEmbed(guildId, "giveaways.giveawayDeleted", {
           giveawayId,
         }),
       ],

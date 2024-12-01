@@ -958,7 +958,7 @@
           }
         ]
       },
-      "allTime": {
+      "alltime": {
         "title": "스마트 올타임 리더보드",
         "description": "이 서버의 전체 순위표는 다음과 같습니다.",
         "color": "#43b581",

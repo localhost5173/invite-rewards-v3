@@ -46,7 +46,7 @@ export async function run({ interaction }: SlashCommandProps) {
     if (history.length === 0) {
       const noHistoryEmbed = await Embeds.createEmbed(
         guildId,
-        "invites.history.noHistory",
+        "history.noHistory",
         {
           user: `<@${targetUser.id}>`,
         }
@@ -77,7 +77,7 @@ export async function run({ interaction }: SlashCommandProps) {
 
     const historyEmbed = await Embeds.createEmbed(
       guildId,
-      "invites.history.success",
+      "history.success",
       {
         user: `<@${targetUser.id}>`,
       }

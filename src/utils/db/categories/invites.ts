@@ -192,9 +192,9 @@ class userInvites {
         {
           $inc: {
             real: 1,
-            "timed.monthly": 1,
-            "timed.weekly": 1,
-            "timed.daily": 1,
+            "timed.monthly.real": 1,
+            "timed.weekly.real": 1,
+            "timed.daily.real": 1,
           }, // Increment the real invites count by 1
         },
         {
@@ -248,9 +248,9 @@ class userInvites {
         {
           $inc: {
             real: -1,
-            "timed.monthly": -1,
-            "timed.weekly": -1,
-            "timed.daily": -1,
+            "timed.monthly.real": -1,
+            "timed.weekly.real": -1,
+            "timed.daily.real": -1,
           }, // Decrement the real invites count by 1
         }
       );
