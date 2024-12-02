@@ -1,4 +1,30 @@
 {
+  "introEmbed": {
+    "title": "Welcome to Invite Rewards!",
+    "description": "Thank you for adding Invite Rewards to your server! 🎉 This bot helps you track and reward members for inviting others to your server. Let's get started!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Step 1: Setup a welcome channel",
+        "value": "Use `/welcome channel set` and `/welcome message set-server` to configure a welcome message for your server. It's quick and easy!"
+      },
+      {
+        "name": "Step 2: Add Rewards",
+        "value": "Set up custom rewards for invites using `/rewards add-reward`. Members will love earning prizes!"
+      },
+      {
+        "name": "Need Help?",
+        "value": "Check out `/help` for a full list of commands and guidance."
+      }
+    ],
+    "footer": {
+      "text": "Happy inviting! 🚀",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": {
+      "url": "{botLogo}"
+    }
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Invalid subcommand",

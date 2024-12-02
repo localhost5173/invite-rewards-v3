@@ -49,6 +49,10 @@ new CommandKit({
   validationsPath: `${__dirname}/validations`,
 });
 
+client.on("guildCreate", async (guild) => {
+  cs.log("Sending intro to guild: " + guild.name);
+});
+
 client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
 
 db.connectToDatabase();
