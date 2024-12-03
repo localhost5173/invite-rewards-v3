@@ -1,7 +1,7 @@
 {
   "dev": true,
   "bot": {
-    "logo": "https://invite-rewards-frontend.vercel.app/logo.png",
+    "logo": "https://invite-rewards.xyz/logo.png",
     "server": "https://discord.gg/7Q9nheNq2M",
     "website": "https://invite-rewards.xyz",
     "guide": "https://guide.invite-rewards.xyz",

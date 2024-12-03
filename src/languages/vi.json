@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Bảng xếp hạng tối đa",
         "description": "Bạn đã đạt đến số lượng bảng xếp hạng thông minh tối đa."
+      },
+      "deleteAll": {
+        "title": "Đã xóa tất cả Bảng xếp hạng thông minh",
+        "description": "Tất cả các bảng xếp hạng thông minh đã được xóa khỏi cơ sở dữ liệu và sẽ ngừng cập nhật.",
+        "color": "#43b581"
       }
     },
     "update": {

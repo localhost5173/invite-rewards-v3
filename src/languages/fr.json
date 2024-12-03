@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Classements maximum",
         "description": "Vous avez atteint le nombre maximum de classements intelligents."
+      },
+      "deleteAll": {
+        "title": "Tous les tableaux de bord intelligents supprimés",
+        "description": "Tous les tableaux de bord intelligents ont été supprimés de la base de données et ne seront plus mis à jour.",
+        "color": "#43b581"
       }
     },
     "update": {
