@@ -21,9 +21,7 @@
       "text": "Happy inviting! 🚀",
       "icon_url": "{botLogo}"
     },
-    "thumbnail": {
-      "url": "{botLogo}"
-    }
+    "thumbnail": "{botLogo}"
   },
   "general": {
     "invalidSubcommand": {
