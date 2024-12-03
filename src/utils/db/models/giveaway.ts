@@ -31,8 +31,8 @@ export interface GiveawayDocument extends Document {
 // Create the schema
 const GiveawaySchema: Schema = new Schema({
   // Essential identifiers
-  guildId: { type: String, required: true },
-  giveawayId: { type: Number, required: false },
+  guildId: { type: String, required: true, index: true },
+  giveawayId: { type: Number, required: false, index: true },
   messageId: { type: String, required: true },
   channelId: { type: String, required: true },
 
