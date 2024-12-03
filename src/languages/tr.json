@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Maksimum Skor Tabloları",
         "description": "Maksimum akıllı skor tablosu sayısına ulaştınız."
+      },
+      "deleteAll": {
+        "title": "Tüm Akıllı Lider Tabloları Silindi",
+        "description": "Tüm akıllı lider tabloları veritabanından silindi ve artık güncellenmeyecek.",
+        "color": "#43b581"
       }
     },
     "update": {

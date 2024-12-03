@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Tablas de clasificación máximas",
         "description": "Has alcanzado el número máximo de tablas de clasificación inteligentes."
+      },
+      "deleteAll": {
+        "title": "Se eliminaron todos los tableros inteligentes",
+        "description": "Todos los tableros inteligentes han sido eliminados de la base de datos y dejarán de actualizarse.",
+        "color": "#43b581"
       }
     },
     "update": {

@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "最大排行榜",
         "description": "您已达到智能排行榜的最大数量。"
+      },
+      "deleteAll": {
+        "title": "已删除所有智能排行榜",
+        "description": "所有智能排行榜已从数据库中删除，并将停止更新。",
+        "color": "#43b581"
       }
     },
     "update": {

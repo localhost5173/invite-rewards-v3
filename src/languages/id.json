@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Papan Peringkat Maks",
         "description": "Anda telah mencapai jumlah maksimum papan peringkat cerdas."
+      },
+      "deleteAll": {
+        "title": "Semua Papan Peringkat Pintar Telah Dihapus",
+        "description": "Semua papan peringkat pintar telah dihapus dari database dan tidak akan diperbarui lagi.",
+        "color": "#43b581"
       }
     },
     "update": {

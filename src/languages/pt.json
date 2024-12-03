@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Máximo de classificações",
         "description": "Você atingiu o número máximo de placares inteligentes."
+      },
+      "deleteAll": {
+        "title": "Todos os Smart Leaderboards foram excluídos",
+        "description": "Todos os Smart Leaderboards foram excluídos do banco de dados e não serão mais atualizados.",
+        "color": "#43b581"
       }
     },
     "update": {

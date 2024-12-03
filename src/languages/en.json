@@ -997,6 +997,11 @@
       "maxLeaderboards": {
         "title": "Max Leaderboards",
         "description": "You have reached the maximum number of smart leaderboards. Please remove a leaderboard before adding a new one."
+      },
+      "deleteAll": {
+        "title": "Deleted All Smart Leaderboards",
+        "description": "All smart leaderboards have been deleted from the database and will stop updating.",
+        "color": "#43b581"
       }
     },
     "update": {

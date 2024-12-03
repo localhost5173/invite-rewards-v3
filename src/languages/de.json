@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "Maximale Bestenlisten",
         "description": "Sie haben die maximale Anzahl intelligenter Bestenlisten erreicht."
+      },
+      "deleteAll": {
+        "title": "Alle Smart Leaderboards gelöscht",
+        "description": "Alle Smart Leaderboards wurden aus der Datenbank gelöscht und werden nicht mehr aktualisiert.",
+        "color": "#43b581"
       }
     },
     "update": {

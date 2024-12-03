@@ -130,4 +130,8 @@ export class leaderboards {
   static async getSmartLeaderboards(guildId: string) {
     return SmartLeaderboardModel.find({ guildId });
   }
+
+  static async deleteAllSmartLeaderboards(guildId: string) {
+    await SmartLeaderboardModel.deleteMany({ guildId });
+  }
 }

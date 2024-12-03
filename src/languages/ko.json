@@ -973,6 +973,11 @@
       "maxLeaderboards": {
         "title": "최대 순위표",
         "description": "최대 스마트 리더보드 수에 도달했습니다."
+      },
+      "deleteAll": {
+        "title": "모든 스마트 리더보드 삭제됨",
+        "description": "모든 스마트 리더보드가 데이터베이스에서 삭제되었으며 업데이트가 중지됩니다.",
+        "color": "#43b581"
       }
     },
     "update": {
