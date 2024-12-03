@@ -1,10 +1,10 @@
 import { EmbedBuilder, ModalBuilder, TextInputBuilder } from "discord.js";
-import { system } from "./system";
-import { autoRoles } from "./autoRoles";
-import { languages } from "./languages";
-import { roles } from "./roles";
-import { invites } from "./invites";
-import { db } from "../db/db";
+import { system } from "./system.js";
+import { autoRoles } from "./autoRoles.js";
+import { languages } from "./languages.js";
+import { roles } from "./roles.js";
+import { invites } from "./invites.js";
+import { db } from "../db/db.js";
 
 class color {
   static success = 0x00ff00;

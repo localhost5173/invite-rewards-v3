@@ -6,8 +6,8 @@ import {
   PermissionFlagsBits,
   Role,
 } from "discord.js";
-import { cs } from "../console/customConsole";
-import { Embeds } from "../embeds/embeds";
+import { cs } from "../console/customConsole.js";
+import { Embeds } from "../embeds/embeds.js";
 
 export default async function (
   interaction: ButtonInteraction,

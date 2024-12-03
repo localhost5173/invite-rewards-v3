@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-import CounterModel from "./giveawayCounters"; // Adjust the import path as needed
+import CounterModel from "./giveawayCounters.js"; // Adjust the import path as needed
 
 export interface GiveawayDocument extends Document {
   // Essential identifiers

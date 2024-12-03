@@ -1,6 +1,6 @@
 import { Role } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
 
 export default async function (role: Role) {
   try {

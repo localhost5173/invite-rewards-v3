@@ -1,8 +1,8 @@
-import { cs } from "../../console/customConsole";
-import InviteEntryModel from "../models/inviteEntries";
-import JoinedUserModel, { JoinedUserDocument } from "../models/joinedUsers";
-import UsedInviteModel from "../models/usedInvites";
-import UserInvitesModel from "../models/userInvites";
+import { cs } from "../../console/customConsole.js";
+import InviteEntryModel from "../models/inviteEntries.js";
+import JoinedUserModel, { JoinedUserDocument } from "../models/joinedUsers.js";
+import UsedInviteModel from "../models/usedInvites.js";
+import UserInvitesModel from "../models/userInvites.js";
 
 type InviteEntry = {
   guildId: string;

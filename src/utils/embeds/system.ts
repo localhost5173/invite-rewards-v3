@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { db } from "../db/db";
+import { db } from "../db/db.js";
 
 export class system {
   static async invalidSubcommand(guildId: string) {

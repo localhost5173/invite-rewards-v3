@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { Embeds } from "../embeds/embeds";
-import { cs } from "../console/customConsole";
+import { Embeds } from "../embeds/embeds.js";
+import { cs } from "../console/customConsole.js";
 
 export class Helpers {
   static async trySendCommandError(

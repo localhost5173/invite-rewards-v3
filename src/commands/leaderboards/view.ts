@@ -1,9 +1,9 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { db } from "../../utils/db/db";
-import { Helpers } from "../../utils/helpers/helpers";
-import { Embeds } from "../../utils/embeds/embeds";
-import { cs } from "../../utils/console/customConsole";
-import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
+import { db } from "../../utils/db/db.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
 
 export default async function (
   interaction: ChatInputCommandInteraction,

@@ -7,10 +7,10 @@ import {
     EmbedBuilder,
     PartialGroupDMChannel,
 } from "discord.js";
-import { cs } from "../../utils/console/customConsole";
-import { Helpers } from "../../utils/helpers/helpers";
-import { db } from "../../utils/db/db";
-import { Embeds } from "../../utils/embeds/embeds";
+import { cs } from "../../utils/console/customConsole.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
+import { db } from "../../utils/db/db.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
     const guildId = interaction.guildId!;

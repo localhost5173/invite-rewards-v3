@@ -4,9 +4,9 @@ import {
   PermissionFlagsBits,
   Role,
 } from "discord.js";
-import { cs } from "../../utils/console/customConsole";
-import { Embeds } from "../../utils/embeds/embeds";
-import { db } from "../../utils/db/db";
+import { cs } from "../../utils/console/customConsole.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { db } from "../../utils/db/db.js";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;

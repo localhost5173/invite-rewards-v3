@@ -1,8 +1,8 @@
 import { TextChannel } from "discord.js";
-import { client } from "../..";
-import { cs } from "../console/customConsole";
-import { db } from "../db/db";
-import { Embeds } from "../embeds/embeds";
+import { client } from "../../index.js";
+import { cs } from "../console/customConsole.js";
+import { db } from "../db/db.js";
+import { Embeds } from "../embeds/embeds.js";
 
 export class Leaderboards {
   static async updateLeaderboards(guildId: string, userId: string) {

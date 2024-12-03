@@ -1,8 +1,8 @@
 import { Guild, PermissionFlagsBits } from "discord.js";
-import { cs } from "../console/customConsole";
-import { db } from "../db/db";
-import { RewardDocument } from "../db/models/rewards";
-import { client } from "../..";
+import { cs } from "../console/customConsole.js";
+import { db } from "../db/db.js";
+import { RewardDocument } from "../db/models/rewards.js";
+import { client } from "../../index.js";
 
 export class Rewards {
   static async handleGiveRewards(guildId: string, userId: string) {

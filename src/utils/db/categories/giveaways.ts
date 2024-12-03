@@ -1,4 +1,4 @@
-import GiveawayModel from "../models/giveaway";
+import GiveawayModel from "../models/giveaway.js";
 
 export class giveaways {
   static async createGiveaway({

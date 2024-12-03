@@ -4,9 +4,9 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import { Embeds } from "../../utils/embeds/embeds";
-import setupButton from "./setupButton";
-import { devMode } from "../..";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import setupButton from "./setupButton.js";
+import { devMode } from "../../index.js";
 
 export const data: CommandData = {
   name: "reaction-roles",

@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
-import { AutoRoles } from "./categories/autoRoles";
-import { cs } from "../console/customConsole";
-import { Languages } from "./categories/languages";
-import { invites } from "./categories/invites";
-import { verification } from "./categories/verification";
-import { welcomer } from "./categories/welcomer";
-import { leaderboards } from "./categories/leaderboards";
-import { locks } from "./categories/locks";
-import { rewards } from "./categories/rewards";
-import { reactionRoles } from "./categories/reactionRoles";
-import { resets } from "./categories/resets";
-import { giveaways } from "./categories/giveaways";
+import { AutoRoles } from "./categories/autoRoles.js";
+import { cs } from "../console/customConsole.js";
+import { Languages } from "./categories/languages.js";
+import { invites } from "./categories/invites.js";
+import { verification } from "./categories/verification.js";
+import { welcomer } from "./categories/welcomer.js";
+import { leaderboards } from "./categories/leaderboards.js";
+import { locks } from "./categories/locks.js";
+import { rewards } from "./categories/rewards.js";
+import { reactionRoles } from "./categories/reactionRoles.js";
+import { resets } from "./categories/resets.js";
+import { giveaways } from "./categories/giveaways.js";
 
 export class db {
   static autoRoles = AutoRoles;

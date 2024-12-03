@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
-import { db } from "../db/db";
-import { getNativeLanguageName } from "../db/categories/languages";
+import { db } from "../db/db.js";
+import { getNativeLanguageName } from "../db/categories/languages.js";
 
 class set {
   static async invalidLanguage(guildId: string) {

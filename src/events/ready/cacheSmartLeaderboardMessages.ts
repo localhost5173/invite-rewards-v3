@@ -1,6 +1,6 @@
-import { client } from "../..";
-import { cs } from "../../utils/console/customConsole";
-import { db } from "../../utils/db/db";
+import { client } from "../../index.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { db } from "../../utils/db/db.js";
 import { TextChannel } from "discord.js";
 
 const BATCH_SIZE = 50; // Number of messages to fetch in each batch

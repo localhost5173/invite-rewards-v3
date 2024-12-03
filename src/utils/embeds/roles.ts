@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
-import { db } from "../db/db";
-import { Embeds } from "./embeds";
+import { db } from "../db/db.js";
+import { Embeds } from "./embeds.js";
 
 export class roles {
   static async roleNotFoundError(guildId: string) {

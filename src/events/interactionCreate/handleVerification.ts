@@ -14,13 +14,13 @@ import {
   ButtonStyle,
   TextChannel,
 } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
-import checkRolePermissions from "../../utils/helpers/checkRolePermissions";
-import { VerificationDocument } from "../../utils/db/models/verification";
-import { Embeds } from "../../utils/embeds/embeds";
-import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
-import { Rewards } from "../../utils/rewards/Rewards";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import checkRolePermissions from "../../utils/helpers/checkRolePermissions.js";
+import { VerificationDocument } from "../../utils/db/models/verification.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
+import { Rewards } from "../../utils/rewards/Rewards.js";
 
 // Map to store active collectors for question-based verification
 const activeCollectors = new Map<

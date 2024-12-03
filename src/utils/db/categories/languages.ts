@@ -1,4 +1,4 @@
-import LanguageModel from "../models/languages"; // Adjust the path as necessary
+import LanguageModel from "../models/languages.js"; // Adjust the path as necessary
 
 export class Languages {
   // Get the language for the specified guild

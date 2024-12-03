@@ -1,7 +1,7 @@
 import { Interaction } from "discord.js";
-import { Giveaways } from "../../utils/giveaways/Giveaways";
-import { cs } from "../../utils/console/customConsole";
-import { Embeds } from "../../utils/embeds/embeds";
+import { Giveaways } from "../../utils/giveaways/Giveaways.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;

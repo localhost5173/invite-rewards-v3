@@ -1,6 +1,7 @@
-import { Embeds } from "../../utils/embeds/embeds";
-import { cs } from "../../utils/console/customConsole";
-import { db } from "../../utils/db/db";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { db } from "../../utils/db/db.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 export default async function (interaction) {
     try {
         const role = interaction.options.getRole("role");
@@ -8,7 +9,9 @@ export default async function (interaction) {
         // Check if the role exists
         if (!role) {
             return interaction.followUp({
-                embeds: [Embeds.errorEmbed("Role not found")],
+                embeds: [
+                    await Embeds.createEmbed(interaction.guildId, "roles.roleNotFoundError"),
+                ],
                 ephemeral: true,
             });
         }
@@ -16,20 +19,22 @@ export default async function (interaction) {
         const autoroles = await db.autoRoles.getRoles(interaction.guildId);
         if (!autoroles.includes(role.id)) {
             return interaction.followUp({
-                embeds: [Embeds.errorEmbed("Role is not an auto role")],
+                embeds: [
+                    await Embeds.createEmbed(interaction.guildId, "autoRoles.remove.notAutoRoleError", { role: `<@&${role.id}>` }),
+                ],
                 ephemeral: true,
             });
         }
         // Remove the role from auto-assign
         await db.autoRoles.removeRole(interaction.guildId, role.id);
         return await interaction.followUp({
-            embeds: [Embeds.successEmbed(`Role <@&${role.id}> is no longer an auto role`)],
+            embeds: [
+                await Embeds.createEmbed(interaction.guildId, "autoRoles.remove.success", { role: `<@&${role.id}>` }),
+            ],
         });
     }
     catch (error) {
-        cs.error(error);
-        await interaction.followUp({
-            content: "An error occurred while executing this command",
-        });
+        cs.error("Error while removing auto-role: " + error);
+        await Helpers.trySendCommandError(interaction);
     }
 }

@@ -3,7 +3,6 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { Embeds } from "../utils/embeds/embeds";
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -12,10 +11,11 @@ import {
   ComponentType,
   PartialGroupDMChannel,
 } from "discord.js";
+import { Embeds } from "../utils/embeds/embeds.js"
 import botconfig from "../../config.json" assert { type: "json" };
-import { devMode } from "..";
-import { cs } from "../utils/console/customConsole";
-import { Helpers } from "../utils/helpers/helpers";
+import { devMode } from "../index.js";
+import { cs } from "../utils/console/customConsole.js";
+import { Helpers } from "../utils/helpers/helpers.js";
 
 interface Command {
   name: string;

@@ -1,8 +1,8 @@
 import { GuildMember, Invite, TextChannel, EmbedBuilder, APIEmbed } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
-import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
-import { Rewards } from "../../utils/rewards/Rewards";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
+import { Rewards } from "../../utils/rewards/Rewards.js";
 
 export default async function (guildMember: GuildMember) {
   try {

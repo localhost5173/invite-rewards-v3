@@ -1,5 +1,5 @@
 import { APIEmbed, EmbedBuilder } from "discord.js";
-import WelcomerModel from "../models/welcomer";
+import WelcomerModel from "../models/welcomer.js";
 
 export class welcomer {
   // Setters and removers for Server

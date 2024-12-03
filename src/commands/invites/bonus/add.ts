@@ -1,10 +1,10 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { cs } from "../../../utils/console/customConsole";
-import { db } from "../../../utils/db/db";
-import { Helpers } from "../../../utils/helpers/helpers";
-import { Embeds } from "../../../utils/embeds/embeds";
-import { Leaderboards } from "../../../utils/leaderboards/Leaderboards";
-import { Rewards } from "../../../utils/rewards/Rewards";
+import { cs } from "../../../utils/console/customConsole.js";
+import { db } from "../../../utils/db/db.js";
+import { Helpers } from "../../../utils/helpers/helpers.js";
+import { Embeds } from "../../../utils/embeds/embeds.js";
+import { Leaderboards } from "../../../utils/leaderboards/Leaderboards.js";
+import { Rewards } from "../../../utils/rewards/Rewards.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
