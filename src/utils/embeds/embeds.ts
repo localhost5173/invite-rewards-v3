@@ -44,6 +44,7 @@ export class Embeds {
     // Function to replace placeholders in a string
     const replacePlaceholders = (text: string): string => {
       if (!replacements) return text;
+      if (typeof text !== "string") return text;
       return text.replace(
         /{(\w+)}/g,
         (_, key) => replacements[key] || `{${key}}`

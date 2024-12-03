@@ -31,7 +31,7 @@ if (devMode) {
 
 // Define devGuildIds and devUserIds conditionally based on devMode
 const devConfig = {
-  devGuildIds: [],
+  devGuildIds: ["1280127706545000542", "1311352872117731399"],
   devUserIds: [
     "689150586636992526",
     "975766583446212648",
@@ -47,10 +47,6 @@ new CommandKit({
   eventsPath: `${__dirname}/events`,
   commandsPath: `${__dirname}/commands`,
   validationsPath: `${__dirname}/validations`,
-});
-
-client.on("guildCreate", async (guild) => {
-  cs.log("Sending intro to guild: " + guild.name);
 });
 
 client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);

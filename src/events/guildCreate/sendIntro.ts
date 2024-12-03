@@ -5,7 +5,7 @@ import botconfig from "../../../config.json" assert { type: "json" };
 
 export default async function (guild: Guild) {
     cs.log("Sending intro to guild: " + guild.name);
-    try {
+    // try {
         const channel = guild.systemChannel;
         const guildOwner = await guild.fetchOwner();
 
@@ -20,7 +20,7 @@ export default async function (guild: Guild) {
         if (channel) {
             await channel.send({ embeds: [embed] });
         }
-    } catch (error) {
-        cs.error("Error while sending intro: " + error);
-    }
+    // } catch (error) {
+    //     cs.error("Error while sending intro: " + error);
+    // }
 }
