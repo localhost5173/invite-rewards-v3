@@ -1,5 +1,5 @@
-import LeaderboardUserModel from "../models/leaderboardUsers";
-import SmartLeaderboardModel from "../models/smartLeaderboardModel";
+import LeaderboardUserModel from "../models/leaderboardUsers.js";
+import SmartLeaderboardModel from "../models/smartLeaderboardModel.js";
 
 export class leaderboards {
   static async getTopEntries(

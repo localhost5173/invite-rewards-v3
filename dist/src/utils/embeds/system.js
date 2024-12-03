@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "discord.js";
-import { db } from "../db/db";
+import { db } from "../db/db.js";
 export class system {
     static async invalidSubcommand(guildId) {
         const language = await db.languages.getLanguage(guildId);
@@ -12,7 +12,6 @@ export class system {
     static async errorWhileExecutingCommand(guildId) {
         const language = await db.languages.getLanguage(guildId);
         const languageData = await import(`../../languages/${language}.json`);
-        console.log(languageData);
         return new EmbedBuilder()
             .setTitle(languageData.general.errorWhileExecutingCommand.title)
             .setDescription(languageData.general.errorWhileExecutingCommand.description)

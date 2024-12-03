@@ -1,6 +1,6 @@
 import { EmbedBuilder } from "discord.js";
-import { cs } from "../console/customConsole";
-import { client } from "../..";
+import { cs } from "../console/customConsole.js";
+import { client } from "../../index.js";
 
 export class alerts {
   static async alertServerOwner(

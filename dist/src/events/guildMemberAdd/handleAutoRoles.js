@@ -1,6 +1,8 @@
 import { PermissionFlagsBits } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { alerts } from "../../utils/alerts/alerts.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 export default async function handleAutoRoles(guildMember) {
     try {
         const autoRoles = await db.autoRoles.getRoles(guildMember.guild.id);
@@ -10,8 +12,11 @@ export default async function handleAutoRoles(guildMember) {
         if (!bot)
             return cs.dev("Bot not found in guild while handling auto roles");
         // Check if the bot has the necessary permissions
-        if (!bot.permissions.has(PermissionFlagsBits.ManageRoles))
-            return cs.dev("Bot does not have the necessary permissions to manage roles");
+        if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
+            cs.dev("Bot does not have the necessary permissions to manage roles, sending error to server owner");
+            // Alert the owner and info channel
+            return await alert(guildMember, "permissions");
+        }
         for (const roleId of autoRoles) {
             // Get the role
             const guildRole = guildMember.guild.roles.cache.get(roleId) ||
@@ -33,6 +38,8 @@ export default async function handleAutoRoles(guildMember) {
             // Check if the bot's highest role is higher than the role to be assigned
             if (bot.roles.highest.position <= guildRole.position) {
                 cs.dev("handleAutoRoles: Bot's highest role must be higher than the role to be managed in order to assign it");
+                // Alert the owner and info channel
+                await alert(guildMember, "hierarchy");
                 continue;
             }
             await guildMember.roles.add(guildRole);
@@ -41,4 +48,22 @@ export default async function handleAutoRoles(guildMember) {
     catch (error) {
         cs.error(error);
     }
+}
+async function alert(guildMember, reason) {
+    const guild = guildMember.guild;
+    // Get the alert embeds
+    const dmEmbed = reason === "permissions"
+        ? await Embeds.autoRoles.assign.noManageRolesPermissionError(guild, true)
+        : await Embeds.autoRoles.assign.hierarchyRoleAssignError(guild, true);
+    const serverEmbed = reason === "permissions"
+        ? await Embeds.autoRoles.assign.noManageRolesPermissionError(guild, false)
+        : await Embeds.autoRoles.assign.hierarchyRoleAssignError(guild, false);
+    // Alert the server owner
+    await alerts.alertServerOwner(guild.id, {
+        embed: serverEmbed,
+    });
+    // Alert the info channel
+    await alerts.alertInfoChannel(guild.id, {
+        embed: dmEmbed,
+    });
 }

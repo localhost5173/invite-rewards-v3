@@ -1,9 +1,9 @@
 import { ChatInputCommandInteraction } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
-import { getNativeLanguageName, LanguagesList } from "../../utils/db/categories/languages";
-import { Embeds } from "../../utils/embeds/embeds";
-import { Helpers } from "../../utils/helpers/helpers";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { getNativeLanguageName, LanguagesList } from "../../utils/db/categories/languages.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {

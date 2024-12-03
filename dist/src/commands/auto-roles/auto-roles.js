@@ -3,6 +3,8 @@ import { devMode } from "../../index.js";
 import removeAutoRole from "./remove.js";
 import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import { Helpers } from "../../utils/helpers/helpers.js";
 import { cs } from "../../utils/console/customConsole.js";
 export const data = {
     name: "auto-roles",
@@ -57,28 +59,21 @@ export async function run({ interaction }) {
                 break;
             default:
                 await interaction.reply({
-                    content: "Invalid subcommand",
+                    embeds: [
+                        await Embeds.createEmbed(interaction.guildId, "general.invalidSubcommand"),
+                    ],
                     ephemeral: true,
                 });
         }
     }
     catch (error) {
-        console.error(error);
-        // Try to send an error message to the user
-        try {
-            await interaction.reply({
-                content: "An error occurred while executing the command. Join the support server via `/help` if the issue persists.",
-                ephemeral: true,
-            });
-        }
-        catch (error) {
-            cs.error("Failed to send error message in auto-roles command" + error);
-        }
+        cs.error("Error in auto-roles.ts: " + error);
+        await Helpers.trySendCommandError(interaction);
     }
 }
 export const options = {
     devOnly: devMode,
-    userPermissions: ["ManageGuild"],
+    userPermissions: ["ManageRoles"],
     botPermissions: ["SendMessages", "EmbedLinks", "ManageRoles"],
     deleted: false,
     onlyGuild: true,

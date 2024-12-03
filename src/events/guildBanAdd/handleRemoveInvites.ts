@@ -1,8 +1,8 @@
 import { GuildMember } from "discord.js";
-import { cs } from "../../utils/console/customConsole";
-import { db } from "../../utils/db/db";
-import { Leaderboards } from "../../utils/leaderboards/Leaderboards";
-import { Rewards } from "../../utils/rewards/Rewards";
+import { cs } from "../../utils/console/customConsole.js";
+import { db } from "../../utils/db/db.js";
+import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
+import { Rewards } from "../../utils/rewards/Rewards.js";
 
 export default async function (guildMember: GuildMember) {
   try {

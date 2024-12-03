@@ -1,5 +1,5 @@
-import { cs } from "../../console/customConsole";
-import AutoRolesModel from "../models/autoRoles"; // Adjust the path as necessary
+import { cs } from "../../console/customConsole.js";
+import AutoRolesModel from "../models/autoRoles.js"; // Adjust the path as necessary
 
 export class AutoRoles {
   // Add a role to the specified guild

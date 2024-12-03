@@ -1,6 +1,6 @@
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
-import { Resets } from "../../utils/resets/Resets";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { Resets } from "../../utils/resets/Resets.js";
 
 export default async function () {
   const now = new Date();

@@ -1,29 +1,29 @@
 import botconfig from "../../config.json" assert { type: "json" };
-import { Embeds } from "../utils/embeds/embeds";
-import { cs } from "../utils/console/customConsole";
+import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
-// Create a vote button
-const voteButton = new ButtonBuilder()
-    .setStyle(ButtonStyle.Link)
-    .setLabel("Vote")
-    .setURL(botconfig.bot.vote);
-// Create an action row with the vote button
-const actionRow = new ActionRowBuilder().addComponents(voteButton);
+import { cs } from "../utils/console/customConsole.js";
 // Main validation function
 export default async function ({ interaction, commandObj }) {
     try {
         if (commandObj.options?.voteLocked) {
+            const guildId = interaction.guildId;
             // Check if the user has voted
+            cs.dev("Checking if user has voted");
             if (!(await hasVoted(interaction.user.id))) {
+                cs.dev("User has not voted");
+                const voteTranslation = await Embeds.getStringTranslation(guildId, "validations.voteTranslation");
+                // Create a vote button
+                const voteButton = new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel(voteTranslation)
+                    .setURL(botconfig.bot.vote);
+                // Create an action row with the vote button
+                const actionRow = new ActionRowBuilder().addComponents(voteButton);
                 if ("reply" in interaction) {
                     // Reply with an error embed if the user has not voted
                     return interaction.reply({
-                        content: "You must vote for the bot to use this command.",
                         embeds: [
-                            Embeds.errorEmbed("You must vote for the bot to use this command. Use `/vote` or visit the bot's top.gg page to vote.", {
-                                title: "Vote for the bot",
-                                url: botconfig.bot.vote,
-                            }),
+                            await Embeds.createEmbed(guildId, "validations.voteLocked"),
                         ],
                         components: [actionRow],
                         ephemeral: true,
@@ -34,14 +34,8 @@ export default async function ({ interaction, commandObj }) {
         }
     }
     catch (error) {
-        // Log the error and reply with a generic error message
-        cs.error(`Failed to fetch voting data from Top.gg: ${error}`);
-        if ("reply" in interaction) {
-            return interaction.reply({
-                content: "Failed to fetch voting data from Top.gg. Please try again later.",
-                ephemeral: true,
-            });
-        }
+        cs.error("Error while checking if user has voted: " + error);
+        return false;
     }
 }
 // Function to check if the user has voted
@@ -56,7 +50,6 @@ async function hasVoted(userId) {
             },
         });
         const data = await response.json();
-        console.log(data);
         return data.voted;
     }
     catch (error) {

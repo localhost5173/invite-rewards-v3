@@ -1,6 +1,6 @@
 import { Guild } from "discord.js";
-import { cs } from "../../utils/console/customConsole";
-import { Embeds } from "../../utils/embeds/embeds";
+import { cs } from "../../utils/console/customConsole.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 import botconfig from "../../../config.json" assert { type: "json" };
 
 export default async function (guild: Guild) {
@@ -8,7 +8,6 @@ export default async function (guild: Guild) {
     try {
         const channel = guild.systemChannel;
         const guildOwner = await guild.fetchOwner();
-        if (!channel) return;
 
         const embed = await Embeds.createEmbed(null, "introEmbed", {
             botLogo: botconfig.bot.logo,

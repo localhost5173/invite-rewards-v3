@@ -1,5 +1,5 @@
-import { ReactionRolesUsesModel } from "../models/reactionRoleUses";
-import { ResetsModel } from "../models/resets";
+import { ReactionRolesUsesModel } from "../models/reactionRoleUses.js";
+import { ResetsModel } from "../models/resets.js";
 
 export class reactionRoles {
   static async incrementAssigns(guildId: string) {

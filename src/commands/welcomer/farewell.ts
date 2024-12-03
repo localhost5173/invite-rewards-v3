@@ -4,16 +4,16 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import { Embeds } from "../../utils/embeds/embeds";
-import setChannel from "./func/setChannel";
-import removeChannel from "./func/removeChannel";
-import setMessage from "./func/setMessage";
-import removeMessage from "./func/removeMessage";
-import viewMessage from "./func/viewMessage";
-import setEmbed from "./func/setEmbed";
-import removeEmbed from "./func/removeEmbed";
-import viewEmbed from "./func/viewEmbed";
-import { devMode } from "../..";
+import { Embeds } from "../../utils/embeds/embeds.js";
+import setChannel from "./func/setChannel.js";
+import removeChannel from "./func/removeChannel.js";
+import setMessage from "./func/setMessage.js";
+import removeMessage from "./func/removeMessage.js";
+import viewMessage from "./func/viewMessage.js";
+import setEmbed from "./func/setEmbed.js";
+import removeEmbed from "./func/removeEmbed.js";
+import viewEmbed from "./func/viewEmbed.js";
+import { devMode } from "../../index.js";
 
 export const data: CommandData = {
   name: "farewell",

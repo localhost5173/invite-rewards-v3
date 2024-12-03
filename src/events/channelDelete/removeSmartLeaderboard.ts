@@ -4,8 +4,8 @@ import {
   GuildChannel,
   PartialGroupDMChannel,
 } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
 
 export default async function (channel: Channel) {
   cs.dev("channelDelete event triggered.");

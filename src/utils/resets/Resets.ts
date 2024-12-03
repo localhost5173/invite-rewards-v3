@@ -1,5 +1,5 @@
-import { cs } from "../console/customConsole";
-import { db } from "../db/db";
+import { cs } from "../console/customConsole.js";
+import { db } from "../db/db.js";
 
 export class Resets {
   static async resetMonthly() {

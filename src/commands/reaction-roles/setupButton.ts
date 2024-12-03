@@ -8,7 +8,7 @@ import {
   PermissionFlagsBits,
   Role,
 } from "discord.js";
-import { Embeds } from "../../utils/embeds/embeds";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 type RoleArrayValue = Role | APIRole;
 

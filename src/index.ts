@@ -4,10 +4,10 @@ import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { AutoPoster } from "topgg-autoposter";
-import config from "../config.json";
-import { cs } from "./utils/console/customConsole";
-import { db } from "./utils/db/db";
-import { Giveaways } from "./utils/giveaways/Giveaways";
+import config from "../config.json" assert { type: "json" };
+import { cs } from "./utils/console/customConsole.js";
+import { db } from "./utils/db/db.js";
+import { Giveaways } from "./utils/giveaways/Giveaways.js";
 dotenv.config({ path: ".env" });
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +31,7 @@ if (devMode) {
 
 // Define devGuildIds and devUserIds conditionally based on devMode
 const devConfig = {
-  devGuildIds: ["1280127706545000542", "1282752750253375558", "1311352872117731399"],
+  devGuildIds: [],
   devUserIds: [
     "689150586636992526",
     "975766583446212648",

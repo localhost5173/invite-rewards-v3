@@ -1,8 +1,8 @@
 import type { ValidationProps } from "commandkit";
 import botconfig from "../../config.json" assert { type: "json" };
-import { Embeds } from "../utils/embeds/embeds";
+import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
-import { cs } from "../utils/console/customConsole";
+import { cs } from "../utils/console/customConsole.js";
 
 // Main validation function
 export default async function ({ interaction, commandObj }: ValidationProps) {

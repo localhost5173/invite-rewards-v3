@@ -1,8 +1,8 @@
 import { GuildMember, PermissionFlagsBits } from "discord.js";
-import { db } from "../../utils/db/db";
-import { cs } from "../../utils/console/customConsole";
-import { alerts } from "../../utils/alerts/alerts";
-import { Embeds } from "../../utils/embeds/embeds";
+import { db } from "../../utils/db/db.js";
+import { cs } from "../../utils/console/customConsole.js";
+import { alerts } from "../../utils/alerts/alerts.js";
+import { Embeds } from "../../utils/embeds/embeds.js";
 
 export default async function handleAutoRoles(guildMember: GuildMember) {
   try {

@@ -1,6 +1,6 @@
 import { EmbedBuilder, Guild } from "discord.js";
-import { db } from "../db/db";
-import { Embeds } from "./embeds";
+import { db } from "../db/db.js";
+import { Embeds } from "./embeds.js";
 
 class view {
   static async success(

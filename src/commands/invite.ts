@@ -6,7 +6,7 @@ import type {
 import { devMode } from "../index.js";
 import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
-import botconfig from "../../config.json";
+import botconfig from "../../config.json" assert { type: "json" };
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 

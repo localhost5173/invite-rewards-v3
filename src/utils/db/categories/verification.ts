@@ -1,4 +1,4 @@
-import VerificationModel from "../models/verification";
+import VerificationModel from "../models/verification.js";
 
 export class verification {
   static async enableSimple(guildId: string, roleId: string): Promise<void> {

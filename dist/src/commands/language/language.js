@@ -18,7 +18,8 @@ export const data = {
                     description: "The language to set",
                     type: ApplicationCommandOptionType.String,
                     required: true,
-                    choices: Object.entries(LanguagesList).map(([value]) => ({
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    choices: Object.entries(LanguagesList).map(([key, value]) => ({
                         name: TranslatedLanguages[value],
                         value,
                     })),
@@ -43,7 +44,9 @@ export async function run({ interaction }) {
             break;
         default:
             await interaction.reply({
-                embeds: [await Embeds.system.invalidSubcommand(interaction.guildId)],
+                embeds: [
+                    await Embeds.createEmbed(interaction.guildId, "general.invalidSubcommand"),
+                ],
                 ephemeral: true,
             });
     }
@@ -51,7 +54,8 @@ export async function run({ interaction }) {
 export const options = {
     devOnly: devMode,
     userPermissions: ["ManageGuild"],
-    botPermissions: [],
+    botPermissions: ["SendMessages", "EmbedLinks"],
     deleted: false,
     onlyGuild: true,
+    voteLocked: false,
 };

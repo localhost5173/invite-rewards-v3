@@ -4,9 +4,10 @@ import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { AutoPoster } from "topgg-autoposter";
-import config from "../config.json";
-import { cs } from "./utils/console/customConsole";
-import { db } from "./utils/db/db";
+import config from "../config.json" assert { type: "json" };
+import { cs } from "./utils/console/customConsole.js";
+import { db } from "./utils/db/db.js";
+import { Giveaways } from "./utils/giveaways/Giveaways.js";
 dotenv.config({ path: ".env" });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,6 +16,7 @@ export const client = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildInvites,
+        GatewayIntentBits.GuildMessages,
     ],
 });
 export const devMode = config.dev || true;
@@ -26,7 +28,7 @@ else {
 }
 // Define devGuildIds and devUserIds conditionally based on devMode
 const devConfig = {
-    devGuildIds: ["1280127706545000542", "1282752750253375558"],
+    devGuildIds: [],
     devUserIds: [
         "689150586636992526",
         "975766583446212648",
@@ -42,6 +44,9 @@ new CommandKit({
     commandsPath: `${__dirname}/commands`,
     validationsPath: `${__dirname}/validations`,
 });
+client.on("guildCreate", async (guild) => {
+    cs.log("Sending intro to guild: " + guild.name);
+});
 client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
 db.connectToDatabase();
 // Handle top.gg autoposter
@@ -56,3 +61,7 @@ if (!devMode) {
         cs.error(`Error posting server count: ${error}`);
     }
 }
+// Handle giveaways
+setInterval(async () => {
+    await Giveaways.checkForEndedGiveaways();
+}, 1000 * 10);

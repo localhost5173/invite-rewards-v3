@@ -1,4 +1,4 @@
-import { cs } from "../../console/customConsole";
+import { cs } from "../../console/customConsole.js";
 
 class info {
   static async get() {

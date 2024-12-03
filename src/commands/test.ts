@@ -3,7 +3,7 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { Embeds } from "../utils/embeds/embeds";
+import { Embeds } from "../utils/embeds/embeds.js";
 
 export const data: CommandData = {
   name: "test",
