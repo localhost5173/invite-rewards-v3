@@ -12,7 +12,7 @@ export interface VerificationDocument extends Document {
 
 // Create the schema
 const VerificationSchema: Schema = new Schema({
-  guildId: { type: String, required: true },
+  guildId: { type: String, required: true, index: true },
   type: { type: String, enum: ["simple", "question", "pin"], required: true },
   roleId: { type: String, required: true },
   enabled: { type: Boolean, default: true },

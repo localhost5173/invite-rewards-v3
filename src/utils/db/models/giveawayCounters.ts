@@ -6,7 +6,7 @@ interface CounterDocument extends Document {
 }
 
 const CounterSchema: Schema = new Schema({
-  guildId: { type: String, required: true, unique: true },
+  guildId: { type: String, required: true, unique: true, index: true },
   seq: { type: Number, default: 0 },
 });
 

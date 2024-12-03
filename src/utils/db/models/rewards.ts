@@ -13,8 +13,8 @@ export interface RewardDocument extends Document {
 }
 
 const RewardSchema = new Schema({
-  guildId: { type: String, required: true },
-  rewardName: { type: String, required: true },
+  guildId: { type: String, required: true, index: true },
+  rewardName: { type: String, required: true, index: true },
   inviteThreshold: { type: Number, required: true },
   rewardType: {
     type: String,

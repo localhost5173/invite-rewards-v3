@@ -7,7 +7,7 @@ export interface ReactionRoleUsesDocument extends Document {
 }
 
 const ReactionRoleUsesSchema = new Schema({
-  guildId: { type: String, required: true },
+  guildId: { type: String, required: true, index: true, },
   roleAssigns: { type: Number, default: 0 },
   roleRemoves: { type: Number, default: 0 },
 });

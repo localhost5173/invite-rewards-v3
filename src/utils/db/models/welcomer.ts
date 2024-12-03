@@ -36,7 +36,7 @@ export interface WelcomerDocument extends Document {
 
 // Create the schema
 const WelcomerSchema: Schema = new Schema({
-  guildId: { type: String, required: true },
+  guildId: { type: String, required: true, index: true },
   server: {
     welcomeChannelId: { type: String, default: null },
     welcomeMessage: { type: String, default: null },

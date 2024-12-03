@@ -10,7 +10,7 @@ interface AutoRolesDocument extends Document {
 
 // Create the schema
 const AutoRolesSchema: Schema = new Schema({
-  guildId: { type: String, required: true, unique: true }, // Unique ID for each guild
+  guildId: { type: String, required: true, unique: true, index: true },// Unique ID for each guild
   roleIds: { type: [String], required: true }, // Array of role IDs directly
 });
 
