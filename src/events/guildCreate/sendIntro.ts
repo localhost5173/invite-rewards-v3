@@ -4,13 +4,16 @@ import { Embeds } from "../../utils/embeds/embeds.js";
 import botconfig from "../../../config.json" assert { type: "json" };
 
 export default async function (guild: Guild) {
-    cs.log("Sending intro to guild: " + guild.name);
-    // try {
+    try {
         const channel = guild.systemChannel;
         const guildOwner = await guild.fetchOwner();
 
         const embed = await Embeds.createEmbed(null, "introEmbed", {
             botLogo: botconfig.bot.logo,
+            website: botconfig.bot.website,
+            supportServer: botconfig.bot.server,
+            inviteLink: botconfig.bot.inviteLink,
+            guide: botconfig.bot.guide,
         });
 
         if (guildOwner) {
@@ -20,7 +23,7 @@ export default async function (guild: Guild) {
         if (channel) {
             await channel.send({ embeds: [embed] });
         }
-    // } catch (error) {
-    //     cs.error("Error while sending intro: " + error);
-    // }
+    } catch (error) {
+        cs.error("Error while sending intro: " + error);
+    }
 }

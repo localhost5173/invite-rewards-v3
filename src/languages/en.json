@@ -15,6 +15,10 @@
       {
         "name": "Need Help?",
         "value": "Check out `/help` for a full list of commands and guidance."
+      },
+      {
+        "name": "🔗 Links",
+        "value": "[Guide]({guide}) | [Website]({website}) | [Support Server]({supportServer}) | [Invite Me]({inviteLink})"
       }
     ],
     "footer": {
