@@ -12,6 +12,7 @@ import addInviteReward from "./add.js";
 import removeReward from "./remove.js";
 import viewRewards from "./view.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import fill from "./fill.js";
 
 export const data: CommandData = {
   name: "rewards",
@@ -94,6 +95,25 @@ export const data: CommandData = {
       description: "View all rewards for the server.",
       type: ApplicationCommandOptionType.Subcommand,
     },
+    {
+      name: "fill-store",
+      description: "Fill the message store with messages from a file.",
+      type: ApplicationCommandOptionType.Subcommand,
+      options: [
+        {
+          name: "name",
+          description: "The name of the message store",
+          type: ApplicationCommandOptionType.String,
+          required: true,
+        },
+        {
+          name: "store",
+          description: "The file with messages to fill the store",
+          type: ApplicationCommandOptionType.Attachment,
+          required: true,
+        },
+      ],
+    },
   ],
 };
 
@@ -109,6 +129,9 @@ export async function run({ interaction }: SlashCommandProps) {
       break;
     case "view":
       await viewRewards(interaction);
+      break;
+    case "fill-store":
+      await fill(interaction);
       break;
     default:
       await interaction.reply({
