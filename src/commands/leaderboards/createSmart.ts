@@ -2,6 +2,7 @@ import {
   ChannelType,
   ChatInputCommandInteraction,
   PartialGroupDMChannel,
+  PermissionFlagsBits,
 } from "discord.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
@@ -14,6 +15,22 @@ export default async function (
   leaderboardType: "daily" | "weekly" | "monthly" | "alltime"
 ) {
   try {
+    if (
+      !interaction.memberPermissions ||
+      !interaction.memberPermissions.has(PermissionFlagsBits.ManageGuild)
+    ) {
+      await interaction.reply({
+        embeds: [
+          await Embeds.createEmbed(
+            interaction.guildId!,
+            "leaderboards.smart.noPermissions"
+          ),
+        ],
+        ephemeral: true,
+      });
+      return;
+    }
+
     const guildId = interaction.guildId!;
     const channelId = interaction.channel?.id;
     const channel = interaction.channel;
@@ -28,9 +45,7 @@ export default async function (
       channel instanceof PartialGroupDMChannel
     ) {
       await interaction.followUp({
-        embeds: [
-          await Embeds.createEmbed(guildId, "general.textChannelOnly"),
-        ],
+        embeds: [await Embeds.createEmbed(guildId, "general.textChannelOnly")],
         ephemeral: true,
       });
       return;

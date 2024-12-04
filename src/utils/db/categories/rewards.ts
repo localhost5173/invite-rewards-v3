@@ -60,24 +60,29 @@ export class rewards {
     return await RewardModel.find({ guildId });
   }
 
-  static async setAsClaimed(guildId: string, rewardName: string, userId: string) {
+  static async setAsClaimed(
+    guildId: string,
+    rewardName: string,
+    userId: string
+  ) {
     await RewardModel.updateOne(
       { guildId, rewardName },
       { $push: { claimedBy: userId } }
     );
   }
 
-  static async unclaimReward(guildId: string, rewardName: string, userId: string) {
+  static async unclaimReward(
+    guildId: string,
+    rewardName: string,
+    userId: string
+  ) {
     await RewardModel.updateOne(
       { guildId, rewardName },
       { $pull: { claimedBy: userId } }
     );
   }
 
-  static async shiftFirstMessageFromStore(
-    guildId: string,
-    rewardName: string
-  ) {
+  static async shiftFirstMessageFromStore(guildId: string, rewardName: string) {
     const reward = await RewardModel.findOne({ guildId, rewardName });
     if (!reward || !reward.messageStore) return null;
     const message = reward.messageStore.shift();
@@ -85,5 +90,26 @@ export class rewards {
     await reward.save();
 
     return message;
+  }
+
+  static async fillStore(
+    guildId: string,
+    rewardName: string,
+    messages: string[]
+  ) {
+    await RewardModel.updateOne(
+      { guildId, rewardName },
+      { $push: { messageStore: { $each: messages } } }
+    );
+  }
+
+  static async isStore(guildId: string, rewardName: string) {
+    const reward = await RewardModel.findOne({ guildId, rewardName });
+    return reward?.rewardType === "messageStore";
+  }
+
+  static async getStoreSize(guildId: string, rewardName: string) {
+    const reward = await RewardModel.findOne({ guildId, rewardName });
+    return reward?.messageStore?.length ?? 0;
   }
 }

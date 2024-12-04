@@ -29,6 +29,10 @@ export default async function (interaction: ChatInputCommandInteraction) {
       languageData.leaderboards.update.invitesTranslation;
 
     const rewardsString = rewards.map((reward) => {
+      if (reward.rewardType === "messageStore") {
+        const storeSize = reward.messageStore ? reward.messageStore.length : 0;
+        return `**${reward.rewardName}** [${reward.rewardType} [${storeSize}]] - ${invitesTranslation}`;
+      }
       return `**${reward.rewardName}** [${reward.rewardType}] - ${reward.inviteThreshold} ${invitesTranslation}`;
     });
 

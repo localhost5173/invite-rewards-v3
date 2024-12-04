@@ -48,8 +48,8 @@ export async function run({ interaction }: SlashCommandProps) {
         description: placeholderData["inviter-real-count"],
       },
       {
-        name: "`{inviter-fake-count}`",
-        description: placeholderData["inviter-fake-count"],
+        name: "`{inviter-bonus-count}`",
+        description: placeholderData["inviter-bonus-count"],
       },
     ];
 

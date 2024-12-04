@@ -89,7 +89,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
           inviteThreshold,
           rewardName,
           role,
-          removable,
+          removable
         );
         break;
       }
@@ -126,7 +126,7 @@ async function handleRoleReward(
   inviteThreshold: number,
   rewardName: string,
   role: Role | APIRole | null,
-  removable: boolean | null,
+  removable: boolean | null
 ): Promise<void> {
   if (!role) {
     await interaction.reply({
@@ -144,12 +144,10 @@ async function handleRoleReward(
   // Check if the bot has the necessary permissions
   if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
     await interaction.reply({
-      embeds: [
-        await Embeds.createEmbed(guildId, "rewards.noPermissions"),
-      ],
+      embeds: [await Embeds.createEmbed(guildId, "rewards.noPermissions")],
       ephemeral: true,
     });
-    return
+    return;
   }
 
   if (role.managed) {
@@ -176,7 +174,13 @@ async function handleRoleReward(
   const roleId = role.id;
 
   // Add role reward to database
-  await db.rewards.addRoleReward(guildId, inviteThreshold, rewardName, roleId, removable || false);
+  await db.rewards.addRoleReward(
+    guildId,
+    inviteThreshold,
+    rewardName,
+    roleId,
+    removable || false
+  );
   await interaction.reply({
     embeds: [
       await Embeds.createEmbed(guildId, "rewards.add.role.success", {
@@ -271,7 +275,25 @@ async function handleMessageStoreReward(
   if (!storeFile) {
     await interaction.reply({
       embeds: [
-        await Embeds.createEmbed(guildId, "rewards.add.messageStore.fileRequired"),
+        await Embeds.createEmbed(
+          guildId,
+          "rewards.add.messageStore.fileRequired"
+        ),
+      ],
+      ephemeral: true,
+    });
+    return;
+  }
+
+  const storeSize = await db.rewards.getStoreSize(guildId, rewardName);
+
+  if (storeSize > 1000) {
+    await interaction.reply({
+      embeds: [
+        await Embeds.createEmbed(
+          guildId,
+          "rewards.add.messageStore.storeTooLarge"
+        ),
       ],
       ephemeral: true,
     });
