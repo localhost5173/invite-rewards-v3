@@ -16,12 +16,12 @@ export const data: CommandData = {
     options: [
         {
             name: "delete",
-            description: "Deletes all the data for this server from the database.",
+            description: "Deletes all the data for this server from the database. WARNING: This action is irreversible.",
             type: ApplicationCommandOptionType.SubcommandGroup,
             options: [
                 {
                     name: "all",
-                    description: "Deletes all the data for this server from the database.",
+                    description: "Deletes all the data for this server from the database. WARNING: This action is irreversible.",
                     type: ApplicationCommandOptionType.Subcommand,
                 }
             ],
