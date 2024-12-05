@@ -220,6 +220,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "View the all-time leaderboard, or create an auto-updating one."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Deletes all smart leaderboards from the bot's database. This will stop updating current smart leaderboards and frees up space for creating new ones."
         }
       ],
       "reactionRoles": [
@@ -473,7 +477,7 @@
     "inviter-tag": "The tag of the inviter",
     "inviter-count": "The total invite count of the inviter",
     "inviter-real-count": "The real invite count of the inviter",
-    "inviter-fake-count": "The fake invite count of the inviter",
+    "inviter-fake-count": "The bonus invite count of the inviter",
     "embed": {
       "title": "Placeholders",
       "description": "Here are the placeholders you can use in invite messages and embeds: \n {placeholders}",
