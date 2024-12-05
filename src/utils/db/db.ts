@@ -11,6 +11,18 @@ import { rewards } from "./categories/rewards.js";
 import { reactionRoles } from "./categories/reactionRoles.js";
 import { resets } from "./categories/resets.js";
 import { giveaways } from "./categories/giveaways.js";
+import AutoRolesModel from "./models/autoRoles.js";
+import GiveawayModel from "./models/giveaway.js";
+import CounterModel from "./models/giveawayCounters.js";
+import InviteEntryModel from "./models/inviteEntries.js";
+import JoinedUserModel from "./models/joinedUsers.js";
+import LanguageModel from "./models/languages.js";
+import { RewardModel } from "./models/rewards.js";
+import SmartLeaderboardModel from "./models/smartLeaderboardModel.js";
+import UsedInviteModel from "./models/usedInvites.js";
+import UserInvitesModel from "./models/userInvites.js";
+import VerificationModel from "./models/verification.js";
+import WelcomerModel from "./models/welcomer.js";
 
 export class db {
   static autoRoles = AutoRoles;
@@ -32,5 +44,20 @@ export class db {
     } catch (error) {
       cs.info("Error while connecting to MongoDB: " + error);
     }
+  }
+
+  static async deleteAllData(guildId: string): Promise<void> {
+    await AutoRolesModel.deleteMany({ guildId });
+    await GiveawayModel.deleteMany({ guildId });
+    await CounterModel.deleteMany({ guildId });
+    await InviteEntryModel.deleteMany({ guildId });
+    await JoinedUserModel.deleteMany({ guildId });
+    await LanguageModel.deleteMany({ guildId });
+    await RewardModel.deleteMany({ guildId });
+    await SmartLeaderboardModel.deleteMany({ guildId });
+    await UsedInviteModel.deleteMany({ guildId });
+    await UserInvitesModel.deleteMany({ guildId });
+    await VerificationModel.deleteMany({ guildId });
+    await WelcomerModel.deleteMany({ guildId });
   }
 }

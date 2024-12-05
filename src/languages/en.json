@@ -84,6 +84,37 @@
       "color": "#FF0000"
     }
   },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Not Server Owner",
+      "description": "You must be the server owner to use this command.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "description": "Are you sure you want to delete all data for this server? This action is irreversible.",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Deleting Data",
+      "description": "Deleting all data for this server...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Data Deleted",
+      "description": "All data for this server has been deleted.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Data Not Deleted",
+      "description": "The data for this server has not been deleted.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Confirm",
+      "discard": "Discard"
+    }
+  },
   "help": {
     "embed": {
       "title": "{category}",
@@ -824,8 +855,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
