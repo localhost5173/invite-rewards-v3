@@ -6,13 +6,27 @@ import type {
 import { Embeds } from "../utils/embeds/embeds.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
-import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, ComponentType, PartialGroupDMChannel } from "discord.js";
+import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonInteraction, ButtonStyle, ComponentType, PartialGroupDMChannel } from "discord.js";
 import { db } from "../utils/db/db.js";
 import { devMode } from "../index.js";
 
 export const data: CommandData = {
-    name: "delete-all-data",
+    name: "data",
     description: "Deletes all the data for this server from the database. WARNING: This action is irreversible.",
+    options: [
+        {
+            name: "delete",
+            description: "Deletes all the data for this server from the database.",
+            type: ApplicationCommandOptionType.SubcommandGroup,
+            options: [
+                {
+                    name: "all",
+                    description: "Deletes all the data for this server from the database.",
+                    type: ApplicationCommandOptionType.Subcommand,
+                }
+            ],
+        },
+    ],
 };
 
 export async function run({ interaction }: SlashCommandProps) {
