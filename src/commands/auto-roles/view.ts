@@ -9,14 +9,12 @@ export default async function (interaction: ChatInputCommandInteraction) {
     await interaction.deferReply({ ephemeral: true });
 
     const guildId = interaction.guildId!;
-    const guildIcon = interaction.guild!.iconURL()!;
     const autoRoles = await db.autoRoles.getRoles(guildId) || [];
 
     return await interaction.followUp({
       embeds: [
         await Embeds.createEmbed(guildId, "autoRoles.view.success", {
-          autoRoles: autoRoles.map((role: string) => `<@&${role}>`).join(", ") || " ",
-          guildIcon: guildIcon,
+          autoRoles: autoRoles.map((role: string) => `<@&${role}>`).join(", ") || " "
         }),
       ],
     });
