@@ -477,7 +477,7 @@
     "inviter-tag": "The tag of the inviter",
     "inviter-count": "The total invite count of the inviter",
     "inviter-real-count": "The real invite count of the inviter",
-    "inviter-fake-count": "The bonus invite count of the inviter",
+    "inviter-bonus-count": "The bonus invite count of the inviter",
     "embed": {
       "title": "Placeholders",
       "description": "Here are the placeholders you can use in invite messages and embeds: \n {placeholders}",
@@ -1010,6 +1010,11 @@
         "title": "Deleted All Smart Leaderboards",
         "description": "All smart leaderboards have been deleted from the database and will stop updating.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Missing Permissions",
+        "description": "You need the Manage Server permission to create a smart leaderboard.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1044,6 +1049,21 @@
       "success": {
         "title": "Reward Removed",
         "description": "The reward {rewardName} has been removed."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "No Reward Found",
+        "description": "No reward found with the name {rewardName}."
+      },
+      "success": {
+        "title": "Reward Filled",
+        "description": "The reward {rewardName} has been filled up.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Not Store",
+        "description": "The reward you provided is not a message store reward."
       }
     },
     "add": {
@@ -1109,6 +1129,10 @@
         "fileEmpty": {
           "title": "File Empty",
           "description": "The file you provided is empty or the format is invalid."
+        },
+        "storeTooLarge": {
+          "title": "Store Too Large",
+          "description": "This store is too large. It cannot exceed 1000 messages."
         }
       }
     }
