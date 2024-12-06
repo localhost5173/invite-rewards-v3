@@ -16,7 +16,7 @@ export default async function (guild: Guild) {
                 uses: invite.uses,
             };
 
-            await db.invites.inviteEntries.addEntry(inviteEntry);
+            db.invites.inviteEntries.addEntry(inviteEntry);
         });
     } catch (error: unknown) {
         cs.error("Failed to store invites on guildCreate: " + error);
