@@ -19,6 +19,12 @@ class inviteEntries {
     await newEntry.save();
   }
 
+  static async deleteGuildEntries(guildId: string): Promise<void> {
+    await InviteEntryModel.deleteMany({
+      guildId: guildId,
+    });
+  }
+
   static async getEntryByCode(
     guildId: string,
     code: string
