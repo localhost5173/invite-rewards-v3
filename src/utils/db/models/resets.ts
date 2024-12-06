@@ -14,7 +14,9 @@ const ResetsShema = new Schema({
   lastReset: { type: Date, default: Date.now },
 });
 
-export const ResetsModel = mongoose.model<ResetsDocument>(
+const ResetsModel = mongoose.model<ResetsDocument>(
   "resets",
   ResetsShema
 );
+
+export default ResetsModel;

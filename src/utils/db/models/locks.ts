@@ -12,4 +12,6 @@ const LockSchema = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
-export const LockModel = mongoose.model<LockDocument>("Lock", LockSchema);
+const LockModel = mongoose.model<LockDocument>("Lock", LockSchema);
+
+export default LockModel;

@@ -1,4 +1,4 @@
-import { ResetsModel } from "../models/resets.js";
+import ResetsModel from "../models/resets.js";
 
 export class resets {
   static async getLastDailyReset() {
