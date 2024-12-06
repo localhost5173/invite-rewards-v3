@@ -1,4 +1,4 @@
-import { RewardModel } from "../models/rewards.js";
+import RewardModel from "../models/rewards.js";
 
 export class rewards {
   static async addRoleReward(

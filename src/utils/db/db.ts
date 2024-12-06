@@ -17,7 +17,7 @@ import CounterModel from "./models/giveawayCounters.js";
 import InviteEntryModel from "./models/inviteEntries.js";
 import JoinedUserModel from "./models/joinedUsers.js";
 import LanguageModel from "./models/languages.js";
-import { RewardModel } from "./models/rewards.js";
+import RewardModel from "./models/rewards.js";
 import SmartLeaderboardModel from "./models/smartLeaderboardModel.js";
 import UsedInviteModel from "./models/usedInvites.js";
 import UserInvitesModel from "./models/userInvites.js";

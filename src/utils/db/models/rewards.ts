@@ -28,7 +28,9 @@ const RewardSchema = new Schema({
   messageStore: { type: [String] },
 });
 
-export const RewardModel = mongoose.model<RewardDocument>(
+const RewardModel = mongoose.model<RewardDocument>(
   "Rewards",
   RewardSchema
 );
+
+export default RewardModel;

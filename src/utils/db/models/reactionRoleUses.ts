@@ -12,7 +12,9 @@ const ReactionRoleUsesSchema = new Schema({
   roleRemoves: { type: Number, default: 0 },
 });
 
-export const ReactionRolesUsesModel = mongoose.model<ReactionRoleUsesDocument>(
+const ReactionRolesUsesModel = mongoose.model<ReactionRoleUsesDocument>(
   "reactionRoleUses",
   ReactionRoleUsesSchema
 );
+
+export default ReactionRolesUsesModel;

@@ -1,4 +1,4 @@
-import { LockModel } from "../models/locks.js";
+import LockModel from "../models/locks.js";
 
 export class locks {
   // Function to acquire a lock
