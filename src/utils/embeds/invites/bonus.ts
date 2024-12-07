@@ -10,7 +10,9 @@ export class add {
     total: number
   ) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../../languages/${language}.json`);
+    const languageData = await import(`../../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     const data = languageData.invites.bonus.add;
     return new EmbedBuilder()
@@ -33,7 +35,9 @@ export class remove {
     total: number
   ) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../../languages/${language}.json`);
+    const languageData = await import(`../../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     const data = languageData.invites.bonus.remove;
     return new EmbedBuilder()

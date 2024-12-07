@@ -5,7 +5,9 @@ import { Embeds } from "./embeds.js";
 export class roles {
   static async roleNotFoundError(guildId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)
@@ -15,7 +17,9 @@ export class roles {
 
   static async managedRoleAssignError(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)
@@ -30,7 +34,9 @@ export class roles {
 
   static async hierarchyRoleAssignError(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)

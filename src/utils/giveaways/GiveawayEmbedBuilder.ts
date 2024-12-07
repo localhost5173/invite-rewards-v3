@@ -4,7 +4,10 @@ import { db } from "../db/db.js";
 export class GiveawayEmbedBuilder {
   static async build(guildId: string, type: string, replacements: { [key: string]: string | number | undefined }) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const data = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
+    const languageData = data.default;
     
     const template = languageData.giveaways[type];
     if (!template) {

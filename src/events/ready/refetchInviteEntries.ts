@@ -1,6 +1,6 @@
 import { client } from "../../index.js";
 import { cs } from "../../utils/console/customConsole.js";
-import { db } from "../../utils/db/db";
+import { db } from "../../utils/db/db.js";
 
 export default async function () {
   cs.log("Refetching invite entries...");
@@ -9,23 +9,29 @@ export default async function () {
     const oauth2Guilds = await client.guilds.fetch();
 
     for (const oauth2Guild of oauth2Guilds) {
-      const guild = await client.guilds.fetch(oauth2Guild[1].id);
-      const invites = await guild.invites.fetch();
+      try {
+        const guild = await client.guilds.fetch(oauth2Guild[1].id);
+        const invites = await guild.invites.fetch();
 
-      await db.invites.inviteEntries.deleteGuildEntries(guild.id);
+        await db.invites.inviteEntries.deleteGuildEntries(guild.id);
 
-      invites.forEach(async (invite) => {
-        const inviteEntry = {
-          guildId: guild.id,
-          code: invite.code,
-          expiresAt: invite.expiresAt,
-          inviterId: invite.inviter?.id,
-          maxUses: invite.maxUses,
-          uses: invite.uses,
-        };
+        invites.forEach(async (invite) => {
+          const inviteEntry = {
+            guildId: guild.id,
+            code: invite.code,
+            expiresAt: invite.expiresAt,
+            inviterId: invite.inviter?.id,
+            maxUses: invite.maxUses,
+            uses: invite.uses,
+          };
 
-        db.invites.inviteEntries.addEntry(inviteEntry);
-      });
+          db.invites.inviteEntries.addEntry(inviteEntry);
+        });
+      } catch {
+        cs.error(
+          `Error refetching invite entries for guild ${oauth2Guild[1].id}`
+        );
+      }
     }
   } catch (error) {
     cs.error(`Error refetching invite entries: ${error}`);

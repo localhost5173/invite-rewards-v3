@@ -81,7 +81,10 @@ export class Leaderboards {
     let message = "";
 
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const data = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
+    const languageData = data.default;
 
     const invitesTranslation =
       languageData.leaderboards.update.invitesTranslation;
