@@ -1,3 +1,4 @@
+import { PermissionFlagsBits } from "discord.js";
 import { client } from "../../index.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
@@ -11,6 +12,12 @@ export default async function () {
     for (const oauth2Guild of oauth2Guilds) {
       try {
         const guild = await client.guilds.fetch(oauth2Guild[1].id);
+
+        if (!guild.members.me?.permissions.has(PermissionFlagsBits.ManageGuild)) {
+          cs.warn("Bot does not have the necessary permissions to refetch invite entries in guild: " + guild.name);
+          continue;
+        }
+
         const invites = await guild.invites.fetch();
 
         await db.invites.inviteEntries.deleteGuildEntries(guild.id);

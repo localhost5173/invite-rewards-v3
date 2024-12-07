@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Benvenuto a Invite Rewards!",
+    "description": "Grazie per aver aggiunto Invite Rewards al tuo server!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Passaggio 1: imposta un canale di benvenuto",
+        "value": "Utilizza `/welcome channel set` e `/welcome message set-server` per configurare un messaggio di benvenuto per il tuo server."
+      },
+      {
+        "name": "Passaggio 2: aggiungi premi",
+        "value": "Imposta premi personalizzati per gli inviti utilizzando \"/rewards add-reward\"."
+      },
+      {
+        "name": "Hai bisogno di aiuto?",
+        "value": "Controlla \"/help\" per un elenco completo di comandi e indicazioni."
+      },
+      {
+        "name": "🔗Link",
+        "value": "[Guida]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Buon invito!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Sottocomando non valido",
@@ -54,6 +82,37 @@
       "title": "Errore del processo di interazione",
       "description": "Si è verificato un errore durante l'elaborazione dell'interazione.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Non proprietario del server",
+      "description": "Devi essere il proprietario del server per utilizzare questo comando.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Conferma",
+      "description": "Sei sicuro di voler eliminare tutti i dati per questo server?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Eliminazione dei dati",
+      "description": "Eliminazione di tutti i dati per questo server...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Dati cancellati",
+      "description": "Tutti i dati per questo server sono stati cancellati.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Dati non cancellati",
+      "description": "I dati per questo server non sono stati cancellati.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Confermare",
+      "discard": "Scartare"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Visualizza la classifica di tutti i tempi o creane una con aggiornamento automatico."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Elimina tutte le classifiche intelligenti dal database del bot."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Rimuovi un premio basato su invito."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Riempi un negozio di messaggi con premi."
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "Il tag dell'invitante",
     "inviter-count": "Il conteggio totale degli inviti dell'invitante",
     "inviter-real-count": "Il numero reale di inviti dell'invitante",
-    "inviter-fake-count": "Il conteggio degli inviti falsi dell'invitante",
+    "inviter-bonus-count": "Il conteggio degli inviti bonus dell'invitante",
     "embed": {
       "title": "Segnaposto",
       "description": "Ecco i segnaposto che puoi utilizzare nei messaggi di invito e negli incorporamenti: {placeholders}",
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -807,7 +873,7 @@
       },
       "hierarchyRoleAssignError": {
         "title": ":x: Autorizzazioni mancanti",
-        "description": "Ho tentato di assegnare un ruolo automatico a un nuovo membro, ma non ci sono riuscito perché il ruolo che stavo cercando di assegnare è superiore al mio ruolo più alto.",
+        "description": "Ho tentato di assegnare un ruolo automatico a un nuovo membro, ma non sono stato in grado di farlo perché il ruolo che stavo cercando di assegnare è più alto del mio ruolo più alto.",
         "dmDescription": ":wave: Ho tentato di assegnare un ruolo automatico a un nuovo membro in {serverName} , ma non sono riuscito a farlo perché il ruolo che stavo cercando di assegnare è superiore al mio ruolo più alto.",
         "footer": {
           "text": "Errore di assegnazione automatica del ruolo"
@@ -947,7 +1013,7 @@
         ]
       },
       "monthly": {
-        "title": "Classifica mensile intelligente",
+        "title": "Casa di lavoro mensile intelligente",
         "description": "La classifica mensile per questo server è:",
         "color": "#43b581",
         "fields": [
@@ -975,9 +1041,14 @@
         "description": "Hai raggiunto il numero massimo di classifiche intelligenti."
       },
       "deleteAll": {
-        "title": "Eliminati tutti i Smart Leaderboard",
-        "description": "Tutti i Smart Leaderboard sono stati eliminati dal database e non verranno più aggiornati.",
+        "title": "Eliminate tutte le classifiche intelligenti",
+        "description": "Tutte le classifiche intelligenti sono state eliminate dal database e smetteranno di aggiornarsi.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Autorizzazioni mancanti",
+        "description": "Per creare una classifica intelligente è necessaria l'autorizzazione Gestisci server.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Premio rimosso",
         "description": "La ricompensa {rewardName} è stato rimosso."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Nessuna ricompensa trovata",
+        "description": "Nessuna ricompensa trovata con questo nome {rewardName} ."
+      },
+      "success": {
+        "title": "Ricompensa riempita",
+        "description": "La ricompensa {rewardName} è stato riempito.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Non conservare",
+        "description": "Il premio che hai fornito non è un premio del negozio di messaggi."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "File vuoto",
           "description": "Il file fornito è vuoto o il formato non è valido."
+        },
+        "storeTooLarge": {
+          "title": "Negozio troppo grande",
+          "description": "Questo negozio è troppo grande."
         }
       }
     }

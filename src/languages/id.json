@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Selamat datang di Undang Hadiah!",
+    "description": "Terima kasih telah menambahkan Hadiah Undangan ke server Anda!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Langkah 1: Siapkan saluran selamat datang",
+        "value": "Gunakan `/set saluran selamat datang` dan `/set-server pesan selamat datang` untuk mengonfigurasi pesan selamat datang untuk server Anda."
+      },
+      {
+        "name": "Langkah 2: Tambahkan Hadiah",
+        "value": "Siapkan hadiah khusus untuk undangan menggunakan `/rewards add-reward`."
+      },
+      {
+        "name": "Butuh Bantuan?",
+        "value": "Lihat `/ bantuan` untuk daftar lengkap perintah dan panduan."
+      },
+      {
+        "name": "🔗 Tautan",
+        "value": "[Memandu]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Selamat mengundang!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Subperintah tidak valid",
@@ -54,6 +82,37 @@
       "title": "Kesalahan Proses Interaksi",
       "description": "Terjadi kesalahan saat memproses interaksi.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Bukan Pemilik Server",
+      "description": "Anda harus menjadi pemilik server untuk menggunakan perintah ini.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Konfirmasi",
+      "description": "Apakah Anda yakin ingin menghapus semua data untuk server ini?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Menghapus Data",
+      "description": "Menghapus semua data untuk server ini...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Data Dihapus",
+      "description": "Semua data untuk server ini telah dihapus.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Data Tidak Dihapus",
+      "description": "Data untuk server ini belum dihapus.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Mengonfirmasi",
+      "discard": "Membuang"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Lihat papan peringkat sepanjang masa, atau buat papan peringkat yang diperbarui secara otomatis."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Menghapus semua papan peringkat cerdas dari database bot."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Hapus hadiah berbasis undangan."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Isi toko pesan dengan hadiah."
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "Tag pengundang",
     "inviter-count": "Jumlah total undangan dari pengundang",
     "inviter-real-count": "Jumlah undangan sebenarnya dari pengundang",
-    "inviter-fake-count": "Jumlah undangan palsu dari pengundang",
+    "inviter-bonus-count": "Jumlah undangan bonus dari pengundang",
     "embed": {
       "title": "Penampung",
       "description": "Berikut adalah placeholder yang dapat Anda gunakan dalam pesan undangan dan penyematan: {placeholders}",
@@ -613,7 +680,7 @@
     },
     "hierarchyRoleAssignError": {
       "title": ":x: Izin Tidak Ada",
-      "description": "Saya tidak dapat menetapkan atau menghapus peran tersebut {role} karena itu lebih tinggi dari peran tertinggi saya.",
+      "description": "Saya tidak dapat menetapkan atau menghapus peran tersebut {role} karena itu lebih tinggi dari peran tertinggiku.",
       "color": "#ff4500"
     },
     "noPermissions": {
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "Anda telah mencapai jumlah maksimum papan peringkat cerdas."
       },
       "deleteAll": {
-        "title": "Semua Papan Peringkat Pintar Telah Dihapus",
-        "description": "Semua papan peringkat pintar telah dihapus dari database dan tidak akan diperbarui lagi.",
+        "title": "Menghapus Semua Papan Peringkat Cerdas",
+        "description": "Semua papan peringkat cerdas telah dihapus dari database dan akan berhenti diperbarui.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Izin Hilang",
+        "description": "Anda memerlukan izin Kelola Server untuk membuat papan peringkat cerdas.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Hadiah Dihapus",
         "description": "Hadiahnya {rewardName} telah dihapus."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Tidak Ada Hadiah yang Ditemukan",
+        "description": "Tidak ditemukan imbalan dengan nama tersebut {rewardName} ."
+      },
+      "success": {
+        "title": "Hadiah Terisi",
+        "description": "Hadiahnya {rewardName} telah terisi.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Bukan Toko",
+        "description": "Hadiah yang Anda berikan bukan hadiah penyimpanan pesan."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Berkas Kosong",
           "description": "File yang Anda berikan kosong atau formatnya tidak valid."
+        },
+        "storeTooLarge": {
+          "title": "Simpan Terlalu Besar",
+          "description": "Toko ini terlalu besar."
         }
       }
     }
@@ -1101,7 +1191,7 @@
         "server": {
           "success": {
             "title": "Penyematan Dihapus",
-            "description": "Sematan selamat datang untuk server telah dihapus."
+            "description": "Penyematan selamat datang untuk server telah dihapus."
           }
         },
         "dm": {
@@ -1295,7 +1385,7 @@
           "messageField": {
             "title": "Pesan",
             "label": "Pesan",
-            "placeholder": "Anda telah mencapai {threshold} undangan di {server-name} pelayan!"
+            "placeholder": "Anda telah mencapai {threshold} mengundang di {server-name} pelayan!"
           }
         }
       }

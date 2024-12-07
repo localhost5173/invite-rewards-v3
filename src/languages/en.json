@@ -273,6 +273,10 @@
           "description": "Remove an invite-based reward."
         },
         {
+          "name": "/rewards fill-store",
+          "description": "Fill up a message store with rewards."
+        },
+        {
           "name": "/rewards view",
           "description": "View all the invite-based rewards."
         }

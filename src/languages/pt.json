@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Bem-vindo ao Convidar Recompensas!",
+    "description": "Obrigado por adicionar o Invitation Rewards ao seu servidor!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Etapa 1: configure um canal de boas-vindas",
+        "value": "Use `/welcome channel set` e `/welcome message set-server` para configurar uma mensagem de boas-vindas para o seu servidor."
+      },
+      {
+        "name": "Etapa 2: adicionar recompensas",
+        "value": "Configure recompensas personalizadas para convites usando `/rewards add-reward`."
+      },
+      {
+        "name": "Precisar de ajuda?",
+        "value": "Confira `/help` para obter uma lista completa de comandos e orientações."
+      },
+      {
+        "name": "🔗 Links",
+        "value": "[Guia]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Feliz convite!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Subcomando inválido",
@@ -54,6 +82,37 @@
       "title": "Erro no processo de interação",
       "description": "Ocorreu um erro ao processar a interação.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Não é proprietário do servidor",
+      "description": "Você deve ser o proprietário do servidor para usar este comando.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Confirmação",
+      "description": "Tem certeza de que deseja excluir todos os dados deste servidor?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Excluindo dados",
+      "description": "Excluindo todos os dados deste servidor...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Dados excluídos",
+      "description": "Todos os dados deste servidor foram excluídos.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Dados não excluídos",
+      "description": "Os dados deste servidor não foram excluídos.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Confirmar",
+      "discard": "Descartar"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Veja o placar de todos os tempos ou crie um com atualização automática."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Exclui todos os placares inteligentes do banco de dados do bot."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Remova uma recompensa baseada em convite."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Encha um armazenamento de mensagens com recompensas."
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "A tag do convidador",
     "inviter-count": "A contagem total de convites do autor do convite",
     "inviter-real-count": "A contagem real de convites do autor do convite",
-    "inviter-fake-count": "A contagem de convites falsos do autor do convite",
+    "inviter-bonus-count": "A contagem de convites bônus do autor do convite",
     "embed": {
       "title": "Espaços reservados",
       "description": "Aqui estão os espaços reservados que você pode usar em mensagens de convite e incorporações: {placeholders}",
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "Você atingiu o número máximo de placares inteligentes."
       },
       "deleteAll": {
-        "title": "Todos os Smart Leaderboards foram excluídos",
-        "description": "Todos os Smart Leaderboards foram excluídos do banco de dados e não serão mais atualizados.",
+        "title": "Excluídos todos os placares inteligentes",
+        "description": "Todas as tabelas de classificação inteligentes foram excluídas do banco de dados e deixarão de ser atualizadas.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Permissões ausentes",
+        "description": "Você precisa da permissão Gerenciar Servidor para criar um placar inteligente.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Recompensa removida",
         "description": "A recompensa {rewardName} foi removido."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Nenhuma recompensa encontrada",
+        "description": "Nenhuma recompensa encontrada com o nome {rewardName} ."
+      },
+      "success": {
+        "title": "Recompensa Preenchida",
+        "description": "A recompensa {rewardName} foi preenchido.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Não armazenar",
+        "description": "A recompensa que você forneceu não é uma recompensa da loja de mensagens."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Arquivo vazio",
           "description": "O arquivo fornecido está vazio ou o formato é inválido."
+        },
+        "storeTooLarge": {
+          "title": "Loja muito grande",
+          "description": "Esta loja é muito grande."
         }
       }
     }

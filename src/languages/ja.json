@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "報酬の招待へようこそ!",
+    "description": "サーバーに招待特典を追加していただきありがとうございます。",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "ステップ 1: ウェルカム チャネルをセットアップする",
+        "value": "`/welcome channel set` と `/welcome message set-server` を使用して、サーバーのウェルカム メッセージを設定します。"
+      },
+      {
+        "name": "ステップ 2: 報酬を追加する",
+        "value": "`/rewards add-reward` を使用して、招待に対するカスタム報酬を設定します。"
+      },
+      {
+        "name": "助けが必要ですか?",
+        "value": "コマンドとガイダンスの完全なリストについては、「/help」をチェックしてください。"
+      },
+      {
+        "name": "🔗 リンク",
+        "value": "[ガイド]（ {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "嬉しいお誘いです！",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "無効なサブコマンド",
@@ -54,6 +82,37 @@
       "title": "インタラクションプロセスエラー",
       "description": "インタラクションの処理中にエラーが発生しました。",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "サーバー所有者ではありません",
+      "description": "このコマンドを使用するには、サーバーの所有者である必要があります。",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "確認",
+      "description": "このサーバーのデータをすべて削除してもよろしいですか?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "データの削除",
+      "description": "このサーバーのデータをすべて削除しています...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "データが削除されました",
+      "description": "このサーバーのデータはすべて削除されました。",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "データは削除されませんでした",
+      "description": "このサーバーのデータは削除されていません。",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "確認する",
+      "discard": "破棄"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "過去のリーダーボードを表示するか、自動更新されるリーダーボードを作成します。"
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "ボットのデータベースからすべてのスマート リーダーボードを削除します。"
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "招待ベースの報酬を削除します。"
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "メッセージ ストアを報酬でいっぱいにします。"
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "招待者のタグ",
     "inviter-count": "招待者の合計招待数",
     "inviter-real-count": "招待者の実際の招待数",
-    "inviter-fake-count": "招待者の偽の招待数",
+    "inviter-bonus-count": "招待者のボーナス招待数",
     "embed": {
       "title": "プレースホルダー",
       "description": "招待メッセージや埋め込みで使用できるプレースホルダーは次のとおりです。 {placeholders}",
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "スマート リーダーボードの最大数に達しました。"
       },
       "deleteAll": {
-        "title": "すべてのスマートリーダーボードが削除されました",
-        "description": "すべてのスマートリーダーボードがデータベースから削除され、更新が停止されます。",
+        "title": "すべてのスマート リーダーボードを削除しました",
+        "description": "すべてのスマート リーダーボードはデータベースから削除され、更新が停止されます。",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "権限がありません",
+        "description": "スマート リーダーボードを作成するには、サーバーの管理権限が必要です。",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "報酬が削除されました",
         "description": "報酬 {rewardName} は削除されました。"
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "報酬が見つかりませんでした",
+        "description": "この名前の報酬は見つかりませんでした {rewardName} 。"
+      },
+      "success": {
+        "title": "報酬がいっぱい",
+        "description": "報酬 {rewardName} 埋まってきました。",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "保管しない",
+        "description": "あなたが提供した報酬はメッセージ ストアの報酬ではありません。"
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "ファイルが空です",
           "description": "指定したファイルが空であるか、形式が無効です。"
+        },
+        "storeTooLarge": {
+          "title": "ストアが大きすぎる",
+          "description": "この店は大きすぎます。"
         }
       }
     }

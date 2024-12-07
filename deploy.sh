@@ -33,6 +33,7 @@ rm -rf ./temp/.vscode
 # Set dev=false in the config.json file
 if [[ -f "temp/config.json" ]]; then
   jq '.dev = false' temp/config.json > temp/config.tmp && mv temp/config.tmp temp/config.json
+  jq '.dev = false' temp/dist/config.json > temp/dist/config.tmp && mv temp/dist/config.tmp temp/dist/config.json
 else
   echo "config.json not found in temp directory!"
   exit 1
