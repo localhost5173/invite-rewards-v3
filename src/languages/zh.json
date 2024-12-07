@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "欢迎您来参加邀请奖励！",
+    "description": "感谢您将邀请奖励添加到您的服务器！",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "第 1 步：设置欢迎频道",
+        "value": "使用“/welcome channel set”和“/welcome message set-server”为您的服务器配置欢迎消息。"
+      },
+      {
+        "name": "第 2 步：添加奖励",
+        "value": "使用“/rewards add-reward”为邀请设置自定义奖励。"
+      },
+      {
+        "name": "需要帮助吗？",
+        "value": "查看“/help”以获取命令和指南的完整列表。"
+      },
+      {
+        "name": "🔗 链接",
+        "value": "[指导]（ {guide} )|  {website} )|  {supportServer} )|  {inviteLink} ）"
+      }
+    ],
+    "footer": {
+      "text": "邀请愉快！",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "子命令无效",
@@ -56,6 +84,37 @@
       "color": "#FF0000"
     }
   },
+  "deleteAll": {
+    "notOwner": {
+      "title": "不是服务器所有者",
+      "description": "您必须是服务器所有者才能使用此命令。",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "确认",
+      "description": "您确定要删除该服务器的所有数据吗？",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "删除数据",
+      "description": "正在删除该服务器的所有数据...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "数据已删除",
+      "description": "该服务器的所有数据已被删除。",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "数据未删除",
+      "description": "该服务器的数据尚未删除。",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "确认",
+      "discard": "丢弃"
+    }
+  },
   "help": {
     "embed": {
       "title": "{category}",
@@ -90,7 +149,7 @@
       },
       {
         "name": "指导",
-        "value": "[点击获取机器人指南。]( {botGuideLink} ）",
+        "value": "[点击查看机器人指南。]( {botGuideLink} ）",
         "inline": true
       },
       {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "查看历史排行榜，或创建一个自动更新的排行榜。"
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "从机器人数据库中删除所有智能排行榜。"
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "删除基于邀请的奖励。"
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "用奖励填满消息存储。"
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "邀请者标签",
     "inviter-count": "邀请人总邀请次数",
     "inviter-real-count": "邀请人真实邀请数",
-    "inviter-fake-count": "邀请人的虚假邀请数",
+    "inviter-bonus-count": "邀请人的奖励邀请数",
     "embed": {
       "title": "占位符",
       "description": "以下是您可以在邀请消息和嵌入中使用的占位符： {placeholders}",
@@ -511,7 +578,7 @@
     },
     "success": {
       "title": "加入和离开历史记录",
-      "description": "历史 {user} ：",
+      "description": "历史 {user} :",
       "color": "#43b581"
     }
   },
@@ -528,7 +595,7 @@
     },
     "success": {
       "title": "受邀用户名单",
-      "description": "邀请的用户 {user} ： {invitedUsers}",
+      "description": "邀请的用户 {user} : {invitedUsers}",
       "color": "#43b581"
     }
   },
@@ -557,7 +624,7 @@
   "invites": {
     "breakdown": {
       "title": "邀请细目 {user}",
-      "description": "以下是邀请细目 {user} ：\n {real} **奖金**： {bonus} **伪造的**： {fake} **未经验证**： {unverified}",
+      "description": "以下是邀请细目 {user} :\n {real} **奖金**： {bonus} **伪造的**： {fake} **未经验证**： {unverified}",
       "color": "#43b581"
     },
     "total": {
@@ -579,7 +646,7 @@
     },
     "success": {
       "title": "使用邀请的用户",
-      "description": "使用邀请码的用户 {link} ： {users}",
+      "description": "使用邀请码的用户 {link} : {users}",
       "color": "#43b581"
     }
   },
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "您已达到智能排行榜的最大数量。"
       },
       "deleteAll": {
-        "title": "已删除所有智能排行榜",
+        "title": "删除所有智能排行榜",
         "description": "所有智能排行榜已从数据库中删除，并将停止更新。",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "缺少权限",
+        "description": "您需要管理服务器权限才能创建智能排行榜。",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "奖励已移除",
         "description": "奖励 {rewardName} 已被删除。"
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "没有找到奖励",
+        "description": "未找到与该名称相关的奖励 {rewardName} 。"
+      },
+      "success": {
+        "title": "奖励已满",
+        "description": "奖励 {rewardName} 已满。",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "不存储",
+        "description": "您提供的奖励不是消息存储奖励。"
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "文件为空",
           "description": "您提供的文件为空或格式无效。"
+        },
+        "storeTooLarge": {
+          "title": "商店太大",
+          "description": "这家店太大了。"
         }
       }
     }

@@ -39,7 +39,9 @@ export class db {
 
   static async connectToDatabase(): Promise<void> {
     try {
-      await mongoose.connect(process.env.MONGODB_URI || "", {});
+      await mongoose.connect(process.env.MONGODB_URI || "", {
+        dbName: "invite-rewards",
+      });
       cs.info("Connected to MongoDB");
     } catch (error) {
       cs.info("Error while connecting to MongoDB: " + error);

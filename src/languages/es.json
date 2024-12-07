@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "¡Bienvenido a Invitar Recompensas!",
+    "description": "¡Gracias por agregar Invite Rewards a su servidor!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Paso 1: configurar un canal de bienvenida",
+        "value": "Utilice `/conjunto de canales de bienvenida` y `/conjunto de mensajes de bienvenida-servidor` para configurar un mensaje de bienvenida para su servidor."
+      },
+      {
+        "name": "Paso 2: agregar recompensas",
+        "value": "Configure recompensas personalizadas para invitaciones usando `/rewards add-reward`."
+      },
+      {
+        "name": "¿Necesitar ayuda?",
+        "value": "Consulte `/help` para obtener una lista completa de comandos y orientación."
+      },
+      {
+        "name": "🔗 Enlaces",
+        "value": "[Guía]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "¡Feliz invitación!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Subcomando no válido",
@@ -54,6 +82,37 @@
       "title": "Error del proceso de interacción",
       "description": "Se produjo un error al procesar la interacción.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "No propietario del servidor",
+      "description": "Debe ser el propietario del servidor para utilizar este comando.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Confirmación",
+      "description": "¿Está seguro de que desea eliminar todos los datos de este servidor?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Eliminar datos",
+      "description": "Eliminando todos los datos de este servidor...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Datos eliminados",
+      "description": "Todos los datos de este servidor han sido eliminados.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Datos no eliminados",
+      "description": "Los datos de este servidor no han sido eliminados.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Confirmar",
+      "discard": "Desechar"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Vea la tabla de clasificación de todos los tiempos o cree una que se actualice automáticamente."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Elimina todas las tablas de clasificación inteligentes de la base de datos del bot."
         }
       ],
       "reactionRoles": [
@@ -210,6 +273,10 @@
           "description": "Eliminar una recompensa basada en invitación."
         },
         {
+          "name": "/rewards fill-store",
+          "description": "Llena una tienda de mensajes con recompensas."
+        },
+        {
           "name": "/rewards view",
           "description": "Vea todas las recompensas basadas en invitaciones."
         }
@@ -225,7 +292,7 @@
         },
         {
           "name": "/verification setup pin",
-          "description": "Configure la verificación de PIN en su servidor."
+          "description": "Configure la verificación de pin en su servidor."
         },
         {
           "name": "/verification disable",
@@ -299,7 +366,7 @@
         },
         {
           "name": "/farewell embed view-dm",
-          "description": "Vea el mensaje de despedida de DM incrustado."
+          "description": "Vea el mensaje de despedida de DM insertado."
         },
         {
           "name": "/farewell embed set-vanity",
@@ -445,7 +512,7 @@
     "inviter-tag": "La etiqueta del invitante",
     "inviter-count": "El recuento total de invitaciones del que invita.",
     "inviter-real-count": "El verdadero recuento de invitaciones del que invita.",
-    "inviter-fake-count": "El recuento de invitaciones falsas del que invita",
+    "inviter-bonus-count": "El recuento de invitaciones de bonificación del que invita.",
     "embed": {
       "title": "Marcadores de posición",
       "description": "Estos son los marcadores de posición que puedes usar en mensajes de invitación e incrustaciones: {placeholders}",
@@ -535,7 +602,7 @@
   "inviter": {
     "noUserProvided": {
       "title": "Usuario no proporcionado",
-      "description": "Proporcione un usuario válido para verificar el invitado.",
+      "description": "Proporcione un usuario válido para verificar el invitador.",
       "color": "#ff4500"
     },
     "noInviterFound": {
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "Has alcanzado el número máximo de tablas de clasificación inteligentes."
       },
       "deleteAll": {
-        "title": "Se eliminaron todos los tableros inteligentes",
-        "description": "Todos los tableros inteligentes han sido eliminados de la base de datos y dejarán de actualizarse.",
+        "title": "Se eliminaron todas las tablas de clasificación inteligentes",
+        "description": "Todas las tablas de clasificación inteligentes se han eliminado de la base de datos y dejarán de actualizarse.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Permisos faltantes",
+        "description": "Necesita el permiso Administrar servidor para crear una tabla de clasificación inteligente.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Recompensa eliminada",
         "description": "la recompensa {rewardName} ha sido eliminado."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "No se encontró ninguna recompensa",
+        "description": "No se encontró ninguna recompensa con el nombre. {rewardName} ."
+      },
+      "success": {
+        "title": "Recompensa llena",
+        "description": "la recompensa {rewardName} se ha llenado.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "No almacenar",
+        "description": "La recompensa que proporcionó no es una recompensa de la tienda de mensajes."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Archivo vacío",
           "description": "El archivo que proporcionó está vacío o el formato no es válido."
+        },
+        "storeTooLarge": {
+          "title": "Almacenar demasiado grande",
+          "description": "Esta tienda es demasiado grande."
         }
       }
     }

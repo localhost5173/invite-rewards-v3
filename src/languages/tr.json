@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Ödülleri Davet Et'e hoş geldiniz!",
+    "description": "Sunucunuza Davet Ödüllerini eklediğiniz için teşekkür ederiz!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "1. Adım: Bir karşılama kanalı oluşturun",
+        "value": "Sunucunuz için bir hoş geldiniz mesajı yapılandırmak için `/welcomechannel set` ve `/welcome message set-server`ı kullanın."
+      },
+      {
+        "name": "2. Adım: Ödül Ekleyin",
+        "value": "`/rewards add-reward`ı kullanarak davetler için özel ödüller ayarlayın."
+      },
+      {
+        "name": "Yardıma mı ihtiyacınız var?",
+        "value": "Komutların ve yönlendirmelerin tam listesi için `/help'e göz atın."
+      },
+      {
+        "name": "🔗 Bağlantılar",
+        "value": "[Rehber]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Mutlu davet!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Geçersiz alt komut",
@@ -54,6 +82,37 @@
       "title": "Etkileşim Süreci Hatası",
       "description": "Etkileşim işlenirken bir hata oluştu.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Sunucu Sahibi Değil",
+      "description": "Bu komutu kullanabilmek için sunucu sahibi olmanız gerekir.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Onay",
+      "description": "Bu sunucuya ait tüm verileri silmek istediğinizden emin misiniz?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Verileri Silme",
+      "description": "Bu sunucuya ait tüm veriler siliniyor...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Veriler Silindi",
+      "description": "Bu sunucuya ait tüm veriler silindi.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Veriler Silinmedi",
+      "description": "Bu sunucunun verileri silinmedi.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Onaylamak",
+      "discard": "At"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Tüm zamanların lider tablosunu görüntüleyin veya otomatik olarak güncellenen bir tablo oluşturun."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Tüm akıllı skor tablolarını botun veritabanından siler."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Davete dayalı bir ödülü kaldırın."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Bir mesaj mağazasını ödüllerle doldurun."
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "Davet edenin etiketi",
     "inviter-count": "Davet edenin toplam davet sayısı",
     "inviter-real-count": "Davet edenin gerçek davet sayısı",
-    "inviter-fake-count": "Davet edenin sahte davet sayısı",
+    "inviter-bonus-count": "Davet edenin bonus davet sayısı",
     "embed": {
       "title": "Yer tutucular",
       "description": "Davet mesajlarında ve yerleştirmelerde kullanabileceğiniz yer tutucular şunlardır: {placeholders}",
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -807,7 +873,7 @@
       },
       "hierarchyRoleAssignError": {
         "title": ":x: Eksik İzinler",
-        "description": "Yeni bir üyeye otomatik rol atamayı denedim ancak atamaya çalıştığım rol en yüksek rolümden daha yüksek olduğundan bunu yapamadım.",
+        "description": "Yeni bir üyeye otomatik rol atamaya çalıştım ancak atamaya çalıştığım rol en yüksek rolümden daha yüksek olduğundan bunu yapamadım.",
         "dmDescription": ":wave: Yeni bir üyeye otomatik rol atamaya çalıştım {serverName} , ancak atamaya çalıştığım rol en yüksek rolümden daha yüksek olduğu için bunu yapamadım.",
         "footer": {
           "text": "Otomatik Rol Atama Hatası"
@@ -975,9 +1041,14 @@
         "description": "Maksimum akıllı skor tablosu sayısına ulaştınız."
       },
       "deleteAll": {
-        "title": "Tüm Akıllı Lider Tabloları Silindi",
-        "description": "Tüm akıllı lider tabloları veritabanından silindi ve artık güncellenmeyecek.",
+        "title": "Tüm Akıllı Skor Tabloları Silindi",
+        "description": "Tüm akıllı skor tabloları veri tabanından silindi ve güncellenmesi durdurulacak.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Eksik İzinler",
+        "description": "Akıllı skor tablosu oluşturmak için Sunucuyu Yönetme iznine ihtiyacınız var.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Ödül Kaldırıldı",
         "description": "Ödül {rewardName} kaldırıldı."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Ödül Bulunamadı",
+        "description": "Bu isimle ödül bulunamadı {rewardName} ."
+      },
+      "success": {
+        "title": "Ödül Dolu",
+        "description": "Ödül {rewardName} dolduruldu.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Mağaza Değil",
+        "description": "Sağladığınız ödül bir mesaj mağazası ödülü değil."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Dosya Boş",
           "description": "Sağladığınız dosya boş veya format geçersiz."
+        },
+        "storeTooLarge": {
+          "title": "Mağaza Çok Büyük",
+          "description": "Bu mağaza çok büyük."
         }
       }
     }
@@ -1277,7 +1367,7 @@
       "title": "Geri Bildirim Formu",
       "feedbackTypeField": {
         "label": "Geri Bildirim Türü (Hata Raporu, Öneri vb.)",
-        "placeholder": "Ör. Hata Raporu"
+        "placeholder": "Örneğin, Hata Raporu"
       },
       "feedbackField": {
         "label": "Lütfen geri bildiriminizi açıklayın",

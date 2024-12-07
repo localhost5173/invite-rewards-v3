@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Chào mừng bạn đến với Phần thưởng mời!",
+    "description": "Cảm ơn bạn đã thêm Phần thưởng mời vào máy chủ của mình!",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Bước 1: Thiết lập kênh chào mừng",
+        "value": "Sử dụng `/welcome kênh set` và `/welcome message set-server` để định cấu hình thông báo chào mừng cho máy chủ của bạn."
+      },
+      {
+        "name": "Bước 2: Thêm phần thưởng",
+        "value": "Thiết lập phần thưởng tùy chỉnh cho lời mời bằng cách sử dụng `/rewards add-reward`."
+      },
+      {
+        "name": "Cần trợ giúp?",
+        "value": "Hãy xem `/help` để biết danh sách đầy đủ các lệnh và hướng dẫn."
+      },
+      {
+        "name": "🔗 Liên kết",
+        "value": "[Hướng dẫn]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Chúc mừng lời mời!",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Lệnh phụ không hợp lệ",
@@ -51,9 +79,40 @@
       "color": "#FFA500"
     },
     "interactionProcessError": {
-      "title": "Lỗi quá trình tương tác",
+      "title": "Lỗi quy trình tương tác",
       "description": "Đã xảy ra lỗi khi xử lý tương tác.",
       "color": "#FF0000"
+    }
+  },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Không phải chủ sở hữu máy chủ",
+      "description": "Bạn phải là chủ sở hữu máy chủ để sử dụng lệnh này.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Xác nhận",
+      "description": "Bạn có chắc chắn muốn xóa tất cả dữ liệu cho máy chủ này không?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Xóa dữ liệu",
+      "description": "Đang xóa tất cả dữ liệu cho máy chủ này...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Dữ liệu đã bị xóa",
+      "description": "Tất cả dữ liệu cho máy chủ này đã bị xóa.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Dữ liệu chưa bị xóa",
+      "description": "Dữ liệu cho máy chủ này chưa bị xóa.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Xác nhận",
+      "discard": "Loại bỏ"
     }
   },
   "help": {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Xem bảng xếp hạng mọi thời đại hoặc tạo bảng xếp hạng tự động cập nhật."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Xóa tất cả bảng xếp hạng thông minh khỏi cơ sở dữ liệu của bot."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Xóa phần thưởng dựa trên lời mời."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Hãy lấp đầy kho tin nhắn bằng phần thưởng."
         },
         {
           "name": "/rewards view",
@@ -445,7 +512,7 @@
     "inviter-tag": "Tag của người mời",
     "inviter-count": "Tổng số lời mời của người mời",
     "inviter-real-count": "Số lượng lời mời thực sự của người mời",
-    "inviter-fake-count": "Số lượng lời mời giả của người mời",
+    "inviter-bonus-count": "Số lượng lời mời thưởng của người mời",
     "embed": {
       "title": "Phần giữ chỗ",
       "description": "Dưới đây là các phần giữ chỗ bạn có thể sử dụng trong tin nhắn mời và nội dung nhúng: {placeholders}",
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "Bạn đã đạt đến số lượng bảng xếp hạng thông minh tối đa."
       },
       "deleteAll": {
-        "title": "Đã xóa tất cả Bảng xếp hạng thông minh",
-        "description": "Tất cả các bảng xếp hạng thông minh đã được xóa khỏi cơ sở dữ liệu và sẽ ngừng cập nhật.",
+        "title": "Đã xóa tất cả bảng xếp hạng thông minh",
+        "description": "Tất cả bảng xếp hạng thông minh đã bị xóa khỏi cơ sở dữ liệu và sẽ ngừng cập nhật.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Thiếu quyền",
+        "description": "Bạn cần có quyền Quản lý máy chủ để tạo bảng xếp hạng thông minh.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Đã xóa phần thưởng",
         "description": "Phần thưởng {rewardName} đã được gỡ bỏ."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Không tìm thấy phần thưởng",
+        "description": "Không tìm thấy phần thưởng có tên {rewardName} ."
+      },
+      "success": {
+        "title": "Đã hoàn thành phần thưởng",
+        "description": "Phần thưởng {rewardName} đã được lấp đầy.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Không lưu trữ",
+        "description": "Phần thưởng bạn cung cấp không phải là phần thưởng của cửa hàng tin nhắn."
       }
     },
     "add": {
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Tệp trống",
           "description": "Tệp bạn cung cấp trống hoặc định dạng không hợp lệ."
+        },
+        "storeTooLarge": {
+          "title": "Cửa hàng quá lớn",
+          "description": "Cửa hàng này quá lớn."
         }
       }
     }

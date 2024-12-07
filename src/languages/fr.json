@@ -1,4 +1,32 @@
 {
+  "introEmbed": {
+    "title": "Bienvenue dans Invite Rewards !",
+    "description": "Merci d'avoir ajouté Invite Rewards à votre serveur !",
+    "color": "#FFFF00",
+    "fields": [
+      {
+        "name": "Étape 1 : Configurer une chaîne de bienvenue",
+        "value": "Utilisez `/welcome channel set` et `/welcome message set-server` pour configurer un message de bienvenue pour votre serveur."
+      },
+      {
+        "name": "Étape 2 : ajouter des récompenses",
+        "value": "Configurez des récompenses personnalisées pour les invitations à l'aide de `/rewards add-reward`."
+      },
+      {
+        "name": "Besoin d'aide ?",
+        "value": "Consultez `/help` pour une liste complète des commandes et des conseils."
+      },
+      {
+        "name": "🔗 Liens",
+        "value": "[Guide]( {guide} ) |  {website} ) |  {supportServer} ) |  {inviteLink} )"
+      }
+    ],
+    "footer": {
+      "text": "Bonne invitation !",
+      "icon_url": "{botLogo}"
+    },
+    "thumbnail": "{botLogo}"
+  },
   "general": {
     "invalidSubcommand": {
       "title": "Sous-commande invalide",
@@ -56,6 +84,37 @@
       "color": "#FF0000"
     }
   },
+  "deleteAll": {
+    "notOwner": {
+      "title": "Pas propriétaire du serveur",
+      "description": "Vous devez être le propriétaire du serveur pour utiliser cette commande.",
+      "color": "#FFA500"
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "description": "Êtes-vous sûr de vouloir supprimer toutes les données de ce serveur ?",
+      "color": "#FFFF00"
+    },
+    "deleting": {
+      "title": "Suppression de données",
+      "description": "Suppression de toutes les données de ce serveur...",
+      "color": "#FFFF00"
+    },
+    "success": {
+      "title": "Données supprimées",
+      "description": "Toutes les données de ce serveur ont été supprimées.",
+      "color": "#43B581"
+    },
+    "discard": {
+      "title": "Données non supprimées",
+      "description": "Les données de ce serveur n'ont pas été supprimées.",
+      "color": "#FFA500"
+    },
+    "translations": {
+      "confirm": "Confirmer",
+      "discard": "Jeter"
+    }
+  },
   "help": {
     "embed": {
       "title": "{category}",
@@ -90,7 +149,7 @@
       },
       {
         "name": "Guide",
-        "value": "[Cliquez pour accéder au guide du bot.]( {botGuideLink} )",
+        "value": "[Cliquez pour le guide du bot.]( {botGuideLink} )",
         "inline": true
       },
       {
@@ -192,6 +251,10 @@
         {
           "name": "/leaderboard all-time",
           "description": "Consultez le classement de tous les temps ou créez-en un à mise à jour automatique."
+        },
+        {
+          "name": "/smart-leaderboards delete-all",
+          "description": "Supprime tous les classements intelligents de la base de données du bot."
         }
       ],
       "reactionRoles": [
@@ -208,6 +271,10 @@
         {
           "name": "/rewards remove-reward",
           "description": "Supprimez une récompense basée sur une invitation."
+        },
+        {
+          "name": "/rewards fill-store",
+          "description": "Remplissez une boutique de messages avec des récompenses."
         },
         {
           "name": "/rewards view",
@@ -251,7 +318,7 @@
         },
         {
           "name": "/farewell message view-server",
-          "description": "Afficher le message d'adieu du serveur."
+          "description": "Consultez le message d'adieu du serveur."
         },
         {
           "name": "/farewell message set-dm",
@@ -445,7 +512,7 @@
     "inviter-tag": "Le tag de l'invitant",
     "inviter-count": "Le nombre total d'invitations de l'invitant",
     "inviter-real-count": "Le nombre réel d'invitations de l'invitant",
-    "inviter-fake-count": "Le nombre de fausses invitations de l'invitant",
+    "inviter-bonus-count": "Le nombre d’invitations bonus de l’invitant",
     "embed": {
       "title": "Espaces réservés",
       "description": "Voici les espaces réservés que vous pouvez utiliser dans les messages d’invitation et les intégrations : {placeholders}",
@@ -662,12 +729,12 @@
     },
     "giveawayNotEnded": {
       "title": "🎉 **CONCOURS** 🎉",
-      "description": "{description} **Prix:** * {prize} *\n {host} **Se termine par :** {timeLeft} **Identifiant du cadeau :** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
+      "description": "{description} **Prix:** * {prize} *\n {host} **Se termine par :** {timeLeft} **ID du cadeau :** ` {giveawayId} `\n {entries} `\n {numberOfWinners} `",
       "color": "#faa61a"
     },
     "giveawayEnded": {
       "title": "🎉 **CONCOURS TERMINÉ** 🎉",
-      "description": "{description} **Prix:** * {prize} *\n {host} **Terminé :** {endedTimestamp} **Identifiant du cadeau :** ` {giveawayId} `\n {entries} `\n {winners}",
+      "description": "{description} **Prix:** * {prize} *\n {host} **Terminé :** {endedTimestamp} **ID du cadeau :** ` {giveawayId} `\n {entries} `\n {winners}",
       "color": "#faa61a"
     },
     "translations": {
@@ -792,8 +859,7 @@
             "value": "{autoRoles}",
             "inline": true
           }
-        ],
-        "thumbnail": "{guildIcon}"
+        ]
       }
     },
     "assign": {
@@ -975,9 +1041,14 @@
         "description": "Vous avez atteint le nombre maximum de classements intelligents."
       },
       "deleteAll": {
-        "title": "Tous les tableaux de bord intelligents supprimés",
-        "description": "Tous les tableaux de bord intelligents ont été supprimés de la base de données et ne seront plus mis à jour.",
+        "title": "Suppression de tous les classements intelligents",
+        "description": "Tous les classements intelligents ont été supprimés de la base de données et cesseront de se mettre à jour.",
         "color": "#43b581"
+      },
+      "noPermissions": {
+        "title": "Autorisations manquantes",
+        "description": "Vous avez besoin de l'autorisation Gérer le serveur pour créer un classement intelligent.",
+        "color": "#ff4500"
       }
     },
     "update": {
@@ -1012,6 +1083,21 @@
       "success": {
         "title": "Récompense supprimée",
         "description": "La récompense {rewardName} a été supprimé."
+      }
+    },
+    "fill": {
+      "noRewardFound": {
+        "title": "Aucune récompense trouvée",
+        "description": "Aucune récompense trouvée avec le nom {rewardName} ."
+      },
+      "success": {
+        "title": "Récompense remplie",
+        "description": "La récompense {rewardName} a été comblé.",
+        "color": "#43b581"
+      },
+      "notStore": {
+        "title": "Ne pas stocker",
+        "description": "La récompense que vous avez fournie n'est pas une récompense de magasin de messages."
       }
     },
     "add": {
@@ -1061,7 +1147,7 @@
           ]
         },
         "timedOut": {
-          "title": "Expiré",
+          "title": "Délai expiré",
           "description": "Vous avez mis trop de temps à répondre."
         }
       },
@@ -1077,6 +1163,10 @@
         "fileEmpty": {
           "title": "Fichier vide",
           "description": "Le fichier que vous avez fourni est vide ou le format n'est pas valide."
+        },
+        "storeTooLarge": {
+          "title": "Magasin trop grand",
+          "description": "Ce magasin est trop grand."
         }
       }
     }
