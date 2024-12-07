@@ -9,7 +9,9 @@ class view {
     guildIcon: string
   ) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     const fields = autoRoles.map((role: string) => ({
       name: "\n",
@@ -29,7 +31,9 @@ class view {
 class add {
   static async alreadyAutoRoleWarning(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.warn)
@@ -44,7 +48,9 @@ class add {
 
   static async success(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.success)
@@ -61,7 +67,9 @@ class add {
 class remove {
   static async notAutoRoleError(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)
@@ -76,7 +84,9 @@ class remove {
 
   static async success(guildId: string, roleId: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.success)
@@ -94,7 +104,9 @@ class assign {
   static async noManageRolesPermissionError(guild: Guild, dm = false) {
     const guildId = guild.id;
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)
@@ -122,7 +134,9 @@ class assign {
   static async hierarchyRoleAssignError(guild: Guild, dm = false) {
     const guildId = guild.id;
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     return new EmbedBuilder()
       .setColor(Embeds.color.error)

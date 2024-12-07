@@ -6,7 +6,9 @@ class set {
   static async invalidLanguage(guildId: string) {
     const language = await db.languages.getLanguage(guildId);
 
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
     return new EmbedBuilder()
       .setTitle(languageData.language.set.invalidLanguage.title)
       .setDescription(languageData.language.set.invalidLanguage.description)
@@ -16,7 +18,9 @@ class set {
   static async noLanguage(guildId: string) {
     const language = await db.languages.getLanguage(guildId);
 
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
     return new EmbedBuilder()
       .setTitle(languageData.language.set.noLanguage.title)
       .setDescription(languageData.language.set.noLanguage.description)
@@ -25,7 +29,9 @@ class set {
 
   static async success(languageMime: string) {
     const language = getNativeLanguageName(languageMime);
-    const languageData = await import(`../../languages/${languageMime}.json`);
+    const languageData = await import(`../../languages/${languageMime}.json`, {
+      assert: { type: "json" },
+    });
     return new EmbedBuilder()
       .setTitle(languageData.language.set.success.title)
       .setDescription(
@@ -41,7 +47,9 @@ class set {
 class view {
   static async success(languageMime: string) {
     const language = getNativeLanguageName(languageMime);
-    const languageData = await import(`../../languages/${languageMime}.json`);
+    const languageData = await import(`../../languages/${languageMime}.json`, {
+      assert: { type: "json" },
+    });
     return new EmbedBuilder()
       .setTitle(languageData.language.view.success.title)
       .setDescription(

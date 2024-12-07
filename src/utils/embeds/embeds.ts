@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { EmbedBuilder, ModalBuilder, TextInputBuilder } from "discord.js";
 import { system } from "./system.js";
 import { autoRoles } from "./autoRoles.js";
@@ -24,13 +25,15 @@ export class Embeds {
     if (guildId) {
       language = await db.languages.getLanguage(guildId);
     }
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     // Split the embedPath into its components
     const pathComponents = embedPath.split(".");
 
     // Dynamically access the nested properties
-    let data = languageData;
+    let data: any = languageData.default;
     for (const component of pathComponents) {
       if (data[component] !== undefined) {
         data = data[component];
@@ -100,12 +103,14 @@ export class Embeds {
     if (guildId) {
       language = await db.languages.getLanguage(guildId);
     }
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     const pathComponents = path.split(".");
 
     // Dynamically access the nested properties
-    let data = languageData;
+    let data: any = languageData.default;
     for (const component of pathComponents) {
       if (data[component] !== undefined) {
         data = data[component];
@@ -125,12 +130,14 @@ export class Embeds {
     if (guildId) {
       language = await db.languages.getLanguage(guildId);
     }
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     const pathComponents = path.split(".");
 
     // Dynamically access the nested properties
-    let data = languageData;
+    let data: any = languageData.default;
     for (const component of pathComponents) {
       if (data[component] !== undefined) {
         data = data[component];
@@ -151,13 +158,16 @@ export class Embeds {
       language = await db.languages.getLanguage(guildId);
     }
 
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     // Split the modalPath into its components
     const pathComponents = modalPath.split(".");
 
     // Dynamically access the nested properties
-    let data = languageData;
+    
+    let data: any = languageData.default;
     for (const component of pathComponents) {
       if (data[component] !== undefined) {
         data = data[component];
@@ -177,13 +187,15 @@ export class Embeds {
 
   static async createTextField(guildId: string, modalFieldPath: string) {
     const language = await db.languages.getLanguage(guildId);
-    const languageData = await import(`../../languages/${language}.json`);
+    const languageData = await import(`../../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
 
     // Split the modalFieldPath into its components
     const pathComponents = modalFieldPath.split(".");
 
     // Dynamically access the nested properties
-    let data = languageData;
+    let data: any = languageData.default;
     for (const component of pathComponents) {
       if (data[component] !== undefined) {
         data = data[component];

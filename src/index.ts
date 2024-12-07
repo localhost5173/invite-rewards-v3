@@ -22,7 +22,8 @@ export const client = new Client({
   ],
 });
 
-export const devMode = config.dev || true;
+export const devMode = config.dev;
+console.log("devMode", devMode);
 if (devMode) {
   cs.info("Running in development mode.");
 } else {

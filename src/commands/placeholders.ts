@@ -23,7 +23,9 @@ export async function run({ interaction }: SlashCommandProps) {
       language = await db.languages.getLanguage(interaction.guildId);
     }
 
-    const languageData = await import(`../languages/${language}.json`);
+    const languageData = await import(`../languages/${language}.json`, {
+      assert: { type: "json" },
+    });
     const placeholderData = languageData.placeholders;
 
     const placeholders = [
