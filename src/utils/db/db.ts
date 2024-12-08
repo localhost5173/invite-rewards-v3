@@ -23,6 +23,10 @@ import UsedInviteModel from "./models/usedInvites.js";
 import UserInvitesModel from "./models/userInvites.js";
 import VerificationModel from "./models/verification.js";
 import WelcomerModel from "./models/welcomer.js";
+import serviceAccount from "../storeBotData/invite-rewards-frontend-firebase-adminsdk-3xdcs-c34d02b3d8.json" assert { type: "json" };
+import admin from "firebase-admin";
+
+type Firestore = admin.firestore.Firestore | null;
 
 export class db {
   static autoRoles = AutoRoles;
@@ -36,6 +40,7 @@ export class db {
   static reactionRoles = reactionRoles;
   static resets = resets;
   static giveaways = giveaways;
+  static firestore: Firestore = null;
 
   static async connectToDatabase(): Promise<void> {
     try {
@@ -46,6 +51,14 @@ export class db {
     } catch (error) {
       cs.info("Error while connecting to MongoDB: " + error);
     }
+  }
+
+  static async initializeFirestore(): Promise<void> {
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
+    });
+  
+    this.firestore = admin.firestore();
   }
 
   static async deleteAllData(guildId: string): Promise<void> {

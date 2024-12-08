@@ -53,6 +53,7 @@ new CommandKit({
 client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
 
 db.connectToDatabase();
+db.initializeFirestore();
 
 // Handle top.gg autoposter
 if (!devMode) {

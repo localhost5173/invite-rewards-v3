@@ -1,7 +1,6 @@
 import { client } from "../../index.js";
 import { cs } from "../console/customConsole.js";
-import serviceAccount from "./invite-rewards-frontend-firebase-adminsdk-3xdcs-c34d02b3d8.json" assert { type: "json" };
-import admin from "firebase-admin";
+import { db } from "../db/db.js";
 
 export default async function () {
   let after = null;
@@ -15,12 +14,6 @@ export default async function () {
   } while (after);
 
   cs.log("Guilds length: " + allGuilds.length);
-
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
-  });
-
-  const db = admin.firestore();
 
   let totalMembers = 0;
   for (const guild of allGuilds) {
@@ -36,10 +29,23 @@ export default async function () {
   const data = {
     serverCount: allGuilds.length,
     userCount: totalMembers,
+    timestamp: new Date().toISOString(), // Add timestamp for time-series data
   };
 
   // Save the data in Firestore
-  await db.collection("bot").doc("data").set(data);
+  if (!db.firestore) {
+    cs.error("Firestore is not initialized.");
+    return;
+  }
+
+  // Save the latest data in the "data" document
+  await db.firestore.collection("bot").doc("data").set({
+    serverCount: data.serverCount,
+    userCount: data.userCount,
+  });
+
+  // Save the time-series data point
+  await db.firestore.collection("botGrowth").add(data);
 
   console.log("Data saved to Firestore:", data);
 }
