@@ -50,7 +50,7 @@ ssh -t root@$VPS_IP << 'EOF'
 cd /home/invite-rewards-prod
 npm i
 cd dist
-pm2 start /home/invite-rewards-prod/dist/src/index.js --log ../logs.txt
+pm2 reload /home/invite-rewards-prod/dist/src/index.js --log ../logs.txt
 pm2 save
 EOF
 
