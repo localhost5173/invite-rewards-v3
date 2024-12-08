@@ -26,7 +26,7 @@ export async function run({ interaction }: SlashCommandProps) {
     const languageData = await import(`../languages/${language}.json`, {
       assert: { type: "json" },
     });
-    const placeholderData = languageData.placeholders;
+    const placeholderData = languageData.default.placeholders;
 
     const placeholders = [
       {
