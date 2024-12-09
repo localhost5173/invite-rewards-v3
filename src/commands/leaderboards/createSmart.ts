@@ -9,6 +9,7 @@ import { Helpers } from "../../utils/helpers/helpers.js";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -107,6 +108,21 @@ export default async function (
       embeds: [await Embeds.createEmbed(guildId, "leaderboards.smart.success")],
       ephemeral: true,
     });
+
+    switch (leaderboardType) {
+      case "daily":
+        await db.usage.incrementUses(guildId, UsageCommands.LeaderboardSmartCreateDaily);
+        break;
+      case "weekly":
+        await db.usage.incrementUses(guildId, UsageCommands.LeaderboardSmartCreateWeekly);
+        break;
+      case "monthly":
+        await db.usage.incrementUses(guildId, UsageCommands.LeaderboardSmartCreateMonthly);
+        break;
+      case "alltime":
+        await db.usage.incrementUses(guildId, UsageCommands.LeaderboardSmartCreateAllTime);
+        break;
+    }
   } catch (error) {
     cs.error("Error while handling get leaderboards command: " + error);
 

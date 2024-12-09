@@ -16,6 +16,8 @@ import botconfig from "../../config.json" assert { type: "json" };
 import { devMode } from "../index.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
+import { db } from "../utils/db/db.js";
+import { UsageCommands } from "../utils/db/models/usageModel.js";
 
 interface Command {
   name: string;
@@ -54,6 +56,8 @@ export async function run({ interaction }: SlashCommandProps) {
         ephemeral: true,
       });
     }
+
+    db.usage.incrementUses(interaction.guildId ?? "", UsageCommands.HelpCommand);
 
     const categoryNames = Object.keys(categories);
     const totalPages = categoryNames.length;

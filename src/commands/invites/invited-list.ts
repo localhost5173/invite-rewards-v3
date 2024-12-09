@@ -8,6 +8,7 @@ import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
   name: "invited-list",
@@ -44,6 +45,8 @@ export async function run({ interaction }: SlashCommandProps) {
     const invitedUsersMentions = invitedUsersIds.map(
       (invitedUser) => `<@!${invitedUser}>`
     );
+    
+    db.usage.incrementUses(guildId, UsageCommands.InvitedListView);
 
     if (invitedUsersMentions.length === 0) {
       const embed = await Embeds.createEmbed(

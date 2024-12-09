@@ -3,6 +3,7 @@ import { Embeds } from "../../utils/embeds/embeds.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -41,7 +42,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     // Remove the role from auto-assign
     await db.autoRoles.removeRole(interaction.guildId!, role.id);
 
-    return await interaction.followUp({
+    await interaction.followUp({
       embeds: [
         await Embeds.createEmbed(
           interaction.guildId!,
@@ -50,6 +51,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
         ),
       ],
     });
+    db.usage.incrementUses(interaction.guildId!, UsageCommands.AutoRoleRemove);
   } catch (error: unknown) {
     cs.error("Error while removing auto-role: " + error);
 

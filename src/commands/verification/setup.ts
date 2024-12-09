@@ -16,6 +16,7 @@ import colorString from "color-string";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -224,6 +225,18 @@ export default async function (
       ],
       ephemeral: true,
     });
+
+    switch (type) {
+      case "simple":
+        db.usage.incrementUses(guildId, UsageCommands.VerificationSetupSimple);
+        break;
+      case "question":
+        db.usage.incrementUses(guildId, UsageCommands.VerificationSetupQuestion);
+        break;
+      case "pin":
+        db.usage.incrementUses(guildId, UsageCommands.VerificationSetupPin);
+        break;
+    }
   } catch (error) {
     cs.error(
       "Error occurred while setting up the verification system: " + error

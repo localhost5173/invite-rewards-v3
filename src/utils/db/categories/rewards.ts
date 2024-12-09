@@ -18,6 +18,11 @@ export class rewards {
     });
   }
 
+  static async getRewardType(guildId: string, rewardName: string) {
+    const reward = await RewardModel.findOne({ guildId, rewardName });
+    return reward?.rewardType;
+  }
+
   static async addMessageReward(
     guildId: string,
     inviteThreshold: number,

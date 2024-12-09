@@ -9,14 +9,17 @@ import {
   Role,
 } from "discord.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { db } from "../../utils/db/db.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 type RoleArrayValue = Role | APIRole;
 
 export default async function (interaction: ChatInputCommandInteraction) {
+  const guildId = interaction.guildId!;
   if (!interaction.channel) {
     await interaction.reply({
       embeds: [
-        await Embeds.createEmbed(interaction.guildId!, "general.serverCommand"),
+        await Embeds.createEmbed(guildId, "general.serverCommand"),
       ],
       ephemeral: true,
     });
@@ -26,7 +29,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
   if (interaction.channel instanceof PartialGroupDMChannel) {
     return interaction.reply({
       embeds: [
-        await Embeds.createEmbed(interaction.guildId!, "general.noGroupDm"),
+        await Embeds.createEmbed(guildId, "general.noGroupDm"),
       ],
       ephemeral: true,
     });
@@ -48,7 +51,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     await interaction.followUp({
       embeds: [
         await Embeds.createEmbed(
-          interaction.guildId!,
+          guildId,
           "reactionRoles.noRolesProvided"
         ),
       ],
@@ -64,7 +67,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       return interaction.followUp({
         embeds: [
           await Embeds.createEmbed(
-            interaction.guildId!,
+            guildId,
             "roles.managedRoleAssignError",
             { role: `<@&${role.id}>` }
           ),
@@ -81,7 +84,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       return interaction.followUp({
         embeds: [
           await Embeds.createEmbed(
-            interaction.guildId!,
+            guildId,
             "roles.hierarchyRoleAssignError",
             { role: `<@&${role.id}>` }
           ),
@@ -98,7 +101,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       return interaction.followUp({
         embeds: [
           await Embeds.createEmbed(
-            interaction.guildId!,
+            guildId,
             "roles.noManageRolesPermissionError"
           ),
         ],
@@ -148,8 +151,10 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
   await interaction.followUp({
     embeds: [
-      await Embeds.createEmbed(interaction.guildId!, "reactionRoles.success"),
+      await Embeds.createEmbed(guildId, "reactionRoles.success"),
     ],
     ephemeral: true,
   });
+
+  db.usage.incrementUses(guildId, UsageCommands.ReactionRolesSetupButton);
 }

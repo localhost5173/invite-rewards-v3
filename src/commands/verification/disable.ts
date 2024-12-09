@@ -3,6 +3,7 @@ import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -16,6 +17,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       ],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId, UsageCommands.VerificationDisable);
   } catch (error: unknown) {
     cs.error("Error while removing the verification system: " + error);
 

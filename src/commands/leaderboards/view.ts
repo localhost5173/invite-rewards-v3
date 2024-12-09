@@ -4,6 +4,7 @@ import { Helpers } from "../../utils/helpers/helpers.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (
   interaction: ChatInputCommandInteraction,
@@ -45,6 +46,21 @@ export default async function (
       ],
       ephemeral: true,
     });
+
+    switch (leaderboardType) {
+      case "daily":
+        db.usage.incrementUses(guildId, UsageCommands.LeaderboardViewDaily);
+        break;
+      case "weekly":
+        db.usage.incrementUses(guildId, UsageCommands.LeaderboardViewWeekly);
+        break;
+      case "monthly":
+        db.usage.incrementUses(guildId, UsageCommands.LeaderboardViewMonthly);
+        break;
+      case "alltime":
+        db.usage.incrementUses(guildId, UsageCommands.LeaderboardViewAllTime);
+        break;
+    }
   } catch (error) {
     cs.error("Error while handling get leaderboards command: " + error);
 

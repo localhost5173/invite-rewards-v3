@@ -4,6 +4,7 @@ import { devMode } from '../../index.js';
 import { db } from '../../utils/db/db.js';
 import { Embeds } from '../../utils/embeds/embeds.js';
 import { Helpers } from '../../utils/helpers/helpers.js';
+import { UsageCommands } from '../../utils/db/models/usageModel.js';
 
 export const data: CommandData = {
     name: 'inviter',
@@ -50,7 +51,8 @@ export async function run({ interaction, client }: SlashCommandProps) {
             user: `<@${targetUser.id}>`,
             inviter: `<@${inviter.id}>`
         });
-        return interaction.followUp({ embeds: [embed], ephemeral: true });
+        interaction.followUp({ embeds: [embed], ephemeral: true });
+        db.usage.incrementUses(guildId, UsageCommands.InviterInfo);
     } catch (error) {
         console.error(`Failed to get invites for user ${userId}:`, error);
         

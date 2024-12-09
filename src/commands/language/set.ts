@@ -4,18 +4,20 @@ import { cs } from "../../utils/console/customConsole.js";
 import { getNativeLanguageName, LanguagesList } from "../../utils/db/categories/languages.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
     await interaction.deferReply({ ephemeral: true });
 
     const language = interaction.options.getString("language");
+    const guildId = interaction.guildId!;
 
     if (!language) {
       return interaction.followUp({
         embeds: [
           await Embeds.createEmbed(
-            interaction.guildId!,
+            guildId,
             "language.set.noLanguage"
           ),
         ],
@@ -28,7 +30,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       return interaction.followUp({
         embeds: [
           await Embeds.createEmbed(
-            interaction.guildId!,
+            guildId,
             "language.set.invalidLanguage"
           ),
         ],
@@ -37,14 +39,15 @@ export default async function (interaction: ChatInputCommandInteraction) {
     }
 
     // Set the language in the database
-    await db.languages.setLanguage(interaction.guildId!, language);
+    await db.languages.setLanguage(guildId, language);
     interaction.followUp({
       embeds: [
-        await Embeds.createEmbed(interaction.guildId!, "language.set.success", {
+        await Embeds.createEmbed(guildId, "language.set.success", {
           language: getNativeLanguageName(language) || "Unknown",
         }),
       ],
     });
+    db.usage.incrementUses(guildId, UsageCommands.LanguageSet);
   } catch (error) {
     cs.error("Error while setting language: " + error);
 

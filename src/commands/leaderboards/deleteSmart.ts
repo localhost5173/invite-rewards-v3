@@ -9,6 +9,7 @@ import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { devMode } from "../../index.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
     name: "smart-leaderboards",
@@ -34,6 +35,7 @@ export async function run({ interaction }: SlashCommandProps) {
             ],
             ephemeral: true,
         });
+        db.usage.incrementUses(guildId, UsageCommands.LeaderboardSmartDeleteAll);
     } catch (error) {
         cs.error("Error with deleting all smart leaderboards: " + error);
 

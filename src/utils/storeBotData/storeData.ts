@@ -1,8 +1,9 @@
-import { client } from "../../index.js";
+import { client, devMode } from "../../index.js";
 import { cs } from "../console/customConsole.js";
 import { db } from "../db/db.js";
 
 export default async function () {
+  if (devMode) return;
   let after = null;
   const allGuilds = [];
 

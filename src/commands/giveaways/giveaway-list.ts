@@ -11,6 +11,7 @@ import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   const guildId = interaction.guildId!;
@@ -34,6 +35,8 @@ export default async function (interaction: ChatInputCommandInteraction) {
       });
       return;
     }
+
+    db.usage.incrementUses(guildId, UsageCommands.GiveawayList);
 
     let currentPage = 0;
     let showActiveOnly = true;
