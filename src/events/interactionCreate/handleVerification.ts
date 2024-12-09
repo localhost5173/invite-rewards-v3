@@ -21,6 +21,7 @@ import { VerificationDocument } from "../../utils/db/models/verification.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
 import { Rewards } from "../../utils/rewards/Rewards.js";
+import { UsageEvents } from "../../utils/db/models/usageModel.js";
 
 // Map to store active collectors for question-based verification
 const activeCollectors = new Map<
@@ -191,6 +192,7 @@ async function handleSimpleVerification(
       ],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId, UsageEvents.VerificationCompletedSimple);
   } else {
     cs.dev("Member roles is not a GuildMemberRoleManager");
     await interaction.followUp({
@@ -296,6 +298,7 @@ async function handleQuestionVerification(
         ],
         ephemeral: true,
       });
+      db.usage.incrementUses(guildId, UsageEvents.VerificationCompletedQuestion);
     } else {
       await modalInteraction.reply({
         embeds: [
@@ -419,6 +422,7 @@ async function handlePinVerification(
         await (member.roles as GuildMemberRoleManager).add(
           verificationObject.roleId!
         );
+        db.usage.incrementUses(guildId, UsageEvents.VerificationCompletedPin);
       } else {
         await i.update({
           components: [],
