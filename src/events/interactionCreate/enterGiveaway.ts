@@ -2,6 +2,8 @@ import { Interaction } from "discord.js";
 import { Giveaways } from "../../utils/giveaways/Giveaways.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { db } from "../../utils/db/db.js";
+import { UsageEvents } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;
@@ -45,14 +47,16 @@ export default async function (interaction: Interaction) {
         ],
         ephemeral: true,
       });
+      db.usage.incrementUses(interaction.guild.id, UsageEvents.GiveawayEntry);
     } else {
-      Giveaways.leaveGiveaway(interaction.guild.id, giveawayId, userId);
+      await Giveaways.leaveGiveaway(interaction.guild.id, giveawayId, userId);
       await interaction.followUp({
         embeds: [
           await Embeds.createEmbed(interaction.guild.id, "giveaways.leftGiveaway")
         ],
         ephemeral: true,
       });
+      db.usage.incrementUses(interaction.guild.id, UsageEvents.GiveawayLeave);
     }
 
     await Giveaways.updateEmbedEntries(interaction.guild.id, giveawayId);

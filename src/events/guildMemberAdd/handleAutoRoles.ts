@@ -3,6 +3,7 @@ import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { alerts } from "../../utils/alerts/alerts.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageEvents } from "../../utils/db/models/usageModel.js";
 
 export default async function handleAutoRoles(guildMember: GuildMember) {
   try {
@@ -55,6 +56,7 @@ export default async function handleAutoRoles(guildMember: GuildMember) {
       }
 
       await guildMember.roles.add(guildRole);
+      db.usage.incrementUses(guildMember.guild.id, UsageEvents.AutoRolesAssigned);
     }
   } catch (error: unknown) {
     cs.error(error as string);

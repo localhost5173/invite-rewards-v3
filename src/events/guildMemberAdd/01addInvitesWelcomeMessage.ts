@@ -3,10 +3,13 @@ import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Leaderboards } from "../../utils/leaderboards/Leaderboards.js";
 import { Rewards } from "../../utils/rewards/Rewards.js";
+import { UsageEvents } from "../../utils/db/models/usageModel.js";
 
 export default async function (guildMember: GuildMember) {
   try {
     if (guildMember.user.bot) return;
+
+    db.usage.incrementUses(guildMember.guild.id, UsageEvents.InvitesTracked);
 
     const { guild } = guildMember;
     const currentInvites = await guild.invites.fetch();
@@ -162,7 +165,7 @@ async function sendWelcomeMessage(
             inviter,
             inviterInvites
           );
-          await sendServerWelcomeMessage(welcomeChannel, finalWelcomeMessage);
+          await sendServerWelcomeMessage(welcomeChannel, finalWelcomeMessage, guildId);
         }
       } else {
         cs.error(
@@ -316,6 +319,7 @@ async function sendDmWelcomeMessage(
 ) {
   try {
     await guildMember.send(dmWelcomeMessage);
+    db.usage.incrementUses(guildMember.guild.id, UsageEvents.WelcomerWelcomeDmMessage);
   } catch (error) {
     cs.error(`Error while sending DM welcome message: ${error}`);
   }
@@ -330,6 +334,7 @@ async function sendDmWelcomeEmbed(
 ) {
   try {
     await guildMember.send({ embeds: [dmWelcomeEmbed] });
+    db.usage.incrementUses(guildMember.guild.id, UsageEvents.WelcomerWelcomeDmEmbed);
   } catch (error) {
     cs.error(`Error while sending DM welcome embed: ${error}`);
   }
@@ -340,10 +345,12 @@ async function sendDmWelcomeEmbed(
  */
 async function sendServerWelcomeMessage(
   welcomeChannel: TextChannel,
-  serverWelcomeMessage: string
+  serverWelcomeMessage: string,
+  guildId: string
 ) {
   try {
     await welcomeChannel.send(serverWelcomeMessage);
+    db.usage.incrementUses(guildId, UsageEvents.WelcomerWelcomeServerMessage);
   } catch (error) {
     cs.error(`Error while sending server welcome message: ${error}`);
   }
@@ -358,6 +365,7 @@ async function sendServerWelcomeEmbed(
 ) {
   try {
     await welcomeChannel.send({ embeds: [serverWelcomeEmbed] });
+    db.usage.incrementUses(welcomeChannel.guild.id, UsageEvents.WelcomerWelcomeServerEmbed);
   } catch (error) {
     cs.error(`Error while sending server welcome embed: ${error}`);
   }

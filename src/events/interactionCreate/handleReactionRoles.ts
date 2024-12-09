@@ -7,6 +7,7 @@ import {
 import { cs } from "../../utils/console/customConsole.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { db } from "../../utils/db/db.js";
+import { UsageEvents } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: Interaction) {
   if (!interaction.guild) return;
@@ -79,7 +80,7 @@ export default async function (interaction: Interaction) {
         ],
         ephemeral: true,
       });
-      await db.reactionRoles.incrementRemoves(interaction.guildId!);
+      db.usage.incrementUses(interaction.guildId!, UsageEvents.ReactionRolesRemoved);
       return;
     }
 
@@ -98,7 +99,7 @@ export default async function (interaction: Interaction) {
         ],
         ephemeral: true,
       });
-      await db.reactionRoles.incrementAssigns(interaction.guildId!);
+      db.usage.incrementUses(interaction.guildId!, UsageEvents.ReactionRolesAssigned);
     } catch (error) {
       cs.error("An error occurred while assigning role: " + error);
       await interaction.reply({

@@ -16,7 +16,9 @@ export enum UsageEvents {
     VerificationCompletedSimple = "verificationCompletedSimple",
     VerificationCompletedQuestion = "verificationCompletedQuestion",
     VerificationCompletedPin = "verificationCompletedPin",
-    GiveawayEntry = "giveawayEntry"
+    GiveawayEntry = "giveawayEntry",
+    GiveawayLeave = "giveawayLeave",
+    InvitesTracked = "invitesTracked",
 }
 
 // Define UsageCommands enum
@@ -110,8 +112,9 @@ const UsageSchema: Schema = new Schema({
     guildId: { type: String, required: true, index: true },
     type: { type: String, required: true, enum: ["command", "event"] },
     count: { type: Number, required: true, default: 0 },
-    month: { type: Number, required: true },
-    year: { type: Number, required: true }
+    day: { type: Number, required: true, index: true },
+    month: { type: Number, required: true, index: true },
+    year: { type: Number, required: true, index: true }
 });
 
 // Create the model
