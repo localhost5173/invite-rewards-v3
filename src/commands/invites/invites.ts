@@ -4,6 +4,7 @@ import { db } from "../../utils/db/db.js";
 import { devMode } from "../../index.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
     name: "invites",
@@ -28,16 +29,19 @@ export async function run({ interaction }: SlashCommandProps) {
     try {
         const user = interaction.options.getUser("user") ?? interaction.user;
         const breakdown = interaction.options.getBoolean("breakdown") ?? false;
+        const guildId = interaction.guildId!;
 
-        const invites = await db.invites.userInvites.getInvites(interaction.guildId!, user.id);
+        const invites = await db.invites.userInvites.getInvites(guildId, user.id);
 
         const real = invites?.real ?? 0;
         const bonus = invites?.bonus ?? 0;
         const fake = invites?.fake ?? 0;
         const unverified = invites?.unverified ?? 0;
 
+        db.usage.incrementUses(guildId, UsageCommands.InviteCountView);
+
         if (breakdown) {
-            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.breakdown", {
+            const embed = await Embeds.createEmbed(guildId, "invites.breakdown", {
                 user: user.tag,
                 real: real.toString(),
                 bonus: bonus.toString(),
@@ -47,7 +51,7 @@ export async function run({ interaction }: SlashCommandProps) {
             await interaction.reply({ embeds: [embed], ephemeral: true });
         } else {
             const totalInvites = real + bonus;
-            const embed = await Embeds.createEmbed(interaction.guildId!, "invites.total", {
+            const embed = await Embeds.createEmbed(guildId, "invites.total", {
                 user: user.tag,
                 totalInvites: totalInvites.toString(),
             });

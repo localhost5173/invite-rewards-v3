@@ -3,6 +3,7 @@ import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -47,6 +48,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       ],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId, UsageCommands.RewardsView);
   } catch (error) {
     cs.error("Error while removing reward: " + error);
 

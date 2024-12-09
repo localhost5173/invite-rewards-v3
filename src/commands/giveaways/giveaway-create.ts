@@ -11,6 +11,7 @@ import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { GiveawayEmbedBuilder } from "../../utils/giveaways/GiveawayEmbedBuilder.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   if (!interaction.guild?.id || !interaction.channel?.id) return;
@@ -176,6 +177,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       ],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId, UsageCommands.GiveawayCreate);
   } catch (error) {
     cs.error(`Error creating giveaway: ${error}`);
     await Helpers.trySendCommandError(interaction);

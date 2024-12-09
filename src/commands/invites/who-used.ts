@@ -9,6 +9,7 @@ import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
   name: "who-used",
@@ -54,7 +55,7 @@ export async function run({ interaction }: SlashCommandProps) {
       const inviteeMentionList = inviteesList.map(
         (invitee) => `<@!${invitee}>`
       );
-      return interaction.followUp({
+      interaction.followUp({
         embeds: [
           await Embeds.createEmbed(guildId, "whoUsed.success", {
             link: inviteCode,
@@ -63,6 +64,7 @@ export async function run({ interaction }: SlashCommandProps) {
         ],
         ephemeral: true,
       });
+      db.usage.incrementUses(guildId, UsageCommands.WhoUsed);
     }
   } catch (error) {
     cs.error(

@@ -9,6 +9,8 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import botconfig from "../../config.json" assert { type: "json" };
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
+import { db } from "../utils/db/db.js";
+import { UsageCommands } from "../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
   name: "invite",
@@ -53,6 +55,8 @@ export async function run({ interaction }: SlashCommandProps) {
       components: [row],
       ephemeral: true,
     });
+
+    db.usage.incrementUses(interaction.guildId ?? "", UsageCommands.BotInvite);
   } catch (error) {
     cs.error("Error in invite command: " + error);
 

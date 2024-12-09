@@ -8,6 +8,7 @@ import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
   name: "history",
@@ -85,7 +86,8 @@ export async function run({ interaction }: SlashCommandProps) {
 
     historyEmbed.addFields(fields);
 
-    return interaction.followUp({ embeds: [historyEmbed], ephemeral: true });
+    interaction.followUp({ embeds: [historyEmbed], ephemeral: true });
+    db.usage.incrementUses(guildId, UsageCommands.InviteHistory);
   } catch (error) {
     console.error(`Failed to get invites for user ${userId}:`, error);
 

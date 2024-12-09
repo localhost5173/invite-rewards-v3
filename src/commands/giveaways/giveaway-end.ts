@@ -4,6 +4,7 @@ import { db } from "../../utils/db/db.js";
 import { Giveaways } from "../../utils/giveaways/Giveaways.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   const guildId = interaction.guildId!;
@@ -50,6 +51,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
       ],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId, UsageCommands.GiveawayEnd);
   } catch (error) {
     cs.error("Error while ending giveaway" + error);
 

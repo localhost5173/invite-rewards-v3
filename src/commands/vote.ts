@@ -10,6 +10,8 @@ import { Embeds } from "../utils/embeds/embeds.js";
 import botconfig from "../../config.json" assert { type: "json" };
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
+import { db } from "../utils/db/db.js";
+import { UsageCommands } from "../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
   name: "vote",
@@ -18,8 +20,9 @@ export const data: CommandData = {
 
 export async function run({ interaction }: SlashCommandProps) {
   try {
+    const guildId = interaction.guildId;
     const voteTranslation = await Embeds.getStringTranslation(
-      interaction.guild?.id || null,
+      guildId || null,
       "vote.voteTranslation"
     );
 
@@ -31,11 +34,12 @@ export async function run({ interaction }: SlashCommandProps) {
     const row = new ActionRowBuilder<ButtonBuilder>().addComponents(button);
     await interaction.reply({
       embeds: [
-        await Embeds.createEmbed(interaction.guild?.id || null, "vote.success"),
+        await Embeds.createEmbed(guildId || null, "vote.success"),
       ],
       components: [row],
       ephemeral: true,
     });
+    db.usage.incrementUses(guildId ?? "", UsageCommands.VoteCommand);
   } catch (error) {
     cs.error("Error in vote command: " + error);
 

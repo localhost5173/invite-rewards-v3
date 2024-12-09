@@ -3,6 +3,7 @@ import { Embeds } from "../../utils/embeds/embeds.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
+import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
@@ -84,7 +85,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
 
     // Add the role to auto-assign
     await db.autoRoles.addRole(interaction.guildId!, role.id);
-    return await interaction.followUp({
+    await interaction.followUp({
       embeds: [
         await Embeds.createEmbed(
           interaction.guildId!,
@@ -95,6 +96,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
         ),
       ],
     });
+    db.usage.incrementUses(interaction.guildId!, UsageCommands.AutoRoleAdd);
   } catch (error: unknown) {
     cs.error(error as string);
     
