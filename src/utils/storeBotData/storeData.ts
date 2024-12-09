@@ -21,6 +21,7 @@ export default async function () {
     try {
       // Fetch full guild data for member count
       const fullGuild = await client.guilds.fetch(guild.id);
+      db.guilds.updateGuild(fullGuild);
       totalMembers += fullGuild.memberCount || 0; // Use 0 if memberCount is undefined
     } catch (error) {
       console.error(`Failed to fetch full guild data for ${guild.id}:`, error);

@@ -4,15 +4,16 @@ export interface GuildDocument extends Document {
     guildId: string;
     memberCount: number;
     joinedAt: Date;
-    leftAt?: Date;
+    leftAt: Date | null;
 }
 
 // Create the schema
 const GuildSchema: Schema = new Schema({
     guildId: { type: String, required: true, index: true },
+    guildName: { type: String, required: true },
     memberCount: { type: Number, required: true },
     joinedAt: { type: Date, required: true, default: Date.now },
-    leftAt: { type: Date }
+    leftAt: { type: Date, required: false, default: null },
 });
 
 // Create the model
