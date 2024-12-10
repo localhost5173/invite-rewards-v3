@@ -7,7 +7,7 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import removeAutoRole from "./remove.js";
 import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";

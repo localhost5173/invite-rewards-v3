@@ -13,7 +13,7 @@ import viewMessage from "./func/viewMessage.js";
 import setEmbed from "./func/setEmbed.js";
 import removeEmbed from "./func/removeEmbed.js";
 import viewEmbed from "./func/viewEmbed.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 
 export const data: CommandData = {
   name: "farewell",
