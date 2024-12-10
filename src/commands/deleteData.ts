@@ -8,7 +8,7 @@ import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 import { ActionRowBuilder, ApplicationCommandOptionType, ButtonBuilder, ButtonInteraction, ButtonStyle, ComponentType, PartialGroupDMChannel } from "discord.js";
 import { db } from "../utils/db/db.js";
-import { devMode } from "../index.js";
+import { devMode } from "../bot.js";
 import { UsageCommands } from "../utils/db/models/usageModel.js";
 
 export const data: CommandData = {

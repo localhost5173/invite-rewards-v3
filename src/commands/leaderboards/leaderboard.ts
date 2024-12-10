@@ -6,7 +6,7 @@ import type {
 import { ApplicationCommandOptionType } from "discord.js";
 import viewLeaderboard from "./view.js";
 import createSmart from "./createSmart.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 
 export const data: CommandData = {
   name: "leaderboard",
