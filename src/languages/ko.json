@@ -631,6 +631,11 @@
       "title": "총 초대 수",
       "description": "{user} 가지다 ** {totalInvites} ** 초대합니다.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "권한 없음",
+      "description": "이 사용자의 초대 또는 세부 정보를 볼 수 있는 권한이 없습니다",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {

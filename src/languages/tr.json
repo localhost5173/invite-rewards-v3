@@ -631,6 +631,11 @@
       "title": "Toplam Davet Sayısı",
       "description": "{user} sahip olmak ** {totalInvites} ** davet ediyor.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "Eksik İzinler",
+      "description": "Bu kullanıcının davetlerini veya ayrıntılarını görüntüleme izniniz yok",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {

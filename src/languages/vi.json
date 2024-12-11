@@ -631,6 +631,11 @@
       "title": "Tổng số lời mời",
       "description": "{user} có ** {totalInvites} ** lời mời.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "Thiếu quyền",
+      "description": "Bạn không có quyền xem lời mời của người dùng này hoặc xem chi tiết",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {
