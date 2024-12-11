@@ -13,7 +13,7 @@ export default async function (interaction: ChatInputCommandInteraction) {
     const count = interaction.options.getInteger("count", true);
     const guildId = interaction.guildId!;
 
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply();
 
     await db.invites.userInvites.addBonus(guildId, user.id, count);
     await Leaderboards.updateLeaderboards(guildId, user.id);

@@ -29,7 +29,7 @@ export async function run({ interaction }: SlashCommandProps) {
     const link = interaction.options.getString("link", true);
     const guildId = interaction.guildId!;
 
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply();
 
     if (!link) {
       return interaction.followUp({
@@ -48,7 +48,6 @@ export async function run({ interaction }: SlashCommandProps) {
     if (inviteesList.length === 0) {
       return interaction.followUp({
         embeds: [await Embeds.createEmbed(guildId, "whoUsed.noUsers")],
-        ephemeral: true,
       });
     } else {
       // Mention all invitees
@@ -62,7 +61,6 @@ export async function run({ interaction }: SlashCommandProps) {
             users: inviteeMentionList.join("\n"),
           }),
         ],
-        ephemeral: true,
       });
       db.usage.incrementUses(guildId, UsageCommands.WhoUsed);
     }

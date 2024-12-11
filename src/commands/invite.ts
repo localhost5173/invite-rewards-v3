@@ -53,7 +53,6 @@ export async function run({ interaction }: SlashCommandProps) {
     await interaction.reply({
       embeds: [embed],
       components: [row],
-      ephemeral: true,
     });
 
     db.usage.incrementUses(interaction.guildId ?? "", UsageCommands.BotInvite);

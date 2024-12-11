@@ -49,7 +49,6 @@ export async function run({ interaction }: SlashCommandProps) {
                 "invites.noPermissions"
             ),
         ],
-        ephemeral: true,
       });
       return;
     }
@@ -78,7 +77,7 @@ export async function run({ interaction }: SlashCommandProps) {
         user: user.tag,
         totalInvites: totalInvites.toString(),
       });
-      await interaction.reply({ embeds: [embed], ephemeral: true });
+      await interaction.reply({ embeds: [embed] });
     }
   } catch (error: unknown) {
     console.error("Error while getting invites: " + error);
@@ -88,7 +87,7 @@ export async function run({ interaction }: SlashCommandProps) {
 
 export const options: CommandOptions = {
   devOnly: devMode,
-  userPermissions: [],
+  userPermissions: ["SendMessages"],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,
   onlyGuild: true,

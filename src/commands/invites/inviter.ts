@@ -25,7 +25,7 @@ export async function run({ interaction, client }: SlashCommandProps) {
     const guildId = interaction.guildId!;
 
     try {
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply();
 
         if (!targetUser) {
             const embed = await Embeds.createEmbed(guildId, 'inviter.noUserProvided');
@@ -51,7 +51,7 @@ export async function run({ interaction, client }: SlashCommandProps) {
             user: `<@${targetUser.id}>`,
             inviter: `<@${inviter.id}>`
         });
-        interaction.followUp({ embeds: [embed], ephemeral: true });
+        interaction.followUp({ embeds: [embed] });
         db.usage.incrementUses(guildId, UsageCommands.InviterInfo);
     } catch (error) {
         console.error(`Failed to get invites for user ${userId}:`, error);

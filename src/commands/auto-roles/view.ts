@@ -7,7 +7,7 @@ import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export default async function (interaction: ChatInputCommandInteraction) {
   try {
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply();
 
     const guildId = interaction.guildId!;
     const autoRoles = await db.autoRoles.getRoles(guildId) || [];

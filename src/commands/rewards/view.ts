@@ -18,7 +18,6 @@ export default async function (interaction: ChatInputCommandInteraction) {
         embeds: [
           await Embeds.createEmbed(guildId, "rewards.view.noRewards"),
         ],
-        ephemeral: true,
       });
       return;
     }
@@ -46,7 +45,6 @@ export default async function (interaction: ChatInputCommandInteraction) {
           rewards: rewardsString.join("\n"),
         }),
       ],
-      ephemeral: true,
     });
     db.usage.incrementUses(guildId, UsageCommands.RewardsView);
   } catch (error) {

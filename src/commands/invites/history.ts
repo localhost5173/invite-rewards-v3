@@ -86,7 +86,7 @@ export async function run({ interaction }: SlashCommandProps) {
 
     historyEmbed.addFields(fields);
 
-    interaction.followUp({ embeds: [historyEmbed], ephemeral: true });
+    interaction.followUp({ embeds: [historyEmbed] });
     db.usage.incrementUses(guildId, UsageCommands.InviteHistory);
   } catch (error) {
     console.error(`Failed to get invites for user ${userId}:`, error);
