@@ -631,6 +631,11 @@
       "title": "Total Invites",
       "description": "{user} has **{totalInvites}** invites.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "Missing Permissions",
+      "description": "You do not have permission to view the invites of this user or view the breakdown",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {
