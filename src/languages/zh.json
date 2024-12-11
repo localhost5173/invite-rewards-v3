@@ -631,6 +631,11 @@
       "title": "邀请总数",
       "description": "{user} 有 ** {totalInvites} ** 邀请。",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "权限不足",
+      "description": "您没有权限查看此用户的邀请或查看详细信息",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {

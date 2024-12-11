@@ -631,6 +631,11 @@
       "title": "Total de invitaciones",
       "description": "{user} tiene ** {totalInvites} ** invita.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "Permisos insuficientes",
+      "description": "No tienes permiso para ver las invitaciones de este usuario o ver el desglose",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {

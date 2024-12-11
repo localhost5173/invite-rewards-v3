@@ -631,6 +631,11 @@
       "title": "合計招待数",
       "description": "{user} もっている ** {totalInvites} ** が招待します。",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "権限がありません",
+      "description": "このユーザーの招待状や内訳を表示する権限がありません",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {

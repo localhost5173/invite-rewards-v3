@@ -631,6 +631,11 @@
       "title": "Gesamtzahl der Einladungen",
       "description": "{user} hat ** {totalInvites} ** lädt ein.",
       "color": "#43b581"
+    },
+    "noPermissions": {
+      "title": "Fehlende Berechtigungen",
+      "description": "Sie haben keine Berechtigung, die Einladungen dieses Benutzers oder die Aufschlüsselung anzuzeigen",
+      "color": "#ff4500"
     }
   },
   "whoUsed": {
