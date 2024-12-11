@@ -67,7 +67,7 @@ export async function run({ interaction }: SlashCommandProps) {
       }
     );
 
-    await interaction.reply({ embeds: [embed], ephemeral: true });
+    await interaction.reply({ embeds: [embed] });
     db.usage.incrementUses(interaction.guildId ?? "", UsageCommands.PlaceholdersView);
   } catch (error) {
     cs.error("error in placeholders.ts: " + error);

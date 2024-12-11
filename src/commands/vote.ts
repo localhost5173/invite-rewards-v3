@@ -37,7 +37,6 @@ export async function run({ interaction }: SlashCommandProps) {
         await Embeds.createEmbed(guildId || null, "vote.success"),
       ],
       components: [row],
-      ephemeral: true,
     });
     db.usage.incrementUses(guildId ?? "", UsageCommands.VoteCommand);
   } catch (error) {

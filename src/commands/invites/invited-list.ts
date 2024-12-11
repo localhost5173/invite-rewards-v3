@@ -56,7 +56,7 @@ export async function run({ interaction }: SlashCommandProps) {
           user: targetUser.username,
         }
       );
-      return interaction.followUp({ embeds: [embed], ephemeral: true });
+      return interaction.followUp({ embeds: [embed] });
     } else {
       const embed = await Embeds.createEmbed(
         guildId,
@@ -66,7 +66,7 @@ export async function run({ interaction }: SlashCommandProps) {
           invitedUsers: invitedUsersMentions.join(", "),
         }
       );
-      return interaction.followUp({ embeds: [embed], ephemeral: true });
+      return interaction.followUp({ embeds: [embed] });
     }
   } catch (error) {
     console.error(`Failed to get invited users for:`, error);

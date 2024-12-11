@@ -13,7 +13,7 @@ export default async function (
   try {
     const guildId = interaction.guildId!;
 
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply();
     const leaderboard = await db.leaderboards.getLeaderboard(
       guildId,
       leaderboardType
@@ -22,7 +22,6 @@ export default async function (
     if (!leaderboard || leaderboard.length === 0) {
       await interaction.followUp({
         embeds: [await Embeds.createEmbed(guildId, "leaderboards.view.empty")],
-        ephemeral: true,
       });
       return;
     }
@@ -44,7 +43,6 @@ export default async function (
           leaderboard: leaderboardMessage,
         }),
       ],
-      ephemeral: true,
     });
 
     switch (leaderboardType) {

@@ -145,7 +145,6 @@ export async function run({ interaction }: SlashCommandProps) {
     await interaction.reply({
       embeds: [await generateEmbed(currentPage, currentCategoryPage)],
       components: [row],
-      ephemeral: true,
     });
 
     const filter = (i: ButtonInteraction) =>
