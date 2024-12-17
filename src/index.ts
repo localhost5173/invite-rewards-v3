@@ -32,7 +32,7 @@ if (devMode) {
 
 // Define devGuildIds and devUserIds conditionally based on devMode
 const devConfig = {
-  devGuildIds: ["1280127706545000542", "1311352872117731399", "1313415357356183594"],
+  devGuildIds: ["1280127706545000542", "1311352872117731399", ],
   devUserIds: [
     "689150586636992526",
     "975766583446212648",

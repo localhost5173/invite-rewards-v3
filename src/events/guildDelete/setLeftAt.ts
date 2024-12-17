@@ -3,5 +3,11 @@ import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 
 export default async function (guild: Guild) {
-  db.guilds.updateGuild(guild);
+  try {
+    await db.guilds.setGuildLeft(guild);
+  } catch (error) {
+    cs.error(
+      "An error occurred while setting the guild as left in the database: " + error
+    );
+  }
 }
