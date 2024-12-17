@@ -4,7 +4,6 @@ import { cs } from "../../console/customConsole.js";
 
 export class guilds {
   static async updateGuild(guild: Guild) {
-    cs.log(`Storing guild data for ${guild.id} guilds`);
     await GuildModel.updateOne(
       { guildId: guild.id },
       {
