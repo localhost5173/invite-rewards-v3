@@ -4,7 +4,7 @@ import type {
   SlashCommandProps,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import { devMode } from "../../../index.js";
+import { devMode } from "../../../bot.js";
 import addFakeInvites from "./add.js";
 import removeFakeInvites from "./remove.js";
 import { cs } from "../../../utils/console/customConsole.js";

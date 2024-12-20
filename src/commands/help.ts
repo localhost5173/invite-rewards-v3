@@ -13,7 +13,7 @@ import {
 } from "discord.js";
 import { Embeds } from "../utils/embeds/embeds.js"
 import botconfig from "../../config.json" assert { type: "json" };
-import { devMode } from "../index.js";
+import { devMode } from "../bot.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 import { db } from "../utils/db/db.js";

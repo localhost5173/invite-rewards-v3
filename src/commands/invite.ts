@@ -3,7 +3,7 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { devMode } from "../index.js";
+import { devMode } from "../bot.js";
 import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import botconfig from "../../config.json" assert { type: "json" };

@@ -3,7 +3,7 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import { ApplicationCommandOptionType } from "discord.js";
 import setLanguage from "./set.js";
 import viewLanguage from "./view.js";

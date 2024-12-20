@@ -7,7 +7,7 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import addInviteReward from "./add.js";
 import removeReward from "./remove.js";
 import viewRewards from "./view.js";

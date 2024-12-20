@@ -5,7 +5,7 @@ import type {
 } from "commandkit";
 import { ApplicationCommandOptionType, PermissionFlagsBits, PermissionsBitField } from "discord.js";
 import { db } from "../../utils/db/db.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { UsageCommands } from "../../utils/db/models/usageModel.js";

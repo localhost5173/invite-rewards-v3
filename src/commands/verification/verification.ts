@@ -7,7 +7,7 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import setupVerification from "./setup.js";
 import disableVerification from "./disable.js";
 import { Embeds } from "../../utils/embeds/embeds.js";

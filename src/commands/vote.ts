@@ -5,7 +5,7 @@ import type {
 } from "commandkit";
 import { ActionRowBuilder, ButtonBuilder } from "@discordjs/builders";
 import { ButtonStyle } from "discord.js";
-import { devMode } from "../index.js";
+import { devMode } from "../bot.js";
 import { Embeds } from "../utils/embeds/embeds.js";
 import botconfig from "../../config.json" assert { type: "json" };
 import { cs } from "../utils/console/customConsole.js";
