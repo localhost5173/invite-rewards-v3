@@ -141,33 +141,44 @@ export class Giveaways {
     const giveawaysToEnd = await db.giveaways.getGiveawaysToEnd();
 
     for (const giveaway of giveawaysToEnd) {
-      cs.dev("Ending giveaway: " + giveaway.giveawayId);
+      // Determine which shard is responsible for the guild
+      const shardId = client.guilds.cache.get(giveaway.guildId)?.shardId;
 
-      const winners: string[] = [];
-      const entries = [...giveaway.entries]; // Create a copy of the entries array
-
-      // Ensure winners don't exceed the number of entries
-      const numberOfWinners = Math.min(
-        giveaway.numberOfWinners,
-        entries.length
-      );
-
-      for (let i = 0; i < numberOfWinners; i++) {
-        const randomIndex = Math.floor(Math.random() * entries.length);
-        const winner = entries.splice(randomIndex, 1)[0]; // Remove the selected winner from the entries array
-        winners.push(winner);
+      if (shardId === undefined) {
+        cs.error(`Shard ID not found for guild ${giveaway.guildId}`);
+        continue;
       }
 
-      // Mark giveaway as ended and save winners
-      await db.giveaways.setAsEnded(giveaway.guildId, giveaway.giveawayId);
-      await db.giveaways.setWinners(
-        giveaway.guildId,
-        giveaway.giveawayId,
-        winners
-      );
+      // Only end the giveaway on the responsible shard
+      if (client.shard?.ids.includes(shardId)) {
+        cs.dev("Ending giveaway: " + giveaway.giveawayId);
 
-      // Announce winners
-      await announceWinners(giveaway, winners);
+        const winners: string[] = [];
+        const entries = [...giveaway.entries]; // Create a copy of the entries array
+
+        // Ensure winners don't exceed the number of entries
+        const numberOfWinners = Math.min(
+          giveaway.numberOfWinners,
+          entries.length
+        );
+
+        for (let i = 0; i < numberOfWinners; i++) {
+          const randomIndex = Math.floor(Math.random() * entries.length);
+          const winner = entries.splice(randomIndex, 1)[0]; // Remove the selected winner from the entries array
+          winners.push(winner);
+        }
+
+        // Mark giveaway as ended and save winners
+        await db.giveaways.setAsEnded(giveaway.guildId, giveaway.giveawayId);
+        await db.giveaways.setWinners(
+          giveaway.guildId,
+          giveaway.giveawayId,
+          winners
+        );
+
+        // Announce winners
+        await announceWinners(giveaway, winners);
+      }
     }
   }
 

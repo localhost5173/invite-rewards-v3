@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Guild } from "discord.js";
 import { client, devMode } from "../../bot.js";
 import { cs } from "../console/customConsole.js";
 import { db } from "../db/db.js";
@@ -9,10 +11,14 @@ export default async function () {
   let totalMembers = 0;
 
   try {
-    // Fetch guild data from all shards of all clusters
-    const results = await client.cluster.broadcastEval((clusterClient) => {
-      // Collect guilds and member count from each shard in the cluster
-      const shardData = clusterClient.guilds.cache.map(guild => ({
+    // Fetch guild data from all shards
+    if (!client.shard) {
+      console.error("Shard client is not initialized.");
+      return;
+    }
+    const results = await client.shard.broadcastEval((shardClient: any) => {
+      // Collect guilds and member count from each shard
+      const shardData = shardClient.guilds.cache.map((guild: Guild) => ({
         guildId: guild.id,
         memberCount: guild.memberCount || 0
       }));
@@ -21,8 +27,8 @@ export default async function () {
     });
 
     // Flatten the results and aggregate the member counts and guilds
-    results.forEach(shardResult => {
-      shardResult.forEach(guild => {
+    results.forEach((shardResult: any) => {
+      shardResult.forEach((guild: any) => {
         allGuilds.push(guild.guildId);
         totalMembers += guild.memberCount; // Add member count
       });
@@ -30,7 +36,7 @@ export default async function () {
 
     cs.log("Total guilds fetched: " + allGuilds.length);
   } catch (error) {
-    console.error("Error fetching guild data from clusters:", error);
+    console.error("Error fetching guild data from shards:", error);
   }
 
   // Remove duplicates from the guilds list (in case any guilds were reported multiple times across shards)
