@@ -1,6 +1,6 @@
 import type { CommandData, SlashCommandProps, CommandOptions } from 'commandkit';
 import { ApplicationCommandOptionType } from 'discord.js';
-import { devMode } from '../../index.js';
+import { devMode } from '../../bot.js';
 import { db } from '../../utils/db/db.js';
 import { Embeds } from '../../utils/embeds/embeds.js';
 import { Helpers } from '../../utils/helpers/helpers.js';

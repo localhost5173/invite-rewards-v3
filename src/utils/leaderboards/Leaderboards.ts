@@ -1,5 +1,5 @@
 import { TextChannel } from "discord.js";
-import { client } from "../../index.js";
+import { client } from "../../bot.js";
 import { cs } from "../console/customConsole.js";
 import { db } from "../db/db.js";
 import { Embeds } from "../embeds/embeds.js";

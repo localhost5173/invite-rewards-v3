@@ -1,5 +1,5 @@
 import { PermissionFlagsBits } from "discord.js";
-import { client } from "../../index.js";
+import { client } from "../../bot.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
 

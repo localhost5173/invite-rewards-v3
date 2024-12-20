@@ -6,46 +6,60 @@ export default async function () {
   const now = new Date();
 
   try {
-    // Acquire lock for daily tasks
+    // Daily tasks reset
     const dailyLockAcquired = await db.locks.acquireLock("resetPastDueDailyTasks");
     if (dailyLockAcquired) {
-      const lastDailyReset = await db.resets.getLastDailyReset();
-      if (
-        !lastDailyReset ||
-        now.getTime() - new Date(lastDailyReset).getTime() > 24 * 60 * 60 * 1000
-      ) {
-        await Resets.resetDaily();
-        cs.log("Daily tasks reset successfully after downtime.");
+      try {
+        const lastDailyReset = await db.resets.getLastDailyReset();
+        if (
+          !lastDailyReset ||
+          now.getTime() - new Date(lastDailyReset).getTime() > 24 * 60 * 60 * 1000
+        ) {
+          await Resets.resetDaily();
+          cs.log("Daily tasks reset successfully after downtime.");
+        }
+      } catch (error) {
+        cs.error("Error during daily reset: " + error);
+      } finally {
+        await db.locks.releaseLock("resetPastDueDailyTasks");
       }
-      await db.locks.releaseLock("resetPastDueDailyTasks");
     }
 
-    // Acquire lock for weekly tasks
+    // Weekly tasks reset
     const weeklyLockAcquired = await db.locks.acquireLock("resetPastDueWeeklyTasks");
     if (weeklyLockAcquired) {
-      const lastWeeklyReset = await db.resets.getLastWeeklyReset();
-      if (
-        !lastWeeklyReset ||
-        now.getTime() - new Date(lastWeeklyReset).getTime() >
-          7 * 24 * 60 * 60 * 1000
-      ) {
-        await Resets.resetWeekly();
-        cs.log("Weekly tasks reset successfully after downtime.");
+      try {
+        const lastWeeklyReset = await db.resets.getLastWeeklyReset();
+        if (
+          !lastWeeklyReset ||
+          now.getTime() - new Date(lastWeeklyReset).getTime() > 7 * 24 * 60 * 60 * 1000
+        ) {
+          await Resets.resetWeekly();
+          cs.log("Weekly tasks reset successfully after downtime.");
+        }
+      } catch (error) {
+        cs.error("Error during weekly reset: " + error);
+      } finally {
+        await db.locks.releaseLock("resetPastDueWeeklyTasks");
       }
-      await db.locks.releaseLock("resetPastDueWeeklyTasks");
     }
 
-    // Acquire lock for monthly tasks
+    // Monthly tasks reset
     const monthlyLockAcquired = await db.locks.acquireLock("resetPastDueMonthlyTasks");
     if (monthlyLockAcquired) {
-      const lastMonthlyReset = await db.resets.getLastMonthlyReset();
-      const oneMonthAgo = new Date(now);
-      oneMonthAgo.setMonth(now.getMonth() - 1);
-      if (!lastMonthlyReset || new Date(lastMonthlyReset) < oneMonthAgo) {
-        await Resets.resetMonthly();
-        cs.log("Monthly tasks reset successfully after downtime.");
+      try {
+        const lastMonthlyReset = await db.resets.getLastMonthlyReset();
+        const oneMonthAgo = new Date(now);
+        oneMonthAgo.setMonth(now.getMonth() - 1);
+        if (!lastMonthlyReset || new Date(lastMonthlyReset) < oneMonthAgo) {
+          await Resets.resetMonthly();
+          cs.log("Monthly tasks reset successfully after downtime.");
+        }
+      } catch (error) {
+        cs.error("Error during monthly reset: " + error);
+      } finally {
+        await db.locks.releaseLock("resetPastDueMonthlyTasks");
       }
-      await db.locks.releaseLock("resetPastDueMonthlyTasks");
     }
   } catch (error) {
     cs.error("Error resetting tasks: " + error);

@@ -6,7 +6,7 @@ import {
   ModalSubmitInteraction,
 } from "discord.js";
 import axios from "axios";
-import { devMode } from "../index.js";
+import { devMode } from "../bot.js";
 import { Embeds } from "../utils/embeds/embeds.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 

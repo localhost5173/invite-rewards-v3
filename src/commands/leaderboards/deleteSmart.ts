@@ -8,7 +8,7 @@ import { ApplicationCommandOptionType } from "discord.js";
 import { db } from "../../utils/db/db.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { cs } from "../../utils/console/customConsole.js";
-import { devMode } from "../../index.js";
+import { devMode } from "../../bot.js";
 import { UsageCommands } from "../../utils/db/models/usageModel.js";
 
 export const data: CommandData = {
