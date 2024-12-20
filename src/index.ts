@@ -1,4 +1,4 @@
-import { ClusterManager, ClusterManagerOptions } from "discord-hybrid-sharding";
+import { ShardingManager } from "discord.js";
 import dotenv from "dotenv";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -21,32 +21,25 @@ if (!process.env.DEV_TOKEN || !process.env.PROD_TOKEN) {
 const devMode = process.env.NODE_ENV !== "production";
 const token = devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN;
 
-// Configure ClusterManager
-const clusterConfig = {
-  totalShards: devMode ? 5 : "auto", // Auto-calculated shards for production
-  shardsPerClusters: devMode ? 1 : 2, // Use more shards per cluster in production
-  mode: "process", // Use process mode
+// Configure ShardingManager
+const manager = new ShardingManager(`${__dirname}/bot.js`, {
+  totalShards: devMode ? 4 : "auto", // Auto-calculated shards for production
   token,
-};
-
-const manager = new ClusterManager(
-  `${__dirname}/bot.js`,
-  clusterConfig as ClusterManagerOptions
-);
-
-// Log cluster creation events
-manager.on("clusterCreate", (cluster) => {
-  console.log(`[Cluster Manager] Launched Cluster ${cluster.id}`);
 });
 
-// Spawn clusters with error handling
+// Log shard creation events
+manager.on("shardCreate", (shard) => {
+  console.log(`[Sharding Manager] Launched Shard ${shard.id}`);
+});
+
+// Spawn shards with error handling
 (async () => {
   try {
-    console.log("[Cluster Manager] Spawning clusters...");
+    console.log("[Sharding Manager] Spawning shards...");
     await manager.spawn({ timeout: -1 });
-    console.log("[Cluster Manager] All clusters launched successfully!");
+    console.log("[Sharding Manager] All shards launched successfully!");
   } catch (error) {
-    console.error("[Cluster Manager] Failed to launch clusters:", error);
+    console.error("[Sharding Manager] Failed to launch shards:", error);
     process.exit(1); // Exit the process with failure
   }
 })();
