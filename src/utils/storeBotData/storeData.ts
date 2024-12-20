@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Guild } from "discord.js";
 import { client, devMode } from "../../bot.js";
 import { cs } from "../console/customConsole.js";
