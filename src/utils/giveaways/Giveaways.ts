@@ -145,7 +145,6 @@ export class Giveaways {
       const shardId = client.guilds.cache.get(giveaway.guildId)?.shardId;
 
       if (shardId === undefined) {
-        cs.error(`Shard ID not found for guild ${giveaway.guildId}`);
         continue;
       }
 
