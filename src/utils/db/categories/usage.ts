@@ -27,18 +27,22 @@ export class usage {
   }
 
   static async logCommand(interaction: ChatInputCommandInteraction) {
-    if (!interaction.guildId) return;
-
     // Construct the full command with options and values
     const fullCommand = constructFullCommand(interaction);
 
     const newCommandLog = new CommandLogModel({
       guildId: interaction.guildId,
+      userId: interaction.user.id,
       command: interaction.commandName,
       fullCommand,
     });
 
     await newCommandLog.save();
+  }
+
+  // Get amount of total commands used by a user
+  static getTotalUserCommands(userId: string) {
+    return CommandLogModel.countDocuments({ userId });
   }
 }
 

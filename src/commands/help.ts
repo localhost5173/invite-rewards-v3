@@ -41,17 +41,16 @@ export const data: CommandData = {
 
 export async function run({ interaction }: SlashCommandProps) {
   try {
-    if (!interaction.guild) return;
 
     const categories: Categories = await Embeds.getJson(
-      interaction.guild.id,
+       interaction.guild?.id || null,
       "help.commands"
     );
 
     if (interaction.channel instanceof PartialGroupDMChannel) {
       return interaction.reply({
         embeds: [
-          await Embeds.createEmbed(interaction.guild.id, "general.noGroupDm"),
+          await Embeds.createEmbed(interaction.guild?.id || null, "general.noGroupDm"),
         ],
         ephemeral: true,
       });
