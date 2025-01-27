@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Guild } from "discord.js";
 import { client, devMode } from "../../bot.js";
 import { cs } from "../console/customConsole.js";
@@ -7,8 +6,7 @@ import { db } from "../db/db.js";
 export default async function () {
   if (devMode) return;
 
-  let allGuilds: any = [];
-  let totalMembers = 0;
+  const uniqueGuilds = new Map<string, Guild>();
 
   try {
     // Fetch guild data from all shards
@@ -16,45 +14,37 @@ export default async function () {
       console.error("Shard client is not initialized.");
       return;
     }
-    const results = await client.shard.broadcastEval((shardClient: any) => {
-      // Collect guilds and member count from each shard
-      const shardData = shardClient.guilds.cache.map((guild: Guild) => ({
-        guildId: guild.id,
-        memberCount: guild.memberCount || 0
-      }));
 
-      return shardData;
+    const results = await client.shard.broadcastEval((shardClient) => {
+      return shardClient.guilds.cache;
     });
 
     // Flatten the results and aggregate the member counts and guilds
-    results.forEach((shardResult: any) => {
-      shardResult.forEach((guild: any) => {
-        allGuilds.push(guild.guildId);
-        totalMembers += guild.memberCount; // Add member count
+    results.forEach((result) => {
+      result.forEach((guild: Guild) => {
+        uniqueGuilds.set(guild.id, guild);
       });
     });
 
-    cs.log("Total guilds fetched: " + allGuilds.length);
+    cs.log("Total guilds fetched: " + uniqueGuilds.size);
   } catch (error) {
     console.error("Error fetching guild data from shards:", error);
   }
 
-  // Remove duplicates from the guilds list (in case any guilds were reported multiple times across shards)
-  allGuilds = [...new Set(allGuilds)];
-
   // Now fetch full data for each guild (if not already)
-  for (const guildId of allGuilds) {
+  for (const guild of uniqueGuilds.values()) {
     try {
-      // Fetch full guild data by ID
-      const fullGuild = await client.guilds.fetch(guildId);
-      await db.guilds.updateGuild(fullGuild);
+      await db.guilds.updateGuild(guild);
     } catch (error) {
-      console.error(`Failed to fetch full guild data for ${guildId}:`, error);
+      console.error(`Failed to fetch full guild data:`, error);
     }
   }
 
+  const dbGuilds = await db.guilds.getGuilds();
+  const totalMembers = dbGuilds.reduce((acc, guild) => acc + guild.memberCount, 0);
+
   const data = {
-    serverCount: allGuilds.length,
+    serverCount: uniqueGuilds.size,
     userCount: totalMembers,
     timestamp: new Date().toISOString(), // Add timestamp for time-series data
   };
