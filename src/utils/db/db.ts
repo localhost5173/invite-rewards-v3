@@ -27,6 +27,7 @@ import serviceAccount from "../storeBotData/invite-rewards-frontend-firebase-adm
 import admin from "firebase-admin";
 import { usage } from "./categories/usage.js";
 import { guilds } from "./categories/guilds.js";
+import { ads } from "./categories/ads.js";
 
 type Firestore = admin.firestore.Firestore | null;
 
@@ -44,6 +45,7 @@ export class db {
   static giveaways = giveaways;
   static usage = usage;
   static guilds = guilds;
+  static ads = ads;
   static firestore: Firestore = null;
 
   static async connectToDatabase(): Promise<void> {
