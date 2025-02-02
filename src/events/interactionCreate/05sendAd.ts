@@ -23,7 +23,7 @@ export default async function (interaction: Interaction) {
           "**Here’s how you can support development:**\n" +
           "1️⃣ **Consider supporting the project directly!**\n" +
           "[Click here to support me!](https://buymeacoffee.com/localhost5173) 💖 Every contribution helps keep the bot running and improving for everyone.\n\n" +
-          "2️⃣ **Try out my [Chrome Extension](https://chrome.google.com/webstore/detail/your-extension-id)!**\n" +
+          "2️⃣ **Try out my [Chrome Extension](https://chromewebstore.google.com/detail/youtube-shortener/koajbjhejaiiahbfpbigibbmgodglagd?hl=en-US&utm_source=ext_sidebar)!**\n" +
           "Using it and sharing feedback directly helps me improve both the bot and the extension.\n\n" +
           "Every bit of support, whether it’s donations or feedback, helps make **Invite Rewards** even better! 🚀"
         )
