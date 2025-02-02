@@ -12,9 +12,10 @@ export default async function (interaction: Interaction) {
 
     const totalCommandUses = await db.usage.getTotalUserCommands(userId);
 
-    console.log("total: " + totalCommandUses);
+    console.log("total uses for " + userId + ":" + totalCommandUses);
 
-    if (totalCommandUses == 2 || (totalCommandUses % 10 == 0 && totalCommandUses != 0)) {
+    if (totalCommandUses == 2 || (totalCommandUses % 5 == 0 && totalCommandUses != 0)) {
+      console.log("sending ad to " + userId);
       const embed = new EmbedBuilder()
         .setColor(0xFFD700) // Gold
         .setTitle("🌟 Thank You for Using Invite Rewards! 🌟")
