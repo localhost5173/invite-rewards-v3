@@ -12,7 +12,7 @@ import {
   PartialGroupDMChannel,
 } from "discord.js";
 import { Embeds } from "../utils/embeds/embeds.js"
-import botconfig from "../../config.json" assert { type: "json" };
+import botconfig from "../../config.json" with { type: "json" };
 import { devMode } from "../bot.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";

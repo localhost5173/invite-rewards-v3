@@ -1,7 +1,7 @@
 import { EmbedBuilder, Interaction } from "discord.js";
 import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
-import botConfig from "../../../config.json" assert { type: "json" };
+import botConfig from "../../../config.json" with { type: "json" };
 
 export default async function (interaction: Interaction) {
   if (!interaction.isCommand()) return;

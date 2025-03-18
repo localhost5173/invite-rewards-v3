@@ -23,7 +23,7 @@ import UsedInviteModel from "./models/usedInvites.js";
 import UserInvitesModel from "./models/userInvites.js";
 import VerificationModel from "./models/verification.js";
 import WelcomerModel from "./models/welcomer.js";
-import serviceAccount from "../storeBotData/invite-rewards-frontend-firebase-adminsdk-3xdcs-c34d02b3d8.json" assert { type: "json" };
+import serviceAccount from "../storeBotData/invite-rewards-frontend-firebase-adminsdk-3xdcs-c34d02b3d8.json" with { type: "json" };
 import admin from "firebase-admin";
 import { usage } from "./categories/usage.js";
 import { guilds } from "./categories/guilds.js";
