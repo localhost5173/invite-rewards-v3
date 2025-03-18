@@ -4,7 +4,7 @@ import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { AutoPoster } from "topgg-autoposter";
-import config from "../config.json" assert { type: "json" };
+import config from "../config.json" with { type: "json" };
 import { cs } from "./utils/console/customConsole.js";
 import { db } from "./utils/db/db.js";
 import { Giveaways } from "./utils/giveaways/Giveaways.js";

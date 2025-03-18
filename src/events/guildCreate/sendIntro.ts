@@ -1,7 +1,7 @@
 import { Guild } from "discord.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
-import botconfig from "../../../config.json" assert { type: "json" };
+import botconfig from "../../../config.json" with { type: "json" };
 
 export default async function (guild: Guild) {
     try {

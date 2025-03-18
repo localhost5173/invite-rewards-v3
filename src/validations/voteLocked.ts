@@ -1,5 +1,5 @@
 import type { ValidationProps } from "commandkit";
-import botconfig from "../../config.json" assert { type: "json" };
+import botconfig from "../../config.json" with { type: "json" };
 import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import { cs } from "../utils/console/customConsole.js";

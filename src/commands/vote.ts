@@ -7,7 +7,7 @@ import { ActionRowBuilder, ButtonBuilder } from "@discordjs/builders";
 import { ButtonStyle } from "discord.js";
 import { devMode } from "../bot.js";
 import { Embeds } from "../utils/embeds/embeds.js";
-import botconfig from "../../config.json" assert { type: "json" };
+import botconfig from "../../config.json" with { type: "json" };
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 import { db } from "../utils/db/db.js";
