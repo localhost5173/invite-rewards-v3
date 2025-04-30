@@ -36,10 +36,7 @@ export class Giveaways {
     const entries = [...giveaway.entries]; // Create a copy of the entries array
 
     // Ensure winners don't exceed the number of entries
-    const numberOfWinners = Math.min(
-      giveaway.numberOfWinners,
-      entries.length
-    );
+    const numberOfWinners = Math.min(giveaway.numberOfWinners, entries.length);
 
     for (let i = 0; i < numberOfWinners; i++) {
       const randomIndex = Math.floor(Math.random() * entries.length);
@@ -186,117 +183,150 @@ export class Giveaways {
 
     // Mark giveaway as ended and save winners
     await db.giveaways.setAsEnded(giveaway.guildId, giveaway.giveawayId);
-    await db.giveaways.setWinners(giveaway.guildId, giveaway.giveawayId, winners);
+    await db.giveaways.setWinners(
+      giveaway.guildId,
+      giveaway.giveawayId,
+      winners
+    );
 
     // Announce winners
     await announceWinners(giveaway, winners, false, true);
   }
 }
 
-async function announceWinners(giveaway: GiveawayDocument, winners: string[], reroll = false, endTimeNow = false) {
-  cs.log(winners);
+async function announceWinners(
+  giveaway: GiveawayDocument,
+  winners: string[],
+  reroll = false,
+  endTimeNow = false
+) {
+  try {
+    cs.log(winners);
 
-  const guild =
-    client.guilds.cache.get(giveaway.guildId) ||
-    (await client.guilds.fetch(giveaway.guildId));
+    let guild;
+    try {
+      guild =
+        client.guilds.cache.get(giveaway.guildId) ||
+        (await client.guilds.fetch(giveaway.guildId));
+    } catch (error) {
+      cs.error(
+        "Error fetching guild while announcing winners, not present?: " + error
+      );
+      return;
+    }
 
-  const channel = (guild.channels.cache.get(giveaway.channelId) ||
-    (await guild.channels.fetch(giveaway.channelId))) as TextBasedChannel;
+    const channel = (guild.channels.cache.get(giveaway.channelId) ||
+      (await guild.channels.fetch(giveaway.channelId))) as TextBasedChannel;
 
-  if (!channel) return;
-  const message = await channel.messages.fetch(giveaway.messageId);
+    if (!channel) return;
+    const message = await channel.messages.fetch(giveaway.messageId);
 
-  let endTimeUnix = Math.floor(giveaway.endTime.getTime() / 1000);
+    let endTimeUnix = Math.floor(giveaway.endTime.getTime() / 1000);
 
-  if (endTimeNow) {
-    endTimeUnix = Math.floor(Date.now() / 1000);
-  }
+    if (endTimeNow) {
+      endTimeUnix = Math.floor(Date.now() / 1000);
+    }
 
-  const winnersString =
-    winners.map((winner) => `<@${winner}>`).join(", ") || "No winners";
+    const winnersString =
+      winners.map((winner) => `<@${winner}>`).join(", ") || "No winners";
 
-  const replacements = {
-    description: giveaway.description,
-    prize: giveaway.prize,
-    host: `<@${giveaway.hostId}>`,
-    endedTimestamp: `<t:${endTimeUnix}:R> <t:${endTimeUnix}:F>`,
-    entries: giveaway.entries.length.toString(),
-    giveawayId: giveaway.giveawayId.toString(),
-    winners: winnersString,
-  };
+    const replacements = {
+      description: giveaway.description,
+      prize: giveaway.prize,
+      host: `<@${giveaway.hostId}>`,
+      endedTimestamp: `<t:${endTimeUnix}:R> <t:${endTimeUnix}:F>`,
+      entries: giveaway.entries.length.toString(),
+      giveawayId: giveaway.giveawayId.toString(),
+      winners: winnersString,
+    };
 
-  const embed = await GiveawayEmbedBuilder.build(
-    giveaway.guildId,
-    "giveawayEnded",
-    replacements
-  );
+    const embed = await GiveawayEmbedBuilder.build(
+      giveaway.guildId,
+      "giveawayEnded",
+      replacements
+    );
 
-  if (giveaway.rewardRoleId) {
-    const rewardRole =
-      guild.roles.cache.get(giveaway.rewardRoleId) ||
-      (await guild.roles.fetch(giveaway.rewardRoleId));
-    if (rewardRole) {
+    if (giveaway.rewardRoleId) {
+      const rewardRole =
+        guild.roles.cache.get(giveaway.rewardRoleId) ||
+        (await guild.roles.fetch(giveaway.rewardRoleId));
+      if (rewardRole) {
+        embed.addFields({
+          name: "Reward Role",
+          value: `<@&${rewardRole.id}>`,
+          inline: true,
+        });
+      }
+    }
+
+    if (giveaway.inviteRequirement) {
       embed.addFields({
-        name: "Reward Role",
-        value: `<@&${rewardRole.id}>`,
+        name: "Invite Requirement",
+        value: giveaway.inviteRequirement.toString(),
         inline: true,
       });
     }
-  }
 
-  if (giveaway.inviteRequirement) {
-    embed.addFields({
-      name: "Invite Requirement",
-      value: giveaway.inviteRequirement.toString(),
-      inline: true,
-    });
-  }
+    await message.edit({ embeds: [embed] });
 
-  await message.edit({ embeds: [embed] });
+    const mentionWinners = winners.map((winner) => `<@${winner}>`).join(", ");
 
-  const mentionWinners = winners.map((winner) => `<@${winner}>`).join(", ");
-
-  if (winners.length !== 0 && !reroll
-  ) {
-    await (channel as TextChannel).send({
-      embeds: [
-        await Embeds.createEmbed(giveaway.guildId, "giveaways.giveawayWon", {
-          prize: giveaway.prize,
-          mentionWinners: mentionWinners,
-        })
-      ]
-    });
-  }
-
-  if (winners.length !== 0 && reroll) {
-    await (channel as TextChannel).send({
-      embeds: [
-        await Embeds.createEmbed(giveaway.guildId, "giveaways.giveawayRerolledWon", {
-          prize: giveaway.prize,
-          mentionWinners: mentionWinners,
-        })
-      ]
-    });
-  }
-
-  if (giveaway.rewardRoleId) {
-    for (const winner of winners) {
-      await giveRewardRole(giveaway.guildId, winner, giveaway.rewardRoleId);
+    if (winners.length !== 0 && !reroll) {
+      await (channel as TextChannel).send({
+        embeds: [
+          await Embeds.createEmbed(giveaway.guildId, "giveaways.giveawayWon", {
+            prize: giveaway.prize,
+            mentionWinners: mentionWinners,
+          }),
+        ],
+      });
     }
+
+    if (winners.length !== 0 && reroll) {
+      await (channel as TextChannel).send({
+        embeds: [
+          await Embeds.createEmbed(
+            giveaway.guildId,
+            "giveaways.giveawayRerolledWon",
+            {
+              prize: giveaway.prize,
+              mentionWinners: mentionWinners,
+            }
+          ),
+        ],
+      });
+    }
+
+    if (giveaway.rewardRoleId) {
+      for (const winner of winners) {
+        await giveRewardRole(giveaway.guildId, winner, giveaway.rewardRoleId);
+      }
+    }
+  } catch (error) {
+    cs.error("Error announcing winners: " + error);
   }
 }
 
-async function giveRewardRole(guildId: string, userId: string, rewardRoleId: string) {
+async function giveRewardRole(
+  guildId: string,
+  userId: string,
+  rewardRoleId: string
+) {
   const guild =
     client.guilds.cache.get(guildId) || (await client.guilds.fetch(guildId));
   const member = await guild.members.fetch(userId);
 
-  const rewardRole = guild.roles.cache.get(rewardRoleId) || (await guild.roles.fetch(rewardRoleId));
+  const rewardRole =
+    guild.roles.cache.get(rewardRoleId) ||
+    (await guild.roles.fetch(rewardRoleId));
 
   if (!rewardRole) return;
 
   const bot = guild.members.me;
-  if (!bot) return cs.dev("Bot not found in guild while handling giveaway reward roles");
+  if (!bot)
+    return cs.dev(
+      "Bot not found in guild while handling giveaway reward roles"
+    );
   if (!bot.permissions.has(PermissionFlagsBits.ManageRoles)) {
     cs.dev(
       "Bot does not have the necessary permissions to manage roles while giving reward role"

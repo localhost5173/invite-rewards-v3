@@ -28,11 +28,11 @@ if (devMode) {
   cs.info("Running in development mode.");
 } else {
   cs.danger("Running in production mode.");
-}
+}          
 
 // Define devGuildIds and devUserIds conditionally based on devMode
 const devConfig = {
-  devGuildIds: ["1280127706545000542", "1311352872117731399", ],
+  devGuildIds: ["1280127706545000542", "1311352872117731399"],
   devUserIds: [
     "689150586636992526",
     "975766583446212648",

@@ -11,6 +11,7 @@ import { rewards } from "./categories/rewards.js";
 import { reactionRoles } from "./categories/reactionRoles.js";
 import { resets } from "./categories/resets.js";
 import { giveaways } from "./categories/giveaways.js";
+import { ads } from "./categories/ads.js";
 import AutoRolesModel from "./models/autoRoles.js";
 import GiveawayModel from "./models/giveaway.js";
 import CounterModel from "./models/giveawayCounters.js";
@@ -44,6 +45,7 @@ export class db {
   static giveaways = giveaways;
   static usage = usage;
   static guilds = guilds;
+  static ads = ads;
   static firestore: Firestore = null;
 
   static async connectToDatabase(): Promise<void> {
