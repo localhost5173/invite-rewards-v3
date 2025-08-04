@@ -1,23 +1,23 @@
-# Use the official Node.js 18 image as the base image
-FROM node:18
+# Dockerfile
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+FROM node:20
 
-# Copy package.json and package-lock.json (if present) for caching dependencies
+WORKDIR /app
+
+# Copy package files and install dependencies
 COPY package*.json ./
-
-# Install project dependencies
 RUN npm install
 
-# Copy the rest of your project files into the container
+# Copy TypeScript config, config.json and source code
+COPY tsconfig.json ./
+COPY config.json ./
+COPY src ./src
+
+# Build the TypeScript project
+RUN npm run build
+
+# Copy other necessary files (if any)
 COPY . .
 
-# Make run.sh executable
-RUN chmod +x run.sh
-
-# Expose port if your application listens on one (example: 3000)
-EXPOSE 3000
-
-# Run the script to build, copy files, and start the watch process
-CMD ["./run.sh"]
+# Start the app
+CMD ["node", "dist/src/index.js"]

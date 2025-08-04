@@ -6,7 +6,7 @@ import type {
 import { ApplicationCommandOptionType } from "discord.js";
 import viewLeaderboard from "./view.js";
 import createSmart from "./createSmart.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 
 export const data: CommandData = {
   name: "leaderboard",
@@ -108,7 +108,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["SendMessages"],
   botPermissions: ["SendMessages", "EmbedLinks", "ManageMessages"],
   deleted: false,

@@ -8,7 +8,7 @@ import {
   ApplicationCommandOptionType,
 } from "discord.js";
 import giveawayCreate from "./giveaway-create.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
 import { cs } from "../../utils/console/customConsole.js";
 import giveawayDelete from "./giveaway-delete.js";
@@ -140,7 +140,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["ManageGuild"],
   botPermissions: [
     "ManageRoles",

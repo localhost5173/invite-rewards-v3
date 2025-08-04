@@ -13,7 +13,7 @@ import {
 } from "discord.js";
 import { Embeds } from "../utils/embeds/embeds.js"
 import botconfig from "../../config.json" with { type: "json" };
-import { devMode } from "../bot.js";
+import { devMode } from "../index.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 import { db } from "../utils/db/db.js";
@@ -224,7 +224,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: [],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

@@ -3,7 +3,7 @@ import type {
   SlashCommandProps,
   CommandOptions,
 } from "commandkit";
-import { devMode } from "../bot.js";
+import { devMode } from "../index.js";
 import { Embeds } from "../utils/embeds/embeds.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
 import botconfig from "../../config.json" with { type: "json" };
@@ -64,7 +64,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: [],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

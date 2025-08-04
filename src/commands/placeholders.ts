@@ -5,7 +5,7 @@ import type {
 } from "commandkit";
 import { Embeds } from "../utils/embeds/embeds.js";
 import { db } from "../utils/db/db.js";
-import { devMode } from "../bot.js";
+import { devMode } from "../index.js";
 import { cs } from "../utils/console/customConsole.js";
 import { Helpers } from "../utils/helpers/helpers.js";
 import { UsageCommands } from "../utils/db/models/usageModel.js";
@@ -77,7 +77,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: [],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

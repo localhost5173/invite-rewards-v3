@@ -1,5 +1,5 @@
 {
-  "dev": true,
+  "dev": false,
   "bot": {
     "logo": "https://invite-rewards.xyz/logo.png",
     "server": "https://discord.gg/7Q9nheNq2M",

@@ -1,45 +1,95 @@
-import { ShardingManager } from "discord.js";
 import dotenv from "dotenv";
-import { dirname } from "path";
+import { Client, GatewayIntentBits } from "discord.js";
+import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
-
-// Load environment variables
+import { dirname } from "path";
+import { AutoPoster } from "topgg-autoposter";
+import config from "../config.json" assert { type: "json" };
+import { cs } from "./utils/console/customConsole.js";
+import { db } from "./utils/db/db.js";
+import { Giveaways } from "./utils/giveaways/Giveaways.js";
 dotenv.config({ path: ".env" });
 
-// Helper variables for resolving paths
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Validate essential environment variables
-if (!process.env.DEV_TOKEN || !process.env.PROD_TOKEN) {
-  throw new Error(
-    "Missing DEV_TOKEN or PROD_TOKEN in environment variables. Please check your .env file."
-  );
+export const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildMessages,
+  ],
+});
+
+export const devMode = config.dev;
+console.log("devMode", devMode);
+if (devMode) {
+  cs.info("Running in development mode.");
+} else {
+  cs.danger("Running in production mode.");
+}          
+
+// Define devGuildIds and devUserIds conditionally based on devMode
+const devConfig = {
+  devGuildIds: [],
+  devUserIds: [],
+};
+
+// Global exception handlers
+process.on('uncaughtException', (error) => {
+  cs.error(`Uncaught Exception: ${error}`);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  cs.error(`Unhandled Rejection at ${promise}: ${reason}`);
+});
+
+// Handle client and shard errors
+client.on('error', (error) => {
+  cs.error(`Client Error: ${error}`);
+});
+client.on('shardError', (error) => {
+  cs.error(`Shard Error: ${error}`);
+});
+
+// Initialte commandkit
+new CommandKit({
+  client,
+  devGuildIds: devMode ? devConfig.devGuildIds : [],
+  devUserIds: devMode ? devConfig.devUserIds : [],
+  eventsPath: `${__dirname}/events`,
+  commandsPath: `${__dirname}/commands`,
+  validationsPath: `${__dirname}/validations`,
+});
+
+// Connect to database first, then login
+async function startBot() {
+  try {
+    await db.connectToDatabase();
+    await db.initializeFirestore();
+    await client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
+    
+    // Start giveaway checking after successful database connection
+    setInterval(async () => {
+      await Giveaways.checkForEndedGiveaways();
+    }, 1000 * 10);
+    
+  } catch (error) {
+    cs.error(`Error while connecting to MongoDB: ${error}`);
+    process.exit(1);
+  }
 }
 
-// Determine mode and token
-const devMode = process.env.NODE_ENV !== "production";
-const token = devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN;
+startBot();
 
-// Configure ShardingManager
-const manager = new ShardingManager(`${__dirname}/bot.js`, {
-  totalShards: devMode ? 4 : "auto", // Auto-calculated shards for production
-  token,
-});
-
-// Log shard creation events
-manager.on("shardCreate", (shard) => {
-  console.log(`[Sharding Manager] Launched Shard ${shard.id}`);
-});
-
-// Spawn shards with error handling
-(async () => {
+// Handle top.gg autoposter
+if (!devMode) {
   try {
-    console.log("[Sharding Manager] Spawning shards...");
-    await manager.spawn({ timeout: -1 });
-    console.log("[Sharding Manager] All shards launched successfully!");
+    const autoPoster = AutoPoster(process.env.TOPGG_TOKEN || "", client);
+    autoPoster.on("posted", () => {
+      cs.success("Server count posted successfully.");
+    });
   } catch (error) {
-    console.error("[Sharding Manager] Failed to launch shards:", error);
-    process.exit(1); // Exit the process with failure
+    cs.error(`Error posting server count: ${error}`);
   }
-})();
+}

@@ -4,7 +4,7 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
@@ -80,7 +80,7 @@ function extractInviteCode(link: string): string {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["ManageGuild"],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

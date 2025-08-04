@@ -1,0 +1,34 @@
+services:
+  invite-rewards:
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: on-failure
+    build: .
+    container_name: invite-rewards
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/invite-rewards
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs.txt:/app/logs.txt
+
+  mongo:
+    image: mongo:6
+    container_name: invite-rewards-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
+
+volumes:
+  mongo_data:

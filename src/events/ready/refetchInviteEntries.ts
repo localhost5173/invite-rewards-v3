@@ -1,10 +1,20 @@
 import { PermissionFlagsBits } from "discord.js";
-import { client } from "../../bot.js";
+import { client } from "../../index.js";
 import { cs } from "../../utils/console/customConsole.js";
 import { db } from "../../utils/db/db.js";
 
 export default async function () {
   cs.log("Refetching invite entries...");
+
+  // Wait for database connection
+  if (!db.isConnected()) {
+    cs.warn("Database not connected yet, waiting...");
+    const connected = await db.waitForConnection(30000);
+    if (!connected) {
+      cs.error("Database connection timeout, skipping invite entries refetch");
+      return;
+    }
+  }
 
   try {
     const oauth2Guilds = await client.guilds.fetch();

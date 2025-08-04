@@ -7,7 +7,7 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 import removeAutoRole from "./remove.js";
 import addAutoRole from "./add.js";
 import viewAutoRoles from "./view.js";
@@ -87,7 +87,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["ManageRoles"],
   botPermissions: ["SendMessages", "EmbedLinks", "ManageRoles"],
   deleted: false,

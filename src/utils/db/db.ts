@@ -29,6 +29,9 @@ import { usage } from "./categories/usage.js";
 import { guilds } from "./categories/guilds.js";
 import { ads } from "./categories/ads.js";
 
+// Configure Mongoose globally
+mongoose.set('bufferCommands', false);
+
 type Firestore = admin.firestore.Firestore | null;
 
 export class db {
@@ -48,14 +51,56 @@ export class db {
   static ads = ads;
   static firestore: Firestore = null;
 
+  static isConnected(): boolean {
+    return mongoose.connection.readyState === 1;
+  }
+
+  static async waitForConnection(timeoutMs: number = 30000): Promise<boolean> {
+    const startTime = Date.now();
+    while (!this.isConnected() && (Date.now() - startTime) < timeoutMs) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    return this.isConnected();
+  }
+
   static async connectToDatabase(): Promise<void> {
-    try {
-      await mongoose.connect(process.env.MONGODB_URI || "", {
-        dbName: "invite-rewards",
-      });
-      cs.info("Connected to MongoDB");
-    } catch (error) {
-      cs.info("Error while connecting to MongoDB: " + error);
+    const uri = process.env.MONGODB_URI || "";
+    if (!uri) {
+      throw new Error("MONGODB_URI environment variable is not set");
+    }
+    
+    let attempt = 0;
+    const maxAttempts = 10;
+    
+    while (attempt < maxAttempts) {
+      attempt++;
+      try {
+        await mongoose.connect(uri, { 
+          dbName: "invite-rewards",
+          serverSelectionTimeoutMS: 10000, // 10 seconds
+          socketTimeoutMS: 45000, // 45 seconds
+          bufferCommands: false, // Disable mongoose buffering
+          maxPoolSize: 10, // Maintain up to 10 socket connections
+          minPoolSize: 5, // Maintain a minimum of 5 socket connections
+          maxIdleTimeMS: 30000, // Close connections after 30 seconds of inactivity
+          waitQueueTimeoutMS: 10000, // Wait up to 10 seconds for a connection to be available
+        });
+        cs.info("Connected to MongoDB");
+        
+        // Test the connection
+        if (mongoose.connection.db) {
+          await mongoose.connection.db.admin().ping();
+          cs.success("MongoDB connection verified");
+        }
+        break;
+      } catch (error) {
+        cs.error(`MongoDB connection attempt ${attempt}/${maxAttempts} failed: ${error}`);
+        if (attempt >= maxAttempts) {
+          throw new Error(`Failed to connect to MongoDB after ${maxAttempts} attempts`);
+        }
+        // wait 3 seconds before retrying
+        await new Promise((res) => setTimeout(res, 3000));
+      }
     }
   }
 

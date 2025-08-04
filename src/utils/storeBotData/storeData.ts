@@ -1,5 +1,5 @@
 import { Guild } from "discord.js";
-import { client, devMode } from "../../bot.js";
+import { client, devMode } from "../../index.js";
 import { cs } from "../console/customConsole.js";
 import { db } from "../db/db.js";
 

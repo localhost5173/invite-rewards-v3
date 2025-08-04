@@ -1,6 +1,6 @@
 import { Console } from "console";
 import chalk from "chalk";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 
 class CustomConsole extends Console {
   constructor() {

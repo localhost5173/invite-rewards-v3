@@ -15,7 +15,7 @@ export default async function ({ interaction, commandObj }: ValidationProps) {
         cs.dev("User has not voted");
         const voteTranslation = await Embeds.getStringTranslation(
           guildId,
-          "validations.voteTranslation"
+          "validations.voteTranslation",
         );
         // Create a vote button
         const voteButton = new ButtonBuilder()
@@ -25,7 +25,7 @@ export default async function ({ interaction, commandObj }: ValidationProps) {
 
         // Create an action row with the vote button
         const actionRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
-          voteButton
+          voteButton,
         );
         if ("reply" in interaction) {
           // Reply with an error embed if the user has not voted
@@ -49,24 +49,26 @@ export default async function ({ interaction, commandObj }: ValidationProps) {
 
 // Function to check if the user has voted
 async function hasVoted(userId: string): Promise<boolean> {
-  const token = process.env.TOPGG_TOKEN;
-  if (!token) throw new Error("TOPGG_TOKEN is not defined");
+  // const token = process.env.TOPGG_TOKEN;
+  // if (!token) throw new Error("TOPGG_TOKEN is not defined");
 
-  try {
-    const response = await fetch(
-      `https://top.gg/api/bots/${botconfig.bot.topBotId}/check?userId=${userId}`,
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
-
-    const data = await response.json();
-
-    return data.voted;
-  } catch (error) {
-    console.error(`Error in hasVoted function: ${error}`);
-    throw error;
-  }
+  // try {
+  //  const response = await fetch(
+  //    `https://top.gg/api/bots/${botconfig.bot.topBotId}/check?userId=${userId}`,
+  //    {
+  //      headers: {
+  //        Authorization: token,
+  //      },
+  //    }
+  //  );
+  //
+  //   const data = await response.json();
+  //
+  //  return data.voted;
+  // } catch (error) {
+  //  console.error(`Error in hasVoted function: ${error}`);
+  //  throw error;
+  //}
+  //
+  return true; // Bypass vote lock
 }

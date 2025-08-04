@@ -4,7 +4,7 @@ import type {
   CommandOptions,
 } from "commandkit";
 import { ApplicationCommandOptionType } from "discord.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 import { db } from "../../utils/db/db.js";
 import { Embeds } from "../../utils/embeds/embeds.js";
 import { Helpers } from "../../utils/helpers/helpers.js";
@@ -75,7 +75,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["ManageGuild"],
   botPermissions: ["SendMessages", "EmbedLinks"],
   deleted: false,

@@ -3,6 +3,16 @@ import { cs } from "../../utils/console/customConsole.js";
 import { Resets } from "../../utils/resets/Resets.js";
 
 export default async function () {
+  // Wait for database connection
+  if (!db.isConnected()) {
+    cs.warn("Database not connected yet, waiting...");
+    const connected = await db.waitForConnection(30000);
+    if (!connected) {
+      cs.error("Database connection timeout, skipping reset tasks");
+      return;
+    }
+  }
+
   const now = new Date();
 
   try {

@@ -1,5 +1,5 @@
 import { PermissionFlagsBits, TextBasedChannel, TextChannel } from "discord.js";
-import { client } from "../../bot.js";
+import { client } from "../../index.js";
 import { db } from "../db/db.js";
 import { GiveawayDocument } from "../db/models/giveaway.js";
 import { cs } from "../console/customConsole.js";
@@ -138,7 +138,14 @@ export class Giveaways {
   }
 
   static async checkForEndedGiveaways() {
-    const giveawaysToEnd = await db.giveaways.getGiveawaysToEnd();
+    // Wait for database connection
+    if (!db.isConnected()) {
+      cs.warn("Database not connected yet, skipping giveaway check");
+      return;
+    }
+
+    try {
+      const giveawaysToEnd = await db.giveaways.getGiveawaysToEnd();
 
     for (const giveaway of giveawaysToEnd) {
       // Determine which shard is responsible for the guild
@@ -178,6 +185,9 @@ export class Giveaways {
         // Announce winners
         await announceWinners(giveaway, winners);
       }
+    }
+    } catch (error) {
+      cs.error(`Error checking for ended giveaways: ${error}`);
     }
   }
 

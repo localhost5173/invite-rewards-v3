@@ -7,7 +7,7 @@ import {
   ApplicationCommandType,
   ApplicationCommandOptionType,
 } from "discord.js";
-import { devMode } from "../../bot.js";
+import { devMode } from "../../index.js";
 import addInviteReward from "./add.js";
 import removeReward from "./remove.js";
 import viewRewards from "./view.js";
@@ -147,7 +147,7 @@ export async function run({ interaction }: SlashCommandProps) {
 }
 
 export const options: CommandOptions = {
-  devOnly: devMode,
+  devOnly: false,
   userPermissions: ["ManageGuild"],
   botPermissions: ["SendMessages", "EmbedLinks", "ManageRoles"],
   deleted: false,
