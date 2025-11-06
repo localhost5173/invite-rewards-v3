@@ -3,40 +3,35 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: invite-rewards-bot
+    container_name: invite-rewards-bot-dev
     restart: unless-stopped
     env_file:
       - .env
     environment:
       - MONGODB_URI=mongodb://mongo:27017/invite-rewards
-      - NODE_ENV=production
+      - NODE_ENV=development
     depends_on:
       mongo:
         condition: service_healthy
     networks:
       - bot-network
     volumes:
+      # Optional: Mount logs directory
       - ./logs:/app/logs
-    command: >
-      sh -c "
-      if [ -f config.json ]; then
-        sed -i 's/\"dev\": true/\"dev\": false/g' config.json;
-        sed -i 's/\"dev\": true/\"dev\": false/g' dist/config.json 2>/dev/null || true;
-      fi;
-      node dist/src/index.js
-      "
+    # Keep dev=true for development
+    command: sh -c "node dist/src/index.js"
 
   mongo:
     image: mongo:6
-    container_name: invite-rewards-mongo
+    container_name: invite-rewards-mongo-dev
     restart: unless-stopped
     environment:
       - MONGO_INITDB_DATABASE=invite-rewards
     ports:
       - "27017:27017"
     volumes:
-      - mongo_data:/data/db
-      - mongo_config:/data/configdb
+      - mongo_data_dev:/data/db
+      - mongo_config_dev:/data/configdb
     networks:
       - bot-network
     healthcheck:
@@ -51,7 +46,7 @@ networks:
     driver: bridge
 
 volumes:
-  mongo_data:
+  mongo_data_dev:
     driver: local
-  mongo_config:
+  mongo_config_dev:
     driver: local

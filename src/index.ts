@@ -3,7 +3,6 @@ import { Client, GatewayIntentBits } from "discord.js";
 import { CommandKit } from "commandkit";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import { AutoPoster } from "topgg-autoposter";
 import config from "../config.json" assert { type: "json" };
 import { cs } from "./utils/console/customConsole.js";
 import { db } from "./utils/db/db.js";
@@ -66,7 +65,6 @@ new CommandKit({
 async function startBot() {
   try {
     await db.connectToDatabase();
-    await db.initializeFirestore();
     await client.login(devMode ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
     
     // Start giveaway checking after successful database connection
@@ -81,15 +79,3 @@ async function startBot() {
 }
 
 startBot();
-
-// Handle top.gg autoposter
-if (!devMode) {
-  try {
-    const autoPoster = AutoPoster(process.env.TOPGG_TOKEN || "", client);
-    autoPoster.on("posted", () => {
-      cs.success("Server count posted successfully.");
-    });
-  } catch (error) {
-    cs.error(`Error posting server count: ${error}`);
-  }
-}

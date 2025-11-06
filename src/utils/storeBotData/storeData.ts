@@ -46,23 +46,9 @@ export default async function () {
   const data = {
     serverCount: uniqueGuilds.size,
     userCount: totalMembers,
-    timestamp: new Date().toISOString(), // Add timestamp for time-series data
+    timestamp: new Date().toISOString(),
   };
 
-  // Save the data in Firestore
-  if (!db.firestore) {
-    cs.error("Firestore is not initialized.");
-    return;
-  }
-
-  // Save the latest data in the "data" document
-  await db.firestore.collection("bot").doc("data").set({
-    serverCount: data.serverCount,
-    userCount: data.userCount,
-  });
-
-  // Save the time-series data point
-  await db.firestore.collection("botGrowth").add(data);
-
-  console.log("Data saved to Firestore:", data);
+  // Log bot statistics (Firebase removed - you can add your own analytics here if needed)
+  cs.log(`Bot Statistics - Servers: ${data.serverCount}, Users: ${data.userCount}`);
 }

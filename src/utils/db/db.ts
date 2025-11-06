@@ -23,16 +23,12 @@ import UsedInviteModel from "./models/usedInvites.js";
 import UserInvitesModel from "./models/userInvites.js";
 import VerificationModel from "./models/verification.js";
 import WelcomerModel from "./models/welcomer.js";
-import serviceAccount from "../storeBotData/invite-rewards-frontend-firebase-adminsdk-3xdcs-c34d02b3d8.json" with { type: "json" };
-import admin from "firebase-admin";
 import { usage } from "./categories/usage.js";
 import { guilds } from "./categories/guilds.js";
 import { ads } from "./categories/ads.js";
 
 // Configure Mongoose globally
 mongoose.set('bufferCommands', false);
-
-type Firestore = admin.firestore.Firestore | null;
 
 export class db {
   static autoRoles = AutoRoles;
@@ -49,7 +45,6 @@ export class db {
   static usage = usage;
   static guilds = guilds;
   static ads = ads;
-  static firestore: Firestore = null;
 
   static isConnected(): boolean {
     return mongoose.connection.readyState === 1;
@@ -102,14 +97,6 @@ export class db {
         await new Promise((res) => setTimeout(res, 3000));
       }
     }
-  }
-
-  static async initializeFirestore(): Promise<void> {
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
-    });
-  
-    this.firestore = admin.firestore();
   }
 
   static async deleteAllData(guildId: string): Promise<void> {
